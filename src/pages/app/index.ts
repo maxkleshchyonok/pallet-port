@@ -14,7 +14,7 @@ export const enum PageIds {
 }
 
 class App {
-  private static container: HTMLElement = document.body;
+  private static container: HTMLElement | null = document.getElementById('content');
 
   private static defaultPageId = 'main-page';
 
@@ -22,11 +22,13 @@ class App {
 
 
   static renderNewPage(idPage: string) {
+
+
     const currentPageHTML = document.querySelector(`#${App.defaultPageId}`);
     if (currentPageHTML) {
       currentPageHTML.remove();
     }
-    let page: Page | null = null;
+    let page: Page | null;
 
     if (idPage === PageIds.Main_page) {
       page = new MainPage(idPage);
@@ -43,7 +45,7 @@ class App {
     if (page) {
       const pageHTML = page.render();
       pageHTML.id = App.defaultPageId;
-      App.container.append(pageHTML);
+      App.container?.append(pageHTML);
     }
   }
 
@@ -60,7 +62,7 @@ class App {
   }
 
   run() {
-    App.container.append(this.header.render());
+    App.container?.append(this.header.render());
     App.renderNewPage('main-page');
     this.enableRouteChange();
   }
