@@ -1,0 +1,23 @@
+{
+  "id": 1,
+  "name": "Roga i kopyta Sp. z o.o.",
+  "NIP": "1234567890",
+  "address": {
+    "street": "Centrum Kopernika 2/3",
+    "city": "Warszawa",
+    "zipCode": "05-090",
+    "state": "mazowieckie",
+    "countryCode": "PL",
+    "coordinates": {
+      "lat": 52.27,
+      "lon": 21.12
+    }
+  },
+  "VAT": 23,
+  "email": "jan@gmail.com",
+  "phone": "48123456789",
+  "workingHours": [
+    10,
+    20
+  ]
+}
