@@ -1,10 +1,11 @@
 {
   "id": 1,
-  "name": "Paleta drewniana 1200*800",
+  "name": "Paleta drewniana Euro 1200*800 nowa",
   "description": "Palety drewniane bardzo dobre",
+  "material": "WOOD",
   "image1": "/assets/img/product/paleta_drewinana_1200800_1.jpg",
   "image2": "/assets/img/product/paleta_drewinana_1200800_2.jpg",
-  "shortName": "paleta_drewniana",
+  "shortName": "euro_new",
   "length": 1200,
   "width": 800,
   "height": 144,

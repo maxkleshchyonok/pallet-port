@@ -5,6 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **Number** |  | [optional] 
 **name** | **String** |  | [optional] 
+**material** | [**Material**](Material.md) |  | [optional] 
 **description** | **String** |  | [optional] 
 **image1** | **String** |  | [optional] 
 **image2** | **String** |  | [optional] 

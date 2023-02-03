@@ -387,6 +387,8 @@ export interface Product {
    * @type {string}
    * @memberof Product
    */
+  material: Material;
+
   description?: string;
   /**
    *
@@ -485,6 +487,13 @@ export enum Role {
   ADMIN = 'ADMIN',
   SYSTEM = 'SYSTEM',
   LOGISTIC = 'LOGISTIC',
+}
+
+export enum Material {
+  WOOD = 'WOOD',
+  PLASTIC = 'PLASTIC',
+  METAL = 'METAL',
+  CARDBOARD = 'CARDBOARD',
 }
 /**
 *
