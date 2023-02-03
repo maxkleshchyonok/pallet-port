@@ -1,0 +1,351 @@
+{
+  "id": 1,
+  "user": {
+    "id": 1,
+    "name": "Jan Kowalski",
+    "email":  "jan@gmail.com",
+    "phone": "48123456789",
+    "rank": 4.5,
+    "avatar": "/assets/avatars/jan.jpg",
+    "roles": [
+      "SELLER",
+      "BUYER"
+    ],
+    "deliveryAddress": {
+      "street": "Centrum Kopernika 2/3",
+      "city": "Warszawa",
+      "zipCode": "05-090",
+      "state": "mazowieckie",
+      "countryCode": "PL",
+      "coordinates": {
+        "lat": 52.27,
+        "lon": 21.12
+      }
+    },
+    "paymentAddress": {
+      "street": "Centrum Kopernika 2/3",
+      "city": "Warszawa",
+      "zipCode": "05-090",
+      "state": "mazowieckie",
+      "countryCode": "PL",
+      "coordinates": {
+        "lat": 52.27,
+        "lon": 21.12
+      }
+    },
+    "companies": [
+      {
+        "id": 1,
+        "name": "Roga i kopyta Sp. z o.o.",
+        "NIP": "1234567890",
+        "address": {
+          "street": "Centrum Kopernika 2/3",
+          "city": "Warszawa",
+          "zipCode": "05-090",
+          "state": "mazowieckie",
+          "countryCode": "PL",
+          "coordinates": {
+            "lat": 52.27,
+            "lon": 21.12
+          }
+        },
+        "VAT": 23,
+        "email": "jan@gmail.com",
+        "phone": "48123456789",
+        "workingHours": [
+          10,
+          20
+        ]
+      },
+      {
+        "id": 2,
+        "name": "Roga i kopyta 2 Sp. z o.o.",
+        "NIP": "1234567890",
+        "address": {
+          "street": "Centrum Kopernika 2/3",
+          "city": "Warszawa",
+          "zipCode": "05-090",
+          "state": "mazowieckie",
+          "countryCode": "PL",
+          "coordinates": {
+            "lat": 52.27,
+            "lon": 21.12
+          }
+        },
+        "VAT": 23,
+        "email": "jan@gmail.com",
+        "phone": "48123456789",
+        "workingHours": [
+          10,
+          20
+        ]
+      }
+    ]
+  },
+  "offers": [
+    {
+      "offer": {
+        "id": 1,
+        "product": {
+          "id": 1,
+          "name": "Paleta drewniana 1200*800",
+          "description": "Palety drewniane bardzo dobre",
+          "image1": "/assets/img/product/paleta_drewinana_1200800_1.jpg",
+          "image2": "/assets/img/product/paleta_drewinana_1200800_2.jpg",
+          "shortName": "paleta_drewniana",
+          "length": 1200,
+          "width": 800,
+          "height": 144,
+          "maxLoad": 2000,
+          "category": {
+            "id": 1,
+            "name": "Palety drewniane",
+            "description": "Palety drewniane bardzo dobre",
+            "image": "/assets/img/product_categories/palety_drewinane.jpg",
+            "shortName": "palety_drewniane"
+          }
+        },
+        "seller": {
+          "id": 1,
+          "name": "Jan Kowalski",
+          "email":  "jan@gmail.com",
+          "phone": "48123456789",
+          "rank": 4.5,
+          "avatar": "/assets/avatars/jan.jpg",
+          "roles": [
+            "SELLER",
+            "BUYER"
+          ],
+          "deliveryAddress": {
+            "street": "Centrum Kopernika 2/3",
+            "city": "Warszawa",
+            "zipCode": "05-090",
+            "state": "mazowieckie",
+            "countryCode": "PL",
+            "coordinates": {
+              "lat": 52.27,
+              "lon": 21.12
+            }
+          },
+          "paymentAddress": {
+            "street": "Centrum Kopernika 2/3",
+            "city": "Warszawa",
+            "zipCode": "05-090",
+            "state": "mazowieckie",
+            "countryCode": "PL",
+            "coordinates": {
+              "lat": 52.27,
+              "lon": 21.12
+            }
+          },
+          "companies": [
+            {
+              "id": 1,
+              "name": "Roga i kopyta Sp. z o.o.",
+              "NIP": "1234567890",
+              "address": {
+                "street": "Centrum Kopernika 2/3",
+                "city": "Warszawa",
+                "zipCode": "05-090",
+                "state": "mazowieckie",
+                "countryCode": "PL",
+                "coordinates": {
+                  "lat": 52.27,
+                  "lon": 21.12
+                }
+              },
+              "VAT": 23,
+              "email": "jan@gmail.com",
+              "phone": "48123456789",
+              "workingHours": [
+                10,
+                20
+              ]
+            },
+            {
+              "id": 2,
+              "name": "Roga i kopyta 2 Sp. z o.o.",
+              "NIP": "1234567890",
+              "address": {
+                "street": "Centrum Kopernika 2/3",
+                "city": "Warszawa",
+                "zipCode": "05-090",
+                "state": "mazowieckie",
+                "countryCode": "PL",
+                "coordinates": {
+                  "lat": 52.27,
+                  "lon": 21.12
+                }
+              },
+              "VAT": 23,
+              "email": "jan@gmail.com",
+              "phone": "48123456789",
+              "workingHours": [
+                10,
+                20
+              ]
+            }
+          ]
+        },
+        "price": 25,
+        "quantity": 999,
+        "delivery": [
+          {
+            "deliveryType": "BUS",
+            "price": 255,
+            "days": [
+              0,
+              3
+            ]
+          },
+          {
+            "deliveryType": "SELFPICKUP",
+            "price": 0,
+            "days": [
+              0,
+              0
+            ]
+          }
+        ],
+        "image1": "/assets/img/product/paleta_drewinana_1200800_1.jpg",
+        "image2":  "/assets/img/product/paleta_drewinana_1200800_2.jpg",
+        "description": "Moje palety najlepsze!",
+        "offerStatus": "ACTIVE"
+      }
+      ,
+      "quantity": 300
+    },
+    {
+      "offer": {
+        "id": 2,
+        "product": {
+          "id": 1,
+          "name": "Paleta drewniana 1200*800",
+          "description": "Palety drewniane bardzo dobre",
+          "image1": "/assets/img/product/paleta_drewinana_1200800_1.jpg",
+          "image2": "/assets/img/product/paleta_drewinana_1200800_2.jpg",
+          "shortName": "paleta_drewniana",
+          "length": 1200,
+          "width": 800,
+          "height": 144,
+          "maxLoad": 2000,
+          "category": {
+            "id": 1,
+            "name": "Palety drewniane",
+            "description": "Palety drewniane bardzo dobre",
+            "image": "/assets/img/product_categories/palety_drewinane.jpg",
+            "shortName": "palety_drewniane"
+          }
+        },
+        "seller": {
+          "id": 1,
+          "name": "Jan Kowalski",
+          "email":  "jan@gmail.com",
+          "phone": "48123456789",
+          "rank": 4.5,
+          "avatar": "/assets/avatars/jan.jpg",
+          "roles": [
+            "SELLER",
+            "BUYER"
+          ],
+          "deliveryAddress": {
+            "street": "Centrum Kopernika 2/3",
+            "city": "Warszawa",
+            "zipCode": "05-090",
+            "state": "mazowieckie",
+            "countryCode": "PL",
+            "coordinates": {
+              "lat": 52.27,
+              "lon": 21.12
+            }
+          },
+          "paymentAddress": {
+            "street": "Centrum Kopernika 2/3",
+            "city": "Warszawa",
+            "zipCode": "05-090",
+            "state": "mazowieckie",
+            "countryCode": "PL",
+            "coordinates": {
+              "lat": 52.27,
+              "lon": 21.12
+            }
+          },
+          "companies": [
+            {
+              "id": 1,
+              "name": "Roga i kopyta Sp. z o.o.",
+              "NIP": "1234567890",
+              "address": {
+                "street": "Centrum Kopernika 2/3",
+                "city": "Warszawa",
+                "zipCode": "05-090",
+                "state": "mazowieckie",
+                "countryCode": "PL",
+                "coordinates": {
+                  "lat": 52.27,
+                  "lon": 21.12
+                }
+              },
+              "VAT": 23,
+              "email": "jan@gmail.com",
+              "phone": "48123456789",
+              "workingHours": [
+                10,
+                20
+              ]
+            },
+            {
+              "id": 2,
+              "name": "Roga i kopyta 2 Sp. z o.o.",
+              "NIP": "1234567890",
+              "address": {
+                "street": "Centrum Kopernika 2/3",
+                "city": "Warszawa",
+                "zipCode": "05-090",
+                "state": "mazowieckie",
+                "countryCode": "PL",
+                "coordinates": {
+                  "lat": 52.27,
+                  "lon": 21.12
+                }
+              },
+              "VAT": 23,
+              "email": "jan@gmail.com",
+              "phone": "48123456789",
+              "workingHours": [
+                10,
+                20
+              ]
+            }
+          ]
+        },
+        "price": 30,
+        "quantity": 999,
+        "delivery": [
+          {
+            "deliveryType": "BUS",
+            "price": 255,
+            "days": [
+              0,
+              3
+            ]
+          },
+          {
+            "deliveryType": "SELFPICKUP",
+            "price": 0,
+            "days": [
+              0,
+              0
+            ]
+          }
+        ],
+        "image1": "/assets/img/product/paleta_drewinana_1200800_1.jpg",
+        "image2":  "/assets/img/product/paleta_drewinana_1200800_2.jpg",
+        "description": "Moje palety najlepsze!",
+        "offerStatus": "ACTIVE"
+      }
+      ,
+      "quantity": 200
+    }
+  ]
+}
