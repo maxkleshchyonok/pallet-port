@@ -16,6 +16,14 @@
 //   quantity: number;
 // };
 
+export enum SortEnum {
+  DEFAULT = 'Wybrane',
+  NAME = 'Udźwig rosnąco',
+  NAME_REVERSED = 'Udźwig malejąco',
+  PRICE_UP = 'Najtańsze',
+  PRICE_DOWN = 'Najdroższe',
+}
+
 /**
  *
  * @export
@@ -27,7 +35,7 @@ export interface Address {
    * @type {string}
    * @memberof Address
    */
-  street?: string;
+  street: string;
   /**
    *
    * @type {string}
@@ -70,13 +78,13 @@ export interface Cart {
    * @type {number}
    * @memberof Cart
    */
-  id?: number;
+  id: number;
   /**
    *
    * @type {User}
    * @memberof Cart
    */
-  user?: User;
+  user: User;
   /**
    *
    * @type {Array<CartOffers>}
@@ -95,13 +103,13 @@ export interface CartOffers {
    * @type {Offer}
    * @memberof CartOffers
    */
-  offer?: Offer;
+  offer: Offer;
   /**
    *
    * @type {number}
    * @memberof CartOffers
    */
-  quantity?: number;
+  quantity: number;
 }
 /**
 *
@@ -114,49 +122,49 @@ export interface Company {
    * @type {number}
    * @memberof Company
    */
-  id?: number;
+  id: number;
   /**
    *
    * @type {string}
    * @memberof Company
    */
-  name?: string;
+  name: string;
   /**
    *
    * @type {string}
    * @memberof Company
    */
-  NIP?: string;
+  NIP: string;
   /**
    *
    * @type {Address}
    * @memberof Company
    */
-  address?: Address;
+  address: Address;
   /**
    *
    * @type {number}
    * @memberof Company
    */
-  VAT?: number;
+  VAT: number;
   /**
    *
    * @type {string}
    * @memberof Company
    */
-  email?: string;
+  email: string;
   /**
    *
    * @type {string}
    * @memberof Company
    */
-  phone?: string;
+  phone: string;
   /**
    *
    * @type {Array<number>}
    * @memberof Company
    */
-  workingHours?: Array<number>;
+  workingHours: Array<number>;
 }
 /**
 *
@@ -188,19 +196,19 @@ export interface Delivery {
    * @type {DeliveryType}
    * @memberof Delivery
    */
-  deliveryType?: DeliveryType;
+  deliveryType: DeliveryType;
   /**
    *
    * @type {Array<number>}
    * @memberof Delivery
    */
-  deliveryTime?: Array<number>;
+  deliveryTime: Array<number>;
   /**
    *
    * @type {number}
    * @memberof Delivery
    */
-  deliveryPrice?: number;
+  deliveryPrice: number;
 }
 /**
 *
@@ -224,37 +232,37 @@ export interface Offer {
    * @type {number}
    * @memberof Offer
    */
-  id?: number;
+  id: number;
   /**
    *
    * @type {Product}
    * @memberof Offer
    */
-  product?: Product;
+  product: Product;
   /**
    *
    * @type {User}
    * @memberof Offer
    */
-  seller?: User;
+  seller: User;
   /**
    *
    * @type {number}
    * @memberof Offer
    */
-  price?: number;
+  price: number;
   /**
    *
    * @type {Array<number>}
    * @memberof Offer
    */
-  quantity?: Array<number>;
+  quantity: Array<number>;
   /**
    *
    * @type {Array<Delivery>}
    * @memberof Offer
    */
-  delivery?: Array<Delivery>;
+  delivery: Array<Delivery>;
   /**
    *
    * @type {string}
@@ -278,19 +286,19 @@ export interface Offer {
    * @type {OfferStatus}
    * @memberof Offer
    */
-  offerStatus?: OfferStatus;
+  offerStatus: OfferStatus;
   /**
    *
    * @type {number}
    * @memberof Offer
    */
-  rating?: number;
+  rating: number;
   /**
    *
    * @type {boolean}
    * @memberof Offer
    */
-  isTop?: boolean;
+  isTop: boolean;
 }
 /**
 *
@@ -313,31 +321,31 @@ export interface Order {
    * @type {number}
    * @memberof Order
    */
-  id?: number;
+  id: number;
   /**
    *
    * @type {Cart}
    * @memberof Order
    */
-  cart?: Cart;
+  cart: Cart;
   /**
    *
    * @type {OrderStatus}
    * @memberof Order
    */
-  status?: OrderStatus;
+  status: OrderStatus;
   /**
    *
    * @type {PaymentType}
    * @memberof Order
    */
-  payment?: PaymentType;
+  payment: PaymentType;
   /**
    *
    * @type {boolean}
    * @memberof Order
    */
-  paymentStatus?: boolean;
+  paymentStatus: boolean;
 }
 /**
 *
@@ -375,13 +383,13 @@ export interface Product {
    * @type {number}
    * @memberof Product
    */
-  id?: number;
+  id: number;
   /**
    *
    * @type {string}
    * @memberof Product
    */
-  name?: string;
+  name: string;
   /**
    *
    * @type {string}
@@ -389,55 +397,55 @@ export interface Product {
    */
   material: Material;
 
-  description?: string;
+  description: string;
   /**
    *
    * @type {string}
    * @memberof Product
    */
-  image1?: string;
+  image1: string;
   /**
    *
    * @type {string}
    * @memberof Product
    */
-  image2?: string;
+  image2: string;
   /**
    *
    * @type {string}
    * @memberof Product
    */
-  shortName?: string;
+  shortName: string;
   /**
    *
    * @type {number}
    * @memberof Product
    */
-  length?: number;
+  length: number;
   /**
    *
    * @type {number}
    * @memberof Product
    */
-  width?: number;
+  width: number;
   /**
    *
    * @type {number}
    * @memberof Product
    */
-  height?: number;
+  height: number;
   /**
    *
    * @type {number}
    * @memberof Product
    */
-  maxLoad?: number;
+  maxLoad: number;
   /**
    *
    * @type {ProductCategory}
    * @memberof Product
    */
-  category?: ProductCategory;
+  category: ProductCategory;
 }
 /**
 *
@@ -450,31 +458,31 @@ export interface ProductCategory {
    * @type {number}
    * @memberof ProductCategory
    */
-  id?: number;
+  id: number;
   /**
    *
    * @type {string}
    * @memberof ProductCategory
    */
-  name?: string;
+  name: string;
   /**
    *
    * @type {string}
    * @memberof ProductCategory
    */
-  description?: string;
+  description: string;
   /**
    *
    * @type {string}
    * @memberof ProductCategory
    */
-  image?: string;
+  image: string;
   /**
    *
    * @type {string}
    * @memberof ProductCategory
    */
-  shortName?: string;
+  shortName: string;
 }
 /**
 *
@@ -506,13 +514,13 @@ export interface User {
    * @type {number}
    * @memberof User
    */
-  id?: number;
+  id: number;
   /**
    *
    * @type {string}
    * @memberof User
    */
-  name?: string;
+  name: string;
   /**
    * unique
    * @type {string}
@@ -530,7 +538,7 @@ export interface User {
    * @type {number}
    * @memberof User
    */
-  rank?: number;
+  rank: number;
   /**
    *
    * @type {string}
@@ -542,7 +550,7 @@ export interface User {
    * @type {Array<Role>}
    * @memberof User
    */
-  roles?: Array<Role>;
+  roles: Array<Role>;
   /**
    *
    * @type {Address}

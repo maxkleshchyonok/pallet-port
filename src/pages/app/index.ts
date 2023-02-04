@@ -6,6 +6,12 @@ import CatalogPage from '../catalog';
 import CartPage from '../cart';
 import AccountPage from '../account';
 
+import { parametersObj } from '../../core/parameters/parameters';
+import { parameters } from '../../core/parameters/parameters';
+
+console.log(parameters);
+console.log(parametersObj());
+
 export const enum PageIds {
   Main_page = 'main-page',
   Catalog_page = 'catalog-page',
