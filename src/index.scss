@@ -37,7 +37,7 @@ html{
       .phone{
         margin-left: 5%;
       }
-      .account-page{
+      .konto{
         margin-left: 40%;
       }
     }
@@ -47,6 +47,7 @@ html{
       width: 100%;
       display: flex;
       flex-direction: row;
+      //justify-content: space-evenly;
       align-items: center;
       .logo-block{
         margin-left: 3%;

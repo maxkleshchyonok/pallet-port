@@ -14,12 +14,6 @@ abstract class Page {
     return headerTitle;
   }
 
-  protected createElementHTML(tag: string, tagClass: string, container: HTMLElement) {
-    const el = document.createElement(tag);
-    el.classList.add(tagClass);
-    container.append(el);
-  }
-
   render() {
     return this.container;
   }
