@@ -196,7 +196,7 @@ export interface Delivery {
    * @type {DeliveryType}
    * @memberof Delivery
    */
-  deliveryType: DeliveryType;
+  deliveryType: string;
   /**
    *
    * @type {Array<number>}
@@ -216,10 +216,18 @@ export interface Delivery {
 * @enum {string}
 */
 export enum DeliveryType {
-  SELFPICKUP = 'SELFPICKUP',
-  BUS = 'BUS',
-  TRUCK = 'TRUCK',
-  COURIER = 'COURIER',
+  SELFPICKUP = 'Odbiór osobisty',
+  BUS = 'Dostawa busem',
+  TRUCK = 'Dostawa ciężarówką',
+  COURIER = 'Dostawa kurierska',
+}
+
+export enum Condition {
+  NEW = 'Nowe',
+  USED1 = 'Używane 1 gatunku',
+  USED2 = 'Używane 2 gatunku',
+  USED3 = 'Używane 3 gatunku',
+  BROKEN = 'Uszkodzone',
 }
 /**
 *
@@ -245,12 +253,15 @@ export interface Offer {
    * @memberof Offer
    */
   seller: User;
+
+  company: Company;
   /**
    *
    * @type {number}
    * @memberof Offer
    */
   price: number;
+
   /**
    *
    * @type {Array<number>}
@@ -286,7 +297,7 @@ export interface Offer {
    * @type {OfferStatus}
    * @memberof Offer
    */
-  offerStatus: OfferStatus;
+  offerStatus: string;
   /**
    *
    * @type {number}
@@ -353,14 +364,14 @@ export interface Order {
 * @enum {string}
 */
 export enum OrderStatus {
-  CREATED = 'CREATED',
-  MODERATION = 'MODERATION',
-  PENDING = 'PENDING',
-  ACCEPTED = 'ACCEPTED',
-  SENDED = 'SENDED',
-  DELIVERED = 'DELIVERED',
-  RETURNED = 'RETURNED',
-  CLOSED = 'CLOSED',
+  CREATED = 'Utworzone',
+  MODERATION = 'Moderacja',
+  PENDING = 'Oczekujące',
+  ACCEPTED = 'Przyjęte',
+  SENDED = 'Wyslane',
+  DELIVERED = 'Dostarczone',
+  RETURNED = 'Zwrócone',
+  CLOSED = 'Zamknięte',
 }
 /**
 *
@@ -368,9 +379,9 @@ export enum OrderStatus {
 * @enum {string}
 */
 export enum PaymentType {
-  CASH = 'CASH',
-  INVOICE = 'INVOICE',
-  CARD = 'CARD',
+  CASH = 'Gotówka',
+  INVOICE = 'Na fakturę',
+  CARD = 'Płatność kartą',
 }
 /**
 *
@@ -395,7 +406,9 @@ export interface Product {
    * @type {string}
    * @memberof Product
    */
-  material: Material;
+  material: string;
+
+  condition: string;
 
   description: string;
   /**
@@ -490,19 +503,21 @@ export interface ProductCategory {
 * @enum {string}
 */
 export enum Role {
-  BUYER = 'BUYER',
-  SELLER = 'SELLER',
+  BUYER = 'Kupujący',
+  SELLER = 'Sprzedający',
   ADMIN = 'ADMIN',
   SYSTEM = 'SYSTEM',
-  LOGISTIC = 'LOGISTIC',
+  LOGISTIC = 'Kurier',
 }
 
 export enum Material {
-  WOOD = 'WOOD',
-  PLASTIC = 'PLASTIC',
-  METAL = 'METAL',
-  CARDBOARD = 'CARDBOARD',
+  WOOD = 'Drewno',
+  PLASTIC = 'Plastik',
+  METAL = 'Metal',
+  CARDBOARD = 'Tektura',
 }
+
+// export type Material = 'WOOD' | 'PLASTIC' | 'METAL' | 'CARDBOARD';
 /**
 *
 * @export
@@ -550,7 +565,7 @@ export interface User {
    * @type {Array<Role>}
    * @memberof User
    */
-  roles: Array<Role>;
+  roles: Array<string>;
   /**
    *
    * @type {Address}

@@ -3,21 +3,23 @@
     "id": 1,
     "product": {
       "id": 1,
-      "name": "Paleta drewniana 1200*800",
-      "description": "Palety drewniane bardzo dobre",
+      "name": "Paleta EURO drewniana 1200*800",
+      "material": "Drewno",
+      "condition": "Nowe",
+      "description": "Paleta drewniana bardzo dobre",
       "image1": "/assets/img/product/paleta_drewinana_1200800_1.jpg",
       "image2": "/assets/img/product/paleta_drewinana_1200800_2.jpg",
-      "shortName": "paleta_drewniana",
+      "shortName": "pallet_euro_wood_new",
       "length": 1200,
       "width": 800,
       "height": 144,
       "maxLoad": 2000,
       "category": {
         "id": 1,
-        "name": "Palety drewniane",
+        "name": "Palety EURO",
         "description": "Palety drewniane bardzo dobre",
         "image": "/assets/img/product_categories/palety_drewinane.jpg",
-        "shortName": "palety_drewniane"
+        "shortName": "pallets_euro"
       }
     },
     "seller": {
@@ -103,20 +105,23 @@
       ]
     },
     "price": 25,
-    "quantity": 999,
+    "quantity": [
+      1,
+      999
+    ],
     "delivery": [
       {
-        "deliveryType": "BUS",
-        "price": 255,
-        "days": [
+        "deliveryType": "Dostawa busem",
+        "deliveryPrice": 255,
+        "deliveryTime": [
           0,
           3
         ]
       },
       {
-        "deliveryType": "SELFPICKUP",
-        "price": 0,
-        "days": [
+        "deliveryType": "Odbiór osobisty",
+        "deliveryPrice": 0,
+        "deliveryTime": [
           0,
           0
         ]
@@ -125,7 +130,9 @@
     "image1": "/assets/img/product/paleta_drewinana_1200800_1.jpg",
     "image2":  "/assets/img/product/paleta_drewinana_1200800_2.jpg",
     "description": "Moje palety najlepsze!",
-    "offerStatus": "ACTIVE"
+    "rating": 4,
+    "isTop": true,
+    "offerStatus": "Aktywna"
   }
   ,
   "quantity": 300

@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **product** | [**Product**](Product.md) |  | [optional] 
 **seller** | [**User**](User.md) |  | [optional] 
 **price** | **Number** |  | [optional] 
-**quantity** | **[Number]** |  | [optional] 
+**quantity** | **Number** |  | [optional] 
 **delivery** | [**[Delivery]**](Delivery.md) |  | [optional] 
 **image1** | **String** |  | [optional] 
 **image2** | **String** |  | [optional] 
