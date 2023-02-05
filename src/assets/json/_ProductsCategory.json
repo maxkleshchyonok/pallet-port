@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "name": "Palety EURO",
+    "description": "Paleta euro EPAL to najpopularniejsza paleta w Europie. Europaleta o wymiarach 1200x800x144 mm wykonana w pełni z wysokiej jakości drewna świerkowego.",
+    "image": "https://cdn.webshopapp.com/shops/285555/files/310678658/600x600x2/nowa-paleta-euro-epal-1200x800x144-mm.jpg",
+    "shortName": "pallets_euro"
+  },
+  {
+    "id": 2,
+    "name": "Palety europodobne",
+    "description": "Paleta europodobna o wymiarach 1200x800x144 mm wykonana w pełni z wysokiej jakości drewna świerkowego.",
+    "image": "https://ireland.apollo.olxcdn.com/v1/files/uyifteomp5g01-PL/image;s=800x600",
+    "shortName": "pallets_eurosim"
+  },
+  {
+    "id": 3,
+    "name": "Palety przemysłowe",
+    "description": "Palety przemysłowe przy prawidłowej obsłudze palety z powodzeniem nadają się do wielorazowego użytku.",
+    "image": "https://cdn.webshopapp.com/shops/285555/files/310678731/600x600x2/lekka-paleta-jednorazowa-1200x800x120-mm-ippc.jpg",
+    "shortName": "pallets_industrial"
+  },
+  {
+    "id": 4,
+    "name": "Półpalety",
+    "description": "Palety ekspozycyjne o wymiarach 800x600mm",
+    "image": "https://cdn.webshopapp.com/shops/285555/files/310678728/600x600x2/drewniana-paleta-wystawowa-800x600x120-mm.jpg",
+    "shortName": "pallets_half"
+  }
+]
