@@ -6,6 +6,14 @@ export enum SortEnum {
   PRICE_DOWN = 'Najdroższe',
 }
 
+export enum Condition {
+  NEW = 'Nowe',
+  USED1 = 'Używane 1 gatunku',
+  USED2 = 'Używane 2 gatunku',
+  USED3 = 'Używane 3 gatunku',
+  BROKEN = 'BROKEN',
+}
+
 /**
  *
  * @export
@@ -85,7 +93,7 @@ export interface CartOffers {
    * @type {Offer}
    * @memberof CartOffers
    */
-  offer: Offer;
+  offer: IOffer;
   /**
    *
    * @type {number}
@@ -179,7 +187,6 @@ export interface Delivery {
    * @memberof Delivery
    */
   deliveryType: string;
-  deliveryType: string;
   /**
    *
    * @type {Array<number>}
@@ -209,7 +216,7 @@ export enum DeliveryType {
 * @export
 * @interface Offer
 */
-export interface Offer {
+export interface IOffer {
   /**
    *
    * @type {number}
@@ -221,7 +228,7 @@ export interface Offer {
    * @type {Product}
    * @memberof Offer
    */
-  product: Product;
+  product: IProduct;
   /**
    *
    * @type {User}
@@ -364,7 +371,7 @@ export enum PaymentType {
 * @export
 * @interface Product
 */
-export interface Product {
+export interface IProduct {
   /**
    *
    * @type {number}
@@ -434,14 +441,14 @@ export interface Product {
    * @type {ProductCategory}
    * @memberof Product
    */
-  category: ProductCategory;
+  category: IProductCategory;
 }
 /**
 *
 * @export
 * @interface ProductCategory
 */
-export interface ProductCategory {
+export interface IProductCategory {
   /**
    *
    * @type {number}

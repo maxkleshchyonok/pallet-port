@@ -1,9 +1,9 @@
 import { SortEnum } from '../types/types';
 // import offerJSON from '../../assets/json/Offer.json';
 import offersArrJSON from '../../assets/json/_OffersArray.json' ;
-import { Condition, DeliveryType, Material, Offer, PaymentType } from '../types/types';
+import { Condition, DeliveryType, Material, IOffer, PaymentType } from '../types/types';
 
-const offersArr: Array<Offer> = Array.from(offersArrJSON);
+const offersArr: Array<IOffer> = Array.from(offersArrJSON);
 const categorySet: Set<string> = new Set(offersArr.map(offer => offer.product.category.shortName));
 const shortNameSet: Set<string> = new Set(offersArr.map(offer => offer.product.shortName));
 const sellerRankSet: Set<number> = new Set(offersArr.map(offer => offer.seller.rank));
@@ -206,7 +206,7 @@ export const parametersObj = (productArg?: string) => {
 
   } else if (INITIAL_STATE.short.includes(productArg)) {
     saveParametersBeforeProductPage();
-    const productOffers: Array<Offer> = offersArr
+    const productOffers: Array<IOffer> = offersArr
       .filter(offer => offer.product.shortName === productArg);
     console.log(productOffers);
 

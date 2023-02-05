@@ -77,11 +77,11 @@ import CatalogPage from '../catalog';
 import Page from '../../core/templates/page';
 import CartPage from '../cart';
 import Header from '../../core/components/header';
-import ProductPage from '../product-page';
+// import ProductPage from '../product-page';
 // import Footer from '../../core/components/footer';
-import { loadParameters, parametersObj } from '../../core/components/parameters';
+import { loadParameters, parametersObj } from '../../core/parameters/parameters';
 // import createProductCard from '../../core/components/product_card/product_card';
-import productsJSON from '../../assets/json/products.json';
+import productsJSON from '../../assets/json/_ProductsArray.json';
 import Product from '../../core/components/product/product';
 import ErrorPage from '../error';
 
@@ -130,9 +130,9 @@ class App {
       const id = Number(idPage.replace(/[\D]+/g, ''));
       const product = products.find((el) => el.id === id);
       if (product !== undefined) {
-        parametersObj(product.short);
+        parametersObj(product.shortName);
         // saveParameters();
-        page = new ProductPage(idPage);
+        // page = new ProductPage(idPage);
       } else {
         page = new ErrorPage(idPage, '404');
       }
