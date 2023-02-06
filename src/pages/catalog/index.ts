@@ -1,37 +1,22 @@
-// import Page from '../../core/templates/page';
-//
-// class CatalogPage extends Page {
-//   static TextObject = {
-//     MainTitle: 'Catalog Page',
-//   };
-//
-//   render() {
-//     const title = this.createHeaderTitle(CatalogPage.TextObject.MainTitle);
-//     this.container.append(title);
-//     return this.container;
-//   }
-// }
-//
-// export default CatalogPage;
-
 import Page from '../../core/templates/page';
 import createProductCard from '../../core/components/product_card/product_card';
-import Product from '../../core/components/product/product';
-import productsJSON from '../../assets/json/products.json';
+//import Product from '../../core/components/product/product';
+import Offer from '../../core/components/offer/offer';
+//import productsJSON from '../../assets/json/products.json';
+import offersJSON from '../../assets/json/_OffersArray.json';
 import './index.scss';
-import Filters from '../../core/components/filters/filters';
+//import Filters from '../../core/components/filters/filters';
 import { SortEnum } from '../../core/types/types';
 import Footer from '../../core/components/footer';
 
-import { parameters, parametersObj, saveParameters } from '../../core/components/parameters';
-// import App from '../app';
+import { parameters, parametersObj, saveParameters } from '../../core/parameters/parameters';
 
 
 const PaletRange = ['Wszystkie', 'Europalety', 'Jednorazowe', 'Nowe', 'Używane',
   'Wyprzedaż', 'Półpalety', 'Plastikowe'];
 
 class CatalogPage extends Page {
-  private filters: Filters;
+  //private filters: Filters;
 
   private footer: Footer;
 
@@ -41,7 +26,7 @@ class CatalogPage extends Page {
 
   constructor(id: string) {
     super(id);
-    this.filters = new Filters('section', 'filters');
+    //this.filters = new Filters('section', 'filters');
     this.footer = new Footer('footer', 'footer-container');
     parameters.delete('name');
   }
@@ -52,37 +37,60 @@ class CatalogPage extends Page {
 
 
     catalogSection.innerHTML = '';
-    let arr = [...productsJSON].filter((el) => parametersObj().short.includes(el.short)
-      && parametersObj().category.includes(el.category) && parametersObj().price[0] <= el.price
-      && parametersObj().price[1] >= el.price && parametersObj().quantity[0] <= el.quantity
-      && parametersObj().quantity[1] >= el.quantity && parametersObj().condition.includes(el.condition)
-      && parametersObj().material.includes(el.material) && parametersObj().length[0] <= el.length
-      && parametersObj().length[1] >= el.length && parametersObj().width[0] <= el.width
-      && parametersObj().width[1] >= el.width && parametersObj().height[0] <= el.height
-      && parametersObj().height[1] >= el.height && parametersObj().price[0] <= el.price
-      && parametersObj().price[1] >= el.price
-      && parametersObj().load[0] <= el.load && parametersObj().load[1] >= el.load);
+    // let arr = [...offersJSON].filter((el) => parametersObj().short.includes(el.product.shortName)
+    //   && parametersObj().category.includes(el.product.category) && parametersObj().price[0] <= el.price
+    //   && parametersObj().price[1] >= el.price && parametersObj().quantity[0] <= el.quantity
+    //   && parametersObj().quantity[1] >= el.quantity && parametersObj().condition.includes(el.condition)
+    //   && parametersObj().material.includes(el.material) && parametersObj().length[0] <= el.length
+    //   && parametersObj().length[1] >= el.length && parametersObj().width[0] <= el.width
+    //   && parametersObj().width[1] >= el.width && parametersObj().height[0] <= el.height
+    //   && parametersObj().height[1] >= el.height && parametersObj().price[0] <= el.price
+    //   && parametersObj().price[1] >= el.price
+    //   && parametersObj().load[0] <= el.load && parametersObj().load[1] >= el.load);
 
-    this.sortFilter(arr);
-    arr = this.searchFilter(arr);
+    const arr = [...offersJSON];
+
+
+    // this.sortFilter(arr);
+    // arr = this.searchFilter(arr);
 
     for (let j = 0; j < arr.length; j += 1) {
-      const productData = arr[j];
-      const product = new Product(productData.id,
-        productData.short,
+
+      // console.log(arr[j]);
+      // console.log('-----------------------');
+      // console.log(arr[j].product);
+
+      const productData = arr[j].product;
+      // const product = new Product(productData.id,
+      //   productData.name,
+      //   productData.material,
+      //   productData.condition,
+      //   productData.description,
+      //   productData.image1,
+      //   productData.image2,
+      //   productData.shortName,
+      //   productData.length,
+      //   productData.width,
+      //   productData.height,
+      //   productData.maxLoad,
+      //   productData.category,
+      // );
+      const product = new Offer(productData.id,
         productData.name,
-        productData.category,
-        productData.condition,
         productData.material,
+        productData.condition,
+        productData.description,
+        productData.image1,
+        productData.image2,
+        productData.shortName,
         productData.length,
         productData.width,
         productData.height,
-        productData.load,
-        productData.image1,
-        productData.image2,
-        productData.info,
-        productData.price,
-        productData.quantity);
+        productData.maxLoad,
+        productData.category,
+        arr[j].price,
+      );
+      console.log(product);
       const card = document.createElement('div');
       card.classList.add('product__card');
       createProductCard(product, card, j);
@@ -289,51 +297,49 @@ class CatalogPage extends Page {
     return content;
   }
 
-  private renderFilterBlock(): void {
 
-  }
 
-  sortFilter(arr: Product[]) {
-    let temp = [];
+  // sortFilter(arr: Product[]) {
+  //   let temp = [];
+  //
+  //   switch (parametersObj().sort) {
+  //     case SortEnum.DEFAULT:
+  //       temp = arr.sort((a, b) => a.id - b.id);
+  //       break;
+  //     case SortEnum.NAME:
+  //       temp = arr.sort((a, b) => a.load - b.load);
+  //       break;
+  //     case SortEnum.NAME_REVERSED:
+  //       temp = arr.sort((a, b) => b.load - a.load);
+  //       break;
+  //     case SortEnum.PRICE_DOWN:
+  //       temp = arr.sort((a, b) => b.price - a.price);
+  //       break;
+  //     case SortEnum.PRICE_UP:
+  //       temp = arr.sort((a, b) => a.price - b.price);
+  //       break;
+  //     default:
+  //       temp = arr.sort((a, b) => parseInt(a.category) - parseInt(b.category));
+  //   }
+  //   return temp;
+  // }
 
-    switch (parametersObj().sort) {
-      case SortEnum.DEFAULT:
-        temp = arr.sort((a, b) => a.id - b.id);
-        break;
-      case SortEnum.NAME:
-        temp = arr.sort((a, b) => a.load - b.load);
-        break;
-      case SortEnum.NAME_REVERSED:
-        temp = arr.sort((a, b) => b.load - a.load);
-        break;
-      case SortEnum.PRICE_DOWN:
-        temp = arr.sort((a, b) => b.price - a.price);
-        break;
-      case SortEnum.PRICE_UP:
-        temp = arr.sort((a, b) => a.price - b.price);
-        break;
-      default:
-        temp = arr.sort((a, b) => parseInt(a.category) - parseInt(b.category));
-    }
-    return temp;
-  }
-
-  searchFilter(arr: Product[]) {
-    let temp = [];
-    const searchString = parameters.get('search') as string;
-    temp = arr.filter(el => el.info.toLowerCase().match(searchString.toLowerCase())
-      || el.name.toLowerCase().match(searchString.toLowerCase())
-      || el.material.toLowerCase().match(searchString.toLowerCase())
-      || el.category.toLowerCase().match(searchString.toLowerCase())
-      || el.condition.toLowerCase().match(searchString.toLowerCase())
-      || el.price.toString().toLowerCase().match(searchString.toLowerCase())
-      || el.load.toString().toLowerCase().match(searchString.toLowerCase())
-      || el.quantity.toString().toLowerCase().match(searchString.toLowerCase())
-      || el.width.toString().toLowerCase().match(searchString.toLowerCase())
-      || el.height.toString().toLowerCase().match(searchString.toLowerCase())
-      || el.length.toString().toLowerCase().match(searchString.toLowerCase()));
-    return temp;
-  }
+  // searchFilter(arr: Product[]) {
+  //   let temp = [];
+  //   const searchString = parameters.get('search') as string;
+  //   temp = arr.filter(el => el.info.toLowerCase().match(searchString.toLowerCase())
+  //     || el.name.toLowerCase().match(searchString.toLowerCase())
+  //     || el.material.toLowerCase().match(searchString.toLowerCase())
+  //     || el.category.toLowerCase().match(searchString.toLowerCase())
+  //     || el.condition.toLowerCase().match(searchString.toLowerCase())
+  //     || el.price.toString().toLowerCase().match(searchString.toLowerCase())
+  //     || el.load.toString().toLowerCase().match(searchString.toLowerCase())
+  //     || el.quantity.toString().toLowerCase().match(searchString.toLowerCase())
+  //     || el.width.toString().toLowerCase().match(searchString.toLowerCase())
+  //     || el.height.toString().toLowerCase().match(searchString.toLowerCase())
+  //     || el.length.toString().toLowerCase().match(searchString.toLowerCase()));
+  //   return temp;
+  // }
 
   changeSum(el: HTMLElement): void {
     const sum = document.querySelectorAll('.product__card');
@@ -351,11 +357,11 @@ class CatalogPage extends Page {
     catalogWrapper?.append(this.renderCatalogTop());
 
     this.createElementHTML('section', 'filters__section', this.container as HTMLElement);
-    const filtersSection = this.container.querySelector('.filters__section') as HTMLElement;
+    //const filtersSection = this.container.querySelector('.filters__section') as HTMLElement;
     this.createElementHTML('section', 'catalog__section', catalogWrapper as HTMLElement);
     const catalogSection = this.container.querySelector('.catalog__section') as HTMLElement;
 
-    filtersSection.append(this.filters.render());
+    //filtersSection.append(this.filters.render());
 
 
     this.drawProductsCards(catalogSection);

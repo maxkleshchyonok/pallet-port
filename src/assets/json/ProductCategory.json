@@ -1,7 +1,7 @@
 {
   "id": 1,
-  "name": "Palety drewniane",
-  "description": "Palety drewniane bardzo dobre",
-  "image": "/assets/img/product_categories/palety_drewinane.jpg",
-  "shortName": "palety_drewniane"
+  "name": "Palety EURO",
+  "description": "Paleta euro EPAL to najpopularniejsza paleta w Europie. Europaleta o wymiarach 1200x800x144 mm wykonana w pełni z wysokiej jakości drewna świerkowego.",
+  "image": "https://cdn.webshopapp.com/shops/285555/files/310678658/600x600x2/nowa-paleta-euro-epal-1200x800x144-mm.jpg",
+  "shortName": "pallets_euro"
 }

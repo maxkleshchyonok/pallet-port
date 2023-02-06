@@ -1,6 +1,7 @@
-import { IProduct } from '../../types/types';
+import Product from '../product/product';
+import { IOffer, IProduct } from '../../types/types';
 
-export default class Product implements IProduct {
+export default class Offer extends Product {
   constructor(
     public id: IProduct['id'],
     public name: IProduct['name'],
@@ -15,5 +16,11 @@ export default class Product implements IProduct {
     public height: IProduct['height'],
     public maxLoad: IProduct['maxLoad'],
     public category: IProduct['category'],
-  ) {}
+    public price: IOffer['price'],
+  ) {
+    super(id, name, material, condition, description, image1, image2,
+      shortName, length, width, height, maxLoad, category,
+    );
+    this.price = price;
+  }
 }

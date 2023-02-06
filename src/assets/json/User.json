@@ -6,8 +6,8 @@
   "rank": 4.5,
   "avatar": "/assets/avatars/jan.jpg",
   "roles": [
-    "SELLER",
-    "BUYER"
+    "Sprzedający",
+    "Kupujący"
   ],
   "deliveryAddress": {
     "street": "Centrum Kopernika 2/3",

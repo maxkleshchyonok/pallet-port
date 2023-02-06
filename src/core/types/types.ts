@@ -1,60 +1,18 @@
-export type ProductType = {
-  id: number;
-  short: string;
-  name: string;
-  category: string;
-  condition: string;
-  material: string;
-  length: number;
-  width: number;
-  height: number;
-  load: number;
-  image1: string;
-  image2: string;
-  info: string;
-  price: number;
-  quantity: number;
-};
-
 export enum SortEnum {
   DEFAULT = 'Wybrane',
   NAME = 'Udźwig rosnąco',
-  NAME_REVERSED = 'Udźwig malejąco ',
+  NAME_REVERSED = 'Udźwig malejąco',
   PRICE_UP = 'Najtańsze',
   PRICE_DOWN = 'Najdroższe',
 }
 
-export interface IFilters {
-  price: [number, number];
-  // stock: boolean;
-  category: string[];
-  // material: string[];
-  // length: [number, number] | [];
-  // width: [number, number] | [];
-  // height: [number, number] | [];
-  // load: [number, number] | [];
-  // sort: SortEnum;
-  // quantity: number;
+export enum Condition {
+  NEW = 'Nowe',
+  USED1 = 'Używane 1 gatunku',
+  USED2 = 'Używane 2 gatunku',
+  USED3 = 'Używane 3 gatunku',
+  BROKEN = 'BROKEN',
 }
-
-export const INITIAL_STATE = {
-  price: [0, 500] as [number, number],
-  category: ['palety_euro', 'palety_europodobne', 'palety_jedno',
-    'palety_przem', 'polpalety', 'palety_tektur', 'palety_plastik', 'nadstawki'],
-  condition: ['used', 'new'],
-  quantity: [0, 100000],
-  material: ['drewno', 'plastik', 'tektura'],
-  length: [0, 3000],
-  width: [0, 3000],
-  height: [0, 3000],
-  load: [0, 5000],
-  sort: SortEnum.DEFAULT,
-  short: ['euro_new', 'euro_used_1', 'euro_used_2', 'euro_used_3',
-    'europod_new', 'europod_used', 'jedno_new_1', 'jedno_new_2',
-    'jedno_used_1', 'jedno_used_2', 'jedno_used_3', 'przem_1', 'przem_2',
-    'polpal_1', 'polpal_2', 'plastik_1', 'plastik_2', 'tektur_1',
-    'nadstawka_1', 'nadstawka_2', 'nadstawka_3'],
-};
 
 /**
  *
@@ -67,7 +25,7 @@ export interface Address {
    * @type {string}
    * @memberof Address
    */
-  street?: string;
+  street: string;
   /**
    *
    * @type {string}
@@ -110,13 +68,13 @@ export interface Cart {
    * @type {number}
    * @memberof Cart
    */
-  id?: number;
+  id: number;
   /**
    *
    * @type {User}
    * @memberof Cart
    */
-  user?: User;
+  user: User;
   /**
    *
    * @type {Array<CartOffers>}
@@ -135,13 +93,13 @@ export interface CartOffers {
    * @type {Offer}
    * @memberof CartOffers
    */
-  offer?: Offer;
+  offer: IOffer;
   /**
    *
    * @type {number}
    * @memberof CartOffers
    */
-  quantity?: number;
+  quantity: number;
 }
 /**
 *
@@ -154,49 +112,49 @@ export interface Company {
    * @type {number}
    * @memberof Company
    */
-  id?: number;
+  id: number;
   /**
    *
    * @type {string}
    * @memberof Company
    */
-  name?: string;
+  name: string;
   /**
    *
    * @type {string}
    * @memberof Company
    */
-  NIP?: string;
+  NIP: string;
   /**
    *
    * @type {Address}
    * @memberof Company
    */
-  address?: Address;
+  address: Address;
   /**
    *
    * @type {number}
    * @memberof Company
    */
-  VAT?: number;
+  VAT: number;
   /**
    *
    * @type {string}
    * @memberof Company
    */
-  email?: string;
+  email: string;
   /**
    *
    * @type {string}
    * @memberof Company
    */
-  phone?: string;
+  phone: string;
   /**
    *
    * @type {Array<number>}
    * @memberof Company
    */
-  workingHours?: Array<number>;
+  workingHours: Array<number>;
 }
 /**
 *
@@ -228,19 +186,19 @@ export interface Delivery {
    * @type {DeliveryType}
    * @memberof Delivery
    */
-  deliveryType?: DeliveryType;
+  deliveryType: string;
   /**
    *
    * @type {Array<number>}
    * @memberof Delivery
    */
-  deliveryTime?: Array<number>;
+  deliveryTime: Array<number>;
   /**
    *
    * @type {number}
    * @memberof Delivery
    */
-  deliveryPrice?: number;
+  deliveryPrice: number;
 }
 /**
 *
@@ -258,43 +216,47 @@ export enum DeliveryType {
 * @export
 * @interface Offer
 */
-export interface Offer {
+export interface IOffer {
   /**
    *
    * @type {number}
    * @memberof Offer
    */
-  id?: number;
+  id: number;
   /**
    *
    * @type {Product}
    * @memberof Offer
    */
-  product?: Product;
+  product: IProduct;
   /**
    *
    * @type {User}
    * @memberof Offer
    */
-  seller?: User;
+  seller: User;
+
+  company: Company;
   /**
    *
    * @type {number}
    * @memberof Offer
    */
-  price?: number;
+  price: number;
+
+
   /**
    *
    * @type {Array<number>}
    * @memberof Offer
    */
-  quantity?: Array<number>;
+  quantity: Array<number>;
   /**
    *
    * @type {Array<Delivery>}
    * @memberof Offer
    */
-  delivery?: Array<Delivery>;
+  delivery: Array<Delivery>;
   /**
    *
    * @type {string}
@@ -318,19 +280,19 @@ export interface Offer {
    * @type {OfferStatus}
    * @memberof Offer
    */
-  offerStatus?: OfferStatus;
+  offerStatus: string;
   /**
    *
    * @type {number}
    * @memberof Offer
    */
-  rating?: number;
+  rating: number;
   /**
    *
    * @type {boolean}
    * @memberof Offer
    */
-  isTop?: boolean;
+  isTop: boolean;
 }
 /**
 *
@@ -353,31 +315,31 @@ export interface Order {
    * @type {number}
    * @memberof Order
    */
-  id?: number;
+  id: number;
   /**
    *
    * @type {Cart}
    * @memberof Order
    */
-  cart?: Cart;
+  cart: Cart;
   /**
    *
    * @type {OrderStatus}
    * @memberof Order
    */
-  status?: OrderStatus;
+  status: OrderStatus;
   /**
    *
    * @type {PaymentType}
    * @memberof Order
    */
-  payment?: PaymentType;
+  payment: PaymentType;
   /**
    *
    * @type {boolean}
    * @memberof Order
    */
-  paymentStatus?: boolean;
+  paymentStatus: boolean;
 }
 /**
 *
@@ -385,14 +347,14 @@ export interface Order {
 * @enum {string}
 */
 export enum OrderStatus {
-  CREATED = 'CREATED',
-  MODERATION = 'MODERATION',
-  PENDING = 'PENDING',
-  ACCEPTED = 'ACCEPTED',
-  SENDED = 'SENDED',
-  DELIVERED = 'DELIVERED',
-  RETURNED = 'RETURNED',
-  CLOSED = 'CLOSED',
+  CREATED = 'Utworzone',
+  MODERATION = 'Moderacja',
+  PENDING = 'Oczekujące',
+  ACCEPTED = 'Przyjęte',
+  SENDED = 'Wyslane',
+  DELIVERED = 'Dostarczone',
+  RETURNED = 'Zwrócone',
+  CLOSED = 'Zamknięte',
 }
 /**
 *
@@ -400,119 +362,123 @@ export enum OrderStatus {
 * @enum {string}
 */
 export enum PaymentType {
-  CASH = 'CASH',
-  INVOICE = 'INVOICE',
-  CARD = 'CARD',
+  CASH = 'Gotówka',
+  INVOICE = 'Na fakturę',
+  CARD = 'Płatność kartą',
 }
 /**
 *
 * @export
 * @interface Product
 */
-export interface Product {
+export interface IProduct {
   /**
    *
    * @type {number}
    * @memberof Product
    */
-  id?: number;
+  id: number;
   /**
    *
    * @type {string}
    * @memberof Product
    */
-  name?: string;
+  name: string;
   /**
    *
    * @type {string}
    * @memberof Product
    */
-  description?: string;
+  material: string;
+
+  condition: string;
+
+  description: string;
   /**
    *
    * @type {string}
    * @memberof Product
    */
-  image1?: string;
+  image1: string;
   /**
    *
    * @type {string}
    * @memberof Product
    */
-  image2?: string;
+  image2: string;
   /**
    *
    * @type {string}
    * @memberof Product
    */
-  shortName?: string;
+  shortName: string;
   /**
    *
    * @type {number}
    * @memberof Product
    */
-  length?: number;
+  length: number;
   /**
    *
    * @type {number}
    * @memberof Product
    */
-  width?: number;
+  width: number;
   /**
    *
    * @type {number}
    * @memberof Product
    */
-  height?: number;
+  height: number;
   /**
    *
    * @type {number}
    * @memberof Product
    */
-  maxLoad?: number;
+  maxLoad: number;
   /**
    *
    * @type {ProductCategory}
    * @memberof Product
    */
-  category?: ProductCategory;
+  category: IProductCategory;
 }
 /**
 *
 * @export
 * @interface ProductCategory
 */
-export interface ProductCategory {
+export interface IProductCategory {
   /**
    *
    * @type {number}
    * @memberof ProductCategory
    */
-  id?: number;
+  id: number;
   /**
    *
    * @type {string}
    * @memberof ProductCategory
    */
-  name?: string;
+  name: string;
   /**
    *
    * @type {string}
    * @memberof ProductCategory
    */
-  description?: string;
+  description: string;
   /**
    *
    * @type {string}
    * @memberof ProductCategory
    */
-  image?: string;
+  image: string;
   /**
    *
    * @type {string}
    * @memberof ProductCategory
    */
-  shortName?: string;
+  shortName: string;
 }
 /**
 *
@@ -520,12 +486,21 @@ export interface ProductCategory {
 * @enum {string}
 */
 export enum Role {
-  BUYER = 'BUYER',
-  SELLER = 'SELLER',
+  BUYER = 'Kupujący',
+  SELLER = 'Sprzedający',
   ADMIN = 'ADMIN',
   SYSTEM = 'SYSTEM',
-  LOGISTIC = 'LOGISTIC',
+  LOGISTIC = 'Kurier',
 }
+
+export enum Material {
+  WOOD = 'Drewno',
+  PLASTIC = 'Plastik',
+  METAL = 'Metal',
+  CARDBOARD = 'Tektura',
+}
+
+// export type Material = 'WOOD' | 'PLASTIC' | 'METAL' | 'CARDBOARD';
 /**
 *
 * @export
@@ -537,13 +512,13 @@ export interface User {
    * @type {number}
    * @memberof User
    */
-  id?: number;
+  id: number;
   /**
    *
    * @type {string}
    * @memberof User
    */
-  name?: string;
+  name: string;
   /**
    * unique
    * @type {string}
@@ -561,7 +536,7 @@ export interface User {
    * @type {number}
    * @memberof User
    */
-  rank?: number;
+  rank: number;
   /**
    *
    * @type {string}
@@ -573,7 +548,7 @@ export interface User {
    * @type {Array<Role>}
    * @memberof User
    */
-  roles?: Array<Role>;
+  roles: Array<string>;
   /**
    *
    * @type {Address}

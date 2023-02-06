@@ -2,8 +2,8 @@ import Page from '../../core/templates/page';
 import Footer from '../../core/components/footer';
 import './index.scss';
 // import { parameters } from '../../core/components/parameters';
-import productsJSON from '../../assets/json/products.json';
-import { parametersObj } from '../../core/components/parameters';
+import offersJSON from '../../assets/json/_OffersArray.json';
+import { parametersObj } from '../../core/parameters/parameters';
 
 class ProductPage extends Page {
 
@@ -45,21 +45,21 @@ class ProductPage extends Page {
   }
 
   private renderProductBlock(): void {
-    for (const item of productsJSON) {
-      if (item.short === parametersObj().short[0]) {
-        this.nameValue = item.name;
-        this.priceValue = item.price;
-        this.descriptionValue = item.info;
-        this.widthValue = item.width;
-        this.lengthValue = item.length;
-        this.heightValue = item.height;
-        this.conditionValue = item.condition;
-        this.quantityValue = item.quantity;
-        this.loadValue = item.load;
-        this.materialValue = item.material;
-        this.image1 = item.image1;
-        this.image2 = item.image2;
-        this.shortName = item.short;
+    for (const item of offersJSON) {
+      if (item.product.shortName === parametersObj().short[0]) {
+        this.nameValue = item.product.name;
+        //this.priceValue = item.product.price;
+        this.descriptionValue = item.product.description;
+        this.widthValue = item.product.width;
+        this.lengthValue = item.product.length;
+        this.heightValue = item.product.height;
+        this.conditionValue = item.product.condition;
+        //this.quantityValue = item.quantity;
+        this.loadValue = item.product.maxLoad;
+        this.materialValue = item.product.material;
+        this.image1 = item.product.image1;
+        this.image2 = item.product.image2;
+        this.shortName = item.product.shortName;
       }
     }
 
