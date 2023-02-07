@@ -1,5 +1,6 @@
 import Page from '../../core/templates/page';
-import createProductCard from '../../core/components/product_card/product_card';
+import { createProductCard } from '../../core/components/product_card/product_card';
+//import { updateProductCard } from '../../core/components/product_card/product_card';
 //import Product from '../../core/components/product/product';
 import Offer from '../../core/components/offer/offer';
 //import productsJSON from '../../assets/json/products.json';
@@ -54,27 +55,12 @@ class CatalogPage extends Page {
     // this.sortFilter(arr);
     // arr = this.searchFilter(arr);
 
+    const shortsArray: string[] = [];
+
     for (let j = 0; j < arr.length; j += 1) {
 
-      // console.log(arr[j]);
-      // console.log('-----------------------');
-      // console.log(arr[j].product);
-
       const productData = arr[j].product;
-      // const product = new Product(productData.id,
-      //   productData.name,
-      //   productData.material,
-      //   productData.condition,
-      //   productData.description,
-      //   productData.image1,
-      //   productData.image2,
-      //   productData.shortName,
-      //   productData.length,
-      //   productData.width,
-      //   productData.height,
-      //   productData.maxLoad,
-      //   productData.category,
-      // );
+
       const product = new Offer(productData.id,
         productData.name,
         productData.material,
@@ -90,11 +76,20 @@ class CatalogPage extends Page {
         productData.category,
         arr[j].price,
       );
-      console.log(product);
-      const card = document.createElement('div');
-      card.classList.add('product__card');
-      createProductCard(product, card, j);
-      catalogSection.append(card);
+
+      if (!shortsArray.includes(productData.shortName)) {
+        shortsArray.push(productData.shortName);
+        const card = document.createElement('div');
+        card.id = productData.shortName;
+        card.classList.add('product__card');
+        createProductCard(product, card, j);
+        catalogSection.append(card);
+      } else if (shortsArray.includes(productData.shortName)) {
+        const card = document.getElementById(`${productData.shortName}`);
+        //const card = document.getElementById('pallet_euro_1200x800x144_wood_new_id1');
+        console.log(card);
+        //updateProductCard(product, card);
+      }
     }
   }
 

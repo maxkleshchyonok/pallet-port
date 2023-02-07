@@ -6,7 +6,7 @@ import ProductPage from '../../../pages/product-page';
 import App from '../../../pages/app';
 import Offer from '../offer/offer';
 
-const createProductCard: (product: Offer, container: HTMLElement, i?: number) => void = (product, container) => {
+export const createProductCard: (product: Offer, container: HTMLElement, i?: number) => void = (product, container) => {
 
   let page: Page | null = null;
 
@@ -19,19 +19,17 @@ const createProductCard: (product: Offer, container: HTMLElement, i?: number) =>
 
   createElement('img', 'product__image');
   createElement('div', 'product__name');
-  createElement('h1', 'product__price');
 
 
   const image = container.querySelector('.product__image') as HTMLImageElement;
   const name = container.querySelector('.product__name') as HTMLSpanElement;
-  const price = container.querySelector('.product__price') as HTMLElement;
 
 
   image.src = product.image1;
   const nameTitle = document.createElement('h2');
   nameTitle.className = 'name-title';
   nameTitle.innerText = product.name;
-  price.innerText = product.price.toString();
+
   image.addEventListener('click', () => {
     parametersObj(product.shortName);
     // saveParameters();
@@ -45,4 +43,21 @@ const createProductCard: (product: Offer, container: HTMLElement, i?: number) =>
   name.append(nameTitle);
 };
 
-export default createProductCard;
+// export const updateProductCard: (product: Offer, container: HTMLElement | null, i?: number) => void = (product,
+//   container) => {
+//
+//
+// };
+
+export function updateProductCard(product: Offer, container: HTMLElement | null) {
+  // function createElement(tag: string, tagClass: string): void {
+  //   const el = document.createElement(tag);
+  //   el.classList.add(tagClass);
+  //   container?.append(el);
+  // }
+  console.log(product, container);
+  // createElement('h1', 'product__price');
+  // const price = container?.querySelector('.product__price') as HTMLElement;
+  // price.innerText = product.price.toString();
+}
+
