@@ -14,6 +14,16 @@ export enum Condition {
   BROKEN = 'BROKEN',
 }
 
+export type DeliveryDays = {
+  short: string,
+  days: number,
+};
+
+export type Rating = {
+  short: string,
+  rank: number,
+};
+
 /**
  *
  * @export
@@ -572,3 +582,4 @@ export interface User {
    */
   companies?: Array<Company>;
 }
+
