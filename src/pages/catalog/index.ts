@@ -358,7 +358,6 @@ class CatalogPage extends Page {
 
     //filtersSection.append(this.filters.render());
 
-
     this.drawProductsCards(catalogSection);
 
     window.addEventListener('hashchange', () => {

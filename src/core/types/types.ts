@@ -131,6 +131,10 @@ export interface Company {
    * @memberof Company
    */
   address: Address;
+
+  IBAN: string;
+
+  paymentDate: number;
   /**
    *
    * @type {number}

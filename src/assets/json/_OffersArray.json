@@ -71,6 +71,8 @@
               "lon": 21.12
             }
           },
+          "IBAN": "PL12345678901234567890123456",
+          "paymentDate": 30,
           "VAT": 23,
           "email": "jan@gmail.com",
           "phone": "48123456789",
@@ -94,6 +96,8 @@
               "lon": 21.12
             }
           },
+          "IBAN": "PL12345678901234567890123456",
+          "paymentDate": 30,
           "VAT": 23,
           "email": "jan@gmail.com",
           "phone": "48123456789",
@@ -119,6 +123,8 @@
           "lon": 21.12
         }
       },
+      "IBAN": "PL12345678901234567890123456",
+      "paymentDate": 30,
       "VAT": 23,
       "email": "jan@gmail.com",
       "phone": "48123456789",
@@ -229,6 +235,8 @@
               "lon": 61.12
             }
           },
+          "IBAN": "PL12345678901234567890123456",
+          "paymentDate": 30,
           "VAT": 0,
           "email": "jan@gmail.com",
           "phone": "48123456789",
@@ -252,6 +260,8 @@
               "lon": 21.12
             }
           },
+          "IBAN": "PL12345678901234567890123456",
+          "paymentDate": 30,
           "VAT": 23,
           "email": "jan@gmail.com",
           "phone": "48123456789",
@@ -277,6 +287,8 @@
           "lon": 61.12
         }
       },
+      "IBAN": "PL12345678901234567890123456",
+      "paymentDate": 30,
       "VAT": 0,
       "email": "jan@gmail.com",
       "phone": "48123456789",
@@ -379,6 +391,8 @@
               "lon": 21.12
             }
           },
+          "IBAN": "PL12345678901234567890123456",
+          "paymentDate": 30,
           "VAT": 23,
           "email": "jan@gmail.com",
           "phone": "48123456789",
@@ -402,6 +416,8 @@
               "lon": 21.12
             }
           },
+          "IBAN": "PL12345678901234567890123456",
+          "paymentDate": 30,
           "VAT": 23,
           "email": "jan@gmail.com",
           "phone": "48123456789",
@@ -427,6 +443,8 @@
           "lon": 21.12
         }
       },
+      "IBAN": "PL12345678901234567890123456",
+      "paymentDate": 30,
       "VAT": 23,
       "email": "jan@gmail.com",
       "phone": "48123456789",
