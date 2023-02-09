@@ -17,6 +17,8 @@ export default class Offer extends Product {
     public maxLoad: IProduct['maxLoad'],
     public category: IProduct['category'],
     public price: IOffer['price'],
+    public delivery: IOffer['delivery'],
+    public rank: IOffer['rating'],
   ) {
     super(id, name, material, condition, description, image1, image2,
       shortName, length, width, height, maxLoad, category,

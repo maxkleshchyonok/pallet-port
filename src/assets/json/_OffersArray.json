@@ -127,7 +127,7 @@
         20
       ]
     },
-    "price": 25,
+    "price": 24,
     "quantity": [
       1,
       999
@@ -137,16 +137,16 @@
         "deliveryType": "Dostawa busem",
         "deliveryPrice": 255,
         "deliveryTime": [
-          0,
-          3
+          2,
+          5
         ]
       },
       {
         "deliveryType": "Odbiór osobisty",
         "deliveryPrice": 0,
         "deliveryTime": [
-          0,
-          0
+          3,
+          6
         ]
       }
     ],
@@ -185,7 +185,7 @@
       "name": "Jan Kowalski 2",
       "email":  "ja2n@gmail.com",
       "phone": "48123456783",
-      "rank": 4,
+      "rank": 4.2,
       "avatar": "/assets/avatars/jan.jpg",
       "roles": [
         "Sprzedający",
@@ -285,7 +285,7 @@
         20
       ]
     },
-    "price": 30,
+    "price": 27,
     "quantity": [
       1,
       300
@@ -295,8 +295,8 @@
         "deliveryType": "Dostawa kurierska",
         "deliveryPrice": 255,
         "deliveryTime": [
-          1,
-          3
+          5,
+          8
         ]
       }
     ],
@@ -335,7 +335,7 @@
       "name": "Jan Kowalski",
       "email":  "jan@gmail.com",
       "phone": "48123456789",
-      "rank": 4.5,
+      "rank": 4.7,
       "avatar": "/assets/avatars/jan.jpg",
       "roles": [
         "Sprzedający",
@@ -435,7 +435,7 @@
         20
       ]
     },
-    "price": 30,
+    "price": 22,
     "quantity": [
       400,
       999
@@ -445,16 +445,16 @@
         "deliveryType": "Dostawa busem",
         "deliveryPrice": 255,
         "deliveryTime": [
-          0,
-          3
+          4,
+          9
         ]
       },
       {
         "deliveryType": "Odbiór osobisty",
         "deliveryPrice": 0,
         "deliveryTime": [
-          0,
-          0
+          7,
+          8
         ]
       }
     ],

@@ -1,6 +1,6 @@
 import Page from '../../core/templates/page';
 import { createProductCard } from '../../core/components/product_card/product_card';
-//import { updateProductCard } from '../../core/components/product_card/product_card';
+import { updateProductCard } from '../../core/components/product_card/product_card';
 //import Product from '../../core/components/product/product';
 import Offer from '../../core/components/offer/offer';
 //import productsJSON from '../../assets/json/products.json';
@@ -75,6 +75,8 @@ class CatalogPage extends Page {
         productData.maxLoad,
         productData.category,
         arr[j].price,
+        arr[j].delivery,
+        arr[j].seller.rank,
       );
 
       if (!shortsArray.includes(productData.shortName)) {
@@ -85,10 +87,8 @@ class CatalogPage extends Page {
         createProductCard(product, card, j);
         catalogSection.append(card);
       } else if (shortsArray.includes(productData.shortName)) {
-        const card = document.getElementById(`${productData.shortName}`);
-        //const card = document.getElementById('pallet_euro_1200x800x144_wood_new_id1');
-        console.log(card);
-        //updateProductCard(product, card);
+        //const card = document.getElementById(`${productData.shortName}`);
+        updateProductCard(product);
       }
     }
   }
@@ -358,6 +358,7 @@ class CatalogPage extends Page {
 
     //filtersSection.append(this.filters.render());
 
+    setTimeout(() => this.drawProductsCards(catalogSection), 2000);
 
     this.drawProductsCards(catalogSection);
 
