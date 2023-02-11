@@ -86,10 +86,6 @@ class ProductPage extends Page {
       });
       photosBlock.append(item);
       switch (i) {
-        // case 0:
-        //   item.src = '../../assets/img/elements/arrow-right.svg';
-        //   item.className = 'arrow-up';
-        //   break;
         case 1:
           if (typeof this.image1 === 'string') {
             item.src = this.image1;
@@ -102,15 +98,11 @@ class ProductPage extends Page {
           }
           item.className = 'photos-item';
           break;
-        // case 3:
-        //   item.src = '../../assets/img/elements/arrow-right.svg';
-        //   item.className = 'arrow-down';
-        //   break;
       }
     }
 
     const nameTitle = document.createElement('h1');
-    const buttonsBlock = document.createElement('div');
+    //const buttonsBlock = document.createElement('div');
     const priceBlock = document.createElement('h2');
     const buyButton = document.createElement('button');
     const likeButton = document.createElement('button');
@@ -118,11 +110,11 @@ class ProductPage extends Page {
     const itemDescription = document.createElement('p');
     const infoBlock = document.createElement('div');
     const split = document.createElement('img');
-    const amountButton = document.createElement('div');
+    //const amountButton = document.createElement('div');
     let number = 1;
 
     nameTitle.className = 'product-name';
-    buttonsBlock.className = 'buttons-block';
+    //buttonsBlock.className = 'buttons-block';
     buyButton.className = 'buttons-buy';
     likeButton.className = 'buttons-like';
     priceBlock.className = 'price';
@@ -134,11 +126,11 @@ class ProductPage extends Page {
       nameTitle.textContent = this.nameValue;
     }
     priceBlock.textContent = `${this.priceValue} zl`;
-    buyButton.innerText = 'Dodaj do koszyka';
-    buyButton.addEventListener('click', () => {
-      amountButton.classList.add('activated');
-      localStorage.setItem(`${this.shortName}`, `${number}`);
-    });
+    // buyButton.innerText = 'Dodaj do koszyka';
+    // buyButton.addEventListener('click', () => {
+    //   amountButton.classList.add('activated');
+    //   localStorage.setItem(`${this.shortName}`, `${number}`);
+    // });
 
     const minus = document.createElement('div');
     const plus = document.createElement('div');
@@ -151,7 +143,7 @@ class ProductPage extends Page {
     numberBlock.className = 'button-info-block';
     infoNumber.className = 'info-number';
     infoTitle.className = 'info-title';
-    amountButton.className = 'amount-buttons';
+    //amountButton.className = 'amount-buttons';
 
     infoTitle.textContent = 'W koszyku';
     infoNumber.textContent = `${number}`;
@@ -169,7 +161,7 @@ class ProductPage extends Page {
     });
 
     numberBlock.append(infoNumber, infoTitle);
-    amountButton.append(minus, numberBlock, plus);
+    //amountButton.append(minus, numberBlock, plus);
 
     like.src = '../../assets/img/elements/like.svg';
     likeButton.append(like);
@@ -203,15 +195,111 @@ class ProductPage extends Page {
     quantity.textContent = `Quantity: ${this.quantityValue}`;
 
 
-    buttonsBlock.append(priceBlock, buyButton, likeButton);
+    //buttonsBlock.append(priceBlock, buyButton, likeButton);
     infoBlock.append(width, length, height, load, condition, material, quantity);
-    descriptionBlock.append(nameTitle, buttonsBlock, amountButton, split, itemDescription, infoBlock);
+    descriptionBlock.append(nameTitle, split, itemDescription, infoBlock);
     productBlock.append(photosBlock, bigPhoto, descriptionBlock);
     this.container.append(productBlock);
   }
 
+  private offersBlock = document.createElement('div');
+
+  private renderOffersBlock() {
+
+
+    const cards = document.createElement('div');
+    this.offersBlock.className = 'offers__block';
+    cards.className = 'offers';
+
+    for (const item of offersJSON) {
+      if (item.product.shortName === parametersObj().short[0]) {
+        const offerCard = document.createElement('div');
+        const infoImg = document.createElement('img');
+        const offerDetails = document.createElement('div');
+        const sellerInfo = document.createElement('div');
+        const infoName = document.createElement('h1');
+        const infoRank = document.createElement('h1');
+        const productInfo = document.createElement('div');
+        const price = document.createElement('div');
+        const priceTitle = document.createElement('h1');
+        const priceValue = document.createElement('h1');
+        const priceTest = document.createElement('p');
+        const quantity = document.createElement('div');
+        const quantityTitle = document.createElement('h1');
+        const quantityNum = document.createElement('h1');
+        const delivery = document.createElement('div');
+        const deliveryTitle = document.createElement('h1');
+        const deliveryImg = document.createElement('img');
+        const addButton = document.createElement('button');
+
+        offerCard.className = 'offer__card';
+        sellerInfo.className = 'card__info';
+        infoImg.className = 'info__img';
+        infoName.className = 'info__name';
+        infoRank.className = 'info__rank';
+        offerDetails.className = 'card__details';
+        price.className = 'details__price';
+        priceTitle.className = 'price__title';
+        priceValue.className = 'price__number';
+        priceTest.className = 'price__test__value';
+        quantity.className = 'details__quantity';
+        quantityTitle.className = 'quantity__title';
+        quantityNum.className = 'quantity__value';
+        delivery.className = 'details__delivery';
+        deliveryTitle.className = 'delivery__title';
+        deliveryImg.className = 'delivery__img';
+        addButton.className = 'card__button';
+        productInfo.className = 'product__info';
+
+        infoImg.src = item.seller.avatar;
+        infoName.textContent = item.seller.name;
+        infoRank.textContent = `${item.seller.rank} ★`;
+        priceTitle.textContent = 'Cena: ';
+        priceValue.textContent = `${item.price} zł`;
+        priceTest.textContent = '1000';
+        quantityTitle.textContent = 'W magazynie:';
+        quantityNum.textContent = item.quantity.toString();
+        deliveryTitle.textContent = 'Dostawa: ';
+        deliveryImg.src = '../../../assets/img/elements/no-icon.png';
+
+
+        item.delivery.forEach((el) => {
+          if (el.deliveryType !== 'Odbiór osobisty') {
+            deliveryImg.src = '../../../assets/img/elements/yes-icon.jpg';
+          }
+        });
+
+        addButton.textContent = 'Dodać';
+
+        price.append(priceTitle, priceValue);
+        quantity.append(quantityTitle, quantityNum);
+        delivery.append(deliveryTitle, deliveryImg);
+        sellerInfo.append(infoName, infoRank);
+        productInfo.append(price, quantity, delivery);
+        offerDetails.append(sellerInfo, productInfo);
+        offerCard.append(infoImg, offerDetails, addButton);
+        cards.append(offerCard);
+      }
+    }
+    this.offersBlock.append(cards);
+    this.container.append(this.offersBlock);
+  }
+
+  private renderSelectedOffers() {
+
+    const orderBlock = document.createElement('div');
+    orderBlock.className = 'order__block';
+
+    orderBlock.textContent = 'Aby złożyć zamówienie, wybierz sprzedawcę';
+
+
+    this.offersBlock.append(orderBlock);
+  }
+
   render(): HTMLElement {
     this.renderProductBlock();
+    this.renderOffersBlock();
+    this.renderSelectedOffers();
     this.container.append(this.footer.render());
     return this.container;
   }

@@ -24,6 +24,7 @@ export const createProductCard: (product: Offer, container: HTMLElement, i?: num
 
   createElement('img', 'product__image');
   createElement('div', 'product__name');
+  //createElement('div', )
   createElement('div', 'product__price');
   createElement('div', 'product__delivery');
   createElement('div', 'product__rating');
