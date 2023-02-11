@@ -67,8 +67,8 @@
   grid-row-gap: 3%;
 }
 .product-block .description-block .product-info .info-item {
-  font-weight: 400;
-  font-size: 14px;
+  font-weight: 600;
+  font-size: 15px;
   line-height: 17px;
   font-feature-settings: "tnum" on, "lnum" on;
   color: #62666c;
@@ -183,6 +183,7 @@
   height: 320px;
   border: 1px solid #cbc7c7;
   border-radius: 10px;
+  box-shadow: 3px 5px 10px #c9c6c6;
   display: flex;
   align-items: center;
   justify-content: center;

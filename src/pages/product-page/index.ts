@@ -4,14 +4,13 @@ import './index.scss';
 // import { parameters } from '../../core/components/parameters';
 import offersJSON from '../../assets/json/_OffersArray.json';
 import { parametersObj } from '../../core/parameters/parameters';
+import { IOffer } from '../../core/types/types';
 
 class ProductPage extends Page {
 
   private shortName: string | undefined;
 
   private nameValue: string | undefined;
-
-  private priceValue: number | undefined;
 
   private descriptionValue: string | undefined;
 
@@ -23,8 +22,6 @@ class ProductPage extends Page {
 
   private conditionValue: string | undefined;
 
-  private quantityValue: number | undefined;
-
   private loadValue: number | undefined;
 
   private materialValue: string | undefined;
@@ -34,6 +31,10 @@ class ProductPage extends Page {
   private image2: string | undefined;
 
   private footer: Footer;
+
+  private offersBlock = document.createElement('div');
+
+  private orderBlock = document.createElement('div');
 
   static TextObject = {
     MainTitle: 'Product page',
@@ -48,13 +49,11 @@ class ProductPage extends Page {
     for (const item of offersJSON) {
       if (item.product.shortName === parametersObj().short[0]) {
         this.nameValue = item.product.name;
-        //this.priceValue = item.product.price;
         this.descriptionValue = item.product.description;
         this.widthValue = item.product.width;
         this.lengthValue = item.product.length;
         this.heightValue = item.product.height;
         this.conditionValue = item.product.condition;
-        //this.quantityValue = item.quantity;
         this.loadValue = item.product.maxLoad;
         this.materialValue = item.product.material;
         this.image1 = item.product.image1;
@@ -102,22 +101,13 @@ class ProductPage extends Page {
     }
 
     const nameTitle = document.createElement('h1');
-    //const buttonsBlock = document.createElement('div');
-    const priceBlock = document.createElement('h2');
-    const buyButton = document.createElement('button');
-    const likeButton = document.createElement('button');
-    const like = document.createElement('img');
+
     const itemDescription = document.createElement('p');
     const infoBlock = document.createElement('div');
     const split = document.createElement('img');
-    //const amountButton = document.createElement('div');
-    let number = 1;
+
 
     nameTitle.className = 'product-name';
-    //buttonsBlock.className = 'buttons-block';
-    buyButton.className = 'buttons-buy';
-    likeButton.className = 'buttons-like';
-    priceBlock.className = 'price';
     itemDescription.className = 'product-description';
     infoBlock.className = 'product-info';
     split.className = 'splitter';
@@ -125,46 +115,7 @@ class ProductPage extends Page {
     if (typeof this.nameValue === 'string') {
       nameTitle.textContent = this.nameValue;
     }
-    priceBlock.textContent = `${this.priceValue} zl`;
-    // buyButton.innerText = 'Dodaj do koszyka';
-    // buyButton.addEventListener('click', () => {
-    //   amountButton.classList.add('activated');
-    //   localStorage.setItem(`${this.shortName}`, `${number}`);
-    // });
 
-    const minus = document.createElement('div');
-    const plus = document.createElement('div');
-    const numberBlock = document.createElement('div');
-    const infoNumber = document.createElement('h3');
-    const infoTitle = document.createElement('p');
-
-    minus.className = 'button-minus';
-    plus.className = 'button-plus';
-    numberBlock.className = 'button-info-block';
-    infoNumber.className = 'info-number';
-    infoTitle.className = 'info-title';
-    //amountButton.className = 'amount-buttons';
-
-    infoTitle.textContent = 'W koszyku';
-    infoNumber.textContent = `${number}`;
-    minus.textContent = '-';
-    plus.textContent = '+';
-    minus.addEventListener('click', () => {
-      number -= 1;
-      infoNumber.textContent = `${number}`;
-      localStorage.setItem(`${this.shortName}`, `${number}`);
-    });
-    plus.addEventListener('click', () => {
-      number += 1;
-      infoNumber.textContent = `${number}`;
-      localStorage.setItem(`${this.shortName}`, `${number}`);
-    });
-
-    numberBlock.append(infoNumber, infoTitle);
-    //amountButton.append(minus, numberBlock, plus);
-
-    like.src = '../../assets/img/elements/like.svg';
-    likeButton.append(like);
     split.src = '../../assets/img/elements/split-horizontal.svg';
     if (typeof this.descriptionValue === 'string') {
       itemDescription.textContent = this.descriptionValue;
@@ -176,7 +127,7 @@ class ProductPage extends Page {
     const load = document.createElement('h3');
     const condition = document.createElement('h3');
     const material = document.createElement('h3');
-    const quantity = document.createElement('h3');
+
 
     width.className = 'info-item';
     length.className = 'info-item';
@@ -184,7 +135,6 @@ class ProductPage extends Page {
     load.className = 'info-item';
     condition.className = 'info-item';
     material.className = 'info-item';
-    quantity.className = 'info-item';
 
     width.textContent = `Width: ${this.widthValue}`;
     length.textContent = `Length: ${this.lengthValue}`;
@@ -192,20 +142,19 @@ class ProductPage extends Page {
     load.textContent = `Load: ${this.loadValue}`;
     condition.textContent = `Condition: ${this.conditionValue}`;
     material.textContent = `Material: ${this.materialValue}`;
-    quantity.textContent = `Quantity: ${this.quantityValue}`;
 
 
-    //buttonsBlock.append(priceBlock, buyButton, likeButton);
-    infoBlock.append(width, length, height, load, condition, material, quantity);
+    infoBlock.append(width, length, height, load, condition, material);
     descriptionBlock.append(nameTitle, split, itemDescription, infoBlock);
     productBlock.append(photosBlock, bigPhoto, descriptionBlock);
     this.container.append(productBlock);
   }
 
-  private offersBlock = document.createElement('div');
 
   private renderOffersBlock() {
 
+    this.orderBlock.className = 'order__block';
+    this.orderBlock.textContent = 'Aby złożyć zamówienie, wybierz sprzedawcę';
 
     const cards = document.createElement('div');
     this.offersBlock.className = 'offers__block';
@@ -271,6 +220,10 @@ class ProductPage extends Page {
 
         addButton.textContent = 'Dodać';
 
+        addButton.addEventListener('click', () => {
+          this.renderSelectedOffers(item);
+        });
+
         price.append(priceTitle, priceValue);
         quantity.append(quantityTitle, quantityNum);
         delivery.append(deliveryTitle, deliveryImg);
@@ -282,24 +235,17 @@ class ProductPage extends Page {
       }
     }
     this.offersBlock.append(cards);
+    this.offersBlock.append(this.orderBlock);
     this.container.append(this.offersBlock);
   }
 
-  private renderSelectedOffers() {
-
-    const orderBlock = document.createElement('div');
-    orderBlock.className = 'order__block';
-
-    orderBlock.textContent = 'Aby złożyć zamówienie, wybierz sprzedawcę';
-
-
-    this.offersBlock.append(orderBlock);
+  private renderSelectedOffers(item: IOffer) {
+    this.orderBlock.textContent = item.seller.name;
   }
 
   render(): HTMLElement {
     this.renderProductBlock();
     this.renderOffersBlock();
-    this.renderSelectedOffers();
     this.container.append(this.footer.render());
     return this.container;
   }
