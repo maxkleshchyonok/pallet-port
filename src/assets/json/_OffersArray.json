@@ -28,7 +28,7 @@
       "email":  "jan@gmail.com",
       "phone": "48123456789",
       "rank": 4.5,
-      "avatar": "/assets/avatars/jan.png",
+      "avatar": "https://cdn-icons-png.flaticon.com/512/4975/4975733.png",
       "roles": [
         "Sprzedający",
         "Kupujący"
@@ -186,7 +186,7 @@
       "email":  "ja2n@gmail.com",
       "phone": "48123456783",
       "rank": 4.2,
-      "avatar": "/assets/avatars/jan.png",
+      "avatar": "https://cdn-icons-png.flaticon.com/512/4975/4975733.png",
       "roles": [
         "Sprzedający",
         "Kupujący"
@@ -336,7 +336,7 @@
       "email":  "jan@gmail.com",
       "phone": "48123456789",
       "rank": 4.7,
-      "avatar": "/assets/avatars/jan.png",
+      "avatar": "https://cdn-icons-png.flaticon.com/512/4975/4975733.png",
       "roles": [
         "Sprzedający",
         "Kupujący"
@@ -494,7 +494,7 @@
       "email":  "jan@gmail.com",
       "phone": "48123456789",
       "rank": 4.7,
-      "avatar": "/assets/avatars/jan.png",
+      "avatar": "https://cdn-icons-png.flaticon.com/512/4975/4975733.png",
       "roles": [
         "Sprzedający",
         "Kupujący"

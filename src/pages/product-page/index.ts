@@ -200,7 +200,13 @@ class ProductPage extends Page {
         addButton.className = 'card__button';
         productInfo.className = 'product__info';
 
-        infoImg.src = item.seller.avatar;
+
+        if (item.seller.avatar) {
+          infoImg.src = item.seller.avatar;
+        } else {
+          infoImg.src = '../../assets/avatars/jan.png';
+        }
+
         infoName.textContent = item.seller.name;
         infoRank.textContent = `${item.seller.rank} ★`;
         priceTitle.textContent = 'Cena: ';
@@ -240,7 +246,82 @@ class ProductPage extends Page {
   }
 
   private renderSelectedOffers(item: IOffer) {
-    this.orderBlock.textContent = item.seller.name;
+    this.orderBlock.textContent = '';
+
+    const container = document.createElement('div');
+    const title = document.createElement('h1');
+    const infoBlock = document.createElement('div');
+    const sellerBlock = document.createElement('div');
+    const avatar = document.createElement('img');
+    const name = document.createElement('h1');
+    const phone = document.createElement('h1');
+    const productDetails = document.createElement('div');
+    const productImg = document.createElement('img');
+    const productName = document.createElement('h1');
+    const quantityBlock = document.createElement('div');
+    const quantityTitle = document.createElement('h1');
+    const quantityInput = document.createElement('input');
+    const deliveryBlock = document.createElement('div');
+    const deliveryTitle = document.createElement('h1');
+    const deliveryMenu = document.createElement('fieldset');
+
+    container.className = 'order__container';
+    title.className = 'order__title';
+    infoBlock.className = 'order__info';
+    sellerBlock.className = 'info__seller';
+    avatar.className = 'seller__avatar';
+    name.className = 'seller__name';
+    phone.className = 'seller__phone';
+    productDetails.className = 'product__details';
+    productImg.className = 'details__img';
+    productName.className = 'details__name';
+    quantityBlock.className = 'details__quantity';
+    quantityTitle.className = 'quantity__title';
+    quantityInput.className = 'quantity__input';
+    deliveryBlock.className = 'details__delivery';
+    deliveryTitle.className = 'delivery__title';
+    deliveryMenu.className = 'delivery__menu';
+
+
+    title.textContent = 'Szczegóły oferty';
+    if (item.seller.avatar) {
+      avatar.src = item.seller.avatar;
+    }
+    if (item.seller.name) {
+      name.textContent = item.seller.name;
+    }
+    if (item.seller.phone) {
+      phone.textContent = `Telefon: ${item.seller.phone}`;
+    }
+
+
+    productImg.src = item.product.image1;
+    productName.textContent = item.product.name;
+
+    quantityTitle.textContent = 'Ilość:';
+    quantityInput.type = 'number';
+    quantityInput.value = '1';
+
+    deliveryTitle.textContent = 'Dostawa:';
+
+    item.delivery.forEach((el) => {
+      const label = document.createElement('label');
+      const input = document.createElement('input');
+      label.className = 'delivery__label';
+      input.className = 'delivery__input';
+      input.type = 'radio';
+      label.textContent = el.deliveryType;
+      deliveryMenu.append(input, label);
+    });
+
+
+    sellerBlock.append(avatar, name, phone);
+    quantityBlock.append(quantityTitle, quantityInput);
+    deliveryBlock.append(deliveryTitle, deliveryMenu);
+    productDetails.append(productImg, productName, quantityBlock, deliveryBlock);
+    infoBlock.append(sellerBlock, productDetails);
+    container.append(title, infoBlock);
+    this.orderBlock.append(container);
   }
 
   render(): HTMLElement {
