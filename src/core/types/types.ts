@@ -168,7 +168,9 @@ export interface Company {
    * @type {Array<number>}
    * @memberof Company
    */
-  workingHours: Array<number>;
+  workingHourMin: number;
+
+  workingHourMax: number;
 }
 /**
 *
@@ -206,7 +208,9 @@ export interface Delivery {
    * @type {Array<number>}
    * @memberof Delivery
    */
-  deliveryTime: Array<number>;
+  deliveryTimeMin: number;
+
+  deliveryTimeMax: number;
   /**
    *
    * @type {number}
@@ -264,7 +268,9 @@ export interface IOffer {
    * @type {Array<number>}
    * @memberof Offer
    */
-  quantity: Array<number>;
+  quantityMin: number;
+
+  quantityMax: number;
   /**
    *
    * @type {Array<Delivery>}

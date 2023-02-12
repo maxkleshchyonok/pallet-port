@@ -18,8 +18,6 @@
   "VAT": 23,
   "email": "jan@gmail.com",
   "phone": "48123456789",
-  "workingHours": [
-    10,
-    20
-  ]
+  "workingHourMin": 7,
+  "workingHourMax": 16
 }

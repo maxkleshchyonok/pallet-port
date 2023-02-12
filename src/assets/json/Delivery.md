@@ -4,5 +4,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **deliveryType** | [**DeliveryType**](DeliveryType.md) |  | [optional] 
-**deliveryTime** | **[Number]** |  | [optional] 
+**deliveryTimeMin** | **Number** |  | [optional] 
+**deliveryTimeMax** | **Number** |  | [optional] 
 **deliveryPrice** | **Number** |  | [optional] 

@@ -1,8 +1,6 @@
 {
   "deliveryType": "Dostawa ciężarówką",
-  "price": 255,
-  "days": [
-    0,
-    3
-  ]
+  "deliveryPrice": 255,
+  "deliveryTimeMin": 0,
+  "deliveryTimeMax": 3
 }

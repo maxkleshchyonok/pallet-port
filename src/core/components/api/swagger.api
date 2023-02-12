@@ -387,14 +387,14 @@ components:
           type: number
           format: double
           example: 25.2
-        quantity:
-          type: array
-          items:
-            type: integer
-            minimum: 1
-            maximum: 100000
-            minItems: 2
-            maxItems: 2
+        quantityMin:
+          type: integer
+          minimum: 1
+          maximum: 100000
+        quantityMax:
+          type: integer
+          minimum: 1
+          maximum: 100000
         delivery:
           type: array
           items:
@@ -479,14 +479,14 @@ components:
         phone:
           type: string
           example: +48123456789
-        workingHours:
-          type: array
-          items:
-            type: integer
-            minimum: 0
-            maximum: 24
-            minItems: 2
-            maxItems: 2
+        workingHourMin:
+          type: integer
+          minimum: 0
+          maximum: 24
+        workingHourMax:
+          type: integer
+          minimum: 0
+          maximum: 24
     PaymentType:
       type: string
       enum:
@@ -505,14 +505,14 @@ components:
       properties:
         deliveryType:
           $ref: '#/components/schemas/DeliveryType'
-        deliveryTime:
-          type: array
-          items:
-            type: integer
-            minimum: 0
-            maximum: 120
-            minItems: 2
-            maxItems: 2
+        deliveryTimeMin:
+          type: integer
+          minimum: 0
+          maximum: 366
+        deliveryTimeMax:
+          type: integer
+          minimum: 0
+          maximum: 366
         deliveryPrice:
           type: number
           format: double

@@ -12,4 +12,5 @@ Name | Type | Description | Notes
 **VAT** | **Number** |  | [optional] 
 **email** | **String** |  | [optional] 
 **phone** | **String** |  | [optional] 
-**workingHours** | **[Number]** |  | [optional] 
+**workingHourMin** | **Number** |  | [optional] 
+**workingHourMax** | **Number** |  | [optional] 
