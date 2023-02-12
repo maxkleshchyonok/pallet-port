@@ -249,13 +249,83 @@
           margin-left: 3%;
           .name-title{
             text-decoration: none;
-            font-weight: 400;
+            font-weight: 600;
             font-size: 16px;
             line-height: 17px;
             color: #474A51;
           }
         }
-
+        .product__price{
+          margin-top: 8%;
+          margin-left: 3%;
+          display: flex;
+          align-items: center;
+          color: #474A51;
+          .price__title{
+            height: 20px;
+            background: #c9e5ef;
+            border-radius: 8px;
+            font-weight: 400;
+            font-size: 15px;
+          }
+          .price__value{
+            font-size: 17px;
+            margin-left: 3%;
+          }
+        }
+        .product__delivery{
+          margin-left: 3%;
+          margin-top: 2%;
+          display: flex;
+          align-items: center;
+          color: #474A51;
+          .delivery__title{
+            height: 20px;
+            background: #cef6da;
+            border-radius: 8px;
+            font-weight: 400;
+            font-size: 14px;
+          }
+          .delivery__value{
+            font-size: 17px;
+            margin-left: 3%;
+          }
+        }
+        .product__rating{
+          margin-left: 3%;
+          margin-top: 2%;
+          display: flex;
+          align-items: center;
+          color: #474A51;
+          .rating__title{
+            height: 20px;
+            border-radius: 8px;
+            background: #f6ecbb;
+            font-weight: 400;
+            font-size: 14px;
+          }
+          .rating__value{
+            font-size: 17px;
+            margin-left: 3%;
+          }
+        }
+        .product__button{
+          display: block;
+          margin-top: 10%;
+          margin-left: auto;
+          margin-right: auto;
+          width: 50%;
+          height: 45px;
+          background: #15616D;
+          border-radius: 5px;
+          color: #FFFFFF;
+          font-size: 18px;
+          transition: .3s ease-in-out;
+        }
+        .product__button:hover{
+          cursor: pointer;
+          width: 55%;
+        }
       }
     }
   }

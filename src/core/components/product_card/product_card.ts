@@ -24,15 +24,18 @@ export const createProductCard: (product: Offer, container: HTMLElement, i?: num
 
   createElement('img', 'product__image');
   createElement('div', 'product__name');
+  //createElement('div', )
   createElement('div', 'product__price');
   createElement('div', 'product__delivery');
   createElement('div', 'product__rating');
+  createElement('button', 'product__button');
 
   const image = container.querySelector('.product__image') as HTMLImageElement;
   const name = container.querySelector('.product__name') as HTMLSpanElement;
   const price = container.querySelector('.product__price') as HTMLElement;
   const delivery = container.querySelector('.product__delivery') as HTMLElement;
   const rating = container.querySelector('.product__rating') as HTMLElement;
+  const button = container.querySelector('.product__button') as HTMLElement;
 
   image.src = product.image1;
   const nameTitle = document.createElement('h2');
@@ -44,7 +47,7 @@ export const createProductCard: (product: Offer, container: HTMLElement, i?: num
   priceTitle.innerText = 'Cena od:';
   const priceNum = document.createElement('h2');
   priceNum.className = 'price__value';
-  priceNum.innerText = product.price.toString();
+  priceNum.innerText = `${product.price.toString()} zł`;
 
   PricesArray.push(product.price);
   price.append(priceTitle, priceNum);
@@ -60,7 +63,7 @@ export const createProductCard: (product: Offer, container: HTMLElement, i?: num
       days: el.deliveryTime[0],
     };
     DeliveryDaysArray.push(arrObj);
-    deliveryNum.textContent = el.deliveryTime[0].toString();
+    deliveryNum.textContent = `${el.deliveryTime[0].toString()} dni`;
   });
 
   delivery.append(deliveryTitle, deliveryNum);
@@ -71,7 +74,7 @@ export const createProductCard: (product: Offer, container: HTMLElement, i?: num
   ratingTitle.textContent = 'Ocena bestsellerów:';
   const ratingNum = document.createElement('h2');
   ratingNum.className = 'rating__value';
-  ratingNum.textContent = product.rank.toString();
+  ratingNum.textContent = `${product.rank.toString()} ★`;
 
   const rankObj = {
     short: product.shortName,
@@ -82,8 +85,10 @@ export const createProductCard: (product: Offer, container: HTMLElement, i?: num
 
   rating.append(ratingTitle, ratingNum);
 
+  button.textContent = 'Wybierać';
 
-  image.addEventListener('click', () => {
+
+  button.addEventListener('click', () => {
     parametersObj(product.shortName);
     // saveParameters();
     page = new ProductPage('product-page');
@@ -121,7 +126,7 @@ export function updateProductCard(product: Offer) {
 
     const newPrice = document.createElement('h2');
     newPrice.className = 'price__value';
-    newPrice.textContent = Math.min(...PricesArray).toString();
+    newPrice.textContent = `${Math.min(...PricesArray).toString()} zł`;
     prevPrice?.append(newPrice);
 
 
@@ -136,7 +141,7 @@ export function updateProductCard(product: Offer) {
       }
     });
 
-    minDay.textContent = Math.min(...minArr).toString();
+    minDay.textContent = `${Math.min(...minArr).toString()} dni`;
     prevDelivery?.append(minDay);
 
     const newRankObj = {
@@ -156,7 +161,7 @@ export function updateProductCard(product: Offer) {
       }
     });
 
-    maxRank.textContent = Math.max(...maxRankArr).toString();
+    maxRank.textContent = `${Math.max(...maxRankArr).toString()} ★`;
     prevRating?.append(maxRank);
 
   }, 100);
