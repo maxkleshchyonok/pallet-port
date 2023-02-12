@@ -1,0 +1,620 @@
+openapi: 3.0.0
+servers:
+  # Added by API Auto Mocking Plugin
+  - description: SwaggerHub API Auto Mocking
+    url: https://virtserver.swaggerhub.com/FOTEEV_1/123/1.0.0
+info:
+  description: This is a simple API
+  version: "1.0.0"
+  title: Simple Inventory API
+  contact:
+    email: you@your-company.com
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+tags:
+  - name: admins
+    description: Secured Admin-only calls
+  - name: developers
+    description: Operations available to regular developers
+  - name: product
+    description: Operations about products
+  - name: productCategory
+    description: Operations about products Category
+paths:
+  /productCategory:
+    post:
+      tags:
+        - productCategory
+      summary: Add a new product Category to marketplace
+      operationId: addProductCategory
+      responses:
+        '405':
+          description: Invalid input
+      security:
+        - palletport_auth:
+          - 'write:product'
+          - 'read:product'
+      requestBody:
+        $ref: '#/components/requestBodies/ProductCategory'
+    put:
+      tags:
+        - productCategory
+      summary: Update an existing product Category
+      operationId: updateProductCategory
+      responses:
+        '400':
+          description: Invalid ID supplied
+        '404':
+          description: Product Category not found
+        '405':
+          description: Validation exception
+      security:
+        - palletport_auth:
+            - 'write:product'
+            - 'read:product'
+      requestBody:
+        $ref: '#/components/requestBodies/ProductCategory'
+  '/productCategory/{productCategoryId}':
+    get:
+      tags:
+        - productCategory
+      summary: Find product Category by ID
+      description: Returns a single product Category
+      operationId: getProductCategoryById
+      parameters:
+        - name: productCategoryId
+          in: path
+          description: ID of product Category to return
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductCategory'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ProductCategory'
+        '400':
+          description: Invalid ID supplied
+        '404':
+          description: Product Category not found
+      security:
+        - api_key: []
+    post:
+      tags:
+        - productCategory
+      summary: Updates a product Category in the store with form data
+      operationId: updateProductCategoryWithForm
+      parameters:
+        - name: productCategoryId
+          in: path
+          description: ID of product Category that needs to be updated
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '405':
+          description: Invalid input
+      security:
+        - palletport_auth:
+            - 'write:product'
+            - 'read:product'
+      requestBody:
+        $ref: '#/components/requestBodies/ProductCategory'
+    delete:
+      tags:
+        - productCategory
+      summary: Deletes a product Category
+      operationId: deleteProductCategory
+      parameters:
+        - name: api_key
+          in: header
+          required: false
+          schema:
+            type: string
+        - name: productCategoryId
+          in: path
+          description: Product Category id to delete
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '400':
+          description: Invalid ID supplied
+        '404':
+          description: Product Category not found
+      security:
+        - palletport_auth:
+            - 'write:product'
+            - 'read:product'
+  /product:
+    post:
+      tags:
+        - product
+      summary: Add a new product to marketplace
+      operationId: addProduct
+      responses:
+        '405':
+          description: Invalid input
+      security:
+        - palletport_auth:
+          - 'write:product'
+          - 'read:product'
+      requestBody:
+        $ref: '#/components/requestBodies/Product'
+    put:
+      tags:
+        - product
+      summary: Update an existing product
+      operationId: updateProduct
+      responses:
+        '400':
+          description: Invalid ID supplied
+        '404':
+          description: Product not found
+        '405':
+          description: Validation exception
+      security:
+        - palletport_auth:
+            - 'write:product'
+            - 'read:product'
+      requestBody:
+        $ref: '#/components/requestBodies/Product'
+  '/product/{productId}':
+    get:
+      tags:
+        - product
+      summary: Find product by ID
+      description: Returns a single product
+      operationId: getProductById
+      parameters:
+        - name: productId
+          in: path
+          description: ID of product to return
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Product'
+        '400':
+          description: Invalid ID supplied
+        '404':
+          description: Product not found
+      security:
+        - api_key: []
+    post:
+      tags:
+        - product
+      summary: Updates a product in the store with form data
+      operationId: updateProductWithForm
+      parameters:
+        - name: productId
+          in: path
+          description: ID of product that needs to be updated
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '405':
+          description: Invalid input
+      security:
+        - palletport_auth:
+            - 'write:product'
+            - 'read:product'
+      requestBody:
+        $ref: '#/components/requestBodies/Product'
+    delete:
+      tags:
+        - product
+      summary: Deletes a product
+      operationId: deleteProduct
+      parameters:
+        - name: api_key
+          in: header
+          required: false
+          schema:
+            type: string
+        - name: productId
+          in: path
+          description: Product id to delete
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '400':
+          description: Invalid ID supplied
+        '404':
+          description: Product not found
+      security:
+        - palletport_auth:
+            - 'write:product'
+            - 'read:product'
+components:
+  requestBodies:
+      ProductCategory:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductCategory'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ProductCategory'
+        description: ProductCategory object that needs to be added to the marketplace
+        required: true
+      Product:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Product'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/Product'
+        description: Product object that needs to be added to the marketplace
+        required: true
+  schemas:
+    ProductCategory:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+          example: Palety drewniane
+        description:
+          type: string
+          example: Palety drewniane bardzo dobre
+        image:
+          type: string
+          format: url
+          example: '/assets/img/product_categories/palety_drewinane.jpg'
+        shortName:
+          type: string
+          example: palety_drewniane
+    Product:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+          example: Paleta drewniana 1200*800
+        material:
+          $ref: '#/components/schemas/Material'
+        condition:
+          $ref: '#/components/schemas/Condition'
+        description:
+          type: string
+          example: Palety drewniane bardzo dobre
+        image1:
+          type: string
+          format: url
+          example: '/assets/img/product/paleta_drewinana_1200800_1.jpg'
+        image2:
+          type: string
+          format: url
+          example: '/assets/img/product/paleta_drewinana_1200800_2.jpg'
+        shortName:
+          type: string
+          example: paleta_drewniana
+        length:
+          type: integer
+          format: int64
+        width:
+          type: integer
+          format: int64
+        height:
+          type: integer
+          format: int64
+        maxLoad:
+          type: integer
+          format: int64
+        category:
+          $ref: '#/components/schemas/ProductCategory'
+    User:
+      type: object
+      required:
+        - email
+        - role
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+          example: Jan Kowalski
+        email:
+          type: string
+          format: email
+          example: jan@gmail.com
+          description: unique
+        phone:
+          type: string
+          example: +48123456789
+        rank:
+          type: number
+          format: double
+          example: 4.5
+        avatar:
+          type: string
+          format: url
+          example: '/assets/avatars/jan.jpg'
+        roles:
+          type: array
+          items:
+            $ref: '#/components/schemas/Role'
+        deliveryAddress:
+          $ref: '#/components/schemas/Address'
+        paymentAddress:
+          $ref: '#/components/schemas/Address'
+        companies:
+          type: array
+          items:
+            $ref: '#/components/schemas/Company'
+    Offer:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        product:
+          $ref: '#/components/schemas/Product'
+        seller:
+          $ref: '#/components/schemas/User'
+        company:
+          $ref: '#/components/schemas/Company'
+        price:
+          type: number
+          format: double
+          example: 25.2
+        quantity:
+          type: array
+          items:
+            type: integer
+            minimum: 1
+            maximum: 100000
+            minItems: 2
+            maxItems: 2
+        delivery:
+          type: array
+          items:
+            $ref: '#/components/schemas/Delivery'
+        image1:
+          type: string
+          format: url
+          example: '/assets/img/product/paleta_drewinana_1200800_1.jpg'
+        image2:
+          type: string
+          format: url
+          example: '/assets/img/product/paleta_drewinana_1200800_2.jpg'
+        description:
+          type: string
+          example: Moje palety najlepsze!
+        offerStatus:
+          $ref: '#/components/schemas/OfferStatus'
+        rating:
+          type: number
+          format: double
+        isTop:
+          type: boolean
+    Cart:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        user:
+          $ref: '#/components/schemas/User'
+        offers:
+          type: array
+          items:
+            $ref: '#/components/schemas/CartOffers'
+    Order:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        cart:
+          $ref: '#/components/schemas/Cart'
+        status:
+          $ref: '#/components/schemas/OrderStatus'
+        payment:
+          $ref: '#/components/schemas/PaymentType'
+        paymentStatus:
+          type: boolean
+          example: false
+    Company:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+          example: Roga i kopyta Sp. z o.o.
+        NIP:
+          type: string
+          minLength: 10
+          maxLength: 10
+          example: 1234567890
+        address:
+          $ref: '#/components/schemas/Address'
+        IBAN:
+          type: string
+          minLength: 26
+          maxLength: 26
+        paymentDate:
+          type: integer
+          format: int64
+          example: 30
+        VAT:
+          type: integer
+          format: int64
+          example: 23
+        email:
+          type: string
+          format: email
+          example: jan@gmail.com
+        phone:
+          type: string
+          example: +48123456789
+        workingHours:
+          type: array
+          items:
+            type: integer
+            minimum: 0
+            maximum: 24
+            minItems: 2
+            maxItems: 2
+    PaymentType:
+      type: string
+      enum:
+        - CASH
+        - INVOICE
+        - CARD
+    DeliveryType:
+      type: string
+      enum:
+        - SELFPICKUP
+        - BUS
+        - TRUCK
+        - COURIER
+    Delivery:
+      type: object
+      properties:
+        deliveryType:
+          $ref: '#/components/schemas/DeliveryType'
+        deliveryTime:
+          type: array
+          items:
+            type: integer
+            minimum: 0
+            maximum: 120
+            minItems: 2
+            maxItems: 2
+        deliveryPrice:
+          type: number
+          format: double
+          example: 255.6
+    OfferStatus:
+      type: string
+      enum:
+        - ACTIVE
+        - MODERATION
+        - CLOSED
+    OrderStatus:
+      type: string
+      enum:
+        - CREATED
+        - MODERATION
+        - PENDING
+        - ACCEPTED
+        - SENDED
+        - DELIVERED
+        - RETURNED
+        - CLOSED
+    Role:
+      type: string
+      enum:
+        - BUYER
+        - SELLER
+        - ADMIN
+        - SYSTEM
+        - LOGISTIC
+    Coordinates:
+      type: object
+      required:
+        - lat
+        - lon
+    Material:
+      type: string
+      enum:
+        - METAL
+        - PLASTIC
+        - WOOD
+        - CARDBOARD
+      properties:
+        lat:
+          type: number
+          minimum: -90
+          maximum: 90
+          format: double
+        lon:
+          type: number
+          minimum: -180
+          maximum: 180
+          format: double
+    Condition:
+      type: string
+      enum:
+        - NEW
+        - USED 1 CATEGORY
+        - USED 2 CATEGORY
+        - USED 3 CATEGORY
+        - BROKEN
+    Address:
+      type: object
+      required:
+        - city
+        - countryCode
+        - state
+        - zipCode
+      properties:
+        street:
+          type: string
+          maxLength: 80
+        city:
+          type: string
+          maxLength: 40
+        zipCode:
+          type: string
+          maxLength: 10
+        state:
+          type: string
+          maxLength: 40
+        countryCode:
+          type: string
+        coordinates:
+          $ref: '#/components/schemas/Coordinates'
+    CartOffers:
+      type: object
+      properties:
+        offer:
+          $ref: '#/components/schemas/Offer'
+        quantity:
+          type: integer
+          format: int64
+  securitySchemes:
+      palletport_auth:
+        type: oauth2
+        flows:
+          implicit:
+            authorizationUrl: 'http://palletport.io/oauth/dialog'
+            scopes:
+              'write:product': modify products
+              'read:product': read products
+      api_key:
+        type: apiKey
+        name: api_key
+        in: header
