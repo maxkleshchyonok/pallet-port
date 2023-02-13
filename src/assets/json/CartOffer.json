@@ -149,7 +149,12 @@
     "rating": 4,
     "isTop": true,
     "offerStatus": "Aktywna"
-  }
-  ,
+  },
+  "delivery": {
+    "deliveryType": "Dostawa ciężarówką",
+    "deliveryPrice": 255,
+    "deliveryTimeMin": 0,
+    "deliveryTimeMax": 3
+  },
   "quantity": 300
 }

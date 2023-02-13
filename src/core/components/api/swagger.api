@@ -1,14 +1,17 @@
 openapi: 3.0.0
 servers:
   # Added by API Auto Mocking Plugin
+  # Added by API Auto Mocking Plugin
   - description: SwaggerHub API Auto Mocking
+    url: https://virtserver.swaggerhub.com/FOTEEV_1/1234/1
+  - description: Palletport API Auto Mocking
     url: https://virtserver.swaggerhub.com/FOTEEV_1/123/1.0.0
 info:
-  description: This is a simple API
-  version: "1.0.0"
-  title: Simple Inventory API
+  description: Palletport API
+  version: '1'
+  title: Palletport API
   contact:
-    email: you@your-company.com
+    email: foteev@gmail.com
   license:
     name: Apache 2.0
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
@@ -21,8 +24,432 @@ tags:
     description: Operations about products
   - name: productCategory
     description: Operations about products Category
+  - name: user
+    description: User operations
+  - name: image
+    description: Images upload
+  - name: offer
+    description: Offers management
+  - name: order
+    description: Orders management
 paths:
-  /productCategory:
+  /offers:
+    post:
+      tags:
+        - offer
+      summary: "Create offer based on product"
+      description: >-
+        Use this resource to create offer based on product. Read more: <a href="../../tutorials/jak-jednym-requestem-wystawic-oferte-powiazana-z-produktem-D7Kj9gw4xFA#jak-wystawic-oferte-z-produktem-za-pomoca-zasobu-sale-product-offers" target="_blank">PL</a> / <a href="../../tutorials/list-offer-assigned-product-one-request-D7Kj9M71Bu6#how-to-list-an-offer-with-a-product-via-sale-product-offers-resource" target="_blank">EN</a>.
+        Note that requests may be limited.
+      operationId: createProductOffers
+      responses:
+        '201':
+          description: Offer created successfully.
+        '202':
+          description: The product-offer creation request has been accepted for processing, but the processing has not been completed.
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden - not allowed to access.
+        '422':
+          description: Unprocessable Entity
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Offer'
+        required: true
+  /offers/findByStatus:
+    get:
+      tags:
+        - offer
+      summary: Finds offer by status
+      description: Multiple status values can be provided with comma separated strings
+      operationId: findOffersByStatus
+      parameters:
+        - name: status
+          in: query
+          description: Status values that need to be considered for filter
+          required: true
+          explode: true
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/OfferStatus'
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Offer'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Offer'
+        '400':
+          description: Invalid status value
+  /offers/{offerId}:
+    post:
+      tags:
+        - offer
+      summary: Updates a offer in the store with form data
+      operationId: updateOffertWithForm
+      parameters:
+        - name: offerId
+          in: path
+          description: ID of offer that needs to be updated
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '405':
+          description: Invalid input
+      requestBody:
+        $ref: '#/components/requestBodies/Offer'
+    delete:
+      tags:
+        - offer
+      summary: 'Delete a draft offer'
+      description:
+        'Use this resource to delete a draft offer. Read more: <a href="../../news/nowy-zasob-do-usuwania-draftow-ofert-aMDnGka2RuL" target="_blank">PL</a> / <a href="../../news/new-resource-draft-delete-yPy9lq6myh0" target="_blank">EN</a>.'
+      operationId: deleteOfferUsingDELETE
+      parameters:
+        - name: offerId
+          in: path
+          description: Offer identifier.
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: No content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /users:
+    post:
+      tags:
+        - user
+      summary: Create user
+      description: This can only be done by the logged in user.
+      operationId: createUser
+      responses:
+        default:
+          description: successful operation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+        description: Created user object
+        required: true
+  /users/login:
+    post:
+      tags:
+        - user
+      summary: Logs user into the system
+      operationId: loginUser
+      parameters:
+        - name: userEmail
+          in: query
+          description: The user email for login
+          required: true
+          schema:
+            type: string
+            format: email
+        - name: password
+          in: query
+          description: The password for login in clear text
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+          headers:
+            X-Rate-Limit:
+              description: calls per hour allowed by the user
+              schema:
+                type: integer
+                format: int32
+            X-Expires-After:
+              description: date in UTC when token expires
+              schema:
+                type: string
+                format: date-time
+          content:
+            application/json:
+              schema:
+                type: string
+            application/xml:
+              schema:
+                type: string
+        '400':
+          description: Invalid userEmail/password supplied
+  /users/register:
+    post:
+      tags:
+        - user
+      summary: Register user into the system
+      operationId: registerUser
+      parameters:
+        - name: userEmail
+          in: query
+          description: The user email for register
+          required: true
+          schema:
+            type: string
+            format: email
+        - name: password
+          in: query
+          description: The password for register in clear text
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+          headers:
+            X-Rate-Limit:
+              description: calls per hour allowed by the user
+              schema:
+                type: integer
+                format: int32
+            X-Expires-After:
+              description: date in UTC when token expires
+              schema:
+                type: string
+                format: date-time
+          content:
+            application/json:
+              schema:
+                type: string
+            application/xml:
+              schema:
+                type: string
+        '400':
+          description: Invalid userEmail/password supplied
+  /users/logout:
+    post:
+      tags:
+        - user
+      summary: Logs out current logged in user session
+      operationId: logoutUser
+      responses:
+        default:
+          description: successful operation
+  '/users/{userEmail}':
+    get:
+      tags:
+        - user
+      summary: Get user by userEmail
+      operationId: getUserByUserEmail
+      parameters:
+        - name: userEmail
+          in: path
+          description: The userEmail that needs to be fetched. Use user1@gmail.com for testing.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/User'
+        '400':
+          description: Invalid username supplied
+        '404':
+          description: User not found
+    post:
+      tags:
+        - user
+      summary: Update user
+      description: This can only be done by the logged in user.
+      operationId: updateUser
+      parameters:
+        - name: userEmail
+          in: path
+          description: userEmail that need to be updated
+          required: true
+          schema:
+            type: string
+      responses:
+        '400':
+          description: Invalid user supplied
+        '404':
+          description: User not found
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+        description: Updated user object
+        required: true
+    delete:
+      tags:
+        - user
+      summary: Delete user
+      description: This can only be done by the logged in user.
+      operationId: deleteUser
+      parameters:
+        - name: userEmail
+          in: path
+          description: The userEmail that needs to be deleted
+          required: true
+          schema:
+            type: string
+      responses:
+        '400':
+          description: Invalid userEmail supplied
+        '404':
+          description: User not found
+  /orders:
+    post:
+      tags:
+        - order
+      summary: Place an order
+      operationId: placeOrder
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Order'
+        '400':
+          description: Invalid Order
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Order'
+        description: order placed for purchasing
+        required: true
+  '/orders/{orderId}':
+    get:
+      tags:
+        - order
+      summary: Find purchase order by ID
+      description: >-
+        For valid response try integer IDs with value >= 1 and <= 10.\ \ Other
+        values will generated exceptions
+      operationId: getOrderById
+      parameters:
+        - name: orderId
+          in: path
+          description: ID of order that needs to be fetched
+          required: true
+          schema:
+            type: integer
+            format: int64
+            minimum: 1
+            maximum: 10
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Order'
+        '400':
+          description: Invalid ID supplied
+        '404':
+          description: Order not found
+    post:
+      tags:
+        - order
+      summary: Updates a order in the store with form data
+      operationId: updateOrderWithForm
+      parameters:
+        - name: orderId
+          in: path
+          description: ID of order that needs to be updated
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '405':
+          description: Invalid input
+      requestBody:
+        $ref: '#/components/requestBodies/Order'
+    delete:
+      tags:
+        - order
+      summary: Delete purchase order by ID
+      description: >-
+        For valid response try integer IDs with positive integer value.\ \
+        Negative or non-integer values will generate API errors
+      operationId: deleteOrder
+      parameters:
+        - name: orderId
+          in: path
+          description: ID of the order that needs to be deleted
+          required: true
+          schema:
+            type: integer
+            format: int64
+            minimum: 1
+      responses:
+        '400':
+          description: Invalid ID supplied
+        '404':
+          description: Order not found
+  /orders/findByStatus:
+    get:
+      tags:
+        - order
+      summary: Finds order by status
+      description: Multiple status values can be provided with comma separated strings
+      operationId: findOrdersByStatus
+      parameters:
+        - name: status
+          in: query
+          description: Status values that need to be considered for filter
+          required: true
+          explode: true
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/OrderStatus'
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Order'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Order'
+        '400':
+          description: Invalid status value
+  /productCategories:
     post:
       tags:
         - productCategory
@@ -37,25 +464,7 @@ paths:
           - 'read:product'
       requestBody:
         $ref: '#/components/requestBodies/ProductCategory'
-    put:
-      tags:
-        - productCategory
-      summary: Update an existing product Category
-      operationId: updateProductCategory
-      responses:
-        '400':
-          description: Invalid ID supplied
-        '404':
-          description: Product Category not found
-        '405':
-          description: Validation exception
-      security:
-        - palletport_auth:
-            - 'write:product'
-            - 'read:product'
-      requestBody:
-        $ref: '#/components/requestBodies/ProductCategory'
-  '/productCategory/{productCategoryId}':
+  '/productCategories/{productCategoryId}':
     get:
       tags:
         - productCategory
@@ -135,7 +544,7 @@ paths:
         - palletport_auth:
             - 'write:product'
             - 'read:product'
-  /product:
+  /products:
     post:
       tags:
         - product
@@ -144,31 +553,9 @@ paths:
       responses:
         '405':
           description: Invalid input
-      security:
-        - palletport_auth:
-          - 'write:product'
-          - 'read:product'
       requestBody:
         $ref: '#/components/requestBodies/Product'
-    put:
-      tags:
-        - product
-      summary: Update an existing product
-      operationId: updateProduct
-      responses:
-        '400':
-          description: Invalid ID supplied
-        '404':
-          description: Product not found
-        '405':
-          description: Validation exception
-      security:
-        - palletport_auth:
-            - 'write:product'
-            - 'read:product'
-      requestBody:
-        $ref: '#/components/requestBodies/Product'
-  '/product/{productId}':
+  '/products/{productId}':
     get:
       tags:
         - product
@@ -197,8 +584,6 @@ paths:
           description: Invalid ID supplied
         '404':
           description: Product not found
-      security:
-        - api_key: []
     post:
       tags:
         - product
@@ -215,10 +600,6 @@ paths:
       responses:
         '405':
           description: Invalid input
-      security:
-        - palletport_auth:
-            - 'write:product'
-            - 'read:product'
       requestBody:
         $ref: '#/components/requestBodies/Product'
     delete:
@@ -248,6 +629,29 @@ paths:
         - palletport_auth:
             - 'write:product'
             - 'read:product'
+  /offers/{offerId}/uploadImage:
+    post:
+      tags:
+        - offer
+      summary: uploads an image
+      operationId: uploadFile
+      parameters:
+        - name: offerId
+          in: path
+          description: ID of offer to update
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: successful operation
+      requestBody:
+        content:
+          application/octet-stream:
+            schema:
+              type: string
+              format: binary
 components:
   requestBodies:
       ProductCategory:
@@ -270,6 +674,47 @@ components:
               $ref: '#/components/schemas/Product'
         description: Product object that needs to be added to the marketplace
         required: true
+      Offer:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Offer'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/Offer'
+        description: Offer object that needs to be added to the marketplace
+        required: true
+      Order:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Order'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/Order'
+        description: Order object that needs to be added to the marketplace
+        required: true
+      OfferImageUploadRequest:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OfferImageLinkUploadRequest'
+          image/jpeg:
+            schema:
+              type: string
+              format: binary
+              description: File in a binary format
+          image/png:
+            schema:
+              type: string
+              format: binary
+              description: File in a binary format
+          image/webp:
+            schema:
+              type: string
+              format: binary
+              description: File in a binary format
   schemas:
     ProductCategory:
       type: object
@@ -605,6 +1050,19 @@ components:
         quantity:
           type: integer
           format: int64
+        delivery:
+          $ref: '#/components/schemas/Delivery'
+    OfferImageLinkUploadRequest:
+      type: object
+      required:
+        - url
+      properties:
+        url:
+          type: string
+          description: >-
+            URL of the image.
+            It has to contain domain name, not an IP address.
+            Currently we support http and https protocols. When using https the certificate chain needs to be valid.
   securitySchemes:
       palletport_auth:
         type: oauth2

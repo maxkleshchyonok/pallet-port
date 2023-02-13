@@ -109,6 +109,8 @@ export interface CartOffers {
    * @type {number}
    * @memberof CartOffers
    */
+  delivery: Delivery;
+
   quantity: number;
 }
 /**
