@@ -1,0 +1,1078 @@
+openapi: 3.0.0
+servers:
+  # Added by API Auto Mocking Plugin
+  # Added by API Auto Mocking Plugin
+  - description: SwaggerHub API Auto Mocking
+    url: https://virtserver.swaggerhub.com/FOTEEV_1/1234/1
+  - description: Palletport API Auto Mocking
+    url: https://virtserver.swaggerhub.com/FOTEEV_1/123/1.0.0
+info:
+  description: Palletport API
+  version: '1'
+  title: Palletport API
+  contact:
+    email: foteev@gmail.com
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+tags:
+  - name: admins
+    description: Secured Admin-only calls
+  - name: developers
+    description: Operations available to regular developers
+  - name: product
+    description: Operations about products
+  - name: productCategory
+    description: Operations about products Category
+  - name: user
+    description: User operations
+  - name: image
+    description: Images upload
+  - name: offer
+    description: Offers management
+  - name: order
+    description: Orders management
+paths:
+  /offers:
+    post:
+      tags:
+        - offer
+      summary: "Create offer based on product"
+      description: >-
+        Use this resource to create offer based on product. Read more: <a href="../../tutorials/jak-jednym-requestem-wystawic-oferte-powiazana-z-produktem-D7Kj9gw4xFA#jak-wystawic-oferte-z-produktem-za-pomoca-zasobu-sale-product-offers" target="_blank">PL</a> / <a href="../../tutorials/list-offer-assigned-product-one-request-D7Kj9M71Bu6#how-to-list-an-offer-with-a-product-via-sale-product-offers-resource" target="_blank">EN</a>.
+        Note that requests may be limited.
+      operationId: createProductOffers
+      responses:
+        '201':
+          description: Offer created successfully.
+        '202':
+          description: The product-offer creation request has been accepted for processing, but the processing has not been completed.
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden - not allowed to access.
+        '422':
+          description: Unprocessable Entity
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Offer'
+        required: true
+  /offers/findByStatus:
+    get:
+      tags:
+        - offer
+      summary: Finds offer by status
+      description: Multiple status values can be provided with comma separated strings
+      operationId: findOffersByStatus
+      parameters:
+        - name: status
+          in: query
+          description: Status values that need to be considered for filter
+          required: true
+          explode: true
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/OfferStatus'
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Offer'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Offer'
+        '400':
+          description: Invalid status value
+  /offers/{offerId}:
+    post:
+      tags:
+        - offer
+      summary: Updates a offer in the store with form data
+      operationId: updateOffertWithForm
+      parameters:
+        - name: offerId
+          in: path
+          description: ID of offer that needs to be updated
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '405':
+          description: Invalid input
+      requestBody:
+        $ref: '#/components/requestBodies/Offer'
+    delete:
+      tags:
+        - offer
+      summary: 'Delete a draft offer'
+      description:
+        'Use this resource to delete a draft offer. Read more: <a href="../../news/nowy-zasob-do-usuwania-draftow-ofert-aMDnGka2RuL" target="_blank">PL</a> / <a href="../../news/new-resource-draft-delete-yPy9lq6myh0" target="_blank">EN</a>.'
+      operationId: deleteOfferUsingDELETE
+      parameters:
+        - name: offerId
+          in: path
+          description: Offer identifier.
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: No content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /users:
+    post:
+      tags:
+        - user
+      summary: Create user
+      description: This can only be done by the logged in user.
+      operationId: createUser
+      responses:
+        default:
+          description: successful operation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+        description: Created user object
+        required: true
+  /users/login:
+    post:
+      tags:
+        - user
+      summary: Logs user into the system
+      operationId: loginUser
+      parameters:
+        - name: userEmail
+          in: query
+          description: The user email for login
+          required: true
+          schema:
+            type: string
+            format: email
+        - name: password
+          in: query
+          description: The password for login in clear text
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+          headers:
+            X-Rate-Limit:
+              description: calls per hour allowed by the user
+              schema:
+                type: integer
+                format: int32
+            X-Expires-After:
+              description: date in UTC when token expires
+              schema:
+                type: string
+                format: date-time
+          content:
+            application/json:
+              schema:
+                type: string
+            application/xml:
+              schema:
+                type: string
+        '400':
+          description: Invalid userEmail/password supplied
+  /users/register:
+    post:
+      tags:
+        - user
+      summary: Register user into the system
+      operationId: registerUser
+      parameters:
+        - name: userEmail
+          in: query
+          description: The user email for register
+          required: true
+          schema:
+            type: string
+            format: email
+        - name: password
+          in: query
+          description: The password for register in clear text
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+          headers:
+            X-Rate-Limit:
+              description: calls per hour allowed by the user
+              schema:
+                type: integer
+                format: int32
+            X-Expires-After:
+              description: date in UTC when token expires
+              schema:
+                type: string
+                format: date-time
+          content:
+            application/json:
+              schema:
+                type: string
+            application/xml:
+              schema:
+                type: string
+        '400':
+          description: Invalid userEmail/password supplied
+  /users/logout:
+    post:
+      tags:
+        - user
+      summary: Logs out current logged in user session
+      operationId: logoutUser
+      responses:
+        default:
+          description: successful operation
+  '/users/{userEmail}':
+    get:
+      tags:
+        - user
+      summary: Get user by userEmail
+      operationId: getUserByUserEmail
+      parameters:
+        - name: userEmail
+          in: path
+          description: The userEmail that needs to be fetched. Use user1@gmail.com for testing.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/User'
+        '400':
+          description: Invalid username supplied
+        '404':
+          description: User not found
+    post:
+      tags:
+        - user
+      summary: Update user
+      description: This can only be done by the logged in user.
+      operationId: updateUser
+      parameters:
+        - name: userEmail
+          in: path
+          description: userEmail that need to be updated
+          required: true
+          schema:
+            type: string
+      responses:
+        '400':
+          description: Invalid user supplied
+        '404':
+          description: User not found
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+        description: Updated user object
+        required: true
+    delete:
+      tags:
+        - user
+      summary: Delete user
+      description: This can only be done by the logged in user.
+      operationId: deleteUser
+      parameters:
+        - name: userEmail
+          in: path
+          description: The userEmail that needs to be deleted
+          required: true
+          schema:
+            type: string
+      responses:
+        '400':
+          description: Invalid userEmail supplied
+        '404':
+          description: User not found
+  /orders:
+    post:
+      tags:
+        - order
+      summary: Place an order
+      operationId: placeOrder
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Order'
+        '400':
+          description: Invalid Order
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Order'
+        description: order placed for purchasing
+        required: true
+  '/orders/{orderId}':
+    get:
+      tags:
+        - order
+      summary: Find purchase order by ID
+      description: >-
+        For valid response try integer IDs with value >= 1 and <= 10.\ \ Other
+        values will generated exceptions
+      operationId: getOrderById
+      parameters:
+        - name: orderId
+          in: path
+          description: ID of order that needs to be fetched
+          required: true
+          schema:
+            type: integer
+            format: int64
+            minimum: 1
+            maximum: 10
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Order'
+        '400':
+          description: Invalid ID supplied
+        '404':
+          description: Order not found
+    post:
+      tags:
+        - order
+      summary: Updates a order in the store with form data
+      operationId: updateOrderWithForm
+      parameters:
+        - name: orderId
+          in: path
+          description: ID of order that needs to be updated
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '405':
+          description: Invalid input
+      requestBody:
+        $ref: '#/components/requestBodies/Order'
+    delete:
+      tags:
+        - order
+      summary: Delete purchase order by ID
+      description: >-
+        For valid response try integer IDs with positive integer value.\ \
+        Negative or non-integer values will generate API errors
+      operationId: deleteOrder
+      parameters:
+        - name: orderId
+          in: path
+          description: ID of the order that needs to be deleted
+          required: true
+          schema:
+            type: integer
+            format: int64
+            minimum: 1
+      responses:
+        '400':
+          description: Invalid ID supplied
+        '404':
+          description: Order not found
+  /orders/findByStatus:
+    get:
+      tags:
+        - order
+      summary: Finds order by status
+      description: Multiple status values can be provided with comma separated strings
+      operationId: findOrdersByStatus
+      parameters:
+        - name: status
+          in: query
+          description: Status values that need to be considered for filter
+          required: true
+          explode: true
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/OrderStatus'
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Order'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Order'
+        '400':
+          description: Invalid status value
+  /productCategories:
+    post:
+      tags:
+        - productCategory
+      summary: Add a new product Category to marketplace
+      operationId: addProductCategory
+      responses:
+        '405':
+          description: Invalid input
+      security:
+        - palletport_auth:
+          - 'write:product'
+          - 'read:product'
+      requestBody:
+        $ref: '#/components/requestBodies/ProductCategory'
+  '/productCategories/{productCategoryId}':
+    get:
+      tags:
+        - productCategory
+      summary: Find product Category by ID
+      description: Returns a single product Category
+      operationId: getProductCategoryById
+      parameters:
+        - name: productCategoryId
+          in: path
+          description: ID of product Category to return
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductCategory'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/ProductCategory'
+        '400':
+          description: Invalid ID supplied
+        '404':
+          description: Product Category not found
+      security:
+        - api_key: []
+    post:
+      tags:
+        - productCategory
+      summary: Updates a product Category in the store with form data
+      operationId: updateProductCategoryWithForm
+      parameters:
+        - name: productCategoryId
+          in: path
+          description: ID of product Category that needs to be updated
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '405':
+          description: Invalid input
+      security:
+        - palletport_auth:
+            - 'write:product'
+            - 'read:product'
+      requestBody:
+        $ref: '#/components/requestBodies/ProductCategory'
+    delete:
+      tags:
+        - productCategory
+      summary: Deletes a product Category
+      operationId: deleteProductCategory
+      parameters:
+        - name: api_key
+          in: header
+          required: false
+          schema:
+            type: string
+        - name: productCategoryId
+          in: path
+          description: Product Category id to delete
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '400':
+          description: Invalid ID supplied
+        '404':
+          description: Product Category not found
+      security:
+        - palletport_auth:
+            - 'write:product'
+            - 'read:product'
+  /products:
+    post:
+      tags:
+        - product
+      summary: Add a new product to marketplace
+      operationId: addProduct
+      responses:
+        '405':
+          description: Invalid input
+      requestBody:
+        $ref: '#/components/requestBodies/Product'
+  '/products/{productId}':
+    get:
+      tags:
+        - product
+      summary: Find product by ID
+      description: Returns a single product
+      operationId: getProductById
+      parameters:
+        - name: productId
+          in: path
+          description: ID of product to return
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Product'
+        '400':
+          description: Invalid ID supplied
+        '404':
+          description: Product not found
+    post:
+      tags:
+        - product
+      summary: Updates a product in the store with form data
+      operationId: updateProductWithForm
+      parameters:
+        - name: productId
+          in: path
+          description: ID of product that needs to be updated
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '405':
+          description: Invalid input
+      requestBody:
+        $ref: '#/components/requestBodies/Product'
+    delete:
+      tags:
+        - product
+      summary: Deletes a product
+      operationId: deleteProduct
+      parameters:
+        - name: api_key
+          in: header
+          required: false
+          schema:
+            type: string
+        - name: productId
+          in: path
+          description: Product id to delete
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '400':
+          description: Invalid ID supplied
+        '404':
+          description: Product not found
+      security:
+        - palletport_auth:
+            - 'write:product'
+            - 'read:product'
+  /offers/{offerId}/uploadImage:
+    post:
+      tags:
+        - offer
+      summary: uploads an image
+      operationId: uploadFile
+      parameters:
+        - name: offerId
+          in: path
+          description: ID of offer to update
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: successful operation
+      requestBody:
+        content:
+          application/octet-stream:
+            schema:
+              type: string
+              format: binary
+components:
+  requestBodies:
+      ProductCategory:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductCategory'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ProductCategory'
+        description: ProductCategory object that needs to be added to the marketplace
+        required: true
+      Product:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Product'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/Product'
+        description: Product object that needs to be added to the marketplace
+        required: true
+      Offer:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Offer'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/Offer'
+        description: Offer object that needs to be added to the marketplace
+        required: true
+      Order:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Order'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/Order'
+        description: Order object that needs to be added to the marketplace
+        required: true
+      OfferImageUploadRequest:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OfferImageLinkUploadRequest'
+          image/jpeg:
+            schema:
+              type: string
+              format: binary
+              description: File in a binary format
+          image/png:
+            schema:
+              type: string
+              format: binary
+              description: File in a binary format
+          image/webp:
+            schema:
+              type: string
+              format: binary
+              description: File in a binary format
+  schemas:
+    ProductCategory:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+          example: Palety drewniane
+        description:
+          type: string
+          example: Palety drewniane bardzo dobre
+        image:
+          type: string
+          format: url
+          example: '/assets/img/product_categories/palety_drewinane.jpg'
+        shortName:
+          type: string
+          example: palety_drewniane
+    Product:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+          example: Paleta drewniana 1200*800
+        material:
+          $ref: '#/components/schemas/Material'
+        condition:
+          $ref: '#/components/schemas/Condition'
+        description:
+          type: string
+          example: Palety drewniane bardzo dobre
+        image1:
+          type: string
+          format: url
+          example: '/assets/img/product/paleta_drewinana_1200800_1.jpg'
+        image2:
+          type: string
+          format: url
+          example: '/assets/img/product/paleta_drewinana_1200800_2.jpg'
+        shortName:
+          type: string
+          example: paleta_drewniana
+        length:
+          type: integer
+          format: int64
+        width:
+          type: integer
+          format: int64
+        height:
+          type: integer
+          format: int64
+        maxLoad:
+          type: integer
+          format: int64
+        category:
+          $ref: '#/components/schemas/ProductCategory'
+    User:
+      type: object
+      required:
+        - email
+        - role
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+          example: Jan Kowalski
+        email:
+          type: string
+          format: email
+          example: jan@gmail.com
+          description: unique
+        phone:
+          type: string
+          example: +48123456789
+        rank:
+          type: number
+          format: double
+          example: 4.5
+        avatar:
+          type: string
+          format: url
+          example: '/assets/avatars/jan.jpg'
+        roles:
+          type: array
+          items:
+            $ref: '#/components/schemas/Role'
+        deliveryAddress:
+          $ref: '#/components/schemas/Address'
+        paymentAddress:
+          $ref: '#/components/schemas/Address'
+        companies:
+          type: array
+          items:
+            $ref: '#/components/schemas/Company'
+    Offer:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        product:
+          $ref: '#/components/schemas/Product'
+        seller:
+          $ref: '#/components/schemas/User'
+        company:
+          $ref: '#/components/schemas/Company'
+        price:
+          type: number
+          format: double
+          example: 25.2
+        quantityMin:
+          type: integer
+          minimum: 1
+          maximum: 100000
+        quantityMax:
+          type: integer
+          minimum: 1
+          maximum: 100000
+        delivery:
+          type: array
+          items:
+            $ref: '#/components/schemas/Delivery'
+        image1:
+          type: string
+          format: url
+          example: '/assets/img/product/paleta_drewinana_1200800_1.jpg'
+        image2:
+          type: string
+          format: url
+          example: '/assets/img/product/paleta_drewinana_1200800_2.jpg'
+        description:
+          type: string
+          example: Moje palety najlepsze!
+        offerStatus:
+          $ref: '#/components/schemas/OfferStatus'
+        rating:
+          type: number
+          format: double
+        isTop:
+          type: boolean
+    Cart:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        user:
+          $ref: '#/components/schemas/User'
+        offers:
+          type: array
+          items:
+            $ref: '#/components/schemas/CartOffers'
+    Order:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        cart:
+          $ref: '#/components/schemas/Cart'
+        status:
+          $ref: '#/components/schemas/OrderStatus'
+        payment:
+          $ref: '#/components/schemas/PaymentType'
+        paymentStatus:
+          type: boolean
+          example: false
+    Company:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+          example: Roga i kopyta Sp. z o.o.
+        NIP:
+          type: string
+          minLength: 10
+          maxLength: 10
+          example: 1234567890
+        address:
+          $ref: '#/components/schemas/Address'
+        IBAN:
+          type: string
+          minLength: 26
+          maxLength: 26
+        paymentDate:
+          type: integer
+          format: int64
+          example: 30
+        VAT:
+          type: integer
+          format: int64
+          example: 23
+        email:
+          type: string
+          format: email
+          example: jan@gmail.com
+        phone:
+          type: string
+          example: +48123456789
+        workingHourMin:
+          type: integer
+          minimum: 0
+          maximum: 24
+        workingHourMax:
+          type: integer
+          minimum: 0
+          maximum: 24
+    PaymentType:
+      type: string
+      enum:
+        - CASH
+        - INVOICE
+        - CARD
+    DeliveryType:
+      type: string
+      enum:
+        - SELFPICKUP
+        - BUS
+        - TRUCK
+        - COURIER
+    Delivery:
+      type: object
+      properties:
+        deliveryType:
+          $ref: '#/components/schemas/DeliveryType'
+        deliveryTimeMin:
+          type: integer
+          minimum: 0
+          maximum: 366
+        deliveryTimeMax:
+          type: integer
+          minimum: 0
+          maximum: 366
+        deliveryPrice:
+          type: number
+          format: double
+          example: 255.6
+    OfferStatus:
+      type: string
+      enum:
+        - ACTIVE
+        - MODERATION
+        - CLOSED
+    OrderStatus:
+      type: string
+      enum:
+        - CREATED
+        - MODERATION
+        - PENDING
+        - ACCEPTED
+        - SENDED
+        - DELIVERED
+        - RETURNED
+        - CLOSED
+    Role:
+      type: string
+      enum:
+        - BUYER
+        - SELLER
+        - ADMIN
+        - SYSTEM
+        - LOGISTIC
+    Coordinates:
+      type: object
+      required:
+        - lat
+        - lon
+    Material:
+      type: string
+      enum:
+        - METAL
+        - PLASTIC
+        - WOOD
+        - CARDBOARD
+      properties:
+        lat:
+          type: number
+          minimum: -90
+          maximum: 90
+          format: double
+        lon:
+          type: number
+          minimum: -180
+          maximum: 180
+          format: double
+    Condition:
+      type: string
+      enum:
+        - NEW
+        - USED 1 CATEGORY
+        - USED 2 CATEGORY
+        - USED 3 CATEGORY
+        - BROKEN
+    Address:
+      type: object
+      required:
+        - city
+        - countryCode
+        - state
+        - zipCode
+      properties:
+        street:
+          type: string
+          maxLength: 80
+        city:
+          type: string
+          maxLength: 40
+        zipCode:
+          type: string
+          maxLength: 10
+        state:
+          type: string
+          maxLength: 40
+        countryCode:
+          type: string
+        coordinates:
+          $ref: '#/components/schemas/Coordinates'
+    CartOffers:
+      type: object
+      properties:
+        offer:
+          $ref: '#/components/schemas/Offer'
+        quantity:
+          type: integer
+          format: int64
+        delivery:
+          $ref: '#/components/schemas/Delivery'
+    OfferImageLinkUploadRequest:
+      type: object
+      required:
+        - url
+      properties:
+        url:
+          type: string
+          description: >-
+            URL of the image.
+            It has to contain domain name, not an IP address.
+            Currently we support http and https protocols. When using https the certificate chain needs to be valid.
+  securitySchemes:
+      palletport_auth:
+        type: oauth2
+        flows:
+          implicit:
+            authorizationUrl: 'http://palletport.io/oauth/dialog'
+            scopes:
+              'write:product': modify products
+              'read:product': read products
+      api_key:
+        type: apiKey
+        name: api_key
+        in: header

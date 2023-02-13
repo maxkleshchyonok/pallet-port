@@ -47,13 +47,12 @@
           "lon": 21.12
         }
       },
+      "IBAN": "PL12345678901234567890123456",
       "VAT": 23,
       "email": "jan@gmail.com",
       "phone": "48123456789",
-      "workingHours": [
-        10,
-        20
-      ]
+      "workingHourMin": 7,
+      "workingHourMax": 16
     },
     {
       "id": 2,
@@ -70,13 +69,12 @@
           "lon": 21.12
         }
       },
+      "IBAN": "PL12345678901234567890123456",
       "VAT": 23,
       "email": "jan@gmail.com",
       "phone": "48123456789",
-      "workingHours": [
-        10,
-        20
-      ]
+      "workingHourMin": 7,
+      "workingHourMax": 16
     }
   ]
 }

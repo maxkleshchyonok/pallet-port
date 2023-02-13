@@ -213,7 +213,7 @@ class ProductPage extends Page {
         priceValue.textContent = `${item.price} zł`;
         priceTest.textContent = '1000';
         quantityTitle.textContent = 'W magazynie:';
-        quantityNum.textContent = item.quantity.toString();
+        quantityNum.textContent = item.quantityMax.toString();
         deliveryTitle.textContent = 'Dostawa: ';
         deliveryImg.src = '../../../assets/img/elements/no-icon.png';
 

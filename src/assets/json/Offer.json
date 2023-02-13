@@ -70,13 +70,13 @@
             "lon": 21.12
           }
         },
+        "IBAN": "PL12345678901234567890123456",
+        "paymentDate": 30,
         "VAT": 23,
         "email": "jan@gmail.com",
         "phone": "48123456789",
-        "workingHours": [
-          10,
-          20
-        ]
+        "workingHourMin": 7,
+        "workingHourMax": 16
       },
       {
         "id": 2,
@@ -93,13 +93,13 @@
             "lon": 21.12
           }
         },
+        "IBAN": "PL12345678901234567890123456",
+        "paymentDate": 30,
         "VAT": 23,
         "email": "jan@gmail.com",
         "phone": "48123456789",
-        "workingHours": [
-          10,
-          20
-        ]
+  "workingHourMin": 7,
+  "workingHourMax": 16
       }
     ]
   },
@@ -118,6 +118,8 @@
         "lon": 21.12
       }
     },
+    "IBAN": "PL12345678901234567890123456",
+    "paymentDate": 30,
     "VAT": 23,
     "email": "jan@gmail.com",
     "phone": "48123456789",
@@ -127,26 +129,20 @@
     ]
   },
   "price": 25,
-  "quantity": [
-    1,
-    999
-  ],
+  "quantityMin": 1,
+  "quantityMax": 1000,
   "delivery": [
     {
       "deliveryType": "Dostawa busem",
       "deliveryPrice": 255,
-      "deliveryTime": [
-        0,
-        3
-      ]
+      "deliveryTimeMin": 0,
+      "deliveryTimeMax": 3
     },
     {
       "deliveryType": "Odbiór osobisty",
       "deliveryPrice": 0,
-      "deliveryTime": [
-        0,
-        0
-      ]
+      "deliveryTimeMin": 0,
+      "deliveryTimeMax": 3
     }
   ],
   "image1": "/assets/img/product/paleta_drewinana_1200800_1.jpg",

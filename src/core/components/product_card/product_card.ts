@@ -60,10 +60,10 @@ export const createProductCard: (product: Offer, container: HTMLElement, i?: num
   product.delivery.forEach((el) => {
     const arrObj = {
       short: product.shortName,
-      days: el.deliveryTime[0],
+      days: el.deliveryTimeMin,
     };
     DeliveryDaysArray.push(arrObj);
-    deliveryNum.textContent = `${el.deliveryTime[0].toString()} dni`;
+    deliveryNum.textContent = `${el.deliveryTimeMin.toString()} dni`;
   });
 
   delivery.append(deliveryTitle, deliveryNum);
@@ -118,7 +118,7 @@ export function updateProductCard(product: Offer) {
     product.delivery.forEach((el) => {
       const arrObj = {
         short: product.shortName,
-        days: el.deliveryTime[0],
+        days: el.deliveryTimeMin,
       };
       DeliveryDaysArray.push(arrObj);
     });

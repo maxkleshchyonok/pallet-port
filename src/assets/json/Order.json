@@ -54,10 +54,8 @@
           "VAT": 23,
           "email": "jan@gmail.com",
           "phone": "48123456789",
-          "workingHours": [
-            10,
-            20
-          ]
+          "workingHourMin": 7,
+          "workingHourMax": 16
         },
         {
           "id": 2,
@@ -77,329 +75,331 @@
           "VAT": 23,
           "email": "jan@gmail.com",
           "phone": "48123456789",
-          "workingHours": [
-            10,
-            20
-          ]
+          "workingHourMin": 7,
+          "workingHourMax": 16
         }
       ]
     },
-    "offers": [
+    "cartOffers": [
       {
-        "id": 1,
-        "product": {
-          "id": 24,
-          "name": "Paleta plastikowa ażurowa z rantem 1200x800x150",
-          "material": "Plastik",
-          "condition": "Nowe",
-          "description": "Plastikowa paleta z ażurowym blatem, posiada 3 płozy. Dzięki rantom zabezpieczającym pojemniki euronorm lub inne towary się nie zsuwają. Wykonana z wytrzymałego tworzywa sztucznego. Nadaje się do ciężkich ładunków, dynamiczne obciążenie wynosi 1750 kg, a statyczne 7500 kg. Nośność palety w regale również jest wysoka, wynosi 1250 kg. Paleta plastikowa waży 17 kg. ",
-          "image1": "https://cdn.webshopapp.com/shops/285555/files/423110607/600x600x2/paleta-plastikowa-azurowa-z-rantem-1200x800x150.jpg",
-          "image2": "https://cdn.webshopapp.com/shops/285555/files/423110607/600x600x2/paleta-plastikowa-azurowa-z-rantem-1200x800x150.jpg",
-          "shortName": "pallet_indus_1200x800x150_plastic_new_id24",
-          "length": 1200,
-          "width": 800,
-          "height": 150,
-          "maxLoad": 1750,
-          "category": {
-            "id": 3,
-            "name": "Palety przemysłowe",
-            "description": "Palety przemysłowe przy prawidłowej obsłudze palety z powodzeniem nadają się do wielorazowego użytku.",
-            "image": "https://cdn.webshopapp.com/shops/285555/files/310678731/600x600x2/lekka-paleta-jednorazowa-1200x800x120-mm-ippc.jpg",
-            "shortName": "pallets_industrial"
-          }
-        },
-        "seller": {
+        "offer": {
           "id": 1,
-          "name": "Jan Kowalski",
-          "email":  "jan@gmail.com",
-          "phone": "48123456789",
-          "rank": 4.5,
-          "avatar": "/assets/avatars/jan.jpg",
-          "roles": [
-            "SELLER",
-            "BUYER"
-          ],
-          "deliveryAddress": {
-            "street": "Centrum Kopernika 2/3",
-            "city": "Warszawa",
-            "zipCode": "05-090",
-            "state": "mazowieckie",
-            "countryCode": "PL",
-            "coordinates": {
-              "lat": 52.27,
-              "lon": 21.12
-            }
-          },
-          "paymentAddress": {
-            "street": "Centrum Kopernika 2/3",
-            "city": "Warszawa",
-            "zipCode": "05-090",
-            "state": "mazowieckie",
-            "countryCode": "PL",
-            "coordinates": {
-              "lat": 52.27,
-              "lon": 21.12
-            }
-          },
-          "companies": [
-            {
+          "product": {
+            "id": 1,
+            "name": "Paleta EURO drewniana 1200x800x144",
+            "material": "Drewno",
+            "condition": "Nowe",
+            "description": "Paleta ma stałe wymiary 1200x800x144 mm. Znana z wysokiej jakości wykonania. Europaleta gwarantuje niezawodność i wytrzymałość. Dzięki dynamicznej ładowności 1500 kilogramów paleta euro nadaje się do dużego obciążenia, ładowność statyczna wynosi przeszło 4000 kg. Ponieważ paleta euro ma wysoką ładowność może być używana na wiele sposobów. Paleta posiada 11 desek, 9 wsporników oraz 78 gwoździ według Regulaminu Technicznego EPAL. Palety są poddane obróbce termicznej wg standardu ISPM15 i KD. Certyfikat ISPM15 umożliwia transport palety poza terytorium Unii Europejskiej. Cztery wejścia i dwustronnie fazowane deski dolne umożliwiają skuteczną obsługę przy produkcji, magazynowaniu i transporcie w całym łańcuchu dostaw. Palety Euro są kompatybilne z powszechnie stosowanymi nośnikami ładunku, pojazdami przemysłowymi i systemami magazynowania.",
+            "image1": "https://cdn.webshopapp.com/shops/285555/files/310678658/600x600x2/nowa-paleta-euro-epal-1200x800x144-mm.jpg",
+            "image2": "https://cdn.webshopapp.com/shops/285555/files/310678658/600x600x2/nowa-paleta-euro-epal-1200x800x144-mm.jpg",
+            "shortName": "pallet_euro_1200x800x144_wood_new_id1",
+            "length": 1200,
+            "width": 800,
+            "height": 144,
+            "maxLoad": 1500,
+            "category": {
               "id": 1,
-              "name": "Roga i kopyta Sp. z o.o.",
-              "NIP": "1234567890",
-              "address": {
-                "street": "Centrum Kopernika 2/3",
-                "city": "Warszawa",
-                "zipCode": "05-090",
-                "state": "mazowieckie",
-                "countryCode": "PL",
-                "coordinates": {
-                  "lat": 52.27,
-                  "lon": 21.12
-                }
+              "name": "Palety EURO",
+              "description": "Paleta euro EPAL to najpopularniejsza paleta w Europie. Europaleta o wymiarach 1200x800x144 mm wykonana w pełni z wysokiej jakości drewna świerkowego.",
+              "image": "https://cdn.webshopapp.com/shops/285555/files/310678658/600x600x2/nowa-paleta-euro-epal-1200x800x144-mm.jpg",
+              "shortName": "pallets_euro"
+            }
+          },
+          "seller": {
+            "id": 1,
+            "name": "Jan Kowalski",
+            "email":  "jan@gmail.com",
+            "phone": "48123456789",
+            "rank": 4.5,
+            "avatar": "/assets/avatars/jan.jpg",
+            "roles": [
+              "SELLER",
+              "BUYER"
+            ],
+            "deliveryAddress": {
+              "street": "Centrum Kopernika 2/3",
+              "city": "Warszawa",
+              "zipCode": "05-090",
+              "state": "mazowieckie",
+              "countryCode": "PL",
+              "coordinates": {
+                "lat": 52.27,
+                "lon": 21.12
+              }
+            },
+            "paymentAddress": {
+              "street": "Centrum Kopernika 2/3",
+              "city": "Warszawa",
+              "zipCode": "05-090",
+              "state": "mazowieckie",
+              "countryCode": "PL",
+              "coordinates": {
+                "lat": 52.27,
+                "lon": 21.12
+              }
+            },
+            "companies": [
+              {
+                "id": 1,
+                "name": "Roga i kopyta Sp. z o.o.",
+                "NIP": "1234567890",
+                "address": {
+                  "street": "Centrum Kopernika 2/3",
+                  "city": "Warszawa",
+                  "zipCode": "05-090",
+                  "state": "mazowieckie",
+                  "countryCode": "PL",
+                  "coordinates": {
+                    "lat": 52.27,
+                    "lon": 21.12
+                  }
+                },
+                "IBAN": "PL12345678901234567890123456",
+                "paymentDate": 30,
+                "VAT": 23,
+                "email": "jan@gmail.com",
+                "phone": "48123456789",
+                "workingHourMin": 7,
+                "workingHourMax": 16
               },
-              "VAT": 23,
-              "email": "jan@gmail.com",
-              "phone": "48123456789",
-              "workingHours": [
-                10,
-                20
-              ]
+              {
+                "id": 2,
+                "name": "Roga i kopyta 2 Sp. z o.o.",
+                "NIP": "1234567890",
+                "address": {
+                  "street": "Centrum Kopernika 2/3",
+                  "city": "Warszawa",
+                  "zipCode": "05-090",
+                  "state": "mazowieckie",
+                  "countryCode": "PL",
+                  "coordinates": {
+                    "lat": 52.27,
+                    "lon": 21.12
+                  }
+                },
+                "IBAN": "PL12345678901234567890123456",
+                "paymentDate": 30,
+                "VAT": 23,
+                "email": "jan@gmail.com",
+                "phone": "48123456789",
+                "workingHourMin": 7,
+                "workingHourMax": 16
+              }
+            ]
+          },
+          "company": {
+            "id": 1,
+            "name": "Roga i kopyta Sp. z o.o.",
+            "NIP": "1234567890",
+            "address": {
+              "street": "Centrum Kopernika 2/3",
+              "city": "Warszawa",
+              "zipCode": "05-090",
+              "state": "mazowieckie",
+              "countryCode": "PL",
+              "coordinates": {
+                "lat": 52.27,
+                "lon": 21.12
+              }
+            },
+            "IBAN": "PL12345678901234567890123456",
+            "VAT": 23,
+            "email": "jan@gmail.com",
+            "phone": "48123456789",
+            "workingHourMin": 7,
+            "workingHourMax": 16
+          },
+          "price": 25,
+          "quantityMin": 1,
+          "quantityMax": 1000,
+          "delivery": [
+            {
+              "deliveryType": "Dostawa busem",
+              "deliveryPrice": 255,
+              "deliveryTimeMin": 0,
+              "deliveryTimeMax": 3
             },
             {
-              "id": 2,
-              "name": "Roga i kopyta 2 Sp. z o.o.",
-              "NIP": "1234567890",
-              "address": {
-                "street": "Centrum Kopernika 2/3",
-                "city": "Warszawa",
-                "zipCode": "05-090",
-                "state": "mazowieckie",
-                "countryCode": "PL",
-                "coordinates": {
-                  "lat": 52.27,
-                  "lon": 21.12
-                }
-              },
-              "VAT": 23,
-              "email": "jan@gmail.com",
-              "phone": "48123456789",
-              "workingHours": [
-                10,
-                20
-              ]
+              "deliveryType": "Odbiór osobisty",
+              "deliveryPrice": 0,
+              "deliveryTimeMin": 0,
+              "deliveryTimeMax": 3
             }
-          ]
+          ],
+          "image1": "/assets/img/product/paleta_drewinana_1200800_1.jpg",
+          "image2":  "/assets/img/product/paleta_drewinana_1200800_2.jpg",
+          "description": "Moje palety najlepsze!",
+          "rating": 4,
+          "isTop": true,
+          "offerStatus": "Aktywna"
         },
-        "company": {
-          "id": 1,
-          "name": "Roga i kopyta Sp. z o.o.",
-          "NIP": "1234567890",
-          "address": {
-            "street": "Centrum Kopernika 2/3",
-            "city": "Warszawa",
-            "zipCode": "05-090",
-            "state": "mazowieckie",
-            "countryCode": "PL",
-            "coordinates": {
-              "lat": 52.27,
-              "lon": 21.12
-            }
-          },
-          "VAT": 23,
-          "email": "jan@gmail.com",
-          "phone": "48123456789",
-          "workingHours": [
-            10,
-            20
-          ]
+        "delivery": {
+          "deliveryType": "Dostawa ciężarówką",
+          "deliveryPrice": 255,
+          "deliveryTimeMin": 0,
+          "deliveryTimeMax": 3
         },
-        "price": 25,
-        "quantity": [
-          1,
-          999
-        ],
-        "delivery": [
-          {
-            "deliveryType": "Dostawa busem",
-            "deliveryPrice": 255,
-            "deliveryTime": [
-              0,
-              3
-            ]
-          },
-          {
-            "deliveryType": "Odbiór osobisty",
-            "deliveryPrice": 0,
-            "deliveryTime": [
-              0,
-              0
-            ]
-          }
-        ],
-        "image1": "/assets/img/product/paleta_drewinana_1200800_1.jpg",
-        "image2":  "/assets/img/product/paleta_drewinana_1200800_2.jpg",
-        "description": "Moje palety najlepsze!",
-        "rating": 4,
-        "isTop": true,
-        "offerStatus": "Aktywna"
+        "quantity": 300
       },
       {
-        "id": 13,
-        "product": {
-          "id": 11,
-          "name": "Paleta europodobna drewniana ciężka 1200x800x144",
-          "material": "Drewno",
-          "condition": "Używane 3 gatunku",
-          "description": "Ciężka paleta drewniana o wymiarach 1200x800x144 mm. Paleta ta nadaje się do ciężkich ładunków ze względu na maksymalne obciążenie 1500 kilogramów. Paleta zawiera 5 górnych desek, 3 poprzeczki, 9 klocków i 3 dolne płozy. Wszystkie klocki mają długość, szerokość i wysokość 100 mm. Paleta jest wyposażona w 3 płozy i można do niej podejść z 4 stron za pomocą wózka paletowego lub wózka widłowego. To jest używany produkt, wszystkie używane produkty, które sprzedajemy są w 100% funkcjonalne! Jednak zdjęcie, które wyświetlamy na stronie internetowej, nie gwarantuje identycznego wyglądu całej partii, którą mamy w magazynie. Produkty używane, które sprzedajemy, mają widoczne ślady użytkowania. To, czy stan optyczny i techniczny jest dla Ciebie wystarczający, jest osobistą interpretacją. Jeśli chcesz się przekonać, że produkty te spełniają Twoje wymagania, poproś sprzedającego o więcej informacji. Składając zamówienie online, wyrażasz zgodę na stan używanych produktów.",
-          "image1": "https://static.abc.pl/y/x/yxhomuyvty2u2.jpg",
-          "image2": "https://static.abc.pl/y/x/yxhomuyvty2u2.jpg",
-          "shortName": "pallet_eurosim_1200x800x144_wood_used3_id11",
-          "length": 1200,
-          "width": 800,
-          "height": 144,
-          "maxLoad": 1500,
-          "category": {
-            "id": 2,
-            "name": "Palety europodobne",
-            "description": "Paleta europodobna o wymiarach 1200x800x144 mm wykonana w pełni z wysokiej jakości drewna świerkowego.",
-            "image": "https://ireland.apollo.olxcdn.com/v1/files/uyifteomp5g01-PL/image;s=800x600",
-            "shortName": "pallets_eurosim"
-          }
-        },
-        "seller": {
-          "id": 1,
-          "name": "Jan Kowalski",
-          "email":  "jan@gmail.com",
-          "phone": "48123456789",
-          "rank": 4.5,
-          "avatar": "/assets/avatars/jan.jpg",
-          "roles": [
-            "SELLER",
-            "BUYER"
-          ],
-          "deliveryAddress": {
-            "street": "Centrum Kopernika 2/3",
-            "city": "Warszawa",
-            "zipCode": "05-090",
-            "state": "mazowieckie",
-            "countryCode": "PL",
-            "coordinates": {
-              "lat": 52.27,
-              "lon": 21.12
-            }
-          },
-          "paymentAddress": {
-            "street": "Centrum Kopernika 2/3",
-            "city": "Warszawa",
-            "zipCode": "05-090",
-            "state": "mazowieckie",
-            "countryCode": "PL",
-            "coordinates": {
-              "lat": 52.27,
-              "lon": 21.12
-            }
-          },
-          "companies": [
-            {
+        "offer": {
+          "id": 2,
+          "product": {
+            "id": 1,
+            "name": "Paleta EURO drewniana 1200x800x144",
+            "material": "Drewno",
+            "condition": "Nowe",
+            "description": "Paleta ma stałe wymiary 1200x800x144 mm. Znana z wysokiej jakości wykonania. Europaleta gwarantuje niezawodność i wytrzymałość. Dzięki dynamicznej ładowności 1500 kilogramów paleta euro nadaje się do dużego obciążenia, ładowność statyczna wynosi przeszło 4000 kg. Ponieważ paleta euro ma wysoką ładowność może być używana na wiele sposobów. Paleta posiada 11 desek, 9 wsporników oraz 78 gwoździ według Regulaminu Technicznego EPAL. Palety są poddane obróbce termicznej wg standardu ISPM15 i KD. Certyfikat ISPM15 umożliwia transport palety poza terytorium Unii Europejskiej. Cztery wejścia i dwustronnie fazowane deski dolne umożliwiają skuteczną obsługę przy produkcji, magazynowaniu i transporcie w całym łańcuchu dostaw. Palety Euro są kompatybilne z powszechnie stosowanymi nośnikami ładunku, pojazdami przemysłowymi i systemami magazynowania.",
+            "image1": "https://cdn.webshopapp.com/shops/285555/files/310678658/600x600x2/nowa-paleta-euro-epal-1200x800x144-mm.jpg",
+            "image2": "https://cdn.webshopapp.com/shops/285555/files/310678658/600x600x2/nowa-paleta-euro-epal-1200x800x144-mm.jpg",
+            "shortName": "pallet_euro_1200x800x144_wood_new_id1",
+            "length": 1200,
+            "width": 800,
+            "height": 144,
+            "maxLoad": 1500,
+            "category": {
               "id": 1,
-              "name": "Roga i kopyta Sp. z o.o.",
-              "NIP": "1234567890",
-              "address": {
-                "street": "Centrum Kopernika 2/3",
-                "city": "Warszawa",
-                "zipCode": "05-090",
-                "state": "mazowieckie",
-                "countryCode": "PL",
-                "coordinates": {
-                  "lat": 52.27,
-                  "lon": 21.12
-                }
+              "name": "Palety EURO",
+              "description": "Paleta euro EPAL to najpopularniejsza paleta w Europie. Europaleta o wymiarach 1200x800x144 mm wykonana w pełni z wysokiej jakości drewna świerkowego.",
+              "image": "https://cdn.webshopapp.com/shops/285555/files/310678658/600x600x2/nowa-paleta-euro-epal-1200x800x144-mm.jpg",
+              "shortName": "pallets_euro"
+            }
+          },
+          "seller": {
+            "id": 1,
+            "name": "Jan Kowalski",
+            "email":  "jan@gmail.com",
+            "phone": "48123456789",
+            "rank": 4.5,
+            "avatar": "/assets/avatars/jan.jpg",
+            "roles": [
+              "SELLER",
+              "BUYER"
+            ],
+            "deliveryAddress": {
+              "street": "Centrum Kopernika 2/3",
+              "city": "Warszawa",
+              "zipCode": "05-090",
+              "state": "mazowieckie",
+              "countryCode": "PL",
+              "coordinates": {
+                "lat": 52.27,
+                "lon": 21.12
+              }
+            },
+            "paymentAddress": {
+              "street": "Centrum Kopernika 2/3",
+              "city": "Warszawa",
+              "zipCode": "05-090",
+              "state": "mazowieckie",
+              "countryCode": "PL",
+              "coordinates": {
+                "lat": 52.27,
+                "lon": 21.12
+              }
+            },
+            "companies": [
+              {
+                "id": 1,
+                "name": "Roga i kopyta Sp. z o.o.",
+                "NIP": "1234567890",
+                "address": {
+                  "street": "Centrum Kopernika 2/3",
+                  "city": "Warszawa",
+                  "zipCode": "05-090",
+                  "state": "mazowieckie",
+                  "countryCode": "PL",
+                  "coordinates": {
+                    "lat": 52.27,
+                    "lon": 21.12
+                  }
+                },
+                "IBAN": "PL12345678901234567890123456",
+                "paymentDate": 30,
+                "VAT": 23,
+                "email": "jan@gmail.com",
+                "phone": "48123456789",
+                "workingHourMin": 7,
+                "workingHourMax": 16
               },
-              "VAT": 23,
-              "email": "jan@gmail.com",
-              "phone": "48123456789",
-              "workingHours": [
-                10,
-                20
-              ]
+              {
+                "id": 2,
+                "name": "Roga i kopyta 2 Sp. z o.o.",
+                "NIP": "1234567890",
+                "address": {
+                  "street": "Centrum Kopernika 2/3",
+                  "city": "Warszawa",
+                  "zipCode": "05-090",
+                  "state": "mazowieckie",
+                  "countryCode": "PL",
+                  "coordinates": {
+                    "lat": 52.27,
+                    "lon": 21.12
+                  }
+                },
+                "IBAN": "PL12345678901234567890123456",
+                "paymentDate": 30,
+                "VAT": 23,
+                "email": "jan@gmail.com",
+                "phone": "48123456789",
+                "workingHourMin": 7,
+                "workingHourMax": 16
+              }
+            ]
+          },
+          "company": {
+            "id": 1,
+            "name": "Roga i kopyta Sp. z o.o.",
+            "NIP": "1234567890",
+            "address": {
+              "street": "Centrum Kopernika 2/3",
+              "city": "Warszawa",
+              "zipCode": "05-090",
+              "state": "mazowieckie",
+              "countryCode": "PL",
+              "coordinates": {
+                "lat": 52.27,
+                "lon": 21.12
+              }
+            },
+            "IBAN": "PL12345678901234567890123456",
+            "VAT": 23,
+            "email": "jan@gmail.com",
+            "phone": "48123456789",
+            "workingHourMin": 7,
+            "workingHourMax": 16
+          },
+          "price": 30,
+          "quantityMin": 1,
+          "quantityMax": 1000,
+          "delivery": [
+            {
+              "deliveryType": "Dostawa busem",
+              "deliveryPrice": 255,
+              "deliveryTimeMin": 0,
+              "deliveryTimeMax": 3
             },
             {
-              "id": 2,
-              "name": "Roga i kopyta 2 Sp. z o.o.",
-              "NIP": "1234567890",
-              "address": {
-                "street": "Centrum Kopernika 2/3",
-                "city": "Warszawa",
-                "zipCode": "05-090",
-                "state": "mazowieckie",
-                "countryCode": "PL",
-                "coordinates": {
-                  "lat": 52.27,
-                  "lon": 21.12
-                }
-              },
-              "VAT": 23,
-              "email": "jan@gmail.com",
-              "phone": "48123456789",
-              "workingHours": [
-                10,
-                20
-              ]
+              "deliveryType": "Odbiór osobisty",
+              "deliveryPrice": 0,
+              "deliveryTimeMin": 0,
+              "deliveryTimeMax": 3
             }
-          ]
+          ],
+          "image1": "/assets/img/product/paleta_drewinana_1200800_1.jpg",
+          "image2":  "/assets/img/product/paleta_drewinana_1200800_2.jpg",
+          "description": "Moje palety najlepsze!",
+          "rating": 4,
+          "isTop": true,
+          "offerStatus": "Aktywna"
         },
-        "company": {
-          "id": 1,
-          "name": "Roga i kopyta Sp. z o.o.",
-          "NIP": "1234567890",
-          "address": {
-            "street": "Centrum Kopernika 2/3",
-            "city": "Warszawa",
-            "zipCode": "05-090",
-            "state": "mazowieckie",
-            "countryCode": "PL",
-            "coordinates": {
-              "lat": 52.27,
-              "lon": 21.12
-            }
-          },
-          "VAT": 23,
-          "email": "jan@gmail.com",
-          "phone": "48123456789",
-          "workingHours": [
-            10,
-            20
-          ]
+        "delivery": {
+          "deliveryType": "Dostawa busem",
+          "deliveryPrice": 255,
+          "deliveryTimeMin": 0,
+          "deliveryTimeMax": 3
         },
-        "price": 25,
-        "quantity": [
-          1,
-          999
-        ],
-        "delivery": [
-          {
-            "deliveryType": "Dostawa busem",
-            "deliveryPrice": 255,
-            "deliveryTime": [
-              0,
-              3
-            ]
-          },
-          {
-            "deliveryType": "Odbiór osobisty",
-            "deliveryPrice": 0,
-            "deliveryTime": [
-              0,
-              0
-            ]
-          }
-        ],
-        "image1": "/assets/img/product/paleta_drewinana_1200800_1.jpg",
-        "image2":  "/assets/img/product/paleta_drewinana_1200800_2.jpg",
-        "description": "Moje palety najlepsze!",
-        "rating": 4,
-        "isTop": true,
-        "offerStatus": "Aktywna"
+        "quantity": 200
       }
     ]
   },

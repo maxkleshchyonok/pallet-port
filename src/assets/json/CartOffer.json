@@ -71,13 +71,13 @@
               "lon": 21.12
             }
           },
+          "IBAN": "PL12345678901234567890123456",
+          "paymentDate": 30,
           "VAT": 23,
           "email": "jan@gmail.com",
           "phone": "48123456789",
-          "workingHours": [
-            10,
-            20
-          ]
+          "workingHourMin": 7,
+          "workingHourMax": 16
         },
         {
           "id": 2,
@@ -94,37 +94,53 @@
               "lon": 21.12
             }
           },
+          "IBAN": "PL12345678901234567890123456",
+          "paymentDate": 30,
           "VAT": 23,
           "email": "jan@gmail.com",
           "phone": "48123456789",
-          "workingHours": [
-            10,
-            20
-          ]
+          "workingHourMin": 7,
+          "workingHourMax": 16
         }
       ]
     },
+    "company": {
+      "id": 1,
+      "name": "Roga i kopyta Sp. z o.o.",
+      "NIP": "1234567890",
+      "address": {
+        "street": "Centrum Kopernika 2/3",
+        "city": "Warszawa",
+        "zipCode": "05-090",
+        "state": "mazowieckie",
+        "countryCode": "PL",
+        "coordinates": {
+          "lat": 52.27,
+          "lon": 21.12
+        }
+      },
+      "IBAN": "PL12345678901234567890123456",
+      "VAT": 23,
+      "email": "jan@gmail.com",
+      "phone": "48123456789",
+      "workingHourMin": 7,
+      "workingHourMax": 16
+    },
     "price": 25,
-    "quantity": [
-      1,
-      999
-    ],
+    "quantityMin": 1,
+    "quantityMax": 1000,
     "delivery": [
       {
         "deliveryType": "Dostawa busem",
         "deliveryPrice": 255,
-        "deliveryTime": [
-          0,
-          3
-        ]
+        "deliveryTimeMin": 0,
+        "deliveryTimeMax": 3
       },
       {
         "deliveryType": "Odbiór osobisty",
         "deliveryPrice": 0,
-        "deliveryTime": [
-          0,
-          0
-        ]
+        "deliveryTimeMin": 0,
+        "deliveryTimeMax": 3
       }
     ],
     "image1": "/assets/img/product/paleta_drewinana_1200800_1.jpg",
@@ -133,7 +149,12 @@
     "rating": 4,
     "isTop": true,
     "offerStatus": "Aktywna"
-  }
-  ,
+  },
+  "delivery": {
+    "deliveryType": "Dostawa ciężarówką",
+    "deliveryPrice": 255,
+    "deliveryTimeMin": 0,
+    "deliveryTimeMax": 3
+  },
   "quantity": 300
 }
