@@ -264,6 +264,7 @@ class ProductPage extends Page {
     const deliveryBlock = document.createElement('div');
     const deliveryTitle = document.createElement('h1');
     const deliveryMenu = document.createElement('fieldset');
+    const addToCart = document.createElement('button');
 
     container.className = 'order__container';
     title.className = 'order__title';
@@ -281,6 +282,7 @@ class ProductPage extends Page {
     deliveryBlock.className = 'details__delivery';
     deliveryTitle.className = 'delivery__title';
     deliveryMenu.className = 'delivery__menu';
+    addToCart.className = 'delivery__button';
 
 
     title.textContent = 'Szczegóły oferty';
@@ -307,18 +309,21 @@ class ProductPage extends Page {
     item.delivery.forEach((el) => {
       const label = document.createElement('label');
       const input = document.createElement('input');
+      const br = document.createElement('br');
       label.className = 'delivery__label';
       input.className = 'delivery__input';
       input.type = 'radio';
+      input.name = 'delivery';
       label.textContent = el.deliveryType;
-      deliveryMenu.append(input, label);
+      deliveryMenu.append(input, label, br);
     });
 
+    addToCart.textContent = 'Dodaj do koszyka';
 
     sellerBlock.append(avatar, name, phone);
     quantityBlock.append(quantityTitle, quantityInput);
     deliveryBlock.append(deliveryTitle, deliveryMenu);
-    productDetails.append(productImg, productName, quantityBlock, deliveryBlock);
+    productDetails.append(productImg, productName, quantityBlock, deliveryBlock, addToCart);
     infoBlock.append(sellerBlock, productDetails);
     container.append(title, infoBlock);
     this.orderBlock.append(container);
