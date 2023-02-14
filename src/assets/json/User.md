@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 **id** | **Number** |  | [optional] 
 **name** | **String** |  | [optional] 
 **email** | **String** | unique | 
+**password** | **String**
 **phone** | **String** |  | [optional] 
 **rank** | **Number** |  | [optional] 
 **avatar** | **String** |  | [optional] 
