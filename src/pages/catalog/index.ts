@@ -55,6 +55,7 @@ class CatalogPage extends Page {
     // this.sortFilter(arr);
     // arr = this.searchFilter(arr);
 
+    //const shortsArray: CatalogItem[] = [];
     const shortsArray: string[] = [];
 
     for (let j = 0; j < arr.length; j += 1) {
@@ -79,6 +80,34 @@ class CatalogPage extends Page {
         arr[j].seller.rank,
       );
 
+      // const obj = {
+      //   short: productData.shortName,
+      //   condition: productData.condition,
+      // };
+      // shortsArray.push(obj);
+      // const card = document.createElement('div');
+      // card.id = productData.shortName;
+      // card.classList.add('product__card');
+      // createProductCard(product, card, j);
+      //
+      // if (shortsArray.length === 0) {
+      //   shortsArray.push(obj);
+      //   catalogSection.append(card);
+      //   console.log(shortsArray);
+      // } else {
+      //   shortsArray.forEach((el) => {
+      //     if (productData.shortName !== el.short && productData.condition !== el.condition) {
+      //       shortsArray.push(obj);
+      //       catalogSection.append(card);
+      //       console.log(shortsArray);
+      //     } else {
+      //       updateProductCard(product);
+      //     }
+      //   });
+      // }
+
+
+
       if (!shortsArray.includes(productData.shortName)) {
         shortsArray.push(productData.shortName);
         const card = document.createElement('div');
@@ -90,6 +119,8 @@ class CatalogPage extends Page {
         //const card = document.getElementById(`${productData.shortName}`);
         updateProductCard(product);
       }
+
+
     }
   }
 

@@ -1,48 +1,5 @@
-// import Component from '../../templates/components';
-// import { PageIds } from '../../../pages/app';
-//
-// const Buttons = [
-//   {
-//     id: PageIds.Main_page,
-//     text: 'Main Page',
-//   },
-//   {
-//     id: PageIds.Catalog_page,
-//     text: 'Catalog Page',
-//   },
-//   {
-//     id: PageIds.Cart_page,
-//     text: 'Cart Page',
-//   },
-//   {
-//     id: PageIds.Account_page,
-//     text: 'Account Page',
-//   },
-// ];
-//
-// class Header extends Component {
-//
-//   renderPageButtons() {
-//     const pageButtons = document.createElement('div');
-//     Buttons.forEach((button) => {
-//       const buttonHTML = document.createElement('a');
-//       buttonHTML.href = `#${button.id}`;
-//       buttonHTML.innerText = button.text;
-//       pageButtons.append(buttonHTML);
-//     });
-//     this.container.append(pageButtons);
-//   }
-//
-//   render() {
-//     this.renderPageButtons();
-//     return this.container;
-//   }
-// }
-//
-// export default Header;
-
-
 import Component from '../../templates/components';
+import AuthModal from '../auth-modal';
 
 
 const Buttons = [
@@ -105,7 +62,11 @@ class Header extends Component {
       infoItemA.href = '#';
       infoItemA.innerText = item.text;
       if (item.id === 'account-page') {
-        infoItemA.href = `#${item.id}`;
+        //infoItemA.href = `#${item.id}`;
+        infoItemA.addEventListener('click', () => {
+          const popUp = new AuthModal('div', 'modal');
+          this.container.append(popUp.render());
+        });
       }
       infoItem.append(infoItemImg, infoItemA);
       containerInfo.append(infoItem);
