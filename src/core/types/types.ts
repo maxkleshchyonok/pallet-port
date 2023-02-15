@@ -557,6 +557,9 @@ export interface User {
    * @type {string}
    * @memberof User
    */
+
+  password: string;
+
   phone?: string;
   /**
    *

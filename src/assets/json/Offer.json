@@ -25,6 +25,7 @@
     "id": 1,
     "name": "Jan Kowalski",
     "email":  "jan@gmail.com",
+    "password": "32456788987542312",
     "phone": "48123456789",
     "rank": 4.5,
     "avatar": "/assets/avatars/jan.jpg",

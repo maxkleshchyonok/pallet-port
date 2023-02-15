@@ -137,11 +137,30 @@ paths:
         '404':
           description: Not Found
   /users:
+    get:
+      tags:
+        - user
+      summary: Get all Users
+      operationId: getUsers
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
     post:
       tags:
         - user
       summary: Create user
-      description: This can only be done by the logged in user.
+      description: This can only be done by the logged in Admin.
       operationId: createUser
       responses:
         default:
@@ -458,10 +477,6 @@ paths:
       responses:
         '405':
           description: Invalid input
-      security:
-        - palletport_auth:
-          - 'write:product'
-          - 'read:product'
       requestBody:
         $ref: '#/components/requestBodies/ProductCategory'
   '/productCategories/{productCategoryId}':
@@ -523,11 +538,6 @@ paths:
       summary: Deletes a product Category
       operationId: deleteProductCategory
       parameters:
-        - name: api_key
-          in: header
-          required: false
-          schema:
-            type: string
         - name: productCategoryId
           in: path
           description: Product Category id to delete
@@ -608,11 +618,6 @@ paths:
       summary: Deletes a product
       operationId: deleteProduct
       parameters:
-        - name: api_key
-          in: header
-          required: false
-          schema:
-            type: string
         - name: productId
           in: path
           description: Product id to delete
@@ -793,6 +798,9 @@ components:
           format: email
           example: jan@gmail.com
           description: unique
+        password:
+          type: string
+          format: password
         phone:
           type: string
           example: +48123456789
