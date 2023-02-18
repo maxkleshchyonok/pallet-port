@@ -98,6 +98,7 @@ export default class Filters extends Component {
         'min': 0,
         'max': sliderMax,
       },
+      step: 1,
     });
 
     inputs.forEach((input, handle) => {
@@ -150,6 +151,12 @@ export default class Filters extends Component {
     const loadBlock = document.createElement('form') as HTMLFormElement;
     const loadLegend = document.createElement('legend');
     this.createSliderBlock(loadBlock, loadLegend, 'load', 'Udźwig', 5000);
+  }
+
+  private quantityFilters() {
+    const quantityBlock = document.createElement('form') as HTMLFormElement;
+    const quantityLegend = document.createElement('legend');
+    this.createSliderBlock(quantityBlock, quantityLegend, 'quantity', 'Iłość', 10000);
   }
 
 
@@ -359,7 +366,8 @@ export default class Filters extends Component {
     this.lengthFilters();
     this.createEnumCheckboxes(Material, this.container, 'material', 'Material');
     this.createEnumCheckboxes(Condition, this.container, 'condition', 'Stan');
-    this.stockFilter();
+    // this.stockFilter();
+    this.quantityFilters();
     this.categoriesFilter();
     this.categoryChange();
     this.priceFilters();

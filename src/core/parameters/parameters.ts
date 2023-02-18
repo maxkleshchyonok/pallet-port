@@ -143,8 +143,9 @@ export const parametersObj = (productArg?: string) => {
     short = parameters.getAll('short').join().split(',');
     price = setSlider('price');
     condition = parameters.getAll('condition').join().split(',') as Condition[];
-    const quantityStr = parameters.getAll('quantity').join('').split('-');
-    quantity = [parseInt(quantityStr[0]), parseInt(quantityStr[1])];
+    // const quantityStr = parameters.getAll('quantity').join('').split('-');
+    // quantity = [parseInt(quantityStr[0]), parseInt(quantityStr[1])];
+    quantity = setSlider('quantity');
     material = parameters.getAll('material').join().split(',') as Material[];
     width = setSlider('width');
     length = setSlider('length');
