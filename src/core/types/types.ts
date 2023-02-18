@@ -24,6 +24,11 @@ export type Rating = {
   rank: number,
 };
 
+export type CatalogItem = {
+  short: string,
+  condition: string,
+};
+
 /**
  *
  * @export
