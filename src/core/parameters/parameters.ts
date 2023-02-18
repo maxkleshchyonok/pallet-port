@@ -1,7 +1,7 @@
 import { SortEnum } from '../types/types';
 // import offerJSON from '../../assets/json/Offer.json';
 import offersArrJSON from '../../assets/json/_OffersArray.json' ;
-import { Condition, DeliveryType, Material, IOffer, PaymentType } from '../types/types';
+import { Condition, DeliveryType, Material, IOffer, PaymentType, EnumVAT } from '../types/types';
 
 const offersArr: Array<IOffer> = Array.from(offersArrJSON);
 const categorySet: Set<string> = new Set(offersArr.map(offer => offer.product.category.shortName));
@@ -64,7 +64,7 @@ export const INITIAL_STATE = {
   deliveryType: [DeliveryType.SELFPICKUP, DeliveryType.BUS, DeliveryType.TRUCK, DeliveryType.COURIER],
   days: [0, 100],
   state: states,
-  VAT: [0, 23],
+  VAT: [EnumVAT.ZERO, EnumVAT.FULL],
   payment: [PaymentType.CARD, PaymentType.CASH, PaymentType.INVOICE],
 };
 
@@ -156,10 +156,12 @@ export const parametersObj = (productArg?: string) => {
     deliveryType = parameters.getAll('deliveryType').join().split(',') as DeliveryType[];
     days = setSlider('days');
     state = parameters.getAll('state').join().split(',');
-    const VATStr = parameters.getAll('VAT').join().split(',');
-    if (VATStr.length < 2) {
-      VAT = [parseInt(VATStr[0]), parseInt(VATStr[0])];
-    } else VAT = [parseInt(VATStr[0]), parseInt(VATStr[1])];
+    VAT = parameters.getAll('VAT').join().split(',') as [];
+    // const VATStr = parameters.getAll('VAT').join().split(',');
+    // if (VATStr.length < 2) {
+    //   VAT = [parseInt(VATStr[0]), parseInt(VATStr[0])];
+    // } else VAT = [parseInt(VATStr[0]), parseInt(VATStr[1])];
+    console.log(VAT);
     payment = parameters.getAll('payment').join().split(',') as PaymentType[];
 
   } else if (productArg === 'clear') {
@@ -202,20 +204,21 @@ export const parametersObj = (productArg?: string) => {
     parameters.set('VAT', VAT.join(','));
     parameters.set('payment', payment.join(','));
 
-    // window.location.hash = 'catalog-page';
+    window.location.hash = 'catalog-page';
 
-  } else if (INITIAL_STATE.short.includes(productArg)) {
-    saveParametersBeforeProductPage();
-    const productOffers: Array<IOffer> = offersArr
-      .filter(offer => offer.product.shortName === productArg);
-    console.log(productOffers);
+    // } else if (INITIAL_STATE.short.includes(productArg)) {
+    //   saveParametersBeforeProductPage();
+    //   const productOffers: Array<IOffer> = offersArr
+    //     .filter(offer => offer.product.shortName === productArg);
+    //   console.log(productOffers);
 
-    const priceSort = productOffers.sort((a, b) => a.price - b.price);
-    const product = productOffers[0].product;
+    //   const priceSort = productOffers.sort((a, b) => a.price - b.price);
+    //   const product = productOffers[0].product;
 
-    parameters.set('category', product.category.shortName);
-    parameters.set('short', product.shortName);
-    parameters.set('price', `${priceSort[0].price.toString()}-${priceSort[priceSort.length - 1].price.toString()}`);
+    //   parameters.set('category', product.category.shortName);
+    //   parameters.set('short', product.shortName);
+    //   parameters.set('price',
+    // `${priceSort[0].price.toString()}-${priceSort[priceSort.length - 1].price.toString()}`);
     // parameters.set('condition', product.condition);
     // parameters.set('quantity', quantity.join('-'));
     // parameters.set('material', material.join(','));
@@ -232,8 +235,8 @@ export const parametersObj = (productArg?: string) => {
     // parameters.set('VAT', VAT.join(','));
     // parameters.set('payment', payment.join(','));
 
-    category = [productOffers[0].product.category.shortName];
-    short = parameters.getAll('short').join().split(',');
+    // category = [productOffers[0].product.category.shortName];
+    // short = parameters.getAll('short').join().split(',');
     // price = setSlider('price');
     // condition = parameters.getAll('condition').join().split(', ') as Condition[];
     // const quantityStr = parameters.getAll('quantity').join('').split('-');
@@ -275,7 +278,7 @@ export const parametersObj = (productArg?: string) => {
     // sort = INITIAL_STATE.sort;
     // short = [product[0].short];
 
-    loadParametersAfterPP();
+    // loadParametersAfterPP();
 
     // saveParameters();
     // loadParameters();

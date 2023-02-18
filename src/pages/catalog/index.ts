@@ -6,7 +6,7 @@ import Offer from '../../core/components/offer/offer';
 //import productsJSON from '../../assets/json/products.json';
 import offersJSON from '../../assets/json/_OffersArray.json';
 import './index.scss';
-//import Filters from '../../core/components/filters/filters';
+import Filters from '../../core/components/filters/filters';
 import { SortEnum } from '../../core/types/types';
 import Footer from '../../core/components/footer';
 
@@ -17,7 +17,7 @@ const PaletRange = ['Wszystkie', 'Europalety', 'Jednorazowe', 'Nowe', 'Używane'
   'Wyprzedaż', 'Półpalety', 'Plastikowe'];
 
 class CatalogPage extends Page {
-  //private filters: Filters;
+  private filters: Filters;
 
   private footer: Footer;
 
@@ -27,7 +27,7 @@ class CatalogPage extends Page {
 
   constructor(id: string) {
     super(id);
-    //this.filters = new Filters('section', 'filters');
+    this.filters = new Filters('section', 'filters');
     this.footer = new Footer('footer', 'footer-container');
     parameters.delete('name');
   }
@@ -383,11 +383,11 @@ class CatalogPage extends Page {
     catalogWrapper?.append(this.renderCatalogTop());
 
     this.createElementHTML('section', 'filters__section', this.container as HTMLElement);
-    //const filtersSection = this.container.querySelector('.filters__section') as HTMLElement;
+    const filtersSection = this.container.querySelector('.filters__section') as HTMLElement;
     this.createElementHTML('section', 'catalog__section', catalogWrapper as HTMLElement);
     const catalogSection = this.container.querySelector('.catalog__section') as HTMLElement;
 
-    //filtersSection.append(this.filters.render());
+    filtersSection.append(this.filters.render());
 
     setTimeout(() => this.drawProductsCards(catalogSection), 2000);
 

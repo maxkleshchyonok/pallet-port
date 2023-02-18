@@ -11,8 +11,62 @@ export enum Condition {
   USED1 = 'Używane 1 gatunku',
   USED2 = 'Używane 2 gatunku',
   USED3 = 'Używane 3 gatunku',
-  BROKEN = 'BROKEN',
+  BROKEN = 'Uszkodzone',
 }
+
+export enum DeliveryType {
+  SELFPICKUP = 'Odbiór osobisty',
+  BUS = 'Dostawa busem',
+  TRUCK = 'Dostawa ciężarówką (TIR)',
+  COURIER = 'Dostawa kurierska',
+}
+
+export enum OfferStatus {
+  ACTIVE = 'Aktywne',
+  MODERATION = 'Na moderacji',
+  CLOSED = 'Zakończone',
+}
+
+export enum OrderStatus {
+  CREATED = 'Utworzone',
+  MODERATION = 'Moderacja',
+  PENDING = 'Oczekujące',
+  ACCEPTED = 'Przyjęte',
+  SENDED = 'Wyslane',
+  DELIVERED = 'Dostarczone',
+  RETURNED = 'Zwrócone',
+  CLOSED = 'Zamknięte',
+}
+
+export enum PaymentType {
+  CASH = 'Gotówka',
+  INVOICE = 'Na fakturę',
+  CARD = 'Płatność kartą',
+}
+
+export enum Role {
+  BUYER = 'Kupujący',
+  SELLER = 'Sprzedający',
+  ADMIN = 'ADMIN',
+  SYSTEM = 'SYSTEM',
+  LOGISTIC = 'Kurier',
+}
+
+export enum Material {
+  WOOD = 'Drewno',
+  PLASTIC = 'Plastik',
+  METAL = 'Metal',
+  CARDBOARD = 'Tektura',
+}
+
+export enum EnumVAT {
+  ZERO = '0',
+  FULL = '23',
+}
+
+export type Enums = typeof Condition | typeof Material | typeof DeliveryType | typeof PaymentType | typeof EnumVAT;
+
+export type EnumLowerCase = 'condition' | 'material' | 'deliveryType' | 'payment' | 'VAT';
 
 export type DeliveryDays = {
   short: string,
@@ -230,12 +284,7 @@ export interface Delivery {
 * @export
 * @enum {string}
 */
-export enum DeliveryType {
-  SELFPICKUP = 'SELFPICKUP',
-  BUS = 'BUS',
-  TRUCK = 'TRUCK',
-  COURIER = 'COURIER',
-}
+
 /**
 *
 * @export
@@ -326,11 +375,7 @@ export interface IOffer {
 * @export
 * @enum {string}
 */
-export enum OfferStatus {
-  ACTIVE = 'ACTIVE',
-  MODERATION = 'MODERATION',
-  CLOSED = 'CLOSED',
-}
+
 /**
 *
 * @export
@@ -373,26 +418,7 @@ export interface Order {
 * @export
 * @enum {string}
 */
-export enum OrderStatus {
-  CREATED = 'Utworzone',
-  MODERATION = 'Moderacja',
-  PENDING = 'Oczekujące',
-  ACCEPTED = 'Przyjęte',
-  SENDED = 'Wyslane',
-  DELIVERED = 'Dostarczone',
-  RETURNED = 'Zwrócone',
-  CLOSED = 'Zamknięte',
-}
-/**
-*
-* @export
-* @enum {string}
-*/
-export enum PaymentType {
-  CASH = 'Gotówka',
-  INVOICE = 'Na fakturę',
-  CARD = 'Płatność kartą',
-}
+
 /**
 *
 * @export
@@ -512,20 +538,6 @@ export interface IProductCategory {
 * @export
 * @enum {string}
 */
-export enum Role {
-  BUYER = 'Kupujący',
-  SELLER = 'Sprzedający',
-  ADMIN = 'ADMIN',
-  SYSTEM = 'SYSTEM',
-  LOGISTIC = 'Kurier',
-}
-
-export enum Material {
-  WOOD = 'Drewno',
-  PLASTIC = 'Plastik',
-  METAL = 'Metal',
-  CARDBOARD = 'Tektura',
-}
 
 // export type Material = 'WOOD' | 'PLASTIC' | 'METAL' | 'CARDBOARD';
 /**
@@ -533,7 +545,7 @@ export enum Material {
 * @export
 * @interface User
 */
-type PartUser = Partial<User>;
+// type PartUser = Partial<User>;
 
 export interface User {
   /**
