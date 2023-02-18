@@ -528,6 +528,8 @@ export enum Material {
 * @export
 * @interface User
 */
+type PartUser = Partial<User>;
+
 export interface User {
   /**
    *
