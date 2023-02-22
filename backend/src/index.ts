@@ -1,7 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import productRouter from './routers/product-router.js';
-import productCategoryRouter from './routers/productCategory-router.js';
+import productCategoryRouter from './routers/product-сategory-router.js';
 
 const DB_LOGIN = 'palletenjoer';
 const DB_PASSWORD = 87654321;

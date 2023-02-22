@@ -1,4 +1,4 @@
-import productCategoryService from '../services/productCategory-service.js';
+import productCategoryService from '../services/product-сategory-service.js';
 
 class ProductCategoryController {
     async createProductCategory(request: any, response: any) {
