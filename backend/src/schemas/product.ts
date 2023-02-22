@@ -2,8 +2,12 @@ import mongoose from 'mongoose';
 
 const Product = new mongoose.Schema({
     name: { type: String },
-    material: { type: String },
-    condition: { type: String },
+    material: { type: String,
+                enum: [ 'METAL', 'PLASTIC', 'WOOD', 'CARDBOARD' ]
+    },
+    condition: { type: String,
+                 enum: [ 'NEW', 'USED 1 CATEGORY', 'USED 2 CATEGORY', 'USED 3 CATEGORY', 'BROKEN']
+    },
     description: { type: String },
     image1: { type: String },
     image2: { type: String },
