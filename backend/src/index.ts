@@ -1,7 +1,10 @@
 import express from 'express';
 import mongoose from 'mongoose';
+import offerRouter from './routers/offer-router.js';
+import orderRouter from './routers/order-router.js';
 import productRouter from './routers/product-router.js';
 import productCategoryRouter from './routers/product-сategory-router.js';
+import userRouter from './routers/user-router.js';
 
 const DB_LOGIN = 'palletenjoer';
 const DB_PASSWORD = 87654321;
@@ -15,6 +18,9 @@ app.use(express.json());
 
 app.use('/api', productCategoryRouter);
 app.use('/api', productRouter);
+app.use('/api', offerRouter);
+app.use('/api', orderRouter);
+app.use('/api', userRouter);
 
 const startServer = async () => {
     try {
