@@ -11,6 +11,7 @@ import { loadParameters, parametersObj } from '../../core/parameters/parameters'
 import offersJSON from '../../assets/json/_OffersArray.json';
 //import Product from '../../core/components/product/product';
 import ErrorPage from '../error';
+import AccountPage from '../account';
 
 const products = offersJSON;
 const productsId: string[] = [];
@@ -23,6 +24,7 @@ export const PageIds: { [props: string]: string | string[] } = {
   CatalogPageId:'catalog-page',
   CartPageId: 'cart-page',
   ErrorPage: 'error-page',
+  AccountPageId: 'account-page',
   ProductPageId: productsId,
 };
 
@@ -58,6 +60,8 @@ class App {
       page = new CatalogPage(idPage);
     } else if (idPage === PageIds.CartPageId) {
       page = new CartPage(idPage);
+    } else if (idPage === PageIds.AccountPageId) {
+      page = new AccountPage(idPage);
     } else if (PageIds.ProductPageId.includes(idPage)) {
       const id = Number(idPage.replace(/[\D]+/g, ''));
       const product = products.find((el) => el.id === id);

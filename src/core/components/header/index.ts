@@ -1,5 +1,5 @@
 import Component from '../../templates/components';
-import AuthModal from '../auth-modal';
+//import AuthModal from '../auth-modal';
 
 
 const Buttons = [
@@ -62,11 +62,11 @@ class Header extends Component {
       infoItemA.href = '#';
       infoItemA.innerText = item.text;
       if (item.id === 'account-page') {
-        //infoItemA.href = `#${item.id}`;
-        infoItemA.addEventListener('click', () => {
-          const popUp = new AuthModal('div', 'modal');
-          this.container.append(popUp.render());
-        });
+        // infoItemA.addEventListener('click', () => {
+        //   const popUp = new AuthModal('div', 'modal');
+        //   this.container.append(popUp.render());
+        // });
+        infoItemA.href = `#${Buttons[3].id}`;
       }
       infoItem.append(infoItemImg, infoItemA);
       containerInfo.append(infoItem);
