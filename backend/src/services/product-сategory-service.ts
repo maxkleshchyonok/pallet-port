@@ -8,8 +8,8 @@ class ProductCategoryService {
     };
 
     async get(id: string) {
-        const newProductCategory = await ProductCategory.findById(id);
-        return newProductCategory;
+        const productCategory = await ProductCategory.findById(id);
+        return productCategory;
     };
 
     async update(id: string, productCategory: any) {
