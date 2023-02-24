@@ -33,7 +33,17 @@ class AccountPage extends Page {
         const input = document.createElement('input');
         input.className = className;
         input.placeholder = placeholder;
-        parent.append(input);
+        if (className === 'wysylka__checkBox') {
+          const div = document.createElement('div');
+          div.className = 'checkbox__block';
+          const label = document.createElement('label');
+          input.type = 'checkbox';
+          label.textContent = 'Taki sam jak powyższy ';
+          div.append(input, label);
+          parent.append(div);
+        } else {
+          parent.append(input);
+        }
       }
 
       const daneBlock = document.createElement('div');
@@ -60,12 +70,14 @@ class AccountPage extends Page {
       createInputElement('address__dom', 'Dom (1)', address);
       createInputElement('address__apt', 'Mieszkanie (2)', address);
       createInputElement('address__zip', 'Kod (02-000)', address);
+      createInputElement('wysylka__checkBox', 'Taki sam jak powyższy ', addressWys);
       createInputElement('wysylka__country', 'Kraj (PL)', addressWys);
       createInputElement('wysylka__region', 'Województwo (mazowieckie)', addressWys);
       createInputElement('wysylka__street', 'Ulica (Centralna)', addressWys);
       createInputElement('wysylka__dom', 'Dom (1)', addressWys);
       createInputElement('wysylka__apt', 'Mieszkanie (2)', addressWys);
       createInputElement('wysylka__zip', 'Kod (02-000)', addressWys);
+
 
       daneTitle.textContent = 'Dane konta';
       addressTitle.textContent = 'Adres';
@@ -75,6 +87,66 @@ class AccountPage extends Page {
       address.append(addressTitle);
       addressWys.append(addressWysTitle);
       main.append(daneBlock, address, addressWys);
+
+    }
+
+    function renderUserBlock() {
+      const avatarBlock = document.createElement('div');
+      const avatar = document.createElement('img');
+      const editAvatar = document.createElement('img');
+      const roles = document.createElement('div');
+      const rolesTitle = document.createElement('h3');
+      const ratingBlock = document.createElement('div');
+      const ratingTitle = document.createElement('h3');
+      const ratingNumber = document.createElement('h1');
+      const saveButton = document.createElement('button');
+
+      avatarBlock.className = 'user__avatar';
+      avatar.className = 'avatar__image';
+      editAvatar.className = 'avatar__edit';
+      roles.className = 'user__roles';
+      rolesTitle.className = 'roles__title';
+      ratingBlock.className = 'user__rating';
+      ratingTitle.className = 'rating__title';
+      ratingNumber.className = 'rating__number';
+      saveButton.className = 'user__saveButton';
+
+      avatar.src = '../../assets/img/elements/account-user.svg';
+      editAvatar.src = '../../assets/img/elements/edit-avatar.svg';
+      rolesTitle.textContent = 'Moje role';
+      ratingTitle.textContent = 'Moja ocena';
+      ratingNumber.textContent = '5';
+
+      saveButton.textContent = 'Zapisz';
+
+      roles.append(rolesTitle);
+
+      for (let i = 0; i < 3; i += 1) {
+        const div = document.createElement('div');
+        const input = document.createElement('input');
+        const label = document.createElement('label');
+        div.className = 'roles__checkbox';
+        input.className = 'checkbox__input';
+        label.className = 'checkbox__label';
+        input.type = 'checkbox';
+        switch (i) {
+          case 0:
+            label.textContent = 'Kupujący';
+            break;
+          case 1:
+            label.textContent = 'Sprzedający';
+            break;
+          case 2:
+            label.textContent = 'Kurier';
+            break;
+        }
+        div.append(input, label);
+        roles.append(div);
+      }
+
+      avatarBlock.append(avatar, editAvatar);
+      ratingBlock.append(ratingTitle, ratingNumber);
+      user.append(avatarBlock, roles, ratingBlock, saveButton);
 
     }
 
@@ -124,6 +196,7 @@ class AccountPage extends Page {
         });
         listItem.classList.add('active');
         renderMainDane();
+        renderUserBlock();
       });
 
       itemsList.append(listItem);
