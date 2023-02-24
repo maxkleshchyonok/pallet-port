@@ -219,6 +219,7 @@ class MainPage extends Page {
 
     const headDescr = document.createElement('h2');
     const headButton = document.createElement('button');
+    const headButton2 = document.createElement('button');
 
     mainBody.className = 'main-body';
     mainBodyHead.className = 'body-head';
@@ -226,6 +227,7 @@ class MainPage extends Page {
     headTitle.className = 'body-title';
     headDescr.className = 'body-description';
     headButton.className = 'body-button';
+    headButton2.className = 'body-button2';
 
     // headTitle.innerText = 'Zamów palety latwiej\n (szybciej, taniej) niż kiedyś';
 
@@ -233,11 +235,15 @@ class MainPage extends Page {
       ' logistycznych kierunków\n możesz się nie martwić o niewystarczających\n ilości palet u obecnego dostawcy.' +
       ' Dopasujemy\n zamówienie zgodnie ze twoimi potrzebami na czas.';
     headButton.innerText = 'SPROBUJĘ!';
+    headButton2.innerText = 'Nie, wybiorę sam';
     headImg.src = '../../assets/img/elements/main-pallet.png';
 
-    mainBodyHead.append(headDescr, headButton);
+    mainBodyHead.append(headDescr, headButton, headButton2);
     mainBody.append(headImg, mainBodyHead);
     this.container.append(mainBody);
+
+    headButton.addEventListener('click', () => window.location.href = '#blackbox-page');
+    headButton2.addEventListener('click', () => window.location.href = '#catalog-page');
   }
 
   private renderPaletMenu(): void {
@@ -271,6 +277,8 @@ class MainPage extends Page {
     });
     this.container.append(palety);
   }
+
+
 
   render() {
     this.renderCatalog();

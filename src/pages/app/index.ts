@@ -12,6 +12,7 @@ import offersJSON from '../../assets/json/_OffersArray.json';
 //import Product from '../../core/components/product/product';
 import ErrorPage from '../error';
 import AccountPage from '../account';
+import BlackBoxPage from '../blackbox';
 
 const products = offersJSON;
 const productsId: string[] = [];
@@ -26,6 +27,7 @@ export const PageIds: { [props: string]: string | string[] } = {
   ErrorPage: 'error-page',
   AccountPageId: 'account-page',
   ProductPageId: productsId,
+  BlackBoxPageId: 'blackbox-page',
 };
 
 class App {
@@ -62,6 +64,8 @@ class App {
       page = new CartPage(idPage);
     } else if (idPage === PageIds.AccountPageId) {
       page = new AccountPage(idPage);
+    } else if (idPage === PageIds.BlackBoxPageId) {
+      page = new BlackBoxPage(idPage);
     } else if (PageIds.ProductPageId.includes(idPage)) {
       const id = Number(idPage.replace(/[\D]+/g, ''));
       const product = products.find((el) => el.id === id);
