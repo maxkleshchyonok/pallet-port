@@ -13,7 +13,6 @@ class OrderController {
     async getOrder(request: any, response: any) {
         try {
             const order = await orderService.get(request.params.id);
-            console.log(request.query.status, '00');
             response.json(order);
         } catch (error) {
             console.error('Get one error');
