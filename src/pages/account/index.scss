@@ -61,6 +61,7 @@
     }
   }
   .content__main{
+    padding-top: 3%;
     width: 55%;
     min-height: 400px;
     div{
@@ -82,9 +83,12 @@
         border-bottom: 1px solid #dcdbdb;
         cursor: pointer;
       }
+      ::-webkit-input-placeholder{
+        color: #bebdbd;
+      }
       h2{
         grid-area: title;
-        margin-top: 5%;
+        margin-top: 5%
       }
       .checkbox__block{
         display: flex;
@@ -98,8 +102,41 @@
           margin-left: -9%;
           width: 90%;
           font-size: 13px;
-          color: #757575;
+          color: #bebdbd;
         }
+      }
+    }
+    .wysylka{
+      margin-top: -5%;
+    }
+    .firma{
+      width: 95%;
+      input{
+        margin-right: 5%;
+        width: 95%;
+        margin-top: 5%;
+      }
+      .firma__hours{
+        margin-top: 5%;
+        .hours__title{
+          color: #757575;
+          font-size: 14px;
+          font-weight: 300;
+        }
+        select{
+          margin-left: -15%;
+          width: 80%;
+          color: #757575;
+          outline: none;
+          border-bottom: 1px solid #dcdbdb;
+        }
+      }
+    }
+    .address{
+      margin-top: -5%;
+      input{
+        margin-top: 5%;
+        width: 95%;
       }
     }
   }

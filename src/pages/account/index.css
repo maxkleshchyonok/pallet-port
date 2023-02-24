@@ -62,6 +62,7 @@
   transition: 0.5s ease-in-out;
 }
 .account__content .content__main {
+  padding-top: 3%;
   width: 55%;
   min-height: 400px;
 }
@@ -83,6 +84,9 @@
   border-bottom: 1px solid #dcdbdb;
   cursor: pointer;
 }
+.account__content .content__main div ::-webkit-input-placeholder {
+  color: #bebdbd;
+}
 .account__content .content__main div h2 {
   grid-area: title;
   margin-top: 5%;
@@ -99,7 +103,40 @@
   margin-left: -9%;
   width: 90%;
   font-size: 13px;
+  color: #bebdbd;
+}
+.account__content .content__main .wysylka {
+  margin-top: -5%;
+}
+.account__content .content__main .firma {
+  width: 95%;
+}
+.account__content .content__main .firma input {
+  margin-right: 5%;
+  width: 95%;
+  margin-top: 5%;
+}
+.account__content .content__main .firma .firma__hours {
+  margin-top: 5%;
+}
+.account__content .content__main .firma .firma__hours .hours__title {
   color: #757575;
+  font-size: 14px;
+  font-weight: 300;
+}
+.account__content .content__main .firma .firma__hours select {
+  margin-left: -15%;
+  width: 80%;
+  color: #757575;
+  outline: none;
+  border-bottom: 1px solid #dcdbdb;
+}
+.account__content .content__main .address {
+  margin-top: -5%;
+}
+.account__content .content__main .address input {
+  margin-top: 5%;
+  width: 95%;
 }
 .account__content .content__user {
   width: 25%;

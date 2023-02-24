@@ -150,6 +150,85 @@ class AccountPage extends Page {
 
     }
 
+    function renderFirmsBlock() {
+      const firmaBlock = document.createElement('div');
+      const firmaHours = document.createElement('div');
+      const firmaHoursTitle = document.createElement('h3');
+      const addressBlock = document.createElement('div');
+      const firmaTitle = document.createElement('h2');
+      const addressTitle = document.createElement('h2');
+
+      firmaBlock.className = 'firma';
+      firmaHours.className = 'firma__hours';
+      firmaHoursTitle.className = 'hours__title';
+      addressBlock.className = 'address';
+      firmaTitle.className = 'firma__title';
+      addressTitle.className = 'firm__address__title';
+
+      firmaTitle.textContent = 'Moje firmy';
+      addressTitle.textContent = 'Adres';
+
+      const openSelect = document.createElement('select');
+      openSelect.className = 'open-hours';
+      let openVal = 0;
+      for (let i = 0; i < 25; i += 1) {
+        const option = document.createElement('option');
+        option.className = 'open-option';
+        option.value = openVal.toString();
+        option.textContent = `${openVal.toString()}:00`;
+        openVal += 1;
+        openSelect.append(option);
+      }
+      const closeSelect = document.createElement('select');
+      closeSelect.className = 'close-hours';
+      let closeVal = 0;
+      for (let i = 0; i < 25; i += 1) {
+        const option = document.createElement('option');
+        option.className = 'close-option';
+        option.value = closeVal.toString();
+        option.textContent = `${closeVal.toString()}:00`;
+        closeVal += 1;
+        closeSelect.append(option);
+      }
+
+      firmaHoursTitle.textContent = 'Godziny pracy';
+      firmaHours.append(firmaHoursTitle, openSelect, closeSelect);
+
+
+      function createInputElement(className: string, placeholder: string, parent: HTMLElement) {
+        const input = document.createElement('input');
+        input.className = className;
+        input.placeholder = placeholder;
+        parent.append(input);
+      }
+
+      firmaBlock.append(firmaTitle);
+      createInputElement('firm__name', 'Nazwa firmy', firmaBlock);
+      createInputElement('firm__phone', 'Numer telefonu ((+48) 000-000-000)', firmaBlock);
+      createInputElement('firm__email', 'Email (login email)', firmaBlock);
+      createInputElement('firm__nip', 'NIP (1234567890)', firmaBlock);
+      createInputElement('firm__iban', 'IBAN (PL12345678901234567890123456)', firmaBlock);
+      createInputElement('firm__vat', 'VAT, %', firmaBlock);
+      createInputElement('firm__termin', 'Termin płatności, dni', firmaBlock);
+      firmaBlock.append(firmaHours);
+      addressBlock.append(addressTitle);
+      createInputElement('adres__country', 'Kraj (PL)', addressBlock);
+      createInputElement('adres__region', 'Województwo (mazowieckie)', addressBlock);
+      createInputElement('adres__street', 'Ulica (Centralna)', addressBlock);
+      createInputElement('adres__building', 'Dom (1)', addressBlock);
+      createInputElement('adres__apt', 'Mieszkanie (2)', addressBlock);
+      createInputElement('adres__zip', 'Kod (02-000)', addressBlock);
+
+
+      main.append(firmaBlock, addressBlock);
+
+    }
+
+    function clearContent(): void {
+      main.textContent = '';
+      user.textContent = '';
+    }
+
     const split = document.createElement('img');
     split.className = 'nav__split';
     split.src = '../../assets/img/elements/split-horizontal.svg';
@@ -195,8 +274,17 @@ class AccountPage extends Page {
           item.classList.remove('active');
         });
         listItem.classList.add('active');
-        renderMainDane();
-        renderUserBlock();
+
+        if (listItem.id === '0') {
+          clearContent();
+          renderMainDane();
+          renderUserBlock();
+        } else if (listItem.id === '1') {
+          clearContent();
+          renderFirmsBlock();
+          renderUserBlock();
+        }
+
       });
 
       itemsList.append(listItem);
