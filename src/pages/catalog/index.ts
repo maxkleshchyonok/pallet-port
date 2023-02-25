@@ -62,7 +62,7 @@ class CatalogPage extends Page {
 
       const productData = arr[j].product;
 
-      const product = new Offer(productData.id,
+      const product = new Offer(productData._id,
         productData.name,
         productData.material,
         productData.condition,

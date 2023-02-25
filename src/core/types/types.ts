@@ -137,7 +137,8 @@ export interface Cart {
    * @type {number}
    * @memberof Cart
    */
-  id: number;
+  _id: string;
+  __v?: number;
   /**
    *
    * @type {User}
@@ -183,7 +184,8 @@ export interface Company {
    * @type {number}
    * @memberof Company
    */
-  id: number;
+  _id: string;
+  __v?: number;
   /**
    *
    * @type {string}
@@ -296,7 +298,8 @@ export interface IOffer {
    * @type {number}
    * @memberof Offer
    */
-  id: number;
+  _id: string;
+  __v?: number;
   /**
    *
    * @type {Product}
@@ -387,7 +390,8 @@ export interface Order {
    * @type {number}
    * @memberof Order
    */
-  id: number;
+  _id: string;
+  __v?: number;
   /**
    *
    * @type {Cart}
@@ -430,7 +434,8 @@ export interface IProduct {
    * @type {number}
    * @memberof Product
    */
-  id: number;
+  _id: string;
+  __v?: number;
   /**
    *
    * @type {string}
@@ -507,7 +512,8 @@ export interface IProductCategory {
    * @type {number}
    * @memberof ProductCategory
    */
-  id: number;
+  _id: string;
+  __v?: number;
   /**
    *
    * @type {string}
@@ -553,7 +559,8 @@ export interface User {
    * @type {number}
    * @memberof User
    */
-  id: number;
+  _id: string;
+  __v?: number;
   /**
    *
    * @type {string}
