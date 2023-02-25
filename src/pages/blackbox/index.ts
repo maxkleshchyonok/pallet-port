@@ -1,5 +1,19 @@
 import Page from '../../core/templates/page';
+import { IOffer } from '../../core/types/types';
 import './index.css';
+
+
+const requestOptions: RequestInit = {
+  method: 'GET',
+  redirect: 'follow',
+  mode: 'no-cors',
+};
+
+export const getOffers = async (): Promise<Array<IOffer>> => {
+  return (await fetch('../../assets/json/test.json')).json();
+  // return (await fetch('http://localhost:5300/api/offers/find/findByStatus?status=ACTIVE', requestOptions)).json();
+};
+
 
 class BlackBoxPage extends Page {
   static TextObject = {
@@ -47,7 +61,7 @@ class BlackBoxPage extends Page {
     content.append(navbar, main);
     this.container.append(content);
 
-    searchButton.addEventListener('click', function (e) {
+    searchButton.addEventListener('click', async function (e) {
       e.preventDefault();
 
       const message = searchInput.value;
@@ -60,8 +74,12 @@ class BlackBoxPage extends Page {
       oReq.open('GET', url, true);
       oReq.send();
 
-      alert('Message sent!');
+      console.log(getOffers());
+
+      // alert('Message sent!');
+
     });
+
   }
 
 
