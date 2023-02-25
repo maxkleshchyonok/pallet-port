@@ -19,30 +19,6 @@ class UserController {
         }
     };
 
-    async loginUser(request: any, response: any) {
-        try {
-            /* TODO: Login */
-        } catch (error) {
-            console.error('Login error');
-        }
-    };
-
-    async registerUser(request: any, response: any) {
-        try {
-            /* TODO: Register */
-        } catch (error) {
-            console.error('Register error');
-        }
-    };
-
-    async logoutUser(request: any, response: any) {
-        try {
-            /* TODO: Logout */
-        } catch (error) {
-            console.error('Logout error');
-        }
-    };
-
     async getUsers(request: any, response: any) {
         try {
             const user = await userService.getAll();
