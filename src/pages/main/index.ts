@@ -1,5 +1,6 @@
 import Page from '../../core/templates/page';
 import Footer from '../../core/components/footer';
+import './index.css';
 
 const CatalogMain = [
   {
@@ -155,6 +156,14 @@ class MainPage extends Page {
     this.footer = new Footer('footer', 'footer-container');
   }
 
+  createBlock(nameBlock: HTMLElement, name: string, container: HTMLElement, innerText?: string) {
+    nameBlock.classList.add(`${name}`);
+    if (innerText)
+      nameBlock.innerText = innerText;
+    container.append(nameBlock);
+  }
+
+
   private renderCatalog(): void {
     const catalogBlock = document.createElement('div');
     catalogBlock.className = 'catalog-bar';
@@ -189,9 +198,28 @@ class MainPage extends Page {
     const mainBody = document.createElement('div');
     const mainBodyHead = document.createElement('div');
     const headImg = document.createElement('img');
+    // const headTitle = document.createElement('h1');
     const headTitle = document.createElement('h1');
+    this.createBlock(headTitle, 'title', mainBodyHead);
+    const headTitle1 = document.createElement('div');
+    this.createBlock(headTitle1, 'title__top-string', headTitle, 'Zamów palety');
+    // this.createBlock(headTitle, 'title', mainBodyHead);
+    const headTitle15 = document.createElement('div');
+    this.createBlock(headTitle15, 'title__middle-string', headTitle, ' ');
+    const message = document.createElement('div');
+    this.createBlock(message, 'title__message', headTitle);
+    const message1 = document.createElement('div');
+    this.createBlock(message1, 'word1', message, 'szybciej');
+    const message2 = document.createElement('div');
+    this.createBlock(message2, 'word2', message, 'łatwiej');
+    const message3 = document.createElement('div');
+    this.createBlock(message3, 'word3', message, 'taniej');
+    const headTitle2 = document.createElement('div');
+    this.createBlock(headTitle2, 'title__bottom-string', headTitle, 'niż kiedyś');
+
     const headDescr = document.createElement('h2');
     const headButton = document.createElement('button');
+    const headButton2 = document.createElement('button');
 
     mainBody.className = 'main-body';
     mainBodyHead.className = 'body-head';
@@ -199,17 +227,23 @@ class MainPage extends Page {
     headTitle.className = 'body-title';
     headDescr.className = 'body-description';
     headButton.className = 'body-button';
+    headButton2.className = 'body-button2';
 
-    headTitle.innerText = 'Zamów palety latwiej\n (szybciej, taniej) niż kiedyś';
+    // headTitle.innerText = 'Zamów palety latwiej\n (szybciej, taniej) niż kiedyś';
+
     headDescr.innerText = 'Tu usprawnisz procesy zakupu i\n wymiany palet. Dzięki naszej systemie\n zjednoczenia' +
       ' logistycznych kierunków\n możesz się nie martwić o niewystarczających\n ilości palet u obecnego dostawcy.' +
       ' Dopasujemy\n zamówienie zgodnie ze twoimi potrzebami na czas.';
     headButton.innerText = 'SPROBUJĘ!';
+    headButton2.innerText = 'Nie, wybiorę sam';
     headImg.src = '../../assets/img/elements/main-pallet.png';
 
-    mainBodyHead.append(headTitle, headDescr, headButton);
+    mainBodyHead.append(headDescr, headButton, headButton2);
     mainBody.append(headImg, mainBodyHead);
     this.container.append(mainBody);
+
+    headButton.addEventListener('click', () => window.location.href = '#blackbox-page');
+    headButton2.addEventListener('click', () => window.location.href = '#catalog-page');
   }
 
   private renderPaletMenu(): void {
@@ -243,6 +277,8 @@ class MainPage extends Page {
     });
     this.container.append(palety);
   }
+
+
 
   render() {
     this.renderCatalog();

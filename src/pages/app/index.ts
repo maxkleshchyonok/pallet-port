@@ -12,11 +12,12 @@ import offersJSON from '../../assets/json/_OffersArray.json';
 //import Product from '../../core/components/product/product';
 import ErrorPage from '../error';
 import AccountPage from '../account';
+import BlackBoxPage from '../blackbox';
 
 const products = offersJSON;
 const productsId: string[] = [];
 products.forEach((product) => {
-  productsId.push(`product-page/${product.id}`);
+  productsId.push(`product-page/${product._id}`);
 });
 
 export const PageIds: { [props: string]: string | string[] } = {
@@ -26,6 +27,7 @@ export const PageIds: { [props: string]: string | string[] } = {
   ErrorPage: 'error-page',
   AccountPageId: 'account-page',
   ProductPageId: productsId,
+  BlackBoxPageId: 'blackbox-page',
 };
 
 class App {
@@ -38,6 +40,15 @@ class App {
   private header: Header;
 
   previousPage = '';
+
+  setPreviousPage(): void {
+    localStorage.removeItem('previousPage');
+    localStorage.setItem('previousPage', this.previousPage);
+  }
+
+  getPreviousPage(): void {
+    this.previousPage = localStorage.getItem('previousPage') as string;
+  }
 
   public renderNewPage(idPage: string) {
     const currentPageHTML = document.getElementById(App.defaultPageId);
@@ -53,9 +64,11 @@ class App {
       page = new CartPage(idPage);
     } else if (idPage === PageIds.AccountPageId) {
       page = new AccountPage(idPage);
+    } else if (idPage === PageIds.BlackBoxPageId) {
+      page = new BlackBoxPage(idPage);
     } else if (PageIds.ProductPageId.includes(idPage)) {
-      const id = Number(idPage.replace(/[\D]+/g, ''));
-      const product = products.find((el) => el.id === id);
+      const id = idPage.replace(/[\D]+/g, '');
+      const product = products.find((el) => el._id === id);
       if (product !== undefined) {
         parametersObj(product.product.shortName);
         // saveParameters();
@@ -68,10 +81,19 @@ class App {
     }
 
     if (page) {
-      this.previousPage = window.location.hash.slice(1);
+      if (localStorage.getItem('previousPage'))
+        this.getPreviousPage();
+      else
+        this.previousPage = window.location.hash;
       const pageHTML = page.render();
       pageHTML.id = App.defaultPageId;
       App.container?.append(pageHTML);
+      this.setPreviousPage();
+
+      // this.previousPage = window.location.hash.slice(1);
+      // const pageHTML = page.render();
+      // pageHTML.id = App.defaultPageId;
+      // App.container?.append(pageHTML);
     }
   }
 
@@ -113,8 +135,11 @@ class App {
 
   run() {
     App.container?.append(this.header.render());
-    this.renderNewPage('main-page');
-    window.location.hash = PageIds.MainPageId as string;
+    if (localStorage.getItem('previousPage')) {
+      // this.getPreviousPage();
+      this.renderNewPage(this.previousPage);
+    } else
+      this.renderNewPage('main-page');
     this.enableRouteChange();
     // App.container?.append(this.footer.render());
   }

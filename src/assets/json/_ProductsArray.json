@@ -1,6 +1,7 @@
 [
   {
-    "id": 1,
+    "_id": "1",
+    "__v": 0,
     "name": "Paleta EURO drewniana 1200x800x144",
     "material": "Drewno",
     "condition": "Nowe",
@@ -13,7 +14,8 @@
     "height": 144,
     "maxLoad": 1500,
     "category": {
-      "id": 1,
+      "_id": "1",
+      "__v": 0,
       "name": "Palety EURO",
       "description": "Paleta euro EPAL to najpopularniejsza paleta w Europie. Europaleta o wymiarach 1200x800x144 mm wykonana w pełni z wysokiej jakości drewna świerkowego.",
       "image": "https://cdn.webshopapp.com/shops/285555/files/310678658/600x600x2/nowa-paleta-euro-epal-1200x800x144-mm.jpg",
@@ -21,7 +23,8 @@
     }
   },
   {
-    "id": 2,
+    "_id": "2",
+    "__v": 0,
     "name": "Paleta EURO drewniana 1200x800x144",
     "material": "Drewno",
     "condition": "Używane 1 gatunku",
@@ -34,7 +37,8 @@
     "height": 144,
     "maxLoad": 1500,
     "category": {
-      "id": 1,
+      "_id": "1",
+      "__v": 0,
       "name": "Palety EURO",
       "description": "Paleta euro EPAL to najpopularniejsza paleta w Europie. Europaleta o wymiarach 1200x800x144 mm wykonana w pełni z wysokiej jakości drewna świerkowego.",
       "image": "https://cdn.webshopapp.com/shops/285555/files/310678658/600x600x2/nowa-paleta-euro-epal-1200x800x144-mm.jpg",
@@ -42,7 +46,8 @@
     }
   },
   {
-    "id": 3,
+    "_id": "3",
+    "__v": 0,
     "name": "Paleta EURO drewniana 1200x800x144",
     "material": "Drewno",
     "condition": "Używane 2 gatunku",
@@ -55,7 +60,8 @@
     "height": 144,
     "maxLoad": 1500,
     "category": {
-      "id": 1,
+      "_id": "1",
+      "__v": 0,
       "name": "Palety EURO",
       "description": "Paleta euro EPAL to najpopularniejsza paleta w Europie. Europaleta o wymiarach 1200x800x144 mm wykonana w pełni z wysokiej jakości drewna świerkowego.",
       "image": "https://cdn.webshopapp.com/shops/285555/files/310678658/600x600x2/nowa-paleta-euro-epal-1200x800x144-mm.jpg",
@@ -63,7 +69,8 @@
     }
   },
   {
-    "id": 4,
+    "_id": "4",
+    "__v": 0,
     "name": "Paleta EURO drewniana 1200x800x144",
     "material": "Drewno",
     "condition": "Używane 3 gatunku",
@@ -76,7 +83,8 @@
     "height": 144,
     "maxLoad": 1500,
     "category": {
-      "id": 1,
+      "_id": "1",
+      "__v": 0,
       "name": "Palety EURO",
       "description": "Paleta euro EPAL to najpopularniejsza paleta w Europie. Europaleta o wymiarach 1200x800x144 mm wykonana w pełni z wysokiej jakości drewna świerkowego.",
       "image": "https://cdn.webshopapp.com/shops/285555/files/310678658/600x600x2/nowa-paleta-euro-epal-1200x800x144-mm.jpg",
@@ -84,7 +92,8 @@
     }
   },
   {
-    "id": 5,
+    "_id": "5",
+    "__v": 0,
     "name": "Paleta EURO drewniana 1200x800x144",
     "material": "Drewno",
     "condition": "Używane 3 gatunku",
@@ -97,7 +106,8 @@
     "height": 144,
     "maxLoad": 1500,
     "category": {
-      "id": 1,
+      "_id": "1",
+      "__v": 0,
       "name": "Palety EURO",
       "description": "Paleta euro EPAL to najpopularniejsza paleta w Europie. Europaleta o wymiarach 1200x800x144 mm wykonana w pełni z wysokiej jakości drewna świerkowego.",
       "image": "https://cdn.webshopapp.com/shops/285555/files/310678658/600x600x2/nowa-paleta-euro-epal-1200x800x144-mm.jpg",
@@ -105,7 +115,8 @@
     }
   },
   {
-    "id": 6,
+    "_id": "6",
+    "__v": 0,
     "name": "Paleta EURO drewniana 1200x800x144",
     "material": "Drewno",
     "condition": "Uszkodzone",
@@ -118,7 +129,8 @@
     "height": 144,
     "maxLoad": 1500,
     "category": {
-      "id": 1,
+      "_id": "1",
+      "__v": 0,
       "name": "Palety EURO",
       "description": "Paleta euro EPAL to najpopularniejsza paleta w Europie. Europaleta o wymiarach 1200x800x144 mm wykonana w pełni z wysokiej jakości drewna świerkowego.",
       "image": "https://cdn.webshopapp.com/shops/285555/files/310678658/600x600x2/nowa-paleta-euro-epal-1200x800x144-mm.jpg",
@@ -126,7 +138,8 @@
     }
   },
   {
-    "id": 7,
+    "_id": "7",
+    "__v": 0,
     "name": "Paleta EURO3 drewniana 1200x1000x144",
     "material": "Drewno",
     "condition": "Nowe",
@@ -139,7 +152,8 @@
     "height": 144,
     "maxLoad": 1500,
     "category": {
-      "id": 1,
+      "_id": "1",
+      "__v": 0,
       "name": "Palety EURO",
       "description": "Paleta euro EPAL to najpopularniejsza paleta w Europie. Europaleta o wymiarach 1200x800x144 mm wykonana w pełni z wysokiej jakości drewna świerkowego.",
       "image": "https://cdn.webshopapp.com/shops/285555/files/310678658/600x600x2/nowa-paleta-euro-epal-1200x800x144-mm.jpg",
@@ -147,7 +161,8 @@
     }
   },
   {
-    "id": 8,
+    "_id": "8",
+    "__v": 0,
     "name": "Paleta europodobna drewniana ciężka 1200x800x144",
     "material": "Drewno",
     "condition": "Nowe",
@@ -160,7 +175,8 @@
     "height": 144,
     "maxLoad": 1500,
     "category": {
-      "id": 2,
+      "_id": "2",
+      "__v": 0,
       "name": "Palety europodobne",
       "description": "Paleta europodobna o wymiarach 1200x800x144 mm wykonana w pełni z wysokiej jakości drewna świerkowego.",
       "image": "https://ireland.apollo.olxcdn.com/v1/files/uyifteomp5g01-PL/image;s=800x600",
@@ -168,7 +184,8 @@
     }
   },
   {
-    "id": 9,
+    "_id": "9",
+    "__v": 0,
     "name": "Paleta europodobna drewniana ciężka 1200x800x144",
     "material": "Drewno",
     "condition": "Używane 1 gatunku",
@@ -181,7 +198,8 @@
     "height": 144,
     "maxLoad": 1500,
     "category": {
-      "id": 2,
+      "_id": "2",
+      "__v": 0,
       "name": "Palety europodobne",
       "description": "Paleta europodobna o wymiarach 1200x800x144 mm wykonana w pełni z wysokiej jakości drewna świerkowego.",
       "image": "https://ireland.apollo.olxcdn.com/v1/files/uyifteomp5g01-PL/image;s=800x600",
@@ -189,7 +207,8 @@
     }
   },
   {
-    "id": 10,
+    "_id": "10",
+    "__v": 0,
     "name": "Paleta europodobna drewniana ciężka 1200x800x144",
     "material": "Drewno",
     "condition": "Używane 2 gatunku",
@@ -202,7 +221,8 @@
     "height": 144,
     "maxLoad": 1500,
     "category": {
-      "id": 2,
+      "_id": "2",
+      "__v": 0,
       "name": "Palety europodobne",
       "description": "Paleta europodobna o wymiarach 1200x800x144 mm wykonana w pełni z wysokiej jakości drewna świerkowego.",
       "image": "https://ireland.apollo.olxcdn.com/v1/files/uyifteomp5g01-PL/image;s=800x600",
@@ -210,7 +230,8 @@
     }
   },
   {
-    "id": 11,
+    "_id": "11",
+    "__v": 0,
     "name": "Paleta europodobna drewniana ciężka 1200x800x144",
     "material": "Drewno",
     "condition": "Używane 3 gatunku",
@@ -223,7 +244,8 @@
     "height": 144,
     "maxLoad": 1500,
     "category": {
-      "id": 2,
+      "_id": "2",
+      "__v": 0,
       "name": "Palety europodobne",
       "description": "Paleta europodobna o wymiarach 1200x800x144 mm wykonana w pełni z wysokiej jakości drewna świerkowego.",
       "image": "https://ireland.apollo.olxcdn.com/v1/files/uyifteomp5g01-PL/image;s=800x600",
@@ -231,7 +253,8 @@
     }
   },
   {
-    "id": 12,
+    "_id": "12",
+    "__v": 0,
     "name": "Paleta europodobna drewniana ciężka 1200x800x144",
     "material": "Drewno",
     "condition": "Uszkodzone",
@@ -244,7 +267,8 @@
     "height": 144,
     "maxLoad": 1500,
     "category": {
-      "id": 2,
+      "_id": "2",
+      "__v": 0,
       "name": "Palety europodobne",
       "description": "Paleta europodobna o wymiarach 1200x800x144 mm wykonana w pełni z wysokiej jakości drewna świerkowego.",
       "image": "https://ireland.apollo.olxcdn.com/v1/files/uyifteomp5g01-PL/image;s=800x600",
@@ -252,7 +276,8 @@
     }
   },
   {
-    "id": 13,
+    "_id": "13",
+    "__v": 0,
     "name": "Paleta jednorazowa drewniana ciężka 1200x800x140",
     "material": "Drewno",
     "condition": "Nowe",
@@ -265,7 +290,8 @@
     "height": 140,
     "maxLoad": 1000,
     "category": {
-      "id": 2,
+      "_id": "2",
+      "__v": 0,
       "name": "Palety jednorazowe",
       "description": "Palety jednorazowe, wykorzystywane głównie do wysyłek towarów tam gdzie nie planujemy transportu powrotnego. Jednak przy prawidłowej obsłudze palety z powodzeniem nadają się do wielorazowego użytku.",
       "image": "https://cdn.webshopapp.com/shops/285555/files/325131038/600x600x2/paleta-ciezka-1200x800x140-mm-uzywana.jpg",
@@ -273,7 +299,8 @@
     }
   },
   {
-    "id": 14,
+    "_id": "14",
+    "__v": 0,
     "name": "Paleta jednorazowa drewniana ciężka 1200x800x140",
     "material": "Drewno",
     "condition": "Używane 1 gatunku",
@@ -286,7 +313,8 @@
     "height": 140,
     "maxLoad": 1000,
     "category": {
-      "id": 2,
+      "_id": "2",
+      "__v": 0,
       "name": "Palety jednorazowe",
       "description": "Palety jednorazowe, wykorzystywane głównie do wysyłek towarów tam gdzie nie planujemy transportu powrotnego. Jednak przy prawidłowej obsłudze palety z powodzeniem nadają się do wielorazowego użytku.",
       "image": "https://cdn.webshopapp.com/shops/285555/files/325131038/600x600x2/paleta-ciezka-1200x800x140-mm-uzywana.jpg",
@@ -294,7 +322,8 @@
     }
   },
   {
-    "id": 15,
+    "_id": "15",
+    "__v": 0,
     "name": "Paleta jednorazowa drewniana ciężka 1200x800x140",
     "material": "Drewno",
     "condition": "Używane 2 gatunku",
@@ -307,7 +336,8 @@
     "height": 140,
     "maxLoad": 1000,
     "category": {
-      "id": 2,
+      "_id": "2",
+      "__v": 0,
       "name": "Palety jednorazowe",
       "description": "Palety jednorazowe, wykorzystywane głównie do wysyłek towarów tam gdzie nie planujemy transportu powrotnego. Jednak przy prawidłowej obsłudze palety z powodzeniem nadają się do wielorazowego użytku.",
       "image": "https://cdn.webshopapp.com/shops/285555/files/325131038/600x600x2/paleta-ciezka-1200x800x140-mm-uzywana.jpg",
@@ -315,7 +345,8 @@
     }
   },
   {
-    "id": 16,
+    "_id": "16",
+    "__v": 0,
     "name": "Paleta jednorazowa drewniana ciężka 1200x800x140",
     "material": "Drewno",
     "condition": "Uszkodzone",
@@ -328,7 +359,8 @@
     "height": 140,
     "maxLoad": 1000,
     "category": {
-      "id": 2,
+      "_id": "2",
+      "__v": 0,
       "name": "Palety jednorazowe",
       "description": "Palety jednorazowe, wykorzystywane głównie do wysyłek towarów tam gdzie nie planujemy transportu powrotnego. Jednak przy prawidłowej obsłudze palety z powodzeniem nadają się do wielorazowego użytku.",
       "image": "https://cdn.webshopapp.com/shops/285555/files/325131038/600x600x2/paleta-ciezka-1200x800x140-mm-uzywana.jpg",
@@ -336,7 +368,8 @@
     }
   },
   {
-    "id": 17,
+    "_id": "17",
+    "__v": 0,
     "name": "Paleta jednorazowa drewniana lekka 1200x800x120",
     "material": "Drewno",
     "condition": "Nowe",
@@ -349,7 +382,8 @@
     "height": 120,
     "maxLoad": 500,
     "category": {
-      "id": 2,
+      "_id": "2",
+      "__v": 0,
       "name": "Palety jednorazowe",
       "description": "Palety jednorazowe, wykorzystywane głównie do wysyłek towarów tam gdzie nie planujemy transportu powrotnego. Jednak przy prawidłowej obsłudze palety z powodzeniem nadają się do wielorazowego użytku.",
       "image": "https://cdn.webshopapp.com/shops/285555/files/310678731/600x600x2/lekka-paleta-jednorazowa-1200x800x120-mm-ippc.jpg",
@@ -357,7 +391,8 @@
     }
   },
   {
-    "id": 18,
+    "_id": "18",
+    "__v": 0,
     "name": "Paleta jednorazowa drewniana lekka 1200x800x120",
     "material": "Drewno",
     "condition": "Używane 1 gatunku",
@@ -370,7 +405,8 @@
     "height": 120,
     "maxLoad": 500,
     "category": {
-      "id": 2,
+      "_id": "2",
+      "__v": 0,
       "name": "Palety jednorazowe",
       "description": "Palety jednorazowe, wykorzystywane głównie do wysyłek towarów tam gdzie nie planujemy transportu powrotnego. Jednak przy prawidłowej obsłudze palety z powodzeniem nadają się do wielorazowego użytku.",
       "image": "https://cdn.webshopapp.com/shops/285555/files/310678731/600x600x2/lekka-paleta-jednorazowa-1200x800x120-mm-ippc.jpg",
@@ -378,7 +414,8 @@
     }
   },
   {
-    "id": 19,
+    "_id": "19",
+    "__v": 0,
     "name": "Paleta przemysłowa drewniana ciężka 1200x1000x140",
     "material": "Drewno",
     "condition": "Nowe",
@@ -391,7 +428,8 @@
     "height": 140,
     "maxLoad": 1000,
     "category": {
-      "id": 3,
+      "_id": "3",
+      "__v": 0,
       "name": "Palety przemysłowe",
       "description": "Palety przemysłowe przy prawidłowej obsłudze palety z powodzeniem nadają się do wielorazowego użytku.",
       "image": "https://cdn.webshopapp.com/shops/285555/files/310678731/600x600x2/lekka-paleta-jednorazowa-1200x800x120-mm-ippc.jpg",
@@ -399,7 +437,8 @@
     }
   },
   {
-    "id": 20,
+    "_id": "20",
+    "__v": 0,
     "name": "Paleta przemysłowa drewniana ciężka 1200x1000x140",
     "material": "Drewno",
     "condition": "Używane 1 gatunku",
@@ -412,7 +451,8 @@
     "height": 140,
     "maxLoad": 1000,
     "category": {
-      "id": 3,
+      "_id": "31",
+      "__v": 0,
       "name": "Palety przemysłowe",
       "description": "Palety przemysłowe przy prawidłowej obsłudze palety z powodzeniem nadają się do wielorazowego użytku.",
       "image": "https://cdn.webshopapp.com/shops/285555/files/310678731/600x600x2/lekka-paleta-jednorazowa-1200x800x120-mm-ippc.jpg",
@@ -420,7 +460,8 @@
     }
   },
   {
-    "id": 21,
+    "_id": "21",
+    "__v": 0,
     "name": "Paleta przemysłowa drewniana ciężka 1200x1200x140",
     "material": "Drewno",
     "condition": "Używane 1 gatunku",
@@ -433,7 +474,8 @@
     "height": 140,
     "maxLoad": 1000,
     "category": {
-      "id": 3,
+      "_id": "3",
+      "__v": 0,
       "name": "Palety przemysłowe",
       "description": "Palety przemysłowe przy prawidłowej obsłudze palety z powodzeniem nadają się do wielorazowego użytku.",
       "image": "https://cdn.webshopapp.com/shops/285555/files/310678731/600x600x2/lekka-paleta-jednorazowa-1200x800x120-mm-ippc.jpg",
@@ -441,7 +483,8 @@
     }
   },
   {
-    "id": 22,
+    "_id": "22",
+    "__v": 0,
     "name": "Półpaleta drewniana 800x600x120",
     "material": "Drewno",
     "condition": "Nowe",
@@ -454,7 +497,8 @@
     "height": 120,
     "maxLoad": 250,
     "category": {
-      "id": 4,
+      "_id": "4",
+      "__v": 0,
       "name": "Półpalety",
       "description": "Palety ekspozycyjne o wymiarach 800x600mm",
       "image": "https://cdn.webshopapp.com/shops/285555/files/310678728/600x600x2/drewniana-paleta-wystawowa-800x600x120-mm.jpg",
@@ -462,7 +506,8 @@
     }
   },
   {
-    "id": 23,
+    "_id": "23",
+    "__v": 0,
     "name": "Półpaleta drewniana 800x600x120",
     "material": "Drewno",
     "condition": "Używane 1 gatunku",
@@ -475,7 +520,8 @@
     "height": 120,
     "maxLoad": 250,
     "category": {
-      "id": 4,
+      "_id": "4",
+      "__v": 0,
       "name": "Półpalety",
       "description": "Palety ekspozycyjne o wymiarach 800x600mm",
       "image": "https://cdn.webshopapp.com/shops/285555/files/310678728/600x600x2/drewniana-paleta-wystawowa-800x600x120-mm.jpg",
@@ -483,7 +529,8 @@
     }
   },
   {
-    "id": 24,
+    "_id": "24",
+    "__v": 0,
     "name": "Paleta plastikowa ażurowa z rantem 1200x800x150",
     "material": "Plastik",
     "condition": "Nowe",
@@ -496,7 +543,8 @@
     "height": 150,
     "maxLoad": 1750,
     "category": {
-      "id": 3,
+      "_id": "3",
+      "__v": 0,
       "name": "Palety przemysłowe",
       "description": "Palety przemysłowe przy prawidłowej obsłudze palety z powodzeniem nadają się do wielorazowego użytku.",
       "image": "https://cdn.webshopapp.com/shops/285555/files/310678731/600x600x2/lekka-paleta-jednorazowa-1200x800x120-mm-ippc.jpg",
@@ -504,7 +552,8 @@
     }
   },
   {
-    "id": 25,
+    "_id": "25",
+    "__v": 0,
     "name": "Paleta wiórowa lekka 1200x800x120",
     "material": "Tektura",
     "condition": "Nowe",
@@ -517,7 +566,8 @@
     "height": 150,
     "maxLoad": 350,
     "category": {
-      "id": 2,
+      "_id": "2",
+      "__v": 0,
       "name": "Palety jednorazowe",
       "description": "Palety jednorazowe, wykorzystywane głównie do wysyłek towarów tam gdzie nie planujemy transportu powrotnego. Jednak przy prawidłowej obsłudze palety z powodzeniem nadają się do wielorazowego użytku.",
       "image": "https://cdn.webshopapp.com/shops/285555/files/310678731/600x600x2/lekka-paleta-jednorazowa-1200x800x120-mm-ippc.jpg",

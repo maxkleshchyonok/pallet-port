@@ -1,7 +1,9 @@
 {
-  "id": 1,
+  "_id": "1",
+  "__v": 0,
   "user": {
-    "id": 1,
+    "_id": "1",
+    "__v": 0,
     "name": "Jan Kowalski",
     "email":  "jan@gmail.com",
     "password": "32456788987542312",
@@ -36,7 +38,8 @@
     },
     "companies": [
       {
-        "id": 1,
+        "_id": "1",
+        "__v": 0,
         "name": "Roga i kopyta Sp. z o.o.",
         "NIP": "1234567890",
         "address": {
@@ -57,7 +60,8 @@
         "workingHourMax": 16
       },
       {
-        "id": 2,
+        "_id": "2",
+        "__v": 0,
         "name": "Roga i kopyta 2 Sp. z o.o.",
         "NIP": "1234567890",
         "address": {
@@ -82,9 +86,11 @@
   "cartOffers": [
     {
       "offer": {
-        "id": 1,
+        "_id": "1",
+        "__v": 0,
         "product": {
-          "id": 1,
+          "_id": "1",
+          "__v": 0,
           "name": "Paleta EURO drewniana 1200x800x144",
           "material": "Drewno",
           "condition": "Nowe",
@@ -97,7 +103,7 @@
           "height": 144,
           "maxLoad": 1500,
           "category": {
-            "id": 1,
+            "_id": 1,
             "name": "Palety EURO",
             "description": "Paleta euro EPAL to najpopularniejsza paleta w Europie. Europaleta o wymiarach 1200x800x144 mm wykonana w pełni z wysokiej jakości drewna świerkowego.",
             "image": "https://cdn.webshopapp.com/shops/285555/files/310678658/600x600x2/nowa-paleta-euro-epal-1200x800x144-mm.jpg",
@@ -105,7 +111,8 @@
           }
         },
         "seller": {
-          "id": 1,
+          "_id": "1",
+          "__v": 0,
           "name": "Jan Kowalski",
           "email":  "jan@gmail.com",
           "password": "32456788987542312",
@@ -140,7 +147,8 @@
           },
           "companies": [
             {
-              "id": 1,
+              "_id": "1",
+              "__v": 0,
               "name": "Roga i kopyta Sp. z o.o.",
               "NIP": "1234567890",
               "address": {
@@ -163,7 +171,8 @@
               "workingHourMax": 16
             },
             {
-              "id": 2,
+              "_id": "2",
+              "__v": 0,
               "name": "Roga i kopyta 2 Sp. z o.o.",
               "NIP": "1234567890",
               "address": {
@@ -188,7 +197,8 @@
           ]
         },
         "company": {
-          "id": 1,
+          "_id": "1",
+          "__v": 0,
           "name": "Roga i kopyta Sp. z o.o.",
           "NIP": "1234567890",
           "address": {
@@ -243,9 +253,11 @@
     },
     {
       "offer": {
-        "id": 2,
+        "_id": "2",
+        "__v": 0,
         "product": {
-          "id": 1,
+          "_id": "1",
+          "__v": 0,
           "name": "Paleta EURO drewniana 1200x800x144",
           "material": "Drewno",
           "condition": "Nowe",
@@ -258,7 +270,8 @@
           "height": 144,
           "maxLoad": 1500,
           "category": {
-            "id": 1,
+            "_id": "1",
+            "__v": 0,
             "name": "Palety EURO",
             "description": "Paleta euro EPAL to najpopularniejsza paleta w Europie. Europaleta o wymiarach 1200x800x144 mm wykonana w pełni z wysokiej jakości drewna świerkowego.",
             "image": "https://cdn.webshopapp.com/shops/285555/files/310678658/600x600x2/nowa-paleta-euro-epal-1200x800x144-mm.jpg",
@@ -266,7 +279,8 @@
           }
         },
         "seller": {
-          "id": 1,
+          "_id": "1",
+          "__v": 0,
           "name": "Jan Kowalski",
           "email":  "jan@gmail.com",
           "password": "32456788987542312",
@@ -301,7 +315,8 @@
           },
           "companies": [
             {
-              "id": 1,
+              "_id": "1",
+              "__v": 0,
               "name": "Roga i kopyta Sp. z o.o.",
               "NIP": "1234567890",
               "address": {
@@ -324,7 +339,8 @@
               "workingHourMax": 16
             },
             {
-              "id": 2,
+              "_id": "2",
+              "__v": 0,
               "name": "Roga i kopyta 2 Sp. z o.o.",
               "NIP": "1234567890",
               "address": {
@@ -349,7 +365,8 @@
           ]
         },
         "company": {
-          "id": 1,
+          "_id": "1",
+          "__v": 0,
           "name": "Roga i kopyta Sp. z o.o.",
           "NIP": "1234567890",
           "address": {
