@@ -153,6 +153,7 @@
   top: -70%;
   left: -10%;
   z-index: 2;
+  cursor: pointer;
 }
 .account__content .content__user .user__roles {
   margin-top: 3%;
@@ -190,6 +191,21 @@
 }
 .account__content .content__user .user__saveButton:hover {
   width: 65%;
+}
+.account__content .content__user .user__deleteButton {
+  margin-top: 3%;
+  height: 30px;
+  width: 60%;
+  background: #670404;
+  color: #FFFFFF;
+  font-size: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  box-shadow: 3px 5px 10px darkgray;
+}
+.account__content .content__user .user__deleteButton:hover {
+  width: 63%;
 }
 
 /*# sourceMappingURL=index.css.map */
