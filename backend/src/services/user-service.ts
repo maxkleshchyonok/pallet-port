@@ -25,18 +25,6 @@ class UserService {
         const users = await User.find();
         return users;
     };
-
-    async register() {
-        return 'Register';
-    };
-
-    async login() {
-        return 'Login';
-    };
-
-    async logout() {
-        return 'Logout';
-    };
 }
 
 export default new UserService();
