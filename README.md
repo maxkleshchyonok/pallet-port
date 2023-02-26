@@ -53,8 +53,6 @@
     ```
     https://app.swaggerhub.com/apis/FOTEEV_1/Palletport/1
     ```
-    
--   
 
 ## []()Лицензия
 
@@ -62,6 +60,8 @@
 
 ## Команда
 
-https://github.com/Surewek Виталий - бэкенд-разработка 
+https://github.com/Surewek Виталий - бэкенд-разработка
+
 https://github.com/maxkleshchyonok Максим - фронтенд-разработка 
+
 https://github.com/foteev Андрей - UI/UX, логика.
