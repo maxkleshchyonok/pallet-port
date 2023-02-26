@@ -243,6 +243,16 @@ class AccountPage extends Page {
       categoryBlock.className = 'categories';
       orders.className = 'orders';
 
+      searchTitle.textContent = 'Moje zakupy';
+      searchInput.placeholder = 'Wpisz nazwę towaru';
+      searchButton.textContent = 'Shukaj';
+
+      // for (let i = 0; i < 8; i += 1) {
+      // }
+
+      searchField.append(searchInput, searchButton);
+      searchBlock.append(searchTitle, searchField);
+      main.append(searchBlock, categoryBlock, orders);
     }
 
     function clearContent(): void {
@@ -305,6 +315,7 @@ class AccountPage extends Page {
           renderFirmsBlock();
           renderUserBlock();
         } else if (listItem.id === '2') {
+          clearContent();
           renderOrdersBlock();
         }
 

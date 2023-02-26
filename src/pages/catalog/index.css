@@ -196,17 +196,36 @@ html {
   color: #474A51;
 }
 .content .main-page-styles .main-body .body-head .body-button {
-  margin-left: 60%;
+  margin-left: 70%;
   margin-top: 2%;
-  width: 18%;
+  width: 30%;
   height: 37px;
   background: #15616D;
   border: 1px solid #E5E5E5;
   border-radius: 2px;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 20px;
   line-height: 17px;
   color: #FAFAFA;
+}
+.content .main-page-styles .main-body .body-head .body-button:hover {
+  color: #ffec5b;
+}
+.content .main-page-styles .main-body .body-head .body-button2 {
+  margin-left: 70%;
+  margin-top: 2%;
+  width: 30%;
+  height: 37px;
+  background: #E5E5E5;
+  border: 1px solid #15616D;
+  border-radius: 2px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 17px;
+  color: #15616D;
+}
+.content .main-page-styles .main-body .body-head .body-button2:hover {
+  color: #000000;
 }
 .content .main-page-styles .palety {
   margin-top: 3%;
