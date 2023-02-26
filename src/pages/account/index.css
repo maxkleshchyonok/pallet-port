@@ -219,6 +219,16 @@
 .account__content .content__main .categories .item_selected:hover {
   background: #15616D;
 }
+.account__content .content__main .offers-page {
+  width: 100%;
+}
+.account__content .content__main .offers-page .offers-item {
+  width: 17%;
+  margin-right: 1%;
+}
+.account__content .content__main .offers-page .add__button {
+  margin-left: 20%;
+}
 .account__content .content__main .orders {
   margin-top: 6%;
   margin-left: 5%;
