@@ -1,5 +1,6 @@
 import express from 'express';
 import mongoose from 'mongoose';
+import cors from 'cors';
 import offerRouter from './routers/offer-router.js';
 import orderRouter from './routers/order-router.js';
 import productRouter from './routers/product-router.js';
@@ -15,6 +16,7 @@ const DB_URL = `mongodb+srv://${DB_LOGIN}:${DB_PASSWORD}@cluster0.afhplie.mongod
 
 const app = express();
 
+app.use(cors());
 app.use(express.json());
 
 app.use('/api', productCategoryRouter);
