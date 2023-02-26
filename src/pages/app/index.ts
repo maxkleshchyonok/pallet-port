@@ -17,7 +17,7 @@ import BlackBoxPage from '../blackbox';
 const products = offersJSON;
 const productsId: string[] = [];
 products.forEach((product) => {
-  productsId.push(`product-page/${product.id}`);
+  productsId.push(`product-page/${product._id}`);
 });
 
 export const PageIds: { [props: string]: string | string[] } = {
@@ -67,8 +67,8 @@ class App {
     } else if (idPage === PageIds.BlackBoxPageId) {
       page = new BlackBoxPage(idPage);
     } else if (PageIds.ProductPageId.includes(idPage)) {
-      const id = Number(idPage.replace(/[\D]+/g, ''));
-      const product = products.find((el) => el.id === id);
+      const id = idPage.replace(/[\D]+/g, '');
+      const product = products.find((el) => el._id === id);
       if (product !== undefined) {
         parametersObj(product.product.shortName);
         // saveParameters();

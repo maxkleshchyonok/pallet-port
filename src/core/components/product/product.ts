@@ -2,7 +2,8 @@ import { IProduct } from '../../types/types';
 
 export default class Product implements IProduct {
   constructor(
-    public id: IProduct['id'],
+    public _id: IProduct['_id'],
+    // public __v: IProduct['__v'],
     public name: IProduct['name'],
     public material: IProduct['material'],
     public condition: IProduct['condition'],

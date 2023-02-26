@@ -100,6 +100,7 @@ class AccountPage extends Page {
       const ratingTitle = document.createElement('h3');
       const ratingNumber = document.createElement('h1');
       const saveButton = document.createElement('button');
+      const deleteButton = document.createElement('button');
 
       avatarBlock.className = 'user__avatar';
       avatar.className = 'avatar__image';
@@ -110,6 +111,7 @@ class AccountPage extends Page {
       ratingTitle.className = 'rating__title';
       ratingNumber.className = 'rating__number';
       saveButton.className = 'user__saveButton';
+      deleteButton.className = 'user__deleteButton';
 
       avatar.src = '../../assets/img/elements/account-user.svg';
       editAvatar.src = '../../assets/img/elements/edit-avatar.svg';
@@ -118,6 +120,7 @@ class AccountPage extends Page {
       ratingNumber.textContent = '5';
 
       saveButton.textContent = 'Zapisz';
+      deleteButton.textContent = 'Usuń konto';
 
       roles.append(rolesTitle);
 
@@ -146,7 +149,7 @@ class AccountPage extends Page {
 
       avatarBlock.append(avatar, editAvatar);
       ratingBlock.append(ratingTitle, ratingNumber);
-      user.append(avatarBlock, roles, ratingBlock, saveButton);
+      user.append(avatarBlock, roles, ratingBlock, saveButton, deleteButton);
 
     }
 
@@ -221,7 +224,35 @@ class AccountPage extends Page {
 
 
       main.append(firmaBlock, addressBlock);
+    }
 
+    function renderOrdersBlock(): void {
+      const searchBlock = document.createElement('div');
+      const searchTitle = document.createElement('h2');
+      const searchField = document.createElement('div');
+      const searchInput = document.createElement('input');
+      const searchButton = document.createElement('button');
+      const categoryBlock = document.createElement('div');
+      const orders = document.createElement('div');
+
+      searchBlock.className = 'search';
+      searchTitle.className = 'search__title';
+      searchField.className = 'search__field';
+      searchInput.className = 'search__input';
+      searchButton.className = 'search__button';
+      categoryBlock.className = 'categories';
+      orders.className = 'orders';
+
+      searchTitle.textContent = 'Moje zakupy';
+      searchInput.placeholder = 'Wpisz nazwę towaru';
+      searchButton.textContent = 'Shukaj';
+
+      // for (let i = 0; i < 8; i += 1) {
+      // }
+
+      searchField.append(searchInput, searchButton);
+      searchBlock.append(searchTitle, searchField);
+      main.append(searchBlock, categoryBlock, orders);
     }
 
     function clearContent(): void {
@@ -283,6 +314,9 @@ class AccountPage extends Page {
           clearContent();
           renderFirmsBlock();
           renderUserBlock();
+        } else if (listItem.id === '2') {
+          clearContent();
+          renderOrdersBlock();
         }
 
       });

@@ -3,7 +3,7 @@ import { IOffer, IProduct } from '../../types/types';
 
 export default class Offer extends Product {
   constructor(
-    public id: IProduct['id'],
+    public id: IProduct['_id'],
     public name: IProduct['name'],
     public material: IProduct['material'],
     public condition: IProduct['condition'],

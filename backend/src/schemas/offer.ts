@@ -105,7 +105,7 @@ const Offer = new mongoose.Schema({
     quantityMin: { type: Number },
     quantityMax: { type: Number },
     delivery: [{
-        deliveryTypename: { type: String,
+        deliveryType: { type: String,
                             enum: [ 'SELFPICKUP', 'BUS', 'TRUCK', 'COURIER' ]
         },
         deliveryTimeMin: { type: Number },

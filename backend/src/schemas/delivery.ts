@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const Delivery = new mongoose.Schema({
-    deliveryTypename: { type: String,
+    deliveryType: { type: String,
                         enum: [ 'SELFPICKUP', 'BUS', 'TRUCK', 'COURIER' ]
     },
     deliveryTimeMin: { type: Number },
