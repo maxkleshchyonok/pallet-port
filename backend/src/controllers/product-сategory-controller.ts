@@ -1,12 +1,14 @@
 import productCategoryService from '../services/product-сategory-service.js';
+import formatError from '../tools/errorFormatter.js';
 
 class ProductCategoryController {
     async createProductCategory(request: any, response: any) {
         try {
             const productCategory = await productCategoryService.create(request.body);
             response.json(productCategory);
-        } catch (error) {
+        } catch (error: any) {
             console.error('Create error');
+            response.json(formatError(error));
         }
     };
 
@@ -14,8 +16,9 @@ class ProductCategoryController {
         try {
             const productCategory = await productCategoryService.get(request.params.id);
             response.json(productCategory);
-        } catch (error) {
+        } catch (error: any) {
             console.error('Get error');
+            response.json(formatError(error));
         }
     };
 
@@ -23,8 +26,9 @@ class ProductCategoryController {
         try {
             const productCategory = await productCategoryService.update(request.params.id, request.body);
             response.json(productCategory);
-        } catch (error) {
+        } catch (error: any) {
             console.error('Update error');
+            response.json(formatError(error));
         }
     };
 
@@ -32,8 +36,9 @@ class ProductCategoryController {
         try {
             const productCategory = await productCategoryService.delete(request.params.id);
             response.json(productCategory);
-        } catch (error) {
+        } catch (error: any) {
             console.error('Delete error');
+            response.json(formatError(error));
         }
     };
 }

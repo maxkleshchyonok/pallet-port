@@ -1,12 +1,14 @@
 import userService from '../services/user-service.js';
+import formatError from '../tools/errorFormatter.js';
 
 class UserController {
     async createUser(request: any, response: any) {
         try {
             const user = await userService.create(request.body);
             response.json(user);
-        } catch (error) {
+        } catch (error: any) {
             console.error('Create error');
+            response.json(formatError(error));
         }
     };
 
@@ -14,32 +16,9 @@ class UserController {
         try {
             const user = await userService.get(request.params.id);
             response.json(user);
-        } catch (error) {
+        } catch (error: any) {
             console.error('Get one error');
-        }
-    };
-
-    async loginUser(request: any, response: any) {
-        try {
-            /* TODO: Login */
-        } catch (error) {
-            console.error('Login error');
-        }
-    };
-
-    async registerUser(request: any, response: any) {
-        try {
-            /* TODO: Register */
-        } catch (error) {
-            console.error('Register error');
-        }
-    };
-
-    async logoutUser(request: any, response: any) {
-        try {
-            /* TODO: Logout */
-        } catch (error) {
-            console.error('Logout error');
+            response.json(formatError(error));
         }
     };
 
@@ -47,8 +26,9 @@ class UserController {
         try {
             const user = await userService.getAll();
             response.json(user);
-        } catch (error) {
+        } catch (error: any) {
             console.error('Get all error');
+            response.json(formatError(error));
         }
     };
 
@@ -56,8 +36,9 @@ class UserController {
         try {
             const user = await userService.update(request.params.id, request.body);
             response.json(user);
-        } catch (error) {
+        } catch (error: any) {
             console.error('Update error');
+            response.json(formatError(error));
         }
     };
 
@@ -65,8 +46,9 @@ class UserController {
         try {
             const user = await userService.delete(request.params.id);
             response.json(user);
-        } catch (error) {
+        } catch (error: any) {
             console.error('Delete error');
+            response.json(formatError(error));
         }
     };
 }

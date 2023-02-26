@@ -6,17 +6,17 @@ import { Condition, DeliveryType, Material, IOffer, PaymentType, EnumVAT } from 
 const offersArr: Array<IOffer> = Array.from(offersArrJSON);
 const categorySet: Set<string> = new Set(offersArr.map(offer => offer.product.category.shortName));
 const shortNameSet: Set<string> = new Set(offersArr.map(offer => offer.product.shortName));
-const sellerRankSet: Set<number> = new Set(offersArr.map(offer => offer.seller.rank));
+// const sellerRankSet: Set<number> = new Set(offersArr.map(offer => offer.seller.rank));
 
-const sellerRankTempArr = [...sellerRankSet].sort();
-const sellerRankArr: Array<number> = [];
-if (sellerRankTempArr.length < 2) {
-  sellerRankArr[0] = sellerRankTempArr[0];
-  sellerRankArr[1] = sellerRankTempArr[0];
-} else {
-  sellerRankArr[0] = sellerRankTempArr[0];
-  sellerRankArr[1] = sellerRankTempArr[sellerRankTempArr.length - 1];
-}
+// const sellerRankTempArr = [...sellerRankSet].sort();
+// const sellerRankArr: Array<number> = [];
+// if (sellerRankTempArr.length < 2) {
+//   sellerRankArr[0] = sellerRankTempArr[0];
+//   sellerRankArr[1] = sellerRankTempArr[0];
+// } else {
+//   sellerRankArr[0] = sellerRankTempArr[0];
+//   sellerRankArr[1] = sellerRankTempArr[sellerRankTempArr.length - 1];
+// }
 
 // const offerRatingSet: Set<number> = new Set(offersArr.map(offer => offer.rating));
 // const deliverySet: Set<Array<Delivery>> = new Set(offersArr.map(offer => offer.delivery));

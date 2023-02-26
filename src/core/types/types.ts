@@ -137,7 +137,7 @@ export interface Cart {
    * @type {number}
    * @memberof Cart
    */
-  _id: string;
+  _id?: string;
   __v?: number;
   /**
    *
@@ -213,7 +213,7 @@ export interface Company {
    * @type {number}
    * @memberof Company
    */
-  VAT: number;
+  VAT: string;
   /**
    *
    * @type {string}
@@ -260,11 +260,7 @@ export interface Coordinates {
 * @interface Delivery
 */
 export interface Delivery {
-  /**
-   *
-   * @type {DeliveryType}
-   * @memberof Delivery
-   */
+
   deliveryType: string;
   /**
    *
@@ -298,7 +294,7 @@ export interface IOffer {
    * @type {number}
    * @memberof Offer
    */
-  _id: string;
+  _id?: string;
   __v?: number;
   /**
    *
@@ -390,7 +386,7 @@ export interface Order {
    * @type {number}
    * @memberof Order
    */
-  _id: string;
+  _id?: string;
   __v?: number;
   /**
    *
@@ -434,7 +430,7 @@ export interface IProduct {
    * @type {number}
    * @memberof Product
    */
-  _id: string;
+  _id?: string;
   __v?: number;
   /**
    *
@@ -512,7 +508,7 @@ export interface IProductCategory {
    * @type {number}
    * @memberof ProductCategory
    */
-  _id: string;
+  _id?: string;
   __v?: number;
   /**
    *
@@ -559,14 +555,14 @@ export interface User {
    * @type {number}
    * @memberof User
    */
-  _id: string;
+  _id?: string;
   __v?: number;
   /**
    *
    * @type {string}
    * @memberof User
    */
-  name: string;
+  name?: string;
   /**
    * unique
    * @type {string}
@@ -587,7 +583,7 @@ export interface User {
    * @type {number}
    * @memberof User
    */
-  rank: number;
+  rank?: number;
   /**
    *
    * @type {string}
@@ -599,7 +595,7 @@ export interface User {
    * @type {Array<Role>}
    * @memberof User
    */
-  roles: Array<string>;
+  roles?: Array<string>;
   /**
    *
    * @type {Address}

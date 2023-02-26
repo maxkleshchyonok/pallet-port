@@ -1,5 +1,22 @@
 import Page from '../../core/templates/page';
+import { IOffer } from '../../core/types/types';
 import './index.css';
+
+
+const requestOptions: RequestInit = {
+  // method: 'GET',
+  // redirect: 'follow',
+  // mode: 'no-cors',
+  // credentials: 'same-origin',
+  // credentials: 'include',
+};
+
+export const getOffers = async (): Promise<Array<IOffer>> => {
+  // return (await fetch('../../assets/json/test.json')).json();
+  return (await fetch('http://localhost:5300/api/offers/find/findByStatus?status=ACTIVE', requestOptions)).json();
+
+};
+
 
 class BlackBoxPage extends Page {
   static TextObject = {
@@ -50,17 +67,19 @@ class BlackBoxPage extends Page {
     searchButton.addEventListener('click', function (e) {
       e.preventDefault();
 
-      const message = searchInput.value;
+      // const message = searchInput.value;
 
-      const token = '5270962336:AAFTy1xhsG3GSpILaEOAWKziybfjNfLRz8U';
-      const chatId = -1001845861157;
-      const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${message}`;
+      // const token = '5270962336:AAFTy1xhsG3GSpILaEOAWKziybfjNfLRz8U';
+      // const chatId = -1001845861157;
+      // const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${message}`;
 
-      const oReq = new XMLHttpRequest();
-      oReq.open('GET', url, true);
-      oReq.send();
+      // const oReq = new XMLHttpRequest();
+      // oReq.open('GET', url, true);
+      // oReq.send();
 
-      alert('Message sent!');
+      // alert('Message sent!');
+
+      console.log(getOffers());
     });
   }
 

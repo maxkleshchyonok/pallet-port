@@ -1,12 +1,14 @@
 import offerService from '../services/offer-service.js';
+import formatError from '../tools/errorFormatter.js';
 
 class OfferController {
     async createOffer(request: any, response: any) {
         try {
             const offer = await offerService.create(request.body);
             response.json(offer);
-        } catch (error) {
+        } catch (error: any) {
             console.error('Create error');
+            response.json(formatError(error));
         }
     };
 
@@ -14,8 +16,9 @@ class OfferController {
         try {
             const order = await offerService.get(request.params.id);
             response.json(order);
-        } catch (error) {
+        } catch (error: any) {
             console.error('Get one error');
+            response.json(formatError(error));
         }
     };
 
@@ -23,8 +26,9 @@ class OfferController {
         try {
             const offer = await offerService.update(request.params.id, request.body);
             response.json(offer);
-        } catch (error) {
+        } catch (error: any) {
             console.error('Create error');
+            response.json(formatError(error));
         }
     };
 
@@ -32,8 +36,9 @@ class OfferController {
         try {
             const offer = await offerService.delete(request.params.id);
             response.json(offer);
-        } catch (error) {
+        } catch (error: any) {
             console.error('Create error');
+            response.json(formatError(error));
         }
     };
 
@@ -41,8 +46,9 @@ class OfferController {
         try {
             console.log(request.params.id);
             response.json('OK');
-        } catch (error) {
+        } catch (error: any) {
             console.error('Create error');
+            response.json(formatError(error));
         }
     };
 
@@ -50,8 +56,9 @@ class OfferController {
         try {
             const sortedOrders = await offerService.sortByStatus(request.query.status);
             response.json(sortedOrders);
-        } catch (error) {
+        } catch (error: any) {
             console.error('Get sorted by status error');
+            response.json(formatError(error));
         }
     };
 
@@ -59,8 +66,9 @@ class OfferController {
         try {
             const sortedOrders = await offerService.sortByUser(request.query.email);
             response.json(sortedOrders);
-        } catch (error) {
+        } catch (error: any) {
             console.error('Get sorted by user error');
+            response.json(formatError(error));
         }
     };
 }
