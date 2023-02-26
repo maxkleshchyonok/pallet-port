@@ -3,6 +3,7 @@
   margin-top: 2%;
 }
 .account__content .content__navbar {
+  border-right: 1px solid #eeeeee;
   width: 20%;
   min-height: 400px;
   padding-left: 3%;
@@ -38,6 +39,7 @@
   cursor: pointer;
 }
 .account__content .content__navbar .nav__list {
+  width: 90%;
   margin-top: 5%;
   margin-left: 3%;
 }
@@ -66,7 +68,7 @@
   width: 55%;
   min-height: 400px;
 }
-.account__content .content__main div {
+.account__content .content__main .account-item {
   margin-left: 8%;
   margin-bottom: 8%;
   display: grid;
@@ -75,7 +77,7 @@
   gap: 0 0;
   grid-template-areas: "title . ." "input input input";
 }
-.account__content .content__main div input {
+.account__content .content__main .account-item input {
   margin-top: 2%;
   margin-right: 15%;
   outline: none;
@@ -84,22 +86,22 @@
   border-bottom: 1px solid #dcdbdb;
   cursor: pointer;
 }
-.account__content .content__main div ::-webkit-input-placeholder {
+.account__content .content__main .account-item ::-webkit-input-placeholder {
   color: #bebdbd;
 }
-.account__content .content__main div h2 {
+.account__content .content__main .account-item h2 {
   grid-area: title;
   margin-top: 5%;
 }
-.account__content .content__main div .checkbox__block {
+.account__content .content__main .account-item .checkbox__block {
   display: flex;
   align-items: center;
   width: 90%;
 }
-.account__content .content__main div .checkbox__block input {
+.account__content .content__main .account-item .checkbox__block input {
   width: 8%;
 }
-.account__content .content__main div .checkbox__block label {
+.account__content .content__main .account-item .checkbox__block label {
   margin-left: -9%;
   width: 90%;
   font-size: 13px;
@@ -117,7 +119,10 @@
   margin-top: 5%;
 }
 .account__content .content__main .firma .firma__hours {
-  margin-top: 5%;
+  margin-top: 6%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 }
 .account__content .content__main .firma .firma__hours .hours__title {
   color: #757575;
@@ -125,10 +130,11 @@
   font-weight: 300;
 }
 .account__content .content__main .firma .firma__hours select {
-  margin-left: -15%;
-  width: 80%;
+  margin-left: 3%;
+  width: 20%;
   color: #757575;
   outline: none;
+  padding-bottom: 1%;
   border-bottom: 1px solid #dcdbdb;
 }
 .account__content .content__main .address {
@@ -137,6 +143,156 @@
 .account__content .content__main .address input {
   margin-top: 5%;
   width: 95%;
+}
+.account__content .content__main .search {
+  margin-top: -5%;
+  margin-left: 5%;
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+}
+.account__content .content__main .search .search__title {
+  margin-top: 0;
+  width: 20%;
+  color: #62666c;
+  font-size: 22px;
+}
+.account__content .content__main .search .search__field {
+  width: 80%;
+  margin-bottom: 0;
+  margin-left: 3%;
+  display: flex;
+  align-items: center;
+}
+.account__content .content__main .search .search__field .search__input {
+  margin-top: 0;
+  margin-right: 0;
+  width: 60%;
+  border: 1px solid rgb(229, 229, 229);
+  border-radius: 2px;
+  height: 35px;
+  padding: 4px 6px 4px 6px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #B1B1B1;
+}
+.account__content .content__main .search .search__field .search__button {
+  width: 15%;
+  height: 45px;
+  background: #15616D;
+  border-radius: 2px;
+  color: white;
+  font-size: 14px;
+  line-height: 17px;
+}
+.account__content .content__main .categories {
+  margin-top: 3%;
+  margin-left: 5%;
+  position: relative;
+  z-index: 10;
+  display: flex;
+  width: 110%;
+  justify-content: space-between;
+}
+.account__content .content__main .categories .category__item {
+  text-align: center;
+  border: 1px solid lightgray;
+  background: #f5f5f5;
+  margin-left: 0;
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: 11.5%;
+  cursor: pointer;
+  transition: 0.2s ease-in;
+}
+.account__content .content__main .categories .category__item:hover {
+  background: #e5e4e4;
+}
+.account__content .content__main .categories .item_selected {
+  background: #15616D;
+  color: #FFFFFF;
+}
+.account__content .content__main .categories .item_selected:hover {
+  background: #15616D;
+}
+.account__content .content__main .orders {
+  margin-top: 6%;
+  margin-left: 5%;
+}
+.account__content .content__main .orders .order {
+  border: 1px solid #e7e7e7;
+  border-radius: 10px;
+  width: 100%;
+  height: 120px;
+  display: flex;
+  box-shadow: 3px 5px 10px lightgray;
+  justify-content: space-between;
+  color: #474A51;
+}
+.account__content .content__main .orders .order .order__image {
+  object-fit: cover;
+  border-radius: 10px;
+}
+.account__content .content__main .orders .order .order__description {
+  margin-left: -6%;
+  margin-top: 1%;
+}
+.account__content .content__main .orders .order .order__description .description__name {
+  font-size: 18px;
+}
+.account__content .content__main .orders .order .order__description .description__condition {
+  font-size: 15px;
+  font-weight: 300;
+}
+.account__content .content__main .orders .order .order__amount {
+  margin-top: 1%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.account__content .content__main .orders .order .order__amount .amount__quantity {
+  font-size: 16px;
+  font-weight: 300;
+}
+.account__content .content__main .orders .order .order__amount .amount__price {
+  margin-top: 3%;
+  font-size: 16px;
+  font-weight: 300;
+}
+.account__content .content__main .orders .order .order__amount .amount__total {
+  margin-top: 2%;
+}
+.account__content .content__main .orders .order .order__buy {
+  margin-right: 2%;
+  margin-top: 1%;
+}
+.account__content .content__main .orders .order .order__buy .buy__delivery .delivery__title {
+  font-size: 16px;
+}
+.account__content .content__main .orders .order .order__buy .buy__delivery .delivery__option {
+  font-size: 14px;
+  font-weight: 300;
+  margin-top: 2%;
+}
+.account__content .content__main .orders .order .order__buy .buy__button {
+  margin-top: 5%;
+  height: 30px;
+  width: 80%;
+  background: #15616D;
+  color: #FFFFFF;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.3s ease-in;
+  box-shadow: 2px 4px 5px gray;
+}
+.account__content .content__main .orders .order .order__buy .buy__button:hover {
+  font-size: 16px;
+  box-shadow: 1px 2px 5px gray;
 }
 .account__content .content__user {
   width: 25%;
