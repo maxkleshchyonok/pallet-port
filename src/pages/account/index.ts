@@ -1,6 +1,179 @@
 import Page from '../../core/templates/page';
 import './index.css';
 
+const respondFromServer = [
+  {
+    'cart': {
+      'user': {
+        'deliveryAddress': {
+          'street': 'string',
+          'city': 'string',
+          'zipCode': 'string',
+          'state': 'string',
+          'countryCode': 'string',
+        },
+        'paymentAddress': {
+          'street': 'string',
+          'city': 'string',
+          'zipCode': 'string',
+          'state': 'string',
+          'countryCode': 'string',
+        },
+        'name': 'Jan Kowalski',
+        'email': 'jan@gmail.com',
+        'password': 'string',
+        'phone': '48123456789',
+        'rank': 4.5,
+        'avatar': '/assets/avatars/jan.jpg',
+        'roles': [
+          'BUYER',
+        ],
+        'companies': [
+          {
+            'address': {
+              'street': 'string',
+              'city': 'string',
+              'zipCode': 'string',
+              'state': 'string',
+              'countryCode': 'string',
+            },
+            'name': 'Roga i kopyta Sp. z o.o.',
+            'NIP': '1234567890',
+            'IBAN': 'stringstringstringstringst',
+            'paymentDate': 30,
+            'VAT': '23',
+            'email': 'jan@gmail.com',
+            'phone': '48123456789',
+            'workingHourMin': 24,
+            'workingHourMax': 24,
+            '_id': '63f7b5715da65be6e956f2cb',
+          },
+        ],
+      },
+      'offers': [
+        {
+          'offer': {
+            'product': {
+              'category': {
+                'name': 'Palety drewniane',
+                'description': 'Palety drewniane bardzo dobre',
+                'image': 'https://cdn.shopify.com/s/files/1/0029/7477/7411/products/31_1024x1024.jpg?v=1559927418',
+                'shortName': 'palety_drewniane',
+              },
+              'name': 'Paleta drewniana 1200*800',
+              'material': 'METAL',
+              'condition': 'NEW',
+              'description': 'Palety drewniane bardzo dobre',
+              'image1': 'https://cdn.shopify.com/s/files/1/0029/7477/7411/products/31_1024x1024.jpg?v=1559927418',
+              'image2': '/assets/img/product/paleta_drewinana_1200800_2.jpg',
+              'shortName': 'paleta_drewniana',
+              'length': '0',
+              'width': '0',
+              'height': '0',
+              'maxLoad': '0',
+            },
+            'seller': {
+              'deliveryAddress': {
+                'street': 'string',
+                'city': 'string',
+                'zipCode': 'string',
+                'state': 'string',
+                'countryCode': 'string',
+              },
+              'paymentAddress': {
+                'street': 'string',
+                'city': 'string',
+                'zipCode': 'string',
+                'state': 'string',
+                'countryCode': 'string',
+              },
+              'name': 'Jan Kowalski',
+              'email': 'jan@gmail.com',
+              'password': 'string',
+              'phone': '48123456789',
+              'rank': 4.5,
+              'avatar': '/assets/avatars/jan.jpg',
+              'roles': [
+                'BUYER',
+              ],
+              'companies': [
+                {
+                  'address': {
+                    'street': 'string',
+                    'city': 'string',
+                    'zipCode': 'string',
+                    'state': 'string',
+                    'countryCode': 'string',
+                  },
+                  'name': 'Roga i kopyta Sp. z o.o.',
+                  'NIP': '1234567890',
+                  'IBAN': 'stringstringstringstringst',
+                  'paymentDate': 30,
+                  'VAT': '23',
+                  'email': 'jan@gmail.com',
+                  'phone': '48123456789',
+                  'workingHourMin': 24,
+                  'workingHourMax': 24,
+                  '_id': '63f7b5715da65be6e956f2cd',
+                },
+              ],
+            },
+            'company': {
+              'address': {
+                'street': 'string',
+                'city': 'string',
+                'zipCode': 'string',
+                'state': 'string',
+                'countryCode': 'string',
+              },
+              'name': 'Roga i kopyta Sp. z o.o.',
+              'NIP': '1234567890',
+              'IBAN': 'stringstringstringstringst',
+              'paymentDate': 30,
+              'VAT': '23',
+              'email': 'jan@gmail.com',
+              'phone': '48123456789',
+              'workingHourMin': 24,
+              'workingHourMax': 24,
+            },
+            'price': 25.2,
+            'quantityMin': 100000,
+            'quantityMax': 100000,
+            'delivery': [
+              {
+                'deliveryTimeMin': 366,
+                'deliveryTimeMax': 366,
+                'deliveryPrice': 255.6,
+                '_id': '63f7b5715da65be6e956f2ce',
+                'deliveryType': 'BUS',
+              },
+            ],
+            'image1': '/assets/img/product/paleta_drewinana_1200800_1.jpg',
+            'image2': '/assets/img/product/paleta_drewinana_1200800_2.jpg',
+            'description': 'Moje palety najlepsze!',
+            'offerStatus': 'ACTIVE',
+            'rating': 0,
+            'isTop': true,
+          },
+          'delivery': {
+            'deliveryTimeMin': 366,
+            'deliveryTimeMax': 366,
+            'deliveryPrice': 255.6,
+            'deliveryType': 'BUS',
+          },
+          'quantity': 2,
+          '_id': '63f7b5715da65be6e956f2cc',
+        },
+      ],
+    },
+    '_id': '63f7b5715da65be6e956f2ca',
+    'status': 'CREATED',
+    'payment': 'CASH',
+    'paymentStatus': false,
+    '__v': 0,
+  },
+];
+
 class AccountPage extends Page {
   static TextObject = {
     MainTitle: 'Account Page',
@@ -53,9 +226,9 @@ class AccountPage extends Page {
       const addressTitle = document.createElement('h2');
       const addressWysTitle = document.createElement('h2');
 
-      daneBlock.className = 'dane';
-      address.className = 'address';
-      addressWys.className = 'wysylka';
+      daneBlock.classList.add('dane', 'account-item');
+      address.classList.add('address', 'account-item');
+      addressWys.classList.add('wysylka', 'account-item');
       daneTitle.className = 'dane__title';
       addressTitle.className = 'address__title';
       addressWysTitle.className = 'address_wys__title';
@@ -161,10 +334,10 @@ class AccountPage extends Page {
       const firmaTitle = document.createElement('h2');
       const addressTitle = document.createElement('h2');
 
-      firmaBlock.className = 'firma';
+      firmaBlock.classList.add('firma', 'account-item');
       firmaHours.className = 'firma__hours';
       firmaHoursTitle.className = 'hours__title';
-      addressBlock.className = 'address';
+      addressBlock.classList.add('address', 'account-item');
       firmaTitle.className = 'firma__title';
       addressTitle.className = 'firm__address__title';
 
@@ -247,8 +420,102 @@ class AccountPage extends Page {
       searchInput.placeholder = 'Wpisz nazwę towaru';
       searchButton.textContent = 'Shukaj';
 
-      // for (let i = 0; i < 8; i += 1) {
-      // }
+      for (let i = 0; i < 8; i += 1) {
+        const div = document.createElement('div');
+        div.className = 'category__item';
+        switch (i) {
+          case 0:
+            div.textContent = 'Wszystkie';
+            break;
+          case 1:
+            div.textContent = 'Nieoplacone';
+            break;
+          case 2:
+            div.textContent = 'W toku';
+            break;
+          case 3:
+            div.textContent = 'W drodze / Do odbioru';
+            break;
+          case 4:
+            div.textContent = 'Zwroty';
+            break;
+          case 5:
+            div.textContent = 'Anulowane';
+            break;
+          case 6:
+            div.textContent = 'Dostarczone';
+            break;
+          case 7:
+            div.textContent = 'Do oceny';
+            break;
+        }
+        div.addEventListener('click', () => {
+          const all = document.querySelectorAll('.category__item');
+          all.forEach((el) => {
+            el.classList.remove('item_selected');
+          });
+          div.classList.add('item_selected');
+        });
+        categoryBlock.append(div);
+      }
+
+
+      respondFromServer.forEach((item) => {
+        item.cart.offers.forEach((el) => {
+          const order = document.createElement('div');
+          const image = document.createElement('img');
+          const description = document.createElement('div');
+          const name = document.createElement('h2');
+          const condition = document.createElement('h2');
+          const amountBlock = document.createElement('div');
+          const quantity = document.createElement('h3');
+          const price = document.createElement('h3');
+          const totalPrice = document.createElement('h3');
+          const buyBlock = document.createElement('div');
+          const delivery = document.createElement('div');
+          const deliveryTitle = document.createElement('h3');
+          const deliveryOption = document.createElement('h4');
+          const fullPrice = document.createElement('h2');
+          const buyButton = document.createElement('button');
+
+          order.className = 'order';
+          image.className = 'order__image';
+          description.className = 'order__description';
+          name.className = 'description__name';
+          condition.className = 'description__condition';
+          amountBlock.className = 'order__amount';
+          quantity.className = 'amount__quantity';
+          price.className = 'amount__price';
+          totalPrice.className = 'amount__total';
+          buyBlock.className = 'order__buy';
+          delivery.className = 'buy__delivery';
+          deliveryTitle.className = 'delivery__title';
+          deliveryOption.className = 'delivery__option';
+          fullPrice.className = 'buy__price';
+          buyButton.className = 'buy__button';
+
+
+          image.src = el.offer.product.image1;
+          name.textContent = el.offer.product.name;
+          condition.textContent = el.offer.product.condition;
+          quantity.textContent = `${el.quantity} x ${el.offer.quantityMax} szt`;
+          price.textContent = `${el.offer.price} zł/szt`;
+          totalPrice.textContent = `${el.offer.price * el.quantity} zł`;
+          deliveryTitle.textContent = 'Z dostawą:';
+          deliveryOption.textContent = el.delivery.deliveryType;
+          fullPrice.textContent = `${el.offer.price * el.quantity + el.delivery.deliveryPrice} zł`;
+          buyButton.textContent = 'Zapłać';
+
+
+          delivery.append(deliveryTitle, deliveryOption);
+          buyBlock.append(delivery, fullPrice, buyButton);
+          amountBlock.append(quantity, price, totalPrice);
+          description.append(name, condition);
+          order.append(image, description, amountBlock, buyBlock);
+          orders.append(order);
+        });
+      });
+
 
       searchField.append(searchInput, searchButton);
       searchBlock.append(searchTitle, searchField);
