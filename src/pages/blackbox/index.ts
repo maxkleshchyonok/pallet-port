@@ -1,6 +1,8 @@
 import Page from '../../core/templates/page';
-// import { IOffer, User } from '../../core/types/types';
+import { OfferStatus } from '../../core/types/types';
 import './index.scss';
+import { getOffersByStatus } from '../../core/components/api/fetches';
+
 
 
 // const requestOptions: RequestInit = {
@@ -75,15 +77,15 @@ class BlackBoxPage extends Page {
     searchButton.addEventListener('click', function (e) {
       e.preventDefault();
 
-      const message = searchInput.value;
+      // const message = searchInput.value;
 
-      const token = '5270962336:AAFTy1xhsG3GSpILaEOAWKziybfjNfLRz8U';
-      const chatId = -1001845861157;
-      const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${message}`;
+      // const token = '5270962336:AAFTy1xhsG3GSpILaEOAWKziybfjNfLRz8U';
+      // const chatId = -1001845861157;
+      // const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${message}`;
 
-      const oReq = new XMLHttpRequest();
-      oReq.open('GET', url, true);
-      oReq.send();
+      // const oReq = new XMLHttpRequest();
+      // oReq.open('GET', url, true);
+      // oReq.send();
 
       setTimeout(() => {
         bbText.remove();

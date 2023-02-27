@@ -7,8 +7,9 @@ import Offer from '../../core/components/offer/offer';
 import offersJSON from '../../assets/json/_OffersArray.json';
 import './index.scss';
 import Filters from '../../core/components/filters/filters';
-import { SortEnum } from '../../core/types/types';
+import { SortEnum, OfferStatus } from '../../core/types/types';
 import Footer from '../../core/components/footer';
+import { getOffersByStatus } from '../../core/components/api/fetches';
 
 import { parameters, parametersObj, saveParameters } from '../../core/parameters/parameters';
 
@@ -32,7 +33,10 @@ class CatalogPage extends Page {
     parameters.delete('name');
   }
 
-
+  drawProductCards = async () => {
+    const arr = await getOffersByStatus(OfferStatus.ACTIVE);
+    //......//
+  };
 
   drawProductsCards(catalogSection: HTMLElement) {
 
