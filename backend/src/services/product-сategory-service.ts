@@ -20,6 +20,11 @@ class ProductCategoryService {
         const productCategory = await ProductCategory.findByIdAndDelete(id);
         return productCategory;
     };
+
+    async getAll() {
+        const users = await ProductCategory.find();
+        return users;
+    };
 }
 
 export default new ProductCategoryService();
