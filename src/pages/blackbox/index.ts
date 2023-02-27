@@ -60,6 +60,18 @@ class BlackBoxPage extends Page {
     content.append(navbar, main);
     this.container.append(content);
 
+
+    const spinnerWrapper = document.createElement('div');
+    spinnerWrapper.className = 'spinner-wrapper';
+    const spinner = document.createElement('div');
+    spinner.className = 'spinner';
+    spinnerWrapper.appendChild(spinner);
+    // navbar.appendChild(spinnerWrapper);
+
+
+    const afterBbText = document.createElement('legend');
+    this.createLegend(afterBbText, navbar, 'ppAI nie dziala :(');
+
     searchButton.addEventListener('click', function (e) {
       e.preventDefault();
 
@@ -73,27 +85,23 @@ class BlackBoxPage extends Page {
       oReq.open('GET', url, true);
       oReq.send();
 
+      setTimeout(() => {
+        bbText.remove();
+        bbLink.remove();
+        searchBlock.remove();
+        navbar.append(spinnerWrapper);
+      }, 2000);
+      setTimeout(() => spinnerWrapper.remove(), 20000);
 
 
       // alert('Message sent!');
 
     });
 
-    const spinnerWrapper = document.createElement('div');
-    spinnerWrapper.className = 'spinner-wrapper';
-    const spinner = document.createElement('div');
-    spinner.className = 'spinner';
-
-    spinnerWrapper.appendChild(spinner);
-    navbar.appendChild(spinnerWrapper);
-
     const presentation = document.createElement('div');
     // eslint-disable-next-line max-len
     presentation.innerHTML = '<iframe src="https://www.slideshare.net/slideshow/embed_code/key/qFllHHQ7F9FEYg?hostedIn=slideshare&page=upload" width="900" height="570" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>';
     navbar.append(presentation);
-
-
-
 
   }
 
