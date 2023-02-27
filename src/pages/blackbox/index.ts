@@ -1,7 +1,5 @@
 import Page from '../../core/templates/page';
-import { OfferStatus } from '../../core/types/types';
 import './index.scss';
-import { getOffersByStatus } from '../../core/components/api/fetches';
 
 
 
