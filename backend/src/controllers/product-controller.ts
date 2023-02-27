@@ -1,8 +1,9 @@
 import productService from '../services/product-service.js';
 import formatError from '../tools/errorFormatter.js';
+import { Request, Response } from 'express';
 
 class ProductController {
-    async createProduct(request: any, response: any) {
+    async createProduct(request: Request, response: Response) {
         try {
             const product = await productService.create(request.body);
             response.json(product);
@@ -12,7 +13,7 @@ class ProductController {
         }
     };
 
-    async getProduct(request: any, response: any) {
+    async getProduct(request: Request, response: Response) {
         try {
             const product = await productService.get(request.params.id);
             response.json(product);
@@ -22,7 +23,7 @@ class ProductController {
         }
     };
 
-    async updateProduct(request: any, response: any) {
+    async updateProduct(request: Request, response: Response) {
         try {
             const product = await productService.update(request.params.id, request.body);
             response.json(product);
@@ -32,7 +33,7 @@ class ProductController {
         }
     };
 
-    async deleteProduct(request: any, response: any) {
+    async deleteProduct(request: Request, response: Response) {
         try {
             const product = await productService.delete(request.params.id);
             response.json(product);
@@ -42,7 +43,7 @@ class ProductController {
         }
     };
 
-    async getProducts(request: any, response: any) {
+    async getProducts(request: Request, response: Response) {
         try {
             const products = await productService.getAll();
             response.json(products);

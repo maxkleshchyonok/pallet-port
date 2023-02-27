@@ -22,7 +22,7 @@ export enum DeliveryType {
 }
 
 export enum OfferStatus {
-  ACTIVE = 'Aktywne',
+  ACTIVE = 'Aktywna',
   MODERATION = 'Na moderacji',
   CLOSED = 'Zakończone',
 }

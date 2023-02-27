@@ -1,9 +1,10 @@
 import User from '../schemas/user.js';
 import bcrypt from 'bcrypt';
 import createAccessToken from '../tools/token.js';
+import { ICandidate } from '../types/interfaces.js';
 
 class AuthService {
-    async register(candidate: any) {
+    async register(candidate: ICandidate) {
         const { email, password } = candidate;
         const isEmailExist = await User.findOne({ email });
 

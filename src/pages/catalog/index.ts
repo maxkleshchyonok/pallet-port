@@ -7,8 +7,9 @@ import Offer from '../../core/components/offer/offer';
 import offersJSON from '../../assets/json/_OffersArray.json';
 import './index.scss';
 import Filters from '../../core/components/filters/filters';
-import { SortEnum } from '../../core/types/types';
+import { SortEnum, OfferStatus, IOffer } from '../../core/types/types';
 import Footer from '../../core/components/footer';
+import { getOffersByStatus } from '../../core/components/api/fetches';
 
 import { parameters, parametersObj, saveParameters } from '../../core/parameters/parameters';
 
@@ -32,9 +33,8 @@ class CatalogPage extends Page {
     parameters.delete('name');
   }
 
-
-
-  drawProductsCards(catalogSection: HTMLElement) {
+  drawProductsCards = async (catalogSection: HTMLElement) => {
+    const arr = await getOffersByStatus(OfferStatus.ACTIVE) as IOffer[];
 
 
     catalogSection.innerHTML = '';
@@ -49,7 +49,7 @@ class CatalogPage extends Page {
     //   && parametersObj().price[1] >= el.price
     //   && parametersObj().load[0] <= el.load && parametersObj().load[1] >= el.load);
 
-    const arr = [...offersJSON];
+    // const arr = [...offersJSON];
 
 
     // this.sortFilter(arr);
@@ -77,7 +77,7 @@ class CatalogPage extends Page {
         productData.category,
         arr[j].price,
         arr[j].delivery,
-        arr[j].seller.rank,
+        arr[j].seller.rank as number,
       );
 
       // const obj = {
@@ -122,7 +122,7 @@ class CatalogPage extends Page {
 
 
     }
-  }
+  };
 
   private renderCatalogTop(): HTMLElement {
     const content = document.createElement('div');

@@ -1,8 +1,9 @@
 import userService from '../services/user-service.js';
 import formatError from '../tools/errorFormatter.js';
+import { Request, Response } from 'express';
 
 class UserController {
-    async createUser(request: any, response: any) {
+    async createUser(request: Request, response: Response) {
         try {
             const user = await userService.create(request.body);
             response.json(user);
@@ -12,7 +13,7 @@ class UserController {
         }
     };
 
-    async getUser(request: any, response: any) {
+    async getUser(request: Request, response: Response) {
         try {
             const user = await userService.get(request.params.id);
             response.json(user);
@@ -22,7 +23,7 @@ class UserController {
         }
     };
 
-    async getUsers(request: any, response: any) {
+    async getUsers(request: Request, response: Response) {
         try {
             const user = await userService.getAll();
             response.json(user);
@@ -32,7 +33,7 @@ class UserController {
         }
     };
 
-    async updateUser(request: any, response: any) {
+    async updateUser(request: Request, response: Response) {
         try {
             const user = await userService.update(request.params.id, request.body);
             response.json(user);
@@ -42,7 +43,7 @@ class UserController {
         }
     };
 
-    async deleteUser(request: any, response: any) {
+    async deleteUser(request: Request, response: Response) {
         try {
             const user = await userService.delete(request.params.id);
             response.json(user);
