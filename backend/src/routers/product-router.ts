@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import productController from '../controllers/product-controller.js';
-import checkAuth from '../middlewares/authMiddleware.js';
+import checkAuth from '../middlewares/auth-middleware.js';
 
 const productRouter = Router();
 

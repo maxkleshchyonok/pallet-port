@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import productCategoryController from '../controllers/product-сategory-controller.js';
-import checkAuth from '../middlewares/authMiddleware.js';
+import checkAuth from '../middlewares/auth-middleware.js';
 
 const productCategoryRouter = Router();
 

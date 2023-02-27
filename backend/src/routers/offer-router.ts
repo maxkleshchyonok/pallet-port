@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import offerController from '../controllers/offer-controller.js';
-import checkAuth from '../middlewares/authMiddleware.js';
+import checkAuth from '../middlewares/auth-middleware.js';
 
 const offerRouter = Router();
 
