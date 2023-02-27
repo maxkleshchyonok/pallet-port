@@ -20,17 +20,41 @@
 
 ## [](https://fastidious-sunshine-fdc597.netlify.app/)Деплой фронтенда
 
--  https://fastidious-sunshine-fdc597.netlify.app/
+-  https://palletport.netlify.app/
+
+## [](https://ppback.onrender.com/)Деплой бекэнда
+
+-  https://ppback.onrender.com/
 
 
 ## [](https://github.com/maxkleshchyonok/pallet-port#server-requirements)Требования к серверу
 
 -   Node JS (16.18 и выше)
 
+## [](https://github.com/maxkleshchyonok/pallet-port#server-installation)Установка фронтенда
+
+-   Клонируйте репозиторий и установите необходимые модули 
+  
+    ```
+     npm install
+    ```
+    
+-   Запустите сайт
+    
+    ```
+    npm run dev
+    ```
+    
+-   Сайт доступен по адресу 
+    
+    ```
+    http://localhost:8080
+    ```
+    
 
 ## [](https://github.com/maxkleshchyonok/pallet-port#server-installation)Установка сервера
 
--   Клонируйте репозиторий, перейдите в папку  установите модули в папке "backend"
+-   Клонируйте репозиторий, перейдите в папку "backend" и установите необходимые модули 
   
     ```
      npm install
@@ -48,10 +72,11 @@
     http://localhost:5300
     ```
     
--   Перечень возможных запросов к серверу
+-   Перечень возможных запросов к серверу и схемы объектов
     
     ```
     https://app.swaggerhub.com/apis/FOTEEV_1/Palletport/1
+    https://www.postman.com/planetary-moon-925275/workspace/my-workspace/collection/25385346-21033c95-ce5a-43b9-b2b7-8352587ae778?ctx=documentation
     ```
 
 ## []()Лицензия
