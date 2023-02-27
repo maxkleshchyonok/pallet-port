@@ -78,6 +78,15 @@ export type Rating = {
   rank: number,
 };
 
+export type LoginData = {
+  email: string,
+  password: string,
+};
+
+export type RegisterData = {
+  email:string,
+};
+
 export type CatalogItem = {
   short: string,
   condition: string,

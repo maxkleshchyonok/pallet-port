@@ -78,173 +78,173 @@ export class RequiredError extends Error {
 }
 
 /**
- * 
+ *
  * @export
  * @interface Address
  */
 export interface Address {
     /**
-     * 
+     *
      * @type {string}
      * @memberof Address
      */
     street?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof Address
      */
     city: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof Address
      */
     zipCode: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof Address
      */
     state: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof Address
      */
     countryCode: string;
     /**
-     * 
+     *
      * @type {Coordinates}
      * @memberof Address
      */
     coordinates?: Coordinates;
 }
 /**
- * 
+ *
  * @export
  * @interface Cart
  */
 export interface Cart {
     /**
-     * 
+     *
      * @type {number}
      * @memberof Cart
      */
     id?: number;
     /**
-     * 
+     *
      * @type {User}
      * @memberof Cart
      */
     user?: User;
     /**
-     * 
+     *
      * @type {Array<CartOffers>}
      * @memberof Cart
      */
     offers?: Array<CartOffers>;
 }
 /**
- * 
+ *
  * @export
  * @interface CartOffers
  */
 export interface CartOffers {
     /**
-     * 
+     *
      * @type {Offer}
      * @memberof CartOffers
      */
     offer?: Offer;
     /**
-     * 
+     *
      * @type {number}
      * @memberof CartOffers
      */
     quantity?: number;
     /**
-     * 
+     *
      * @type {Delivery}
      * @memberof CartOffers
      */
     delivery?: Delivery;
 }
 /**
- * 
+ *
  * @export
  * @interface Company
  */
 export interface Company {
     /**
-     * 
+     *
      * @type {number}
      * @memberof Company
      */
     id?: number;
     /**
-     * 
+     *
      * @type {string}
      * @memberof Company
      */
     name?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof Company
      */
     NIP?: string;
     /**
-     * 
+     *
      * @type {Address}
      * @memberof Company
      */
     address?: Address;
     /**
-     * 
+     *
      * @type {string}
      * @memberof Company
      */
     IBAN?: string;
     /**
-     * 
+     *
      * @type {number}
      * @memberof Company
      */
     paymentDate?: number;
     /**
-     * 
+     *
      * @type {number}
      * @memberof Company
      */
     VAT?: number;
     /**
-     * 
+     *
      * @type {string}
      * @memberof Company
      */
     email?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof Company
      */
     phone?: string;
     /**
-     * 
+     *
      * @type {number}
      * @memberof Company
      */
     workingHourMin?: number;
     /**
-     * 
+     *
      * @type {number}
      * @memberof Company
      */
     workingHourMax?: number;
 }
 /**
- * 
+ *
  * @export
  * @enum {string}
  */
@@ -256,45 +256,45 @@ export enum Condition {
     BROKEN = <any> 'BROKEN'
 }
 /**
- * 
+ *
  * @export
  * @interface Coordinates
  */
 export interface Coordinates {
 }
 /**
- * 
+ *
  * @export
  * @interface Delivery
  */
 export interface Delivery {
     /**
-     * 
+     *
      * @type {DeliveryType}
      * @memberof Delivery
      */
     deliveryType?: DeliveryType;
     /**
-     * 
+     *
      * @type {number}
      * @memberof Delivery
      */
     deliveryTimeMin?: number;
     /**
-     * 
+     *
      * @type {number}
      * @memberof Delivery
      */
     deliveryTimeMax?: number;
     /**
-     * 
+     *
      * @type {number}
      * @memberof Delivery
      */
     deliveryPrice?: number;
 }
 /**
- * 
+ *
  * @export
  * @enum {string}
  */
@@ -305,7 +305,7 @@ export enum DeliveryType {
     COURIER = <any> 'COURIER'
 }
 /**
- * 
+ *
  * @export
  * @enum {string}
  */
@@ -316,98 +316,98 @@ export enum Material {
     CARDBOARD = <any> 'CARDBOARD'
 }
 /**
- * 
+ *
  * @export
  * @interface Offer
  */
 export interface Offer {
     /**
-     * 
+     *
      * @type {number}
      * @memberof Offer
      */
     id?: number;
     /**
-     * 
+     *
      * @type {Product}
      * @memberof Offer
      */
     product?: Product;
     /**
-     * 
+     *
      * @type {User}
      * @memberof Offer
      */
     seller?: User;
     /**
-     * 
+     *
      * @type {Company}
      * @memberof Offer
      */
     company?: Company;
     /**
-     * 
+     *
      * @type {number}
      * @memberof Offer
      */
     price?: number;
     /**
-     * 
+     *
      * @type {number}
      * @memberof Offer
      */
     quantityMin?: number;
     /**
-     * 
+     *
      * @type {number}
      * @memberof Offer
      */
     quantityMax?: number;
     /**
-     * 
+     *
      * @type {Array<Delivery>}
      * @memberof Offer
      */
     delivery?: Array<Delivery>;
     /**
-     * 
+     *
      * @type {string}
      * @memberof Offer
      */
     image1?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof Offer
      */
     image2?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof Offer
      */
     description?: string;
     /**
-     * 
+     *
      * @type {OfferStatus}
      * @memberof Offer
      */
     offerStatus?: OfferStatus;
     /**
-     * 
+     *
      * @type {number}
      * @memberof Offer
      */
     rating?: number;
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof Offer
      */
     isTop?: boolean;
 }
 /**
- * 
+ *
  * @export
  * @interface OfferImageLinkUploadRequest
  */
@@ -420,7 +420,7 @@ export interface OfferImageLinkUploadRequest {
     url: string;
 }
 /**
- * 
+ *
  * @export
  * @enum {string}
  */
@@ -430,44 +430,44 @@ export enum OfferStatus {
     CLOSED = <any> 'CLOSED'
 }
 /**
- * 
+ *
  * @export
  * @interface Order
  */
 export interface Order {
     /**
-     * 
+     *
      * @type {number}
      * @memberof Order
      */
     id?: number;
     /**
-     * 
+     *
      * @type {Cart}
      * @memberof Order
      */
     cart?: Cart;
     /**
-     * 
+     *
      * @type {OrderStatus}
      * @memberof Order
      */
     status?: OrderStatus;
     /**
-     * 
+     *
      * @type {PaymentType}
      * @memberof Order
      */
     payment?: PaymentType;
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof Order
      */
     paymentStatus?: boolean;
 }
 /**
- * 
+ *
  * @export
  * @enum {string}
  */
@@ -482,7 +482,7 @@ export enum OrderStatus {
     CLOSED = <any> 'CLOSED'
 }
 /**
- * 
+ *
  * @export
  * @enum {string}
  */
@@ -492,129 +492,129 @@ export enum PaymentType {
     CARD = <any> 'CARD'
 }
 /**
- * 
+ *
  * @export
  * @interface Product
  */
 export interface Product {
     /**
-     * 
+     *
      * @type {number}
      * @memberof Product
      */
     id?: number;
     /**
-     * 
+     *
      * @type {string}
      * @memberof Product
      */
     name?: string;
     /**
-     * 
+     *
      * @type {Material}
      * @memberof Product
      */
     material?: Material;
     /**
-     * 
+     *
      * @type {Condition}
      * @memberof Product
      */
     condition?: Condition;
     /**
-     * 
+     *
      * @type {string}
      * @memberof Product
      */
     description?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof Product
      */
     image1?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof Product
      */
     image2?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof Product
      */
     shortName?: string;
     /**
-     * 
+     *
      * @type {number}
      * @memberof Product
      */
     length?: number;
     /**
-     * 
+     *
      * @type {number}
      * @memberof Product
      */
     width?: number;
     /**
-     * 
+     *
      * @type {number}
      * @memberof Product
      */
     height?: number;
     /**
-     * 
+     *
      * @type {number}
      * @memberof Product
      */
     maxLoad?: number;
     /**
-     * 
+     *
      * @type {ProductCategory}
      * @memberof Product
      */
     category?: ProductCategory;
 }
 /**
- * 
+ *
  * @export
  * @interface ProductCategory
  */
 export interface ProductCategory {
     /**
-     * 
+     *
      * @type {number}
      * @memberof ProductCategory
      */
     id?: number;
     /**
-     * 
+     *
      * @type {string}
      * @memberof ProductCategory
      */
     name?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof ProductCategory
      */
     description?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof ProductCategory
      */
     image?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof ProductCategory
      */
     shortName?: string;
 }
 /**
- * 
+ *
  * @export
  * @enum {string}
  */
@@ -626,19 +626,19 @@ export enum Role {
     LOGISTIC = <any> 'LOGISTIC'
 }
 /**
- * 
+ *
  * @export
  * @interface User
  */
 export interface User {
     /**
-     * 
+     *
      * @type {number}
      * @memberof User
      */
     id?: number;
     /**
-     * 
+     *
      * @type {string}
      * @memberof User
      */
@@ -650,49 +650,49 @@ export interface User {
      */
     email: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof User
      */
     password?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof User
      */
     phone?: string;
     /**
-     * 
+     *
      * @type {number}
      * @memberof User
      */
     rank?: number;
     /**
-     * 
+     *
      * @type {string}
      * @memberof User
      */
     avatar?: string;
     /**
-     * 
+     *
      * @type {Array<Role>}
      * @memberof User
      */
     roles?: Array<Role>;
     /**
-     * 
+     *
      * @type {Address}
      * @memberof User
      */
     deliveryAddress?: Address;
     /**
-     * 
+     *
      * @type {Address}
      * @memberof User
      */
     paymentAddress?: Address;
     /**
-     * 
+     *
      * @type {Array<Company>}
      * @memberof User
      */
@@ -707,7 +707,7 @@ export const OfferApiFetchParamCreator = function (configuration?: Configuration
         /**
          * Use this resource to create offer based on product. Read more: <a href=\"../../tutorials/jak-jednym-requestem-wystawic-oferte-powiazana-z-produktem-D7Kj9gw4xFA#jak-wystawic-oferte-z-produktem-za-pomoca-zasobu-sale-product-offers\" target=\"_blank\">PL</a> / <a href=\"../../tutorials/list-offer-assigned-product-one-request-D7Kj9M71Bu6#how-to-list-an-offer-with-a-product-via-sale-product-offers-resource\" target=\"_blank\">EN</a>. Note that requests may be limited.
          * @summary Create offer based on product
-         * @param {Offer} body 
+         * @param {Offer} body
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -766,9 +766,9 @@ export const OfferApiFetchParamCreator = function (configuration?: Configuration
             };
         },
         /**
-         * 
+         *
          * @summary Finds offers by userEmail
-         * @param {string} email 
+         * @param {string} email
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -830,7 +830,7 @@ export const OfferApiFetchParamCreator = function (configuration?: Configuration
             };
         },
         /**
-         * 
+         *
          * @summary Updates a offer in the store with form data
          * @param {Offer} body Offer object that needs to be added to the marketplace
          * @param {number} offerId ID of offer that needs to be updated
@@ -868,10 +868,10 @@ export const OfferApiFetchParamCreator = function (configuration?: Configuration
             };
         },
         /**
-         * 
+         *
          * @summary uploads an image
          * @param {number} offerId ID of offer to update
-         * @param {Object} [body] 
+         * @param {Object} [body]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -913,7 +913,7 @@ export const OfferApiFp = function(configuration?: Configuration) {
         /**
          * Use this resource to create offer based on product. Read more: <a href=\"../../tutorials/jak-jednym-requestem-wystawic-oferte-powiazana-z-produktem-D7Kj9gw4xFA#jak-wystawic-oferte-z-produktem-za-pomoca-zasobu-sale-product-offers\" target=\"_blank\">PL</a> / <a href=\"../../tutorials/list-offer-assigned-product-one-request-D7Kj9M71Bu6#how-to-list-an-offer-with-a-product-via-sale-product-offers-resource\" target=\"_blank\">EN</a>. Note that requests may be limited.
          * @summary Create offer based on product
-         * @param {Offer} body 
+         * @param {Offer} body
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -949,9 +949,9 @@ export const OfferApiFp = function(configuration?: Configuration) {
             };
         },
         /**
-         * 
+         *
          * @summary Finds offers by userEmail
-         * @param {string} email 
+         * @param {string} email
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -987,7 +987,7 @@ export const OfferApiFp = function(configuration?: Configuration) {
             };
         },
         /**
-         * 
+         *
          * @summary Updates a offer in the store with form data
          * @param {Offer} body Offer object that needs to be added to the marketplace
          * @param {number} offerId ID of offer that needs to be updated
@@ -1007,10 +1007,10 @@ export const OfferApiFp = function(configuration?: Configuration) {
             };
         },
         /**
-         * 
+         *
          * @summary uploads an image
          * @param {number} offerId ID of offer to update
-         * @param {Object} [body] 
+         * @param {Object} [body]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -1038,7 +1038,7 @@ export const OfferApiFactory = function (configuration?: Configuration, fetch?: 
         /**
          * Use this resource to create offer based on product. Read more: <a href=\"../../tutorials/jak-jednym-requestem-wystawic-oferte-powiazana-z-produktem-D7Kj9gw4xFA#jak-wystawic-oferte-z-produktem-za-pomoca-zasobu-sale-product-offers\" target=\"_blank\">PL</a> / <a href=\"../../tutorials/list-offer-assigned-product-one-request-D7Kj9M71Bu6#how-to-list-an-offer-with-a-product-via-sale-product-offers-resource\" target=\"_blank\">EN</a>. Note that requests may be limited.
          * @summary Create offer based on product
-         * @param {Offer} body 
+         * @param {Offer} body
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -1056,9 +1056,9 @@ export const OfferApiFactory = function (configuration?: Configuration, fetch?: 
             return OfferApiFp(configuration).deleteOfferUsingDELETE(offerId, options)(fetch, basePath);
         },
         /**
-         * 
+         *
          * @summary Finds offers by userEmail
-         * @param {string} email 
+         * @param {string} email
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -1076,7 +1076,7 @@ export const OfferApiFactory = function (configuration?: Configuration, fetch?: 
             return OfferApiFp(configuration).findOffersByStatus(status, options)(fetch, basePath);
         },
         /**
-         * 
+         *
          * @summary Updates a offer in the store with form data
          * @param {Offer} body Offer object that needs to be added to the marketplace
          * @param {number} offerId ID of offer that needs to be updated
@@ -1087,10 +1087,10 @@ export const OfferApiFactory = function (configuration?: Configuration, fetch?: 
             return OfferApiFp(configuration).updateOffertWithForm(body, offerId, options)(fetch, basePath);
         },
         /**
-         * 
+         *
          * @summary uploads an image
          * @param {number} offerId ID of offer to update
-         * @param {Object} [body] 
+         * @param {Object} [body]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -1110,7 +1110,7 @@ export class OfferApi extends BaseAPI {
     /**
      * Use this resource to create offer based on product. Read more: <a href=\"../../tutorials/jak-jednym-requestem-wystawic-oferte-powiazana-z-produktem-D7Kj9gw4xFA#jak-wystawic-oferte-z-produktem-za-pomoca-zasobu-sale-product-offers\" target=\"_blank\">PL</a> / <a href=\"../../tutorials/list-offer-assigned-product-one-request-D7Kj9M71Bu6#how-to-list-an-offer-with-a-product-via-sale-product-offers-resource\" target=\"_blank\">EN</a>. Note that requests may be limited.
      * @summary Create offer based on product
-     * @param {Offer} body 
+     * @param {Offer} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof OfferApi
@@ -1132,9 +1132,9 @@ export class OfferApi extends BaseAPI {
     }
 
     /**
-     * 
+     *
      * @summary Finds offers by userEmail
-     * @param {string} email 
+     * @param {string} email
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof OfferApi
@@ -1156,7 +1156,7 @@ export class OfferApi extends BaseAPI {
     }
 
     /**
-     * 
+     *
      * @summary Updates a offer in the store with form data
      * @param {Offer} body Offer object that needs to be added to the marketplace
      * @param {number} offerId ID of offer that needs to be updated
@@ -1169,10 +1169,10 @@ export class OfferApi extends BaseAPI {
     }
 
     /**
-     * 
+     *
      * @summary uploads an image
      * @param {number} offerId ID of offer to update
-     * @param {Object} [body] 
+     * @param {Object} [body]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof OfferApi
@@ -1250,9 +1250,9 @@ export const OrderApiFetchParamCreator = function (configuration?: Configuration
             };
         },
         /**
-         * 
+         *
          * @summary Finds orders by userEmail
-         * @param {string} email 
+         * @param {string} email
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -1311,7 +1311,7 @@ export const OrderApiFetchParamCreator = function (configuration?: Configuration
             };
         },
         /**
-         * 
+         *
          * @summary Place an order
          * @param {Order} body order placed for purchasing
          * @param {*} [options] Override http request option.
@@ -1343,7 +1343,7 @@ export const OrderApiFetchParamCreator = function (configuration?: Configuration
             };
         },
         /**
-         * 
+         *
          * @summary Updates a order in the store with form data
          * @param {Order} body Order object that needs to be added to the marketplace
          * @param {number} orderId ID of order that needs to be updated
@@ -1428,9 +1428,9 @@ export const OrderApiFp = function(configuration?: Configuration) {
             };
         },
         /**
-         * 
+         *
          * @summary Finds orders by userEmail
-         * @param {string} email 
+         * @param {string} email
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -1466,7 +1466,7 @@ export const OrderApiFp = function(configuration?: Configuration) {
             };
         },
         /**
-         * 
+         *
          * @summary Place an order
          * @param {Order} body order placed for purchasing
          * @param {*} [options] Override http request option.
@@ -1485,7 +1485,7 @@ export const OrderApiFp = function(configuration?: Configuration) {
             };
         },
         /**
-         * 
+         *
          * @summary Updates a order in the store with form data
          * @param {Order} body Order object that needs to be added to the marketplace
          * @param {number} orderId ID of order that needs to be updated
@@ -1534,9 +1534,9 @@ export const OrderApiFactory = function (configuration?: Configuration, fetch?: 
             return OrderApiFp(configuration).findOrdersByStatus(status, options)(fetch, basePath);
         },
         /**
-         * 
+         *
          * @summary Finds orders by userEmail
-         * @param {string} email 
+         * @param {string} email
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -1554,7 +1554,7 @@ export const OrderApiFactory = function (configuration?: Configuration, fetch?: 
             return OrderApiFp(configuration).getOrderById(orderId, options)(fetch, basePath);
         },
         /**
-         * 
+         *
          * @summary Place an order
          * @param {Order} body order placed for purchasing
          * @param {*} [options] Override http request option.
@@ -1564,7 +1564,7 @@ export const OrderApiFactory = function (configuration?: Configuration, fetch?: 
             return OrderApiFp(configuration).placeOrder(body, options)(fetch, basePath);
         },
         /**
-         * 
+         *
          * @summary Updates a order in the store with form data
          * @param {Order} body Order object that needs to be added to the marketplace
          * @param {number} orderId ID of order that needs to be updated
@@ -1609,9 +1609,9 @@ export class OrderApi extends BaseAPI {
     }
 
     /**
-     * 
+     *
      * @summary Finds orders by userEmail
-     * @param {string} email 
+     * @param {string} email
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof OrderApi
@@ -1633,7 +1633,7 @@ export class OrderApi extends BaseAPI {
     }
 
     /**
-     * 
+     *
      * @summary Place an order
      * @param {Order} body order placed for purchasing
      * @param {*} [options] Override http request option.
@@ -1645,7 +1645,7 @@ export class OrderApi extends BaseAPI {
     }
 
     /**
-     * 
+     *
      * @summary Updates a order in the store with form data
      * @param {Order} body Order object that needs to be added to the marketplace
      * @param {number} orderId ID of order that needs to be updated
@@ -1665,7 +1665,7 @@ export class OrderApi extends BaseAPI {
 export const ProductApiFetchParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * 
+         *
          * @summary Add a new product to marketplace
          * @param {Product} body Product object that needs to be added to the marketplace
          * @param {*} [options] Override http request option.
@@ -1697,7 +1697,7 @@ export const ProductApiFetchParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * 
+         *
          * @summary Deletes a product
          * @param {number} productId Product id to delete
          * @param {*} [options] Override http request option.
@@ -1764,7 +1764,7 @@ export const ProductApiFetchParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * 
+         *
          * @summary Updates a product in the store with form data
          * @param {Product} body Product object that needs to be added to the marketplace
          * @param {number} productId ID of product that needs to be updated
@@ -1811,7 +1811,7 @@ export const ProductApiFetchParamCreator = function (configuration?: Configurati
 export const ProductApiFp = function(configuration?: Configuration) {
     return {
         /**
-         * 
+         *
          * @summary Add a new product to marketplace
          * @param {Product} body Product object that needs to be added to the marketplace
          * @param {*} [options] Override http request option.
@@ -1830,7 +1830,7 @@ export const ProductApiFp = function(configuration?: Configuration) {
             };
         },
         /**
-         * 
+         *
          * @summary Deletes a product
          * @param {number} productId Product id to delete
          * @param {*} [options] Override http request option.
@@ -1868,7 +1868,7 @@ export const ProductApiFp = function(configuration?: Configuration) {
             };
         },
         /**
-         * 
+         *
          * @summary Updates a product in the store with form data
          * @param {Product} body Product object that needs to be added to the marketplace
          * @param {number} productId ID of product that needs to be updated
@@ -1897,7 +1897,7 @@ export const ProductApiFp = function(configuration?: Configuration) {
 export const ProductApiFactory = function (configuration?: Configuration, fetch?: FetchAPI, basePath?: string) {
     return {
         /**
-         * 
+         *
          * @summary Add a new product to marketplace
          * @param {Product} body Product object that needs to be added to the marketplace
          * @param {*} [options] Override http request option.
@@ -1907,7 +1907,7 @@ export const ProductApiFactory = function (configuration?: Configuration, fetch?
             return ProductApiFp(configuration).addProduct(body, options)(fetch, basePath);
         },
         /**
-         * 
+         *
          * @summary Deletes a product
          * @param {number} productId Product id to delete
          * @param {*} [options] Override http request option.
@@ -1927,7 +1927,7 @@ export const ProductApiFactory = function (configuration?: Configuration, fetch?
             return ProductApiFp(configuration).getProductById(productId, options)(fetch, basePath);
         },
         /**
-         * 
+         *
          * @summary Updates a product in the store with form data
          * @param {Product} body Product object that needs to be added to the marketplace
          * @param {number} productId ID of product that needs to be updated
@@ -1948,7 +1948,7 @@ export const ProductApiFactory = function (configuration?: Configuration, fetch?
  */
 export class ProductApi extends BaseAPI {
     /**
-     * 
+     *
      * @summary Add a new product to marketplace
      * @param {Product} body Product object that needs to be added to the marketplace
      * @param {*} [options] Override http request option.
@@ -1960,7 +1960,7 @@ export class ProductApi extends BaseAPI {
     }
 
     /**
-     * 
+     *
      * @summary Deletes a product
      * @param {number} productId Product id to delete
      * @param {*} [options] Override http request option.
@@ -1984,7 +1984,7 @@ export class ProductApi extends BaseAPI {
     }
 
     /**
-     * 
+     *
      * @summary Updates a product in the store with form data
      * @param {Product} body Product object that needs to be added to the marketplace
      * @param {number} productId ID of product that needs to be updated
@@ -2004,7 +2004,7 @@ export class ProductApi extends BaseAPI {
 export const ProductCategoryApiFetchParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * 
+         *
          * @summary Add a new product Category to marketplace
          * @param {ProductCategory} body ProductCategory object that needs to be added to the marketplace
          * @param {*} [options] Override http request option.
@@ -2036,7 +2036,7 @@ export const ProductCategoryApiFetchParamCreator = function (configuration?: Con
             };
         },
         /**
-         * 
+         *
          * @summary Deletes a product Category
          * @param {number} productCategoryId Product Category id to delete
          * @param {*} [options] Override http request option.
@@ -2111,7 +2111,7 @@ export const ProductCategoryApiFetchParamCreator = function (configuration?: Con
             };
         },
         /**
-         * 
+         *
          * @summary Updates a product Category in the store with form data
          * @param {ProductCategory} body ProductCategory object that needs to be added to the marketplace
          * @param {number} productCategoryId ID of product Category that needs to be updated
@@ -2167,7 +2167,7 @@ export const ProductCategoryApiFetchParamCreator = function (configuration?: Con
 export const ProductCategoryApiFp = function(configuration?: Configuration) {
     return {
         /**
-         * 
+         *
          * @summary Add a new product Category to marketplace
          * @param {ProductCategory} body ProductCategory object that needs to be added to the marketplace
          * @param {*} [options] Override http request option.
@@ -2186,7 +2186,7 @@ export const ProductCategoryApiFp = function(configuration?: Configuration) {
             };
         },
         /**
-         * 
+         *
          * @summary Deletes a product Category
          * @param {number} productCategoryId Product Category id to delete
          * @param {*} [options] Override http request option.
@@ -2224,7 +2224,7 @@ export const ProductCategoryApiFp = function(configuration?: Configuration) {
             };
         },
         /**
-         * 
+         *
          * @summary Updates a product Category in the store with form data
          * @param {ProductCategory} body ProductCategory object that needs to be added to the marketplace
          * @param {number} productCategoryId ID of product Category that needs to be updated
@@ -2253,7 +2253,7 @@ export const ProductCategoryApiFp = function(configuration?: Configuration) {
 export const ProductCategoryApiFactory = function (configuration?: Configuration, fetch?: FetchAPI, basePath?: string) {
     return {
         /**
-         * 
+         *
          * @summary Add a new product Category to marketplace
          * @param {ProductCategory} body ProductCategory object that needs to be added to the marketplace
          * @param {*} [options] Override http request option.
@@ -2263,7 +2263,7 @@ export const ProductCategoryApiFactory = function (configuration?: Configuration
             return ProductCategoryApiFp(configuration).addProductCategory(body, options)(fetch, basePath);
         },
         /**
-         * 
+         *
          * @summary Deletes a product Category
          * @param {number} productCategoryId Product Category id to delete
          * @param {*} [options] Override http request option.
@@ -2283,7 +2283,7 @@ export const ProductCategoryApiFactory = function (configuration?: Configuration
             return ProductCategoryApiFp(configuration).getProductCategoryById(productCategoryId, options)(fetch, basePath);
         },
         /**
-         * 
+         *
          * @summary Updates a product Category in the store with form data
          * @param {ProductCategory} body ProductCategory object that needs to be added to the marketplace
          * @param {number} productCategoryId ID of product Category that needs to be updated
@@ -2304,7 +2304,7 @@ export const ProductCategoryApiFactory = function (configuration?: Configuration
  */
 export class ProductCategoryApi extends BaseAPI {
     /**
-     * 
+     *
      * @summary Add a new product Category to marketplace
      * @param {ProductCategory} body ProductCategory object that needs to be added to the marketplace
      * @param {*} [options] Override http request option.
@@ -2316,7 +2316,7 @@ export class ProductCategoryApi extends BaseAPI {
     }
 
     /**
-     * 
+     *
      * @summary Deletes a product Category
      * @param {number} productCategoryId Product Category id to delete
      * @param {*} [options] Override http request option.
@@ -2340,7 +2340,7 @@ export class ProductCategoryApi extends BaseAPI {
     }
 
     /**
-     * 
+     *
      * @summary Updates a product Category in the store with form data
      * @param {ProductCategory} body ProductCategory object that needs to be added to the marketplace
      * @param {number} productCategoryId ID of product Category that needs to be updated
@@ -2421,7 +2421,7 @@ export const UserApiFetchParamCreator = function (configuration?: Configuration)
             };
         },
         /**
-         * 
+         *
          * @summary Get user by userEmail
          * @param {string} userEmail The userEmail that needs to be fetched. Use user1@gmail.com for testing.
          * @param {*} [options] Override http request option.
@@ -2450,7 +2450,7 @@ export const UserApiFetchParamCreator = function (configuration?: Configuration)
             };
         },
         /**
-         * 
+         *
          * @summary Get all Users
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -2473,7 +2473,7 @@ export const UserApiFetchParamCreator = function (configuration?: Configuration)
             };
         },
         /**
-         * 
+         *
          * @summary Logs user into the system
          * @param {string} userEmail The user email for login
          * @param {string} password The password for login in clear text
@@ -2514,7 +2514,7 @@ export const UserApiFetchParamCreator = function (configuration?: Configuration)
             };
         },
         /**
-         * 
+         *
          * @summary Logs out current logged in user session
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -2537,7 +2537,7 @@ export const UserApiFetchParamCreator = function (configuration?: Configuration)
             };
         },
         /**
-         * 
+         *
          * @summary Register user into the system
          * @param {string} userEmail The user email for register
          * @param {string} password The password for register in clear text
@@ -2663,7 +2663,7 @@ export const UserApiFp = function(configuration?: Configuration) {
             };
         },
         /**
-         * 
+         *
          * @summary Get user by userEmail
          * @param {string} userEmail The userEmail that needs to be fetched. Use user1@gmail.com for testing.
          * @param {*} [options] Override http request option.
@@ -2682,7 +2682,7 @@ export const UserApiFp = function(configuration?: Configuration) {
             };
         },
         /**
-         * 
+         *
          * @summary Get all Users
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -2700,7 +2700,7 @@ export const UserApiFp = function(configuration?: Configuration) {
             };
         },
         /**
-         * 
+         *
          * @summary Logs user into the system
          * @param {string} userEmail The user email for login
          * @param {string} password The password for login in clear text
@@ -2720,7 +2720,7 @@ export const UserApiFp = function(configuration?: Configuration) {
             };
         },
         /**
-         * 
+         *
          * @summary Logs out current logged in user session
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -2738,7 +2738,7 @@ export const UserApiFp = function(configuration?: Configuration) {
             };
         },
         /**
-         * 
+         *
          * @summary Register user into the system
          * @param {string} userEmail The user email for register
          * @param {string} password The password for register in clear text
@@ -2807,7 +2807,7 @@ export const UserApiFactory = function (configuration?: Configuration, fetch?: F
             return UserApiFp(configuration).deleteUser(userEmail, options)(fetch, basePath);
         },
         /**
-         * 
+         *
          * @summary Get user by userEmail
          * @param {string} userEmail The userEmail that needs to be fetched. Use user1@gmail.com for testing.
          * @param {*} [options] Override http request option.
@@ -2817,7 +2817,7 @@ export const UserApiFactory = function (configuration?: Configuration, fetch?: F
             return UserApiFp(configuration).getUserByUserEmail(userEmail, options)(fetch, basePath);
         },
         /**
-         * 
+         *
          * @summary Get all Users
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -2826,7 +2826,7 @@ export const UserApiFactory = function (configuration?: Configuration, fetch?: F
             return UserApiFp(configuration).getUsers(options)(fetch, basePath);
         },
         /**
-         * 
+         *
          * @summary Logs user into the system
          * @param {string} userEmail The user email for login
          * @param {string} password The password for login in clear text
@@ -2837,7 +2837,7 @@ export const UserApiFactory = function (configuration?: Configuration, fetch?: F
             return UserApiFp(configuration).loginUser(userEmail, password, options)(fetch, basePath);
         },
         /**
-         * 
+         *
          * @summary Logs out current logged in user session
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -2846,7 +2846,7 @@ export const UserApiFactory = function (configuration?: Configuration, fetch?: F
             return UserApiFp(configuration).logoutUser(options)(fetch, basePath);
         },
         /**
-         * 
+         *
          * @summary Register user into the system
          * @param {string} userEmail The user email for register
          * @param {string} password The password for register in clear text
@@ -2902,7 +2902,7 @@ export class UserApi extends BaseAPI {
     }
 
     /**
-     * 
+     *
      * @summary Get user by userEmail
      * @param {string} userEmail The userEmail that needs to be fetched. Use user1@gmail.com for testing.
      * @param {*} [options] Override http request option.
@@ -2914,7 +2914,7 @@ export class UserApi extends BaseAPI {
     }
 
     /**
-     * 
+     *
      * @summary Get all Users
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2925,7 +2925,7 @@ export class UserApi extends BaseAPI {
     }
 
     /**
-     * 
+     *
      * @summary Logs user into the system
      * @param {string} userEmail The user email for login
      * @param {string} password The password for login in clear text
@@ -2938,7 +2938,7 @@ export class UserApi extends BaseAPI {
     }
 
     /**
-     * 
+     *
      * @summary Logs out current logged in user session
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -2949,7 +2949,7 @@ export class UserApi extends BaseAPI {
     }
 
     /**
-     * 
+     *
      * @summary Register user into the system
      * @param {string} userEmail The user email for register
      * @param {string} password The password for register in clear text
@@ -2975,3 +2975,5 @@ export class UserApi extends BaseAPI {
     }
 
 }
+
+

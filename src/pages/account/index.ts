@@ -522,6 +522,10 @@ class AccountPage extends Page {
       main.append(searchBlock, categoryBlock, orders);
     }
 
+    // function renderOffersCards(): void {
+    //
+    // }
+
     function renderOffersBlock(): void {
       const searchBlock = document.createElement('div');
       const searchTitle = document.createElement('h2');
@@ -573,11 +577,12 @@ class AccountPage extends Page {
         });
         categoryBlock.append(div);
       }
+
+
       searchField.append(searchInput, searchButton);
       searchBlock.append(searchTitle, searchField);
       main.append(searchBlock, categoryBlock, orders);
     }
-
 
 
     function clearContent(): void {

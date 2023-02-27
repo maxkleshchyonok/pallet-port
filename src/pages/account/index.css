@@ -228,6 +228,8 @@
 }
 .account__content .content__main .offers-page .add__button {
   margin-left: 20%;
+  background: #15616D;
+  color: #FFFFFF;
 }
 .account__content .content__main .orders {
   margin-top: 6%;

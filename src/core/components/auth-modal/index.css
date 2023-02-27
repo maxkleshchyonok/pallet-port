@@ -111,5 +111,10 @@
   width: 110px;
   font-size: 18px;
 }
+.modal .form .form__button:disabled {
+  background: #B1B1B1;
+  width: 100px;
+  font-size: 16px;
+}
 
 /*# sourceMappingURL=index.css.map */
