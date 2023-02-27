@@ -1,8 +1,9 @@
 import offerService from '../services/offer-service.js';
 import formatError from '../tools/errorFormatter.js';
+import { Request, Response } from 'express';
 
 class OfferController {
-    async createOffer(request: any, response: any) {
+    async createOffer(request: Request, response: Response) {
         try {
             const offer = await offerService.create(request.body);
             response.json(offer);
@@ -12,7 +13,7 @@ class OfferController {
         }
     };
 
-    async getOffer(request: any, response: any) {
+    async getOffer(request: Request, response: Response) {
         try {
             const order = await offerService.get(request.params.id);
             response.json(order);
@@ -22,7 +23,7 @@ class OfferController {
         }
     };
 
-    async updateOffer(request: any, response: any) {
+    async updateOffer(request: Request, response: Response) {
         try {
             const offer = await offerService.update(request.params.id, request.body);
             response.json(offer);
@@ -32,7 +33,7 @@ class OfferController {
         }
     };
 
-    async deleteOffer(request: any, response: any) {
+    async deleteOffer(request: Request, response: Response) {
         try {
             const offer = await offerService.delete(request.params.id);
             response.json(offer);
@@ -42,7 +43,7 @@ class OfferController {
         }
     };
 
-    async createOfferImage(request: any, response: any) {
+    async createOfferImage(request: Request, response: Response) {
         try {
             console.log(request.params.id);
             response.json('OK');
@@ -52,9 +53,9 @@ class OfferController {
         }
     };
 
-    async getByStatus(request: any, response: any) {
+    async getByStatus(request: Request, response: Response) {
         try {
-            const sortedOrders = await offerService.sortByStatus(request.query.status);
+            const sortedOrders = await offerService.sortByStatus(request.query.status as string);
             response.json(sortedOrders);
         } catch (error: any) {
             console.error('Get sorted by status error');
@@ -62,9 +63,9 @@ class OfferController {
         }
     };
 
-    async getByUser(request: any, response: any) {
+    async getByUser(request: Request, response: Response) {
         try {
-            const sortedOrders = await offerService.sortByUser(request.query.email);
+            const sortedOrders = await offerService.sortByUser(request.query.email as string);
             response.json(sortedOrders);
         } catch (error: any) {
             console.error('Get sorted by user error');

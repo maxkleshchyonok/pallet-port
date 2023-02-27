@@ -1,8 +1,9 @@
 import orderService from '../services/order-service.js';
 import formatError from '../tools/errorFormatter.js';
+import { Request, Response } from 'express';
 
 class OrderController {
-    async createOrder(request: any, response: any) {
+    async createOrder(request: Request, response: Response) {
         try {
             const order = await orderService.create(request.body);
             response.json(order);
@@ -12,7 +13,7 @@ class OrderController {
         }
     };
 
-    async getOrder(request: any, response: any) {
+    async getOrder(request: Request, response: Response) {
         try {
             const order = await orderService.get(request.params.id);
             response.json(order);
@@ -22,7 +23,7 @@ class OrderController {
         }
     };
 
-    async updateOrder(request: any, response: any) {
+    async updateOrder(request: Request, response: Response) {
         try {
             const order = await orderService.update(request.params.id, request.body);
             response.json(order);
@@ -32,7 +33,7 @@ class OrderController {
         }
     };
 
-    async deleteOrder(request: any, response: any) {
+    async deleteOrder(request: Request, response: Response) {
         try {
             const order = await orderService.delete(request.params.id);
             response.json(order);
@@ -42,9 +43,9 @@ class OrderController {
         }
     };
 
-    async getByStatus(request: any, response: any) {
+    async getByStatus(request: Request, response: Response) {
         try {
-            const sortedOrders = await orderService.sortByStatus(request.query.status);
+            const sortedOrders = await orderService.sortByStatus(request.query.status as string);
             response.json(sortedOrders);
         } catch (error: any) {
             console.error('Get sorted by status error');
@@ -52,9 +53,9 @@ class OrderController {
         }
     };
 
-    async getByUser(request: any, response: any) {
+    async getByUser(request: Request, response: Response) {
         try {
-            const sortedOrders = await orderService.sortByUser(request.query.email);
+            const sortedOrders = await orderService.sortByUser(request.query.email as string);
             response.json(sortedOrders);
         } catch (error: any) {
             console.error('Get sorted by user error');

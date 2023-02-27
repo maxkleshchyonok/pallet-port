@@ -1,9 +1,9 @@
-import { validationResult } from 'express-validator';
 import authService from '../services/authentication-service.js';
 import formatError from '../tools/errorFormatter.js';
+import { Request, Response } from 'express';
 
 class AuthController {
-    async loginUser(request: any, response: any) {
+    async loginUser(request: Request, response: Response) {
         try {
             const token = await authService.login(request.body.email, request.body.password)
             response.json(token);
@@ -13,7 +13,7 @@ class AuthController {
         }
     };
 
-    async registerUser(request: any, response: any) {
+    async registerUser(request: Request, response: Response) {
         try {
             const user = await authService.register(request.body);
             response.json(user);
@@ -23,7 +23,7 @@ class AuthController {
         }
     };
 
-    async logoutUser(request: any, response: any) {
+    async logoutUser(request: Request, response: Response) {
         try {
             const exitValue = await authService.logout();
             response.json(exitValue);
