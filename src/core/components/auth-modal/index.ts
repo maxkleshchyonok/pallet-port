@@ -1,5 +1,7 @@
 import Component from '../../templates/components';
 import './index.css';
+import { LoginData } from '../../types/types';
+import { fetchLogin } from '../api/fetches';
 
 class AuthModal extends Component {
 
@@ -18,6 +20,11 @@ class AuthModal extends Component {
   private passwordLabel = document.createElement('label');
 
   private button = document.createElement('button');
+
+  private data: LoginData = {
+    email: '',
+    password: '',
+  };
 
   private renderModal(): void {
     const header = document.createElement('div');
@@ -44,11 +51,27 @@ class AuthModal extends Component {
     this.passwordInput.type = 'password';
     this.passwordInput.id = 'password';
     this.passwordInput.required = true;
-    this.passwordLabel.textContent = 'Parol';
+    this.passwordLabel.textContent = 'Hasło';
+
+
+    this.emailInput.addEventListener('input', () => {
+      this.data.email = this.emailInput.value;
+      console.log(this.emailInput.value);
+    });
+    this.passwordInput.addEventListener('input', () => {
+      this.data.password = this.passwordInput.value;
+    });
+    this.button.textContent = 'Wysłać';
+    this.button.addEventListener('click', () => {
+      console.log(this.data);
+      const url = 'http://localhost:5300/api/auth/login';
+      fetchLogin(this.data, url);
+      this.closeModal();
+    });
+
+
 
     close.textContent = 'X';
-
-    this.button.textContent = 'Wysłać';
 
     header.className = 'modal__header';
     logIn.className = 'modal__title active';
@@ -72,7 +95,7 @@ class AuthModal extends Component {
     });
 
     close.addEventListener('click', () => {
-      this.container.remove();
+      this.closeModal();
     });
 
     header.append(logIn, register, close);
@@ -100,6 +123,26 @@ class AuthModal extends Component {
     password.id = 'password';
     password.required = true;
     label.textContent = 'Potwierdź hasło';
+
+    this.button.disabled = true;
+
+    password.addEventListener('input', () => {
+      if (password.value === this.data.password) {
+        this.button.disabled = false;
+        this.button.textContent = 'Wysłać';
+      } else {
+        this.button.disabled = true;
+        this.button.textContent = 'Różne hasła';
+      }
+    });
+
+
+    this.button.addEventListener('click', () => {
+      console.log(this.data);
+      const url = 'http://localhost:5300/api/auth/register';
+      fetchLogin(this.data, url);
+      this.closeModal();
+    });
 
     confirmPassword.append(label, password);
     this.login.append(this.emailLabel, this.emailInput);
