@@ -62,12 +62,17 @@ class Header extends Component {
       infoItemA.href = '#';
       infoItemA.innerText = item.text;
       if (item.id === 'account-page') {
-        infoItemA.addEventListener('click', () => {
-          const popUp = new AuthModal('div', 'modal');
-          this.container.append(popUp.render());
-        });
-        //infoItemA.href = `#${Buttons[3].id}`;
+        infoItemA.id = 'personal-account';
+        if (!localStorage.getItem('token')) {
+          infoItemA.addEventListener('click', () => {
+            const popUp = new AuthModal('div', 'modal');
+            this.container.append(popUp.render());
+          });
+        } else {
+          infoItemA.href = `#${Buttons[3].id}`;
+        }
       }
+
       infoItem.append(infoItemImg, infoItemA);
       containerInfo.append(infoItem);
     });

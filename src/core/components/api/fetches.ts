@@ -13,5 +13,3 @@ export async function fetchLogin(data: LoginData, url: string) {
       localStorage.setItem('token', result.token);
     });
 }
-
-
