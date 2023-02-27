@@ -522,6 +522,64 @@ class AccountPage extends Page {
       main.append(searchBlock, categoryBlock, orders);
     }
 
+    function renderOffersBlock(): void {
+      const searchBlock = document.createElement('div');
+      const searchTitle = document.createElement('h2');
+      const searchField = document.createElement('div');
+      const searchInput = document.createElement('input');
+      const searchButton = document.createElement('button');
+      const categoryBlock = document.createElement('div');
+      const orders = document.createElement('div');
+
+      searchBlock.className = 'search';
+      searchTitle.className = 'search__title';
+      searchField.className = 'search__field';
+      searchInput.className = 'search__input';
+      searchButton.className = 'search__button';
+      categoryBlock.classList.add('categories', 'offers-page');
+      orders.className = 'orders';
+
+      searchTitle.textContent = 'Moje oferty';
+      searchInput.placeholder = 'Wpisz nazwę towaru';
+      searchButton.textContent = 'Shukaj';
+
+      for (let i = 0; i < 5; i += 1) {
+        const div = document.createElement('div');
+        div.classList.add('category__item', 'offers-item');
+        switch (i) {
+          case 0:
+            div.textContent = 'Wszystkie';
+            break;
+          case 1:
+            div.textContent = 'Aktywne';
+            break;
+          case 2:
+            div.textContent = 'Moderacja';
+            break;
+          case 3:
+            div.textContent = 'Zakończone';
+            break;
+          case 4:
+            div.textContent = 'Dodaj nową ofertę';
+            div.classList.add('add__button');
+            break;
+        }
+        div.addEventListener('click', () => {
+          const all = document.querySelectorAll('.category__item');
+          all.forEach((el) => {
+            el.classList.remove('item_selected');
+          });
+          div.classList.add('item_selected');
+        });
+        categoryBlock.append(div);
+      }
+      searchField.append(searchInput, searchButton);
+      searchBlock.append(searchTitle, searchField);
+      main.append(searchBlock, categoryBlock, orders);
+    }
+
+
+
     function clearContent(): void {
       main.textContent = '';
       user.textContent = '';
@@ -584,6 +642,9 @@ class AccountPage extends Page {
         } else if (listItem.id === '2') {
           clearContent();
           renderOrdersBlock();
+        } else if (listItem.id === '3') {
+          clearContent();
+          renderOffersBlock();
         }
 
       });
