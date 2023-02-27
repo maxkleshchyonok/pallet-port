@@ -20,6 +20,11 @@ class ProductService {
         const deletedProduct = await Product.findByIdAndDelete(id);
         return deletedProduct;
     };
+
+    async getAll() {
+        const users = await Product.find();
+        return users;
+    };
 }
 
 export default new ProductService();

@@ -7,5 +7,7 @@ productCategoryRouter.post('/productCategories', productCategoryController.creat
 productCategoryRouter.get('/productCategories/:id', productCategoryController.getProductCategory);
 productCategoryRouter.post('/productCategories/:id', productCategoryController.updateProductCategory);
 productCategoryRouter.delete('/productCategories/:id', productCategoryController.deleteProductCategory);
+productCategoryRouter.get('/productCategories', productCategoryController.getProductCategories);
+
 
 export default productCategoryRouter;

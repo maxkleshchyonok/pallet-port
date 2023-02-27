@@ -41,6 +41,16 @@ class ProductCategoryController {
             response.json(formatError(error));
         }
     };
+
+    async getProductCategories(request: any, response: any) {
+        try {
+            const productCategories = await productCategoryService.getAll();
+            response.json(productCategories);
+        } catch (error: any) {
+            console.error('Get error');
+            response.json(formatError(error));
+        }
+    };
 }
 
 export default new ProductCategoryController();
