@@ -1,3 +1,4 @@
+import { validationResult } from 'express-validator';
 import authService from '../services/authentication-service.js';
 import formatError from '../tools/errorFormatter.js';
 
@@ -24,7 +25,8 @@ class AuthController {
 
     async logoutUser(request: any, response: any) {
         try {
-            /* TODO: Logout */
+            const exitValue = await authService.logout();
+            response.json(exitValue);
         } catch (error: any) {
             console.error('Logout error');
             response.json(formatError(error));

@@ -40,7 +40,7 @@ class AuthService {
     };
 
     async logout() {
-        return 'Logout';
+        return { token: null };
     };
 }
 

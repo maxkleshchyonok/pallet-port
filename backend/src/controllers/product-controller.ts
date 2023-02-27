@@ -41,6 +41,16 @@ class ProductController {
             response.json(formatError(error));
         }
     };
+
+    async getProducts(request: any, response: any) {
+        try {
+            const products = await productService.getAll();
+            response.json(products);
+        } catch (error: any) {
+            console.error('Get error');
+            response.json(formatError(error));
+        }
+    };
 }
 
 export default new ProductController();
