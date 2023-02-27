@@ -1,3 +1,4 @@
+import { validationResult } from 'express-validator';
 import authService from '../services/authentication-service.js';
 import formatError from '../tools/errorFormatter.js';
 
