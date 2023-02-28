@@ -47,8 +47,6 @@ export async function userLogout() {
     });
 }
 
-export async function getA;;
-
 
 
 export async function getOffersByStatus(status: OfferStatus): Promise<IOffer[] | void> {
