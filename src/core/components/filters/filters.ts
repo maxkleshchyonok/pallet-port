@@ -159,6 +159,17 @@ export default class Filters extends Component {
     this.createSliderBlock(quantityBlock, quantityLegend, 'quantity', 'Iłość', 10000);
   }
 
+  private offerRatingFilters() {
+    const ratingBlock = document.createElement('form') as HTMLFormElement;
+    const ratingLegend = document.createElement('legend');
+    this.createSliderBlock(ratingBlock, ratingLegend, 'offerRating', 'Opinie o produkcie', 5);
+  }
+
+  private sellerRankFilters() {
+    const rankBlock = document.createElement('form') as HTMLFormElement;
+    const rankLegend = document.createElement('legend');
+    this.createSliderBlock(rankBlock, rankLegend, 'sellerRank', 'Ocena sprzedającego', 5);
+  }
 
   private stockFilter(): void {
     const stockBlock = document.createElement('form') as HTMLFormElement;
