@@ -41,7 +41,7 @@ class MainPage extends Page {
       const itemBlock = document.createElement('div');
       const itemTitle = document.createElement('h3');
       const itemDesc = document.createElement('h3');
-      itemTitle.innerText = el.name + '\n' + el.condition;
+      itemTitle.innerText = el.name.slice(0, 50) + '\n' + el.condition;
       // itemDesc.innerText = el.material;
       itemBlock.append(itemTitle, itemDesc);
       itemBlock.className = 'item-block';
