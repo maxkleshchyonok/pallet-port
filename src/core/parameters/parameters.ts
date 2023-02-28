@@ -1,11 +1,13 @@
-import { SortEnum } from '../types/types';
-// import offerJSON from '../../assets/json/Offer.json';
-import offersArrJSON from '../../assets/json/_OffersArray.json' ;
-import { Condition, DeliveryType, Material, IOffer, PaymentType, EnumVAT } from '../types/types';
+// import { getOffersByStatus } from '../components/api/api';
+import { SortEnum, IProduct } from '../types/types';
+import productsArrJSON from '../../assets/json/_ProductsArray.json';
+import categoryArrJSON from '../../assets/json/_ProductsCategory.json';
+import { Condition, DeliveryType, Material, PaymentType, EnumVAT } from '../types/types';
 
-const offersArr: Array<IOffer> = Array.from(offersArrJSON);
-const categorySet: Set<string> = new Set(offersArr.map(offer => offer.product.category.shortName));
-const shortNameSet: Set<string> = new Set(offersArr.map(offer => offer.product.shortName));
+
+const categorySet: Set<string> = new Set(categoryArrJSON.map(cat => cat.shortName));
+const shortNameSet: Set<string> = new Set(productsArrJSON.map(prod => prod.shortName));
+
 // const sellerRankSet: Set<number> = new Set(offersArr.map(offer => offer.seller.rank));
 
 // const sellerRankTempArr = [...sellerRankSet].sort();
@@ -99,38 +101,54 @@ export function loadParametersAfterPP() {
   }, 100);
 }
 
+// let offersArr: IOffer[] = [];
+// async function getOffers(): Promise<IOffer[] | void> {
+//   const offersArr1 = await getOffersByStatus(OfferStatus.ACTIVE) as IOffer[];
+//   offersArr = offersArr1;
+// }
+
 
 export const parametersObj = (productArg?: string) => {
 
-  // let category: string[] = [],
-  //   quantity: number[] = [],
-  //   condition: string[] = [],
-  //   material: string[] = [],
-  //   length: number[] = [],
-  //   price: number[] = [],
-  //   width: number[] = [],
-  //   height: number[] = [],
-  //   load: number[] = [],
-  //   sort = '',
-  //   short: string[] = [];
-  let category = INITIAL_STATE.category,
-    short = INITIAL_STATE.short,
-    price = INITIAL_STATE.price,
-    condition = INITIAL_STATE.condition,
-    quantity = INITIAL_STATE.quantity,
-    material = INITIAL_STATE.material,
-    length = INITIAL_STATE.length,
-    width = INITIAL_STATE.width,
-    height = INITIAL_STATE.height,
-    load = INITIAL_STATE.load,
-    sort = INITIAL_STATE.sort,
-    sellerRank = INITIAL_STATE.sellerRank,
-    offerRating = INITIAL_STATE.offerRating,
-    deliveryType = INITIAL_STATE.deliveryType,
-    days = INITIAL_STATE.days,
-    state = INITIAL_STATE.state,
-    VAT = INITIAL_STATE.VAT,
-    payment = INITIAL_STATE.payment;
+  let category: string[] = [],
+    short: string[] = [],
+    price: number[] = [],
+    condition: string[] = [],
+    quantity: number[] = [],
+    material: string[] = [],
+    length: number[] = [],
+    width: number[] = [],
+    height: number[] = [],
+    load: number[] = [],
+    sort = '',
+    sellerRank: number[] = [],
+    offerRating: number[] = [],
+    deliveryType: DeliveryType[] =
+      [DeliveryType.SELFPICKUP, DeliveryType.BUS, DeliveryType.TRUCK, DeliveryType.COURIER],
+    days: number[] = [0, 100],
+    state: string[] = INITIAL_STATE.state,
+    VAT: EnumVAT[] = [EnumVAT.ZERO, EnumVAT.FULL],
+    payment: PaymentType[] = [PaymentType.CARD, PaymentType.CASH, PaymentType.INVOICE];
+
+
+  // let category = INITIAL_STATE.category,
+  //   short = INITIAL_STATE.short,
+  //   price = INITIAL_STATE.price,
+  //   condition = INITIAL_STATE.condition,
+  //   quantity = INITIAL_STATE.quantity,
+  //   material = INITIAL_STATE.material,
+  //   length = INITIAL_STATE.length,
+  //   width = INITIAL_STATE.width,
+  //   height = INITIAL_STATE.height,
+  //   load = INITIAL_STATE.load,
+  //   sort = INITIAL_STATE.sort,
+  //   sellerRank = INITIAL_STATE.sellerRank,
+  //   offerRating = INITIAL_STATE.offerRating,
+  //   deliveryType = INITIAL_STATE.deliveryType,
+  //   days = INITIAL_STATE.days,
+  //   state = INITIAL_STATE.state,
+  //   VAT = INITIAL_STATE.VAT,
+  //   payment = INITIAL_STATE.payment;
 
   const setSlider = (name: string) => {
     const sliderStr = parameters.getAll(`${name}`).join('-').split('-');
@@ -162,7 +180,7 @@ export const parametersObj = (productArg?: string) => {
     // if (VATStr.length < 2) {
     //   VAT = [parseInt(VATStr[0]), parseInt(VATStr[0])];
     // } else VAT = [parseInt(VATStr[0]), parseInt(VATStr[1])];
-    console.log(VAT);
+    // console.log(VAT);
     payment = parameters.getAll('payment').join().split(',') as PaymentType[];
 
   } else if (productArg === 'clear') {
@@ -207,54 +225,56 @@ export const parametersObj = (productArg?: string) => {
 
     window.location.hash = 'catalog-page';
 
-    // } else if (INITIAL_STATE.short.includes(productArg)) {
-    //   saveParametersBeforeProductPage();
-    //   const productOffers: Array<IOffer> = offersArr
-    //     .filter(offer => offer.product.shortName === productArg);
-    //   console.log(productOffers);
+  } else if (INITIAL_STATE.short.includes(productArg)) {
+    console.log(parametersObj());
+    saveParametersBeforeProductPage();
+    const productsShorted: Array<IProduct> = productsArrJSON
+      .filter(prod => prod.shortName === productArg);
+    // console.log(productOffers);
 
-    //   const priceSort = productOffers.sort((a, b) => a.price - b.price);
-    //   const product = productOffers[0].product;
+    // const priceSort = productsShorted.sort((a, b) => a.price - b.price);
+    const product = productsShorted[0];
 
-    //   parameters.set('category', product.category.shortName);
-    //   parameters.set('short', product.shortName);
-    //   parameters.set('price',
-    // `${priceSort[0].price.toString()}-${priceSort[priceSort.length - 1].price.toString()}`);
-    // parameters.set('condition', product.condition);
-    // parameters.set('quantity', quantity.join('-'));
-    // parameters.set('material', material.join(','));
-    // parameters.set('length', length.join('-'));
-    // parameters.set('width', width.join('-'));
-    // parameters.set('height', height.join('-'));
-    // parameters.set('load', load.join('-'));
-    // parameters.set('sort', sort);
-    // parameters.set('sellerRank', sellerRank.join('-'));
-    // parameters.set('offerRating', offerRating.join('-'));
-    // parameters.set('deliveryType', deliveryType.join(','));
-    // parameters.set('days', days.join('-'));
-    // parameters.set('state', state.join(','));
-    // parameters.set('VAT', VAT.join(','));
-    // parameters.set('payment', payment.join(','));
+    category = [productsShorted[0].category.shortName];
+    short = parameters.getAll('short').join().split(',');
+    price = setSlider('price');
+    condition = parameters.getAll('condition').join().split(', ') as Condition[];
+    const quantityStr = parameters.getAll('quantity').join('').split('-');
+    quantity = [parseInt(quantityStr[0]), parseInt(quantityStr[1])];
+    material = parameters.getAll('material').join().split(',') as Material[];
+    width = setSlider('width');
+    length = setSlider('length');
+    height = setSlider('height');
+    load = setSlider('load');
+    sort = parameters.get('sort') as SortEnum;
+    sellerRank = setSlider('sellerRank');
+    offerRating = setSlider('offerRating');
+    deliveryType = parameters.getAll('deliveryType').join().split(',') as DeliveryType[];
+    days = setSlider('days');
+    state = parameters.getAll('state').join().split(',');
+    VAT = [EnumVAT.ZERO, EnumVAT.FULL];
+    payment = parameters.getAll('payment').join().split(',') as PaymentType[];
 
-    // category = [productOffers[0].product.category.shortName];
-    // short = parameters.getAll('short').join().split(',');
-    // price = setSlider('price');
-    // condition = parameters.getAll('condition').join().split(', ') as Condition[];
-    // const quantityStr = parameters.getAll('quantity').join('').split('-');
-    // quantity = [parseInt(quantityStr[0]), parseInt(quantityStr[1])];
-    // material = parameters.getAll('material').join().split(',') as Material[];
-    // width = setSlider('width');
-    // length = setSlider('length');
-    // height = setSlider('height');
-    // load = setSlider('load');
-    // sort = parameters.get('sort') as SortEnum;
-    // sellerRank = setSlider('sellerRank');
-    // offerRating = setSlider('offerRating');
-    // deliveryType = parameters.getAll('deliveryType').join().split(',') as DeliveryType[];
-    // days = setSlider('days');
-    // state = parameters.getAll('state').join().split(',');
-    // VAT = setSlider('VAT');
-    // payment = parameters.getAll('payment').join().split(',') as PaymentType[];
+
+    parameters.set('category', product.category.shortName);
+    parameters.set('short', product.shortName);
+    // parameters.set('price',
+    //   `${priceSort[0].price.toString()}-${priceSort[priceSort.length - 1].price.toString()}`);
+    parameters.set('condition', product.condition);
+    parameters.set('quantity', quantity.join('-'));
+    parameters.set('material', material.join(','));
+    parameters.set('length', length.join('-'));
+    parameters.set('width', width.join('-'));
+    parameters.set('height', height.join('-'));
+    parameters.set('load', load.join('-'));
+    parameters.set('sort', sort);
+    parameters.set('sellerRank', sellerRank.join('-'));
+    parameters.set('offerRating', offerRating.join('-'));
+    parameters.set('deliveryType', deliveryType.join(','));
+    parameters.set('days', days.join('-'));
+    parameters.set('state', state.join(','));
+    parameters.set('VAT', VAT.join(','));
+    parameters.set('payment', payment.join(','));
 
     // parameters.set('category', product[0].category);
     // parameters.set('price', `${product[0].price.toString()}-${product[0].price.toString()}`);
@@ -279,13 +299,13 @@ export const parametersObj = (productArg?: string) => {
     // sort = INITIAL_STATE.sort;
     // short = [product[0].short];
 
-    // loadParametersAfterPP();
+    loadParametersAfterPP();
 
-    // saveParameters();
-    // loadParameters();
+    saveParameters();
+    loadParameters();
     // window.location.hash = parameters ? `catalog-page?${parameters.toString()}` : 'catalog-page';
 
-    // window.location.hash = `${short}`;
+    // window.location.hash = `product-page/${short[0]}`;
   }
 
   return  {

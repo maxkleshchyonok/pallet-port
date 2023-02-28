@@ -5,20 +5,29 @@ import CartPage from '../cart';
 import Header from '../../core/components/header';
 import ProductPage from '../product-page';
 // import Footer from '../../core/components/footer';
-import { loadParameters, parametersObj } from '../../core/parameters/parameters';
+import { loadParameters, parametersObj, saveParameters } from '../../core/parameters/parameters';
 // import createProductCard from '../../core/components/product_card/product_card';
-//import productsJSON from '../../assets/json/products.json';
-import offersJSON from '../../assets/json/_OffersArray.json';
+import productsJSON from '../../assets/json/_ProductsArray.json';
+// import offersJSON from '../../assets/json/_OffersArray.json';
 //import Product from '../../core/components/product/product';
 import ErrorPage from '../error';
 import AccountPage from '../account';
 import BlackBoxPage from '../blackbox';
+// import { getAllProducts } from '../../core/components/api/api';
+// import { IProduct } from '../../core/types/types';
 
-const products = offersJSON;
-const productsId: string[] = [];
-products.forEach((product) => {
-  productsId.push(`product-page/${product._id}`);
-});
+
+const productsId: string[] = productsJSON.map(product => `product-page/${product.shortName}`);
+
+// async function createShortNameArr() {
+//   const products = await getAllProducts() as IProduct[];
+//   products.forEach((product) => {
+//     productsId.push(`product-page/${product.shortName}`);
+//   });
+// }
+
+// createShortNameArr();
+
 
 export const PageIds: { [props: string]: string | string[] } = {
   MainPageId: 'main-page',
@@ -67,11 +76,11 @@ class App {
     } else if (idPage === PageIds.BlackBoxPageId) {
       page = new BlackBoxPage(idPage);
     } else if (PageIds.ProductPageId.includes(idPage)) {
-      const id = idPage.replace(/[\D]+/g, '');
-      const product = products.find((el) => el._id === id);
+      const shortName = idPage.split('/')[1];
+      const product = productsId.find((el) => el === idPage);
       if (product !== undefined) {
-        parametersObj(product.product.shortName);
-        // saveParameters();
+        parametersObj(shortName);
+        saveParameters();
         page = new ProductPage(idPage);
       } else {
         page = new ErrorPage(idPage, '404');

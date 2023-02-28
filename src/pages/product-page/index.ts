@@ -2,9 +2,10 @@ import Page from '../../core/templates/page';
 import Footer from '../../core/components/footer';
 import './index.scss';
 // import { parameters } from '../../core/components/parameters';
-import offersJSON from '../../assets/json/_OffersArray.json';
+// import offersJSON from '../../assets/json/_OffersArray.json';
 import { parametersObj } from '../../core/parameters/parameters';
-import { IOffer } from '../../core/types/types';
+import { IOffer, IProduct, OfferStatus } from '../../core/types/types';
+import { getAllProducts, getOffersByStatus } from '../../core/components/api/api';
 
 class ProductPage extends Page {
 
@@ -36,29 +37,37 @@ class ProductPage extends Page {
 
   private orderBlock = document.createElement('div');
 
+  // private products: IProduct[] = [];
+
   static TextObject = {
     MainTitle: 'Product page',
   };
 
   constructor(id: string) {
     super(id);
+    console.log(id);
     this.footer = new Footer('footer', 'footer-container');
   }
 
-  private renderProductBlock(): void {
-    for (const item of offersJSON) {
-      if (item.product.shortName === parametersObj().short[0]) {
-        this.nameValue = item.product.name;
-        this.descriptionValue = item.product.description;
-        this.widthValue = item.product.width;
-        this.lengthValue = item.product.length;
-        this.heightValue = item.product.height;
-        this.conditionValue = item.product.condition;
-        this.loadValue = item.product.maxLoad;
-        this.materialValue = item.product.material;
-        this.image1 = item.product.image1;
-        this.image2 = item.product.image2;
-        this.shortName = item.product.shortName;
+  private async renderProductBlock(): Promise<void> {
+
+    const productsArray = await getAllProducts() as IProduct[];
+
+    // this.products = [...productsArray;
+
+    for (const item of productsArray) {
+      if (item.shortName === parametersObj().short[0]) {
+        this.nameValue = item.name;
+        this.descriptionValue = item.description;
+        this.widthValue = item.width;
+        this.lengthValue = item.length;
+        this.heightValue = item.height;
+        this.conditionValue = item.condition;
+        this.loadValue = item.maxLoad;
+        this.materialValue = item.material;
+        this.image1 = item.image1;
+        this.image2 = item.image2;
+        this.shortName = item.shortName;
       }
     }
 
@@ -151,7 +160,9 @@ class ProductPage extends Page {
   }
 
 
-  private renderOffersBlock() {
+  private async renderOffersBlock() {
+
+    const offers = await getOffersByStatus(OfferStatus.ACTIVE) as IOffer[];
 
     this.orderBlock.className = 'order__block';
     this.orderBlock.textContent = 'Aby złożyć zamówienie, wybierz sprzedawcę';
@@ -160,7 +171,7 @@ class ProductPage extends Page {
     this.offersBlock.className = 'offers__block';
     cards.className = 'offers';
 
-    for (const item of offersJSON) {
+    for (const item of offers) {
       if (item.product.shortName === parametersObj().short[0]) {
         const offerCard = document.createElement('div');
         const infoImg = document.createElement('img');
@@ -207,7 +218,8 @@ class ProductPage extends Page {
           infoImg.src = '../../assets/avatars/jan.png';
         }
 
-        infoName.textContent = item.seller.name;
+        if (item.seller.name)
+          infoName.textContent = item.seller.name;
         infoRank.textContent = `${item.seller.rank} ★`;
         priceTitle.textContent = 'Cena: ';
         priceValue.textContent = `${item.price} zł`;
@@ -330,9 +342,9 @@ class ProductPage extends Page {
   }
 
   render(): HTMLElement {
-    this.renderProductBlock();
-    this.renderOffersBlock();
-    this.container.append(this.footer.render());
+    this.renderProductBlock()
+      .then(()=> this.renderOffersBlock())
+      .then(()=> this.container.append(this.footer.render()));
     return this.container;
   }
 }

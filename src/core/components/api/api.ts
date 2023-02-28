@@ -76,8 +76,6 @@ export async function getAllProducts(): Promise<IProduct[] | void> {
     .catch(error => console.log('error', error));
 }
 
-
-
 export async function getOffersByStatus(status: OfferStatus): Promise<IOffer[] | void> {
   return fetch(`${BACKEND_URL}/offers/find/findByStatus?status=${status}`, {
     method: 'GET',

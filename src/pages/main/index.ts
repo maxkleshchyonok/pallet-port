@@ -1,8 +1,13 @@
 import Page from '../../core/templates/page';
 import Footer from '../../core/components/footer';
 import './index.css';
-import { getAllProductCategories, getAllProducts } from '../../core/components/api/api';
-import { IProductCategory, IProduct } from '../../core/types/types';
+// import { getAllProductCategories, getAllProducts } from '../../core/components/api/api';
+import { IProductCategory } from '../../core/types/types';
+import productsMain from '../../assets/json/_ProductsArray.json';
+import categoryJSON from '../../assets/json/_ProductsCategory.json';
+import { parameters, saveParameters, loadParameters } from '../../core/parameters/parameters';
+
+const categoryMain = [...categoryJSON] as IProductCategory[];
 
 class MainPage extends Page {
 
@@ -26,7 +31,7 @@ class MainPage extends Page {
 
   private async renderCatalog(): Promise<void> {
 
-    const productsMain = await getAllProducts() as IProduct[];
+    // const productsMain = await getAllProducts() as IProduct[];
 
     const catalogBlock = document.createElement('div');
     catalogBlock.className = 'catalog-bar';
@@ -111,7 +116,7 @@ class MainPage extends Page {
 
   private async renderPaletMenu(): Promise<void> {
 
-    const categoryMain = await getAllProductCategories() as IProductCategory[];
+    // const categoryMain = await getAllProductCategories() as IProductCategory[];
 
     categoryMain[0].class = 'up-left';
     categoryMain[1].class = 'down-left';
@@ -146,6 +151,13 @@ class MainPage extends Page {
       paletInfo.append(paletTitle, paletDescript);
       paletItem.append(paletInfo, paletImg);
       palety.append(paletItem);
+
+      paletItem.addEventListener('click', () => {
+        parameters.set('category', el.shortName);
+        saveParameters();
+        window.location.hash = 'catalog-page';
+        loadParameters();
+      });
     });
     this.container.append(palety);
   }

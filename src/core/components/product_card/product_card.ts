@@ -1,6 +1,6 @@
 //import Product from '../product/product';
 import './product_card.scss';
-import { parametersObj } from '../../parameters/parameters';
+import { parametersObj, saveParameters } from '../../parameters/parameters';
 import Page from '../../templates/page';
 import ProductPage from '../../../pages/product-page';
 import App from '../../../pages/app';
@@ -54,7 +54,7 @@ export const createProductCard: (product: Offer, container: HTMLElement, i?: num
 
   const deliveryTitle = document.createElement('h2');
   deliveryTitle.className = 'delivery__title';
-  deliveryTitle.innerText = 'Dni dostawy od:';
+  deliveryTitle.innerText = 'Dostawa od:';
   const deliveryNum = document.createElement('h2');
   deliveryNum.className = 'delivery__value';
   product.delivery.forEach((el) => {
@@ -71,7 +71,7 @@ export const createProductCard: (product: Offer, container: HTMLElement, i?: num
 
   const ratingTitle = document.createElement('h2');
   ratingTitle.className = 'rating__title';
-  ratingTitle.textContent = 'Ocena bestsellerów:';
+  ratingTitle.textContent = 'Ocena:';
   const ratingNum = document.createElement('h2');
   ratingNum.className = 'rating__value';
   ratingNum.textContent = `${product.rank.toString()} ★`;
@@ -85,15 +85,15 @@ export const createProductCard: (product: Offer, container: HTMLElement, i?: num
 
   rating.append(ratingTitle, ratingNum);
 
-  button.textContent = 'Wybierać';
+  button.textContent = 'Porównać oferty';
 
 
   button.addEventListener('click', () => {
     parametersObj(product.shortName);
-    // saveParameters();
+    saveParameters();
     page = new ProductPage('product-page');
     if (page) {
-      window.location.hash = `product-page/${product.id}`;
+      window.location.hash = `product-page/${product.shortName}`;
       const pageHTML = page.render();
       pageHTML.id = App.defaultPageId;
     }
