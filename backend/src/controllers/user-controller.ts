@@ -23,6 +23,16 @@ class UserController {
         }
     };
 
+    async getUserByEmail(request: Request, response: Response) {
+        try {
+            const user = await userService.getByEmail(request.query.email as string);
+            response.json(user);
+        } catch (error: any) {
+            console.error('Get one error');
+            response.json(formatError(error));
+        }
+    };
+
     async getUsers(request: Request, response: Response) {
         try {
             const user = await userService.getAll();
