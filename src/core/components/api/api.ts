@@ -1,7 +1,8 @@
 import { LoginData, OfferStatus } from '../../types/types';
 import { IOffer, IProductCategory, IProduct } from '../../types/types';
 
-const BACKEND_URL = 'http://localhost:5300/api';
+// const BACKEND_URL = 'https://ppback.onrender.com/api';
+const BACKEND_URL = 'http://localhost:5300';
 
 export async function userLogin(data: LoginData): Promise<{ token: string } | string> {
   return fetch(`${BACKEND_URL}/auth/login`, {
