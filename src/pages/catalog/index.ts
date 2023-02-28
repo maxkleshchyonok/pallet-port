@@ -4,12 +4,11 @@ import { updateProductCard } from '../../core/components/product_card/product_ca
 //import Product from '../../core/components/product/product';
 import Offer from '../../core/components/offer/offer';
 //import productsJSON from '../../assets/json/products.json';
-// import offersJSON from '../../assets/json/_OffersArray.json';
 import './index.scss';
 import Filters from '../../core/components/filters/filters';
 import { SortEnum, OfferStatus, IOffer } from '../../core/types/types';
 import Footer from '../../core/components/footer';
-import { getOffersByStatus } from '../../core/components/api/fetches';
+import { getOffersByStatus } from '../../core/components/api/api';
 
 import { parameters, parametersObj, saveParameters } from '../../core/parameters/parameters';
 
