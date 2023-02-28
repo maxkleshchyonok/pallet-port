@@ -1,5 +1,5 @@
 import { LoginData, OfferStatus } from '../../types/types';
-import { IOffer } from '../../types/types';
+import { IOffer, IProductCategory, IProduct } from '../../types/types';
 
 const BACKEND_URL = 'http://localhost:5300/api';
 
@@ -47,7 +47,23 @@ export async function userLogout() {
     });
 }
 
+export async function getAllProductCategories(): Promise<IProductCategory[] | void> {
+  return fetch(`${BACKEND_URL}/productCategories`, {
+    method: 'GET',
+  })
+    .then(response => response.json())
+    .then(result => result)
+    .catch(error => console.log('error', error));
+}
 
+export async function getAllProducts(): Promise<IProduct[] | void> {
+  return fetch(`${BACKEND_URL}/products`, {
+    method: 'GET',
+  })
+    .then(response => response.json())
+    .then(result => result)
+    .catch(error => console.log('error', error));
+}
 
 export async function getOffersByStatus(status: OfferStatus): Promise<IOffer[] | void> {
   return fetch(`${BACKEND_URL}/offers/find/findByStatus?status=${status}`, {
