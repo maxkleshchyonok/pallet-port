@@ -1,7 +1,7 @@
 import Component from '../../templates/components';
 import './index.css';
 import { LoginData } from '../../types/types';
-import { fetchLogin } from '../api/fetches';
+import { userLogin, userRegister } from '../api/api';
 
 class AuthModal extends Component {
 
@@ -46,27 +46,35 @@ class AuthModal extends Component {
     this.emailInput.type = 'email';
     this.emailInput.id = 'email';
     this.emailInput.required = true;
+    if (localStorage.getItem('email'))
+      this.emailInput.textContent = localStorage.getItem('email');
     this.emailLabel.textContent = 'Email';
 
     this.passwordInput.type = 'password';
     this.passwordInput.id = 'password';
     this.passwordInput.required = true;
-    this.passwordLabel.textContent = 'Hasło';
+    this.passwordLabel.textContent = 'Hasło (>5 symbolów)';
 
 
     this.emailInput.addEventListener('input', () => {
       this.data.email = this.emailInput.value;
+      localStorage.setItem('email', this.emailInput.value);
       console.log(this.emailInput.value);
     });
     this.passwordInput.addEventListener('input', () => {
       this.data.password = this.passwordInput.value;
     });
     this.button.textContent = 'Wysłać';
-    this.button.addEventListener('click', () => {
+    this.button.addEventListener('click', async () => {
       console.log(this.data);
-      const url = 'http://localhost:5300/api/auth/login';
-      fetchLogin(this.data, url);
-      this.closeModal();
+      const res = await userLogin(this.data);
+      if (typeof res === 'string') {
+        alert(res);
+      } else {
+        localStorage.setItem('token', res.token);
+        this.closeModal();
+
+      }
     });
 
 
@@ -77,8 +85,8 @@ class AuthModal extends Component {
     logIn.className = 'modal__title active';
     register.className = 'modal__title';
 
-    logIn.textContent = 'Zaloguj sie';
-    register.textContent = 'Rejestr';
+    logIn.textContent = 'Zaloguj się';
+    register.textContent = 'Zarejestruj się';
 
     logIn.addEventListener('click', () => {
       logIn.classList.add('active');
@@ -132,15 +140,25 @@ class AuthModal extends Component {
         this.button.textContent = 'Wysłać';
       } else {
         this.button.disabled = true;
-        this.button.textContent = 'Różne hasła';
+        this.button.textContent = 'Różne hasła!';
       }
     });
 
+    this.button.removeEventListener('click', async () => {
+      console.log(this.data);
+      const res = await userLogin(this.data);
+      if (typeof res === 'string') {
+        alert(res);
+      } else {
+        localStorage.setItem('token', res.token);
+        this.closeModal();
+
+      }
+    });
 
     this.button.addEventListener('click', () => {
       console.log(this.data);
-      const url = 'http://localhost:5300/api/auth/register';
-      fetchLogin(this.data, url);
+      userRegister(this.data);
       this.closeModal();
     });
 
