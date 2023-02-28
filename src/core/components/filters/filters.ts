@@ -368,6 +368,8 @@ export default class Filters extends Component {
 
   render(): HTMLElement {
     this.resetFilters();
+    this.offerRatingFilters();
+    this.sellerRankFilters();
     this.createEnumCheckboxes(EnumVAT, this.container, 'VAT', 'VAT');
     this.createEnumCheckboxes(PaymentType, this.container, 'payment', 'Płatność');
     this.createEnumCheckboxes(DeliveryType, this.container, 'deliveryType', 'Dostawa');
