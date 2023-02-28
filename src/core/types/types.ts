@@ -22,7 +22,7 @@ export enum DeliveryType {
 }
 
 export enum OfferStatus {
-  ACTIVE = 'Aktywne',
+  ACTIVE = 'Aktywna',
   MODERATION = 'Na moderacji',
   CLOSED = 'Zakończone',
 }
@@ -76,6 +76,15 @@ export type DeliveryDays = {
 export type Rating = {
   short: string,
   rank: number,
+};
+
+export type LoginData = {
+  email: string,
+  password: string,
+};
+
+export type RegisterData = {
+  email:string,
 };
 
 export type CatalogItem = {
@@ -534,6 +543,8 @@ export interface IProductCategory {
    * @memberof ProductCategory
    */
   shortName: string;
+
+  class?: string;
 }
 /**
 *

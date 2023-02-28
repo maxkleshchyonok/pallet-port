@@ -1,82 +1,59 @@
-.account__content{
-  display: flex;
-  margin-top: 2%;
-  .content__navbar{
-    width: 20%;
-    min-height: 400px;
-    border: 1px solid gray;
-    padding-left: 3%;
-    .siteNav{
-      width: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      .siteNav__main{
-        font-weight: 300;
-        font-size: 16px;
-        color: #767c76;
-      }
-      .siteNav__dot{
-        border-radius: 50%;
-        width: 5px;
-        height: 5px;
-        background: #767c76;
-      }
-      .siteNav__current{
-        font-weight: 600;
-        font-size: 16px;
-      }
+
+/*# sourceMappingURL=index.css.map */
+
+
+.spinner-wrapper{
+  min-height: 100px;
+  padding: 0px;
+  margin: 0px;
+}
+
+.spinner-wrapper{
+  position: relative;
+  width: 20%;
+  height: 20%;
+  background: #ffffff;
+
+  .spinner{
+    position: absolute;
+    height: 60px;
+    width: 60px;
+    border: 3px solid transparent;
+    border-top-color: #985E38;
+    top: 50%;
+    left: 50%;
+    margin: -30px;
+    border-radius: 50%;
+    animation: spin 2s linear infinite;
+
+    &:before, &:after{
+      content:'';
+      position: absolute;
+      border: 3px solid transparent;
+      border-radius: 50%;
     }
-    .nav__split{
-      width: 80%;
+
+    &:before{
+      border-top-color: #15616D;
+      top: -12px;
+      left: -12px;
+      right: -12px;
+      bottom: -12px;
+      animation: spin 3s linear infinite;
     }
-    .nav__title{
-      font-weight: 600;
-      font-size: 18px;
-      margin-top: 3%;
-      cursor: pointer;
-    }
-    .nav__list{
-      margin-top: 5%;
-      margin-left: 3%;
-      .list__item{
-        display: flex;
-        align-items: center;
-        font-weight: 300;
-        font-size: 17px;
-        margin-top: 4%;
-        transition: .5s ease-in-out;
-        cursor: pointer;
-        height: 40px;
-      }
-      .active{
-        display: flex;
-        align-items: center;
-        padding-left: 10%;
-        height: 40px;
-        font-size: 18px;
-        background: #15616D;
-        color: #FFFFFF;
-        transition: .5s ease-in-out;
-      }
+
+    &:after{
+      border-top-color: #333333;
+      top: 6px;
+      left: 6px;
+      right: 6px;
+      bottom: 6px;
+      animation: spin 4s linear infinite;
     }
   }
-  .content__main{
-    width: 50%;
-    min-height: 400px;
-    border: 1px solid gray;
-    div{
-      input{
-        outline: none;
-        height: 40px;
-        border: 1px solid gray;
-        cursor: pointer;
-      }
-    }
-  }
-  .content__user{
-    width: 30%;
-    min-height: 400px;
-    border: 1px solid gray;
-  }
+}
+
+@keyframes spin{
+  0% {transform: rotate(0deg);}
+  100% {transform: rotate(360deg);}
 }

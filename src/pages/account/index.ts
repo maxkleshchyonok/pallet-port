@@ -1,3 +1,4 @@
+import { userLogout } from '../../core/components/api/api';
 import Page from '../../core/templates/page';
 import './index.css';
 
@@ -522,6 +523,10 @@ class AccountPage extends Page {
       main.append(searchBlock, categoryBlock, orders);
     }
 
+    // function renderOffersCards(): void {
+    //
+    // }
+
     function renderOffersBlock(): void {
       const searchBlock = document.createElement('div');
       const searchTitle = document.createElement('h2');
@@ -573,11 +578,12 @@ class AccountPage extends Page {
         });
         categoryBlock.append(div);
       }
+
+
       searchField.append(searchInput, searchButton);
       searchBlock.append(searchTitle, searchField);
       main.append(searchBlock, categoryBlock, orders);
     }
-
 
 
     function clearContent(): void {
@@ -652,6 +658,15 @@ class AccountPage extends Page {
       itemsList.append(listItem);
     });
 
+    const logoutButton = document.createElement('button');
+    logoutButton.classList.add('logout-button');
+    logoutButton.textContent = 'Wyloguj się';
+    logoutButton.onclick = () => {
+      alert('Wylogowano');
+      userLogout();
+      window.location.hash = 'main-page';
+    };
+    navbar.appendChild(logoutButton);
 
     navbar.append(siteNav, split, title, itemsList);
     content.append(navbar, main, user);
@@ -661,6 +676,7 @@ class AccountPage extends Page {
 
   render() {
     this.renderContent();
+    console.log(localStorage.getItem('token'));
     return this.container;
   }
 }

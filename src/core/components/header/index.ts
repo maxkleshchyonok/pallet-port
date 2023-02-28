@@ -1,5 +1,5 @@
 import Component from '../../templates/components';
-//import AuthModal from '../auth-modal';
+import AuthModal from '../auth-modal';
 
 
 const Buttons = [
@@ -62,15 +62,28 @@ class Header extends Component {
       infoItemA.href = '#';
       infoItemA.innerText = item.text;
       if (item.id === 'account-page') {
-        // infoItemA.addEventListener('click', () => {
-        //   const popUp = new AuthModal('div', 'modal');
-        //   this.container.append(popUp.render());
-        // });
-        infoItemA.href = `#${Buttons[3].id}`;
+        infoItemA.id = 'personal-account';
+        infoItemA.addEventListener('click', () => {
+          if (!localStorage.getItem('token')) {
+            const popUp = new AuthModal('div', 'modal');
+            this.container.append(popUp.render());
+          } else {
+            window.location.hash = 'account-page';
+            infoItemA.href = `#${Buttons[3].id}`;
+            infoItemA.innerText = localStorage.getItem('email') as string;
+          }
+        });
       }
+
+
       infoItem.append(infoItemImg, infoItemA);
       containerInfo.append(infoItem);
     });
+
+
+
+
+
     this.container.append(containerInfo);
   }
 
