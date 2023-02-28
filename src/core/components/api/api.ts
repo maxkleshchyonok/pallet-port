@@ -1,8 +1,18 @@
 import { LoginData, OfferStatus } from '../../types/types';
-import { IOffer, IProductCategory, IProduct } from '../../types/types';
+import { IOffer, IProductCategory, IProduct, User } from '../../types/types';
 
 // const BACKEND_URL = 'https://ppback.onrender.com/api';
-const BACKEND_URL = 'http://localhost:5300';
+
+const BACKEND_URL = 'http://localhost:5300/api';
+
+export async function getUserByEmail(email: string): Promise<User | void> {
+  return fetch(`${BACKEND_URL}/users/find/getByEmail?email=${email}`, {
+    method: 'GET',
+  })
+    .then(response => response.json())
+    .then(result => result)
+    .catch(error => console.log('error', error));
+}
 
 export async function userLogin(data: LoginData): Promise<{ token: string } | string> {
   return fetch(`${BACKEND_URL}/auth/login`, {
@@ -65,6 +75,8 @@ export async function getAllProducts(): Promise<IProduct[] | void> {
     .then(result => result)
     .catch(error => console.log('error', error));
 }
+
+
 
 export async function getOffersByStatus(status: OfferStatus): Promise<IOffer[] | void> {
   return fetch(`${BACKEND_URL}/offers/find/findByStatus?status=${status}`, {
