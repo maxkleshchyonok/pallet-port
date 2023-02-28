@@ -129,7 +129,7 @@ class Footer extends Component {
 
     socialInfo.append(socialBlock);
 
-    for (let i = 0; i < 3; i += 1) {
+    for (let i = 0; i <= 3; i += 1) {
       const copyRight = document.createElement('a');
       copyRight.className = 'author-link';
       if (i === 0) {
@@ -138,7 +138,10 @@ class Footer extends Component {
       } else if (i === 1) {
         copyRight.href = 'https://github.com/foteev';
         copyRight.innerText = 'https://github.com/foteev';
-      } else {
+      } else if (i == 2) {
+        copyRight.href = 'https://github.com/Surewek';
+        copyRight.innerText = 'https://github.com/Surewek';
+      } else  {
         const rsLogo = document.createElement('img');
         rsLogo.src = '../../assets/img/elements/rs_school_js.svg';
         copyRight.append(rsLogo);

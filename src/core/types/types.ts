@@ -543,6 +543,8 @@ export interface IProductCategory {
    * @memberof ProductCategory
    */
   shortName: string;
+
+  class?: string;
 }
 /**
 *

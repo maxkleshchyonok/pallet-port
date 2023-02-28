@@ -1,3 +1,4 @@
+import { userLogout } from '../../core/components/api/api';
 import Page from '../../core/templates/page';
 import './index.css';
 
@@ -657,6 +658,15 @@ class AccountPage extends Page {
       itemsList.append(listItem);
     });
 
+    const logoutButton = document.createElement('button');
+    logoutButton.classList.add('logout-button');
+    logoutButton.textContent = 'Wyloguj się';
+    logoutButton.onclick = () => {
+      alert('Wylogowano');
+      userLogout();
+      window.location.hash = 'main-page';
+    };
+    navbar.appendChild(logoutButton);
 
     navbar.append(siteNav, split, title, itemsList);
     content.append(navbar, main, user);
@@ -666,6 +676,7 @@ class AccountPage extends Page {
 
   render() {
     this.renderContent();
+    console.log(localStorage.getItem('token'));
     return this.container;
   }
 }

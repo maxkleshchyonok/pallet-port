@@ -377,3 +377,14 @@
 }
 
 /*# sourceMappingURL=index.css.map */
+.logout-button{
+
+  width: 35%;
+  height: 30px;
+  margin-bottom: 10px;
+  background: #15616D;
+  border-radius: 2px;
+  color: white;
+  font-size: 14px;
+  line-height: 17px;
+}
