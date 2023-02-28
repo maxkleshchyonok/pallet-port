@@ -9,6 +9,6 @@ userRouter.post('/users', checkAuth, userController.createUser);
 userRouter.get('/users/:id', userController.getUser);
 userRouter.post('/users/:id', userController.updateUser);
 userRouter.delete('/users/:id', checkAuth, userController.deleteUser);
-// userRouter.delete('/users/:userEmail', userController.deleteUser);
+userRouter.get('/users/find/getByEmail', userController.getUserByEmail);
 
 export default userRouter;
