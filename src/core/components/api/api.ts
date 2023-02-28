@@ -2,6 +2,7 @@ import { LoginData, OfferStatus } from '../../types/types';
 import { IOffer, IProductCategory, IProduct, User } from '../../types/types';
 
 // const BACKEND_URL = 'https://ppback.onrender.com/api';
+
 const BACKEND_URL = 'http://localhost:5300/api';
 
 export async function getUserByEmail(email: string): Promise<User | void> {
