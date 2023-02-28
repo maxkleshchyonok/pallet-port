@@ -17,7 +17,7 @@ import BlackBoxPage from '../blackbox';
 // import { IProduct } from '../../core/types/types';
 
 
-const productsId: string[] = productsJSON.map(product => product.shortName);
+const productsId: string[] = productsJSON.map(product => `product-page/${product.shortName}`);
 
 // async function createShortNameArr() {
 //   const products = await getAllProducts() as IProduct[];
@@ -49,10 +49,6 @@ class App {
   private header: Header;
 
   previousPage = '';
-
-
-
-
 
   setPreviousPage(): void {
     localStorage.removeItem('previousPage');

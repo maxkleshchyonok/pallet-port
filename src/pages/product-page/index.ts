@@ -342,9 +342,9 @@ class ProductPage extends Page {
   }
 
   render(): HTMLElement {
-    this.renderProductBlock();
-    this.renderOffersBlock();
-    this.container.append(this.footer.render());
+    this.renderProductBlock()
+      .then(()=> this.renderOffersBlock())
+      .then(()=> this.container.append(this.footer.render()));
     return this.container;
   }
 }
