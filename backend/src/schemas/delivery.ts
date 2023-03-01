@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const Delivery = new mongoose.Schema({
     deliveryType: { type: String,
-                        enum: [ 'SELFPICKUP', 'BUS', 'TRUCK', 'COURIER' ]
+                        enum:  [ 'Odbiór osobisty', 'Dostawa busem', 'Dostawa ciężarówką (TIR)', 'Dostawa kurierska' ]
     },
     deliveryTimeMin: { type: Number },
     deliveryTimeMax: { type: Number },

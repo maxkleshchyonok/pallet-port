@@ -10,7 +10,7 @@ const Order = new mongoose.Schema({
         rank: { type: Number },
         avatar: { type: String },
         roles: [{ type: String,
-                  enum: ['BUYER', 'SELLER', 'ADMIN', 'SYSTEM', 'LOGISTIC']
+                  enum: ['Kupujący', 'Sprzedający', 'ADMIN', 'SYSTEM', 'Kurier']
         }],
         deliveryAddress: {
             street: { type: String },
@@ -62,10 +62,10 @@ const Order = new mongoose.Schema({
                 product: {
                     name: { type: String },
                     material: { type: String,
-                                enum: [ 'METAL', 'PLASTIC', 'WOOD', 'CARDBOARD' ]
+                                enum:  [ 'Metal', 'Plastik', 'Drewno', 'Tektura' ]
                     },
                     condition: { type: String,
-                                 enum: [ 'NEW', 'USED 1 CATEGORY', 'USED 2 CATEGORY', 'USED 3 CATEGORY', 'BROKEN']
+                                 enum:  [ 'Nowe', 'Używane 1 gatunku', 'Używane 2 gatunku', 'Używane 3 gatunku', 'Uszkodzone']
                     },
                     description: { type: String },
                     image1: { type: String },
@@ -90,7 +90,7 @@ const Order = new mongoose.Schema({
                     rank: { type: Number },
                     avatar: { type: String },
                     roles: [{ type: String,
-                              enum: ['BUYER', 'SELLER', 'ADMIN', 'SYSTEM', 'LOGISTIC']
+                              enum: ['Kupujący', 'Sprzedający', 'ADMIN', 'SYSTEM', 'Kurier']
                     }],
                     deliveryAddress: {
                         street: { type: String },
@@ -164,7 +164,7 @@ const Order = new mongoose.Schema({
                 quantityMax: { type: Number },
                 delivery: [{
                     deliveryType: { type: String,
-                                        enum: [ 'SELFPICKUP', 'BUS', 'TRUCK', 'COURIER' ]
+                                        enum: [ 'Odbiór osobisty', 'Dostawa busem', 'Dostawa ciężarówką (TIR)', 'Dostawa kurierska' ]
                     },
                     deliveryTimeMin: { type: Number },
                     deliveryTimeMax: { type: Number },
@@ -174,7 +174,7 @@ const Order = new mongoose.Schema({
                 image2: { type: String },
                 description: { type: String },
                 offerStatus: { type: String,
-                               enum: [ 'ACTIVE', 'MODERATION', 'CLOSED' ]
+                               enum:  [ 'Aktywna', 'Na moderacji', 'Zakończone' ]
                 },
                 rating: { type: Number },
                 isTop: { type: Boolean }
@@ -182,7 +182,7 @@ const Order = new mongoose.Schema({
             quantity: { type: Number },
             delivery: {
                 deliveryType: { type: String,
-                                    enum: [ 'SELFPICKUP', 'BUS', 'TRUCK', 'COURIER' ]
+                                    enum:  [ 'Odbiór osobisty', 'Dostawa busem', 'Dostawa ciężarówką (TIR)', 'Dostawa kurierska' ]
                 },
                 deliveryTimeMin: { type: Number },
                 deliveryTimeMax: { type: Number },
@@ -191,10 +191,10 @@ const Order = new mongoose.Schema({
         }],
     },
     status: { type: String,
-              enum: [ 'CREATED', 'MODERATION', 'PENDING', 'ACCEPTED', 'SENDED', 'DELIVERED', 'RETURNED', 'CLOSED' ]
+              enum: [ 'Utworzone', 'Moderacja', 'Oczekujące', 'Przyjęte', 'Wyslane', 'Dostarczone', 'Zwrócone', 'Zamknięte' ]
     },
     payment: { type: String,
-               enum: [ 'CASH', 'INVOICE', 'CARD' ]
+               enum: [ 'Gotówka', 'Na fakturę', 'Płatność kartą' ]
     },
     paymentStatus: { type: Boolean }
 });

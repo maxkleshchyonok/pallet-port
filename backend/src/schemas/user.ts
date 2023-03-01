@@ -8,7 +8,7 @@ const User = new mongoose.Schema({
     rank: { type: Number },
     avatar: { type: String },
     roles: [{ type: String,
-              enum: ['BUYER', 'SELLER', 'ADMIN', 'SYSTEM', 'LOGISTIC']
+              enum: ['Kupujący', 'Sprzedający', 'ADMIN', 'SYSTEM', 'Kurier']
     }],
     deliveryAddress: {
         street: { type: String },
