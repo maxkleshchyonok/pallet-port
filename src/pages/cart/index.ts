@@ -327,6 +327,10 @@ class CartPage extends Page {
       formInputAddress, formInputEmail, creditCard, submit);
     popup.append(popClose, form, thank);
 
+
+
+
+
     function closeForm() {
       popup.classList.remove('active');
       cardImage.src = '../../assets/img/elements/money.png';
