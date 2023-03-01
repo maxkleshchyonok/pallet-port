@@ -3,10 +3,10 @@ import mongoose from 'mongoose';
 const Product = new mongoose.Schema({
     name: { type: String },
     material: { type: String,
-                enum: [ 'METAL', 'PLASTIC', 'WOOD', 'CARDBOARD' ]
+                enum:  [ 'Metal', 'Plastik', 'Drewno', 'Tektura' ]
     },
     condition: { type: String,
-                 enum: [ 'NEW', 'USED 1 CATEGORY', 'USED 2 CATEGORY', 'USED 3 CATEGORY', 'BROKEN']
+                 enum: [ 'Nowe', 'Używane 1 gatunku', 'Używane 2 gatunku', 'Używane 3 gatunku', 'Uszkodzone']
     },
     description: { type: String },
     image1: { type: String },
