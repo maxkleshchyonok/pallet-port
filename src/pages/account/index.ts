@@ -2,6 +2,7 @@ import { userLogout } from '../../core/components/api/api';
 import Page from '../../core/templates/page';
 import './index.css';
 
+
 const respondFromServer = [
   {
     'cart': {
@@ -527,6 +528,123 @@ class AccountPage extends Page {
     //
     // }
 
+    function renderDeliveryOptionsDetails(parent: HTMLElement): void {
+      const details = document.createElement('div');
+      const deliveryPrice = document.createElement('div');
+      const priceTitle = document.createElement('h3');
+      const priceInput = document.createElement('input');
+      const priceHolder = document.createElement('p');
+      const deliveryTime = document.createElement('div');
+      const timeTitle = document.createElement('h3');
+      const from = document.createElement('div');
+      const fromHolder = document.createElement('p');
+      const fromInput = document.createElement('input');
+      const till = document.createElement('div');
+      const tillHolder = document.createElement('p');
+      const tillInput = document.createElement('input');
+
+
+      priceTitle.textContent = 'Cena dostawy:';
+      timeTitle.textContent = 'Termin dostawy:';
+      priceHolder.textContent = 'zł netto';
+      fromHolder.textContent = 'od';
+      tillHolder.textContent = 'do';
+
+
+      till.append(tillHolder, tillInput);
+      from.append(fromHolder, fromInput);
+      deliveryTime.append(timeTitle, from, till);
+      deliveryPrice.append(priceTitle, priceInput, priceHolder);
+      details.append(deliveryPrice, deliveryTime);
+      parent.append(details);
+    }
+
+    function renderOfferForm(parent: HTMLElement): void {
+      const createBlock = document.createElement('div');
+      const product = document.createElement('div');
+      const productTitle = document.createElement('h2');
+      const productChoose = document.createElement('select');
+      const condition = document.createElement('div');
+      const conditionTitle = document.createElement('h2');
+      const conditionChoose = document.createElement('select');
+      const category = document.createElement('div');
+      const categoryTitle = document.createElement('h2');
+      const categoryChoose = document.createElement('select');
+      const price = document.createElement('div');
+      const priceTitle = document.createElement('h2');
+      const priceInput = document.createElement('input');
+      const priceHolder = document.createElement('p');
+      const quantity = document.createElement('div');
+      const quantityTitle = document.createElement('h2');
+      const quantityMin = document.createElement('div');
+      const quantityMinTitle = document.createElement('h3');
+      const quantityMinInput = document.createElement('input');
+      const quantityMax = document.createElement('div');
+      const quantityMaxTitle = document.createElement('h3');
+      const quantityMaxInput = document.createElement('input');
+      const quantityHolder = document.createElement('p');
+      const delivery = document.createElement('div');
+      const deliveryTitle = document.createElement('h2');
+      const noDelivery = document.createElement('div');
+      const noDeliveryInput = document.createElement('input');
+      const noDeliveryLabel = document.createElement('label');
+      const yesDelivery = document.createElement('div');
+      const yesDeliveryInput = document.createElement('input');
+      const yesDeliveryLabel = document.createElement('label');
+      const deliverySelect = document.createElement('select');
+      const seller = document.createElement('div');
+      const sellerTitle = document.createElement('h2');
+      const sellerOptions = document.createElement('select');
+      const addImagesButton = document.createElement('button');
+      const addOfferButton = document.createElement('button');
+
+
+      productTitle.textContent = 'Product:';
+      conditionTitle.textContent = 'Stan:';
+      categoryTitle.textContent = 'Category:';
+      priceTitle.textContent = 'Cena:';
+      priceHolder.textContent = 'zł netto';
+      quantityTitle.textContent = 'Iłość:';
+      quantityMinTitle.textContent = 'od';
+      quantityMaxTitle.textContent = 'do';
+      quantityHolder.textContent = 'szt';
+
+      deliveryTitle.textContent = 'Dostawa:';
+      noDeliveryLabel.textContent = 'Odbiór osobisty';
+      noDeliveryInput.type = 'checkbox';
+      yesDeliveryInput.type = 'checkbox';
+      yesDeliveryLabel.textContent = 'Kurierska dostawa';
+      if (noDeliveryInput.checked) {
+        console.log('pressed');
+        renderDeliveryOptionsDetails(delivery);
+      }
+      if (yesDeliveryInput.checked) {
+        yesDelivery.append(deliverySelect);
+        renderDeliveryOptionsDetails(delivery);
+      }
+
+      sellerTitle.textContent = 'Sprzedawca:';
+      addImagesButton.textContent = 'Dodaj zdjęcia';
+      addOfferButton.textContent = 'Zapisz';
+
+
+
+      product.append(productTitle, productChoose);
+      condition.append(conditionTitle, conditionChoose);
+      category.append(categoryTitle, categoryChoose);
+      price.append(priceTitle, priceInput, priceHolder);
+      quantity.append(quantityTitle, quantityMin, quantityMax, quantityHolder);
+      quantityMin.append(quantityMinTitle, quantityMinInput);
+      quantityMax.append(quantityMaxTitle, quantityMaxInput);
+      delivery.append(deliveryTitle, noDelivery, yesDelivery);
+      noDelivery.append(noDeliveryInput, noDeliveryLabel);
+      yesDelivery.append(yesDeliveryInput, yesDeliveryLabel);
+      seller.append(sellerTitle, sellerOptions);
+      createBlock.append(product, condition, category, price,
+        quantity, delivery, seller, addImagesButton, addOfferButton);
+      parent.append(createBlock);
+    }
+
     function renderOffersBlock(): void {
       const searchBlock = document.createElement('div');
       const searchTitle = document.createElement('h2');
@@ -534,7 +652,7 @@ class AccountPage extends Page {
       const searchInput = document.createElement('input');
       const searchButton = document.createElement('button');
       const categoryBlock = document.createElement('div');
-      const orders = document.createElement('div');
+      const offers = document.createElement('div');
 
       searchBlock.className = 'search';
       searchTitle.className = 'search__title';
@@ -542,47 +660,51 @@ class AccountPage extends Page {
       searchInput.className = 'search__input';
       searchButton.className = 'search__button';
       categoryBlock.classList.add('categories', 'offers-page');
-      orders.className = 'orders';
+      offers.className = 'offers';
 
       searchTitle.textContent = 'Moje oferty';
       searchInput.placeholder = 'Wpisz nazwę towaru';
       searchButton.textContent = 'Shukaj';
 
       for (let i = 0; i < 5; i += 1) {
-        const div = document.createElement('div');
-        div.classList.add('category__item', 'offers-item');
+        const button = document.createElement('button');
+        button.classList.add('category__item', 'offers-item');
         switch (i) {
           case 0:
-            div.textContent = 'Wszystkie';
+            button.textContent = 'Wszystkie';
             break;
           case 1:
-            div.textContent = 'Aktywne';
+            button.textContent = 'Aktywne';
             break;
           case 2:
-            div.textContent = 'Moderacja';
+            button.textContent = 'Moderacja';
             break;
           case 3:
-            div.textContent = 'Zakończone';
+            button.textContent = 'Zakończone';
             break;
           case 4:
-            div.textContent = 'Dodaj nową ofertę';
-            div.classList.add('add__button');
+            button.textContent = 'Dodaj nową ofertę';
+            button.classList.add('add__button');
+            button.addEventListener('click', () => {
+              button.disabled = true;
+              renderOfferForm(offers);
+            });
             break;
         }
-        div.addEventListener('click', () => {
+        button.addEventListener('click', () => {
           const all = document.querySelectorAll('.category__item');
           all.forEach((el) => {
             el.classList.remove('item_selected');
           });
-          div.classList.add('item_selected');
+          button.classList.add('item_selected');
         });
-        categoryBlock.append(div);
+        categoryBlock.append(button);
       }
 
 
       searchField.append(searchInput, searchButton);
       searchBlock.append(searchTitle, searchField);
-      main.append(searchBlock, categoryBlock, orders);
+      main.append(searchBlock, categoryBlock, offers);
     }
 
 
