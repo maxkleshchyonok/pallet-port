@@ -69,11 +69,13 @@ class AuthModal extends Component {
       console.log(this.data);
       const res = await userLogin(this.data);
       if (typeof res === 'string') {
-        alert(res);
+        if (res.includes('doesn\'t exist'))
+          alert('Zarejestrowano!');
+        else alert(res);
       } else {
         localStorage.setItem('token', res.token);
         this.closeModal();
-
+        window.location.hash = 'account-page';
       }
     });
 
@@ -114,6 +116,7 @@ class AuthModal extends Component {
     this.login.append(this.emailLabel, this.emailInput);
     this.password.append(this.passwordLabel, this.passwordInput);
     this.form.append(this.login, this.password, this.button);
+    this.button.disabled = false;
     this.container.append(this.form);
   }
 
@@ -138,23 +141,23 @@ class AuthModal extends Component {
       if (password.value === this.data.password) {
         this.button.disabled = false;
         this.button.textContent = 'Wysłać';
-      } else {
+      } else if (password.value !== this.data.password) {
         this.button.disabled = true;
         this.button.textContent = 'Różne hasła!';
       }
     });
 
-    this.button.removeEventListener('click', async () => {
-      console.log(this.data);
-      const res = await userLogin(this.data);
-      if (typeof res === 'string') {
-        alert(res);
-      } else {
-        localStorage.setItem('token', res.token);
-        this.closeModal();
-
-      }
-    });
+    // this.button.removeEventListener('click', async () => {
+    //   console.log(this.data);
+    //   const res = await userLogin(this.data);
+    //   if (typeof res === 'string') {
+    //     alert(res);
+    //   } else {
+    //     localStorage.setItem('token', res.token);
+    //     this.closeModal();
+    //     window.location.hash = 'account-page';
+    //   }
+    // });
 
     this.button.addEventListener('click', () => {
       console.log(this.data);

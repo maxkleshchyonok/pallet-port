@@ -98,7 +98,7 @@ export function loadParametersAfterPP() {
       const tempParams = new URLSearchParams(tempPar);
       parameters = tempParams;
     }
-  }, 100);
+  }, 1000);
 }
 
 // let offersArr: IOffer[] = [];
@@ -131,25 +131,6 @@ export const parametersObj = (productArg?: string) => {
     payment: PaymentType[] = [PaymentType.CARD, PaymentType.CASH, PaymentType.INVOICE];
 
 
-  // let category = INITIAL_STATE.category,
-  //   short = INITIAL_STATE.short,
-  //   price = INITIAL_STATE.price,
-  //   condition = INITIAL_STATE.condition,
-  //   quantity = INITIAL_STATE.quantity,
-  //   material = INITIAL_STATE.material,
-  //   length = INITIAL_STATE.length,
-  //   width = INITIAL_STATE.width,
-  //   height = INITIAL_STATE.height,
-  //   load = INITIAL_STATE.load,
-  //   sort = INITIAL_STATE.sort,
-  //   sellerRank = INITIAL_STATE.sellerRank,
-  //   offerRating = INITIAL_STATE.offerRating,
-  //   deliveryType = INITIAL_STATE.deliveryType,
-  //   days = INITIAL_STATE.days,
-  //   state = INITIAL_STATE.state,
-  //   VAT = INITIAL_STATE.VAT,
-  //   payment = INITIAL_STATE.payment;
-
   const setSlider = (name: string) => {
     const sliderStr = parameters.getAll(`${name}`).join('-').split('-');
     const slider = [parseInt(sliderStr[0]), parseInt(sliderStr[1])];
@@ -161,8 +142,6 @@ export const parametersObj = (productArg?: string) => {
     short = parameters.getAll('short').join().split(',');
     price = setSlider('price');
     condition = parameters.getAll('condition').join().split(',') as Condition[];
-    // const quantityStr = parameters.getAll('quantity').join('').split('-');
-    // quantity = [parseInt(quantityStr[0]), parseInt(quantityStr[1])];
     quantity = setSlider('quantity');
     material = parameters.getAll('material').join().split(',') as Material[];
     width = setSlider('width');
@@ -176,11 +155,6 @@ export const parametersObj = (productArg?: string) => {
     days = setSlider('days');
     state = parameters.getAll('state').join().split(',');
     VAT = parameters.getAll('VAT').join().split(',') as [];
-    // const VATStr = parameters.getAll('VAT').join().split(',');
-    // if (VATStr.length < 2) {
-    //   VAT = [parseInt(VATStr[0]), parseInt(VATStr[0])];
-    // } else VAT = [parseInt(VATStr[0]), parseInt(VATStr[1])];
-    // console.log(VAT);
     payment = parameters.getAll('payment').join().split(',') as PaymentType[];
 
   } else if (productArg === 'clear') {
@@ -230,7 +204,6 @@ export const parametersObj = (productArg?: string) => {
     saveParametersBeforeProductPage();
     const productsShorted: Array<IProduct> = productsArrJSON
       .filter(prod => prod.shortName === productArg);
-    // console.log(productOffers);
 
     // const priceSort = productsShorted.sort((a, b) => a.price - b.price);
     const product = productsShorted[0];
@@ -276,36 +249,14 @@ export const parametersObj = (productArg?: string) => {
     parameters.set('VAT', VAT.join(','));
     parameters.set('payment', payment.join(','));
 
-    // parameters.set('category', product[0].category);
-    // parameters.set('price', `${product[0].price.toString()}-${product[0].price.toString()}`);
-    // parameters.set('quantity', '0-100000');
-    // parameters.set('condition', product[0].condition);
-    // parameters.set('material', product[0].material);
-    // parameters.set('length', `${product[0].length.toString()}-${product[0].length.toString()}`);
-    // parameters.set('width', `${product[0].width.toString()}-${product[0].width.toString()}`);
-    // parameters.set('height', `${product[0].height.toString()}-${product[0].height.toString()}`);
-    // parameters.set('load', `${product[0].load.toString()}-${product[0].load.toString()}`);
-    // parameters.set('short', `${product[0].short}`);
+    // window.location.hash = `product-page/${short[0]}`;
 
-    // price = setSlider('price');
-    // width = setSlider('width');
-    // length = setSlider('length');
-    // height = setSlider('height');
-    // load = setSlider('load');
-    // category = product[0].category.split('');
-    // quantity = INITIAL_STATE.quantity;
-    // condition = product[0].condition.split('');
-    // material = product[0].material.split('');
-    // sort = INITIAL_STATE.sort;
-    // short = [product[0].short];
-
-    loadParametersAfterPP();
 
     saveParameters();
     loadParameters();
     // window.location.hash = parameters ? `catalog-page?${parameters.toString()}` : 'catalog-page';
 
-    // window.location.hash = `product-page/${short[0]}`;
+    loadParametersAfterPP();
   }
 
   return  {

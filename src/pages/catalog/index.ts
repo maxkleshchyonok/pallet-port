@@ -388,13 +388,11 @@ class CatalogPage extends Page {
 
     filtersSection.append(this.filters.render());
 
-    setTimeout(() => this.drawProductsCards(catalogSection), 1000);
 
     this.drawProductsCards(catalogSection);
 
-    window.addEventListener('hashchange', () => {
-      setTimeout(() => this.drawProductsCards(catalogSection), 500);
-    });
+    // window.addEventListener('hashchange', () =>
+    //   this.drawProductsCards(catalogSection));
 
     this.container.append(this.footer.render());
     this.container.classList.add('catalog-page-styles');

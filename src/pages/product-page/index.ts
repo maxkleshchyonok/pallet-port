@@ -4,8 +4,12 @@ import './index.scss';
 // import { parameters } from '../../core/components/parameters';
 // import offersJSON from '../../assets/json/_OffersArray.json';
 import { parametersObj } from '../../core/parameters/parameters';
-import { IOffer, IProduct, OfferStatus } from '../../core/types/types';
-import { getAllProducts, getOffersByStatus } from '../../core/components/api/api';
+import { IOffer, IProduct, OfferStatus, CartOffers } from '../../core/types/types';
+import { getOffersByStatus } from '../../core/components/api/api';
+import productsJSON from '../../assets/json/_ProductsArray.json';
+import CartOffer from '../../core/components/cartOffer/cartOffer';
+
+export const cartOffersArr: Array<CartOffers> = [];
 
 class ProductPage extends Page {
 
@@ -51,7 +55,8 @@ class ProductPage extends Page {
 
   private async renderProductBlock(): Promise<void> {
 
-    const productsArray = await getAllProducts() as IProduct[];
+    // const productsArray = await getAllProducts() as IProduct[];
+    const productsArray = [...productsJSON] as IProduct[];
 
     // this.products = [...productsArray;
 
@@ -331,6 +336,11 @@ class ProductPage extends Page {
     });
 
     addToCart.textContent = 'Dodaj do koszyka';
+
+    addToCart.addEventListener('click', () => {
+      cartOffersArr.push(new CartOffer(item, item.delivery[0], Number(quantityInput.value)));
+      console.log(cartOffersArr);
+    });
 
     sellerBlock.append(avatar, name, phone);
     quantityBlock.append(quantityTitle, quantityInput);
