@@ -2,9 +2,9 @@ import { LoginData, OfferStatus } from '../../types/types';
 import { IOffer, IProductCategory, IProduct, User } from '../../types/types';
 
 // const BACKEND_URL = 'https://ppback.onrender.com/api';
-const BACKEND_URL = 'https://express-hello-world-production-0fc2.up.railway.app/api';
+// const BACKEND_URL = 'https://express-hello-world-production-0fc2.up.railway.app/api';
 
-// const BACKEND_URL = 'http://localhost:5300/api';
+const BACKEND_URL = 'http://localhost:5300/api';
 
 export async function getUserByEmail(email: string): Promise<User | void> {
   return fetch(`${BACKEND_URL}/users/find/getByEmail?email=${email}`, {
