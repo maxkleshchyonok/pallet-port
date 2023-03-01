@@ -4,7 +4,8 @@ import categoriesJSON from '../../../assets/json/_ProductsCategory.json';
 import './filters.scss';
 import * as noUiSlider from 'nouislider';
 import 'nouislider/dist/nouislider.css';
-import { parameters, parametersObj, saveParameters, loadParameters } from '../../parameters/parameters';
+import { parameters, parametersObj, saveParameters, loadParameters,
+  loadParametersAfterPP } from '../../parameters/parameters';
 import { Material, Condition, EnumVAT, PaymentType, Enums, EnumLowerCase, DeliveryType,
 } from '../../types/types';
 
@@ -389,6 +390,7 @@ export default class Filters extends Component {
     parametersObj();
     saveParameters();
     loadParameters();
+    loadParametersAfterPP();
 
     return this.container;
   }

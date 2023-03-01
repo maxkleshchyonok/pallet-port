@@ -140,7 +140,7 @@ export interface Address {
 * @export
 * @interface Cart
 */
-export interface Cart {
+export interface ICart {
   /**
    *
    * @type {number}
@@ -402,7 +402,7 @@ export interface Order {
    * @type {Cart}
    * @memberof Order
    */
-  cart: Cart;
+  cart: ICart;
   /**
    *
    * @type {OrderStatus}
