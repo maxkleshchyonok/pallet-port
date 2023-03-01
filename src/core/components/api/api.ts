@@ -1,12 +1,14 @@
-import { LoginData, OfferStatus } from '../../types/types';
+import { LoginData, OfferStatus, Order } from '../../types/types';
 import { IOffer, IProductCategory, IProduct, User } from '../../types/types';
 
 // const BACKEND_URL = 'https://ppback.onrender.com/api';
+
 // const BACKEND_URL = 'https://express-hello-world-production-0fc2.up.railway.app/api';
+
 
 const BACKEND_URL = 'http://localhost:5300/api';
 
-export async function getUserByEmail(email: string): Promise<User | void> {
+export async function getUserByEmail(email: string | null): Promise<User> {
   return fetch(`${BACKEND_URL}/users/find/getByEmail?email=${email}`, {
     method: 'GET',
   })
@@ -86,4 +88,23 @@ export async function getOffersByStatus(status: OfferStatus): Promise<IOffer[] |
     .catch(error => console.log('error', error));
 }
 
-
+export async function orderCreate(data: Order) {
+  let token;
+  if (localStorage.getItem('token')) {
+    token = localStorage.getItem('token');
+  }
+  await fetch(`${BACKEND_URL}/orders`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `${token}`,
+    },
+    body: JSON.stringify(data),
+  })
+    .then(response => response.text())
+    .then(result => {
+      alert(result);
+      console.log(result);
+    })
+    .catch(error => console.log('error', error));
+}
