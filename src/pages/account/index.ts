@@ -1,182 +1,22 @@
-import { userLogout } from '../../core/components/api/api';
+import { getOrdersByUser, userLogout } from '../../core/components/api/api';
 import Page from '../../core/templates/page';
 import './index.css';
+import { Order } from '../../core/types/types';
+import Footer from '../../core/components/footer';
 
+let respondFromServer: Order[];
+getOrdersByUser().then(response => respondFromServer = [...response]);
 
-const respondFromServer = [
-  {
-    'cart': {
-      'user': {
-        'deliveryAddress': {
-          'street': 'string',
-          'city': 'string',
-          'zipCode': 'string',
-          'state': 'string',
-          'countryCode': 'string',
-        },
-        'paymentAddress': {
-          'street': 'string',
-          'city': 'string',
-          'zipCode': 'string',
-          'state': 'string',
-          'countryCode': 'string',
-        },
-        'name': 'Jan Kowalski',
-        'email': 'jan@gmail.com',
-        'password': 'string',
-        'phone': '48123456789',
-        'rank': 4.5,
-        'avatar': '/assets/avatars/jan.jpg',
-        'roles': [
-          'BUYER',
-        ],
-        'companies': [
-          {
-            'address': {
-              'street': 'string',
-              'city': 'string',
-              'zipCode': 'string',
-              'state': 'string',
-              'countryCode': 'string',
-            },
-            'name': 'Roga i kopyta Sp. z o.o.',
-            'NIP': '1234567890',
-            'IBAN': 'stringstringstringstringst',
-            'paymentDate': 30,
-            'VAT': '23',
-            'email': 'jan@gmail.com',
-            'phone': '48123456789',
-            'workingHourMin': 24,
-            'workingHourMax': 24,
-            '_id': '63f7b5715da65be6e956f2cb',
-          },
-        ],
-      },
-      'offers': [
-        {
-          'offer': {
-            'product': {
-              'category': {
-                'name': 'Palety drewniane',
-                'description': 'Palety drewniane bardzo dobre',
-                'image': 'https://cdn.shopify.com/s/files/1/0029/7477/7411/products/31_1024x1024.jpg?v=1559927418',
-                'shortName': 'palety_drewniane',
-              },
-              'name': 'Paleta drewniana 1200*800',
-              'material': 'METAL',
-              'condition': 'NEW',
-              'description': 'Palety drewniane bardzo dobre',
-              'image1': 'https://cdn.shopify.com/s/files/1/0029/7477/7411/products/31_1024x1024.jpg?v=1559927418',
-              'image2': '/assets/img/product/paleta_drewinana_1200800_2.jpg',
-              'shortName': 'paleta_drewniana',
-              'length': '0',
-              'width': '0',
-              'height': '0',
-              'maxLoad': '0',
-            },
-            'seller': {
-              'deliveryAddress': {
-                'street': 'string',
-                'city': 'string',
-                'zipCode': 'string',
-                'state': 'string',
-                'countryCode': 'string',
-              },
-              'paymentAddress': {
-                'street': 'string',
-                'city': 'string',
-                'zipCode': 'string',
-                'state': 'string',
-                'countryCode': 'string',
-              },
-              'name': 'Jan Kowalski',
-              'email': 'jan@gmail.com',
-              'password': 'string',
-              'phone': '48123456789',
-              'rank': 4.5,
-              'avatar': '/assets/avatars/jan.jpg',
-              'roles': [
-                'BUYER',
-              ],
-              'companies': [
-                {
-                  'address': {
-                    'street': 'string',
-                    'city': 'string',
-                    'zipCode': 'string',
-                    'state': 'string',
-                    'countryCode': 'string',
-                  },
-                  'name': 'Roga i kopyta Sp. z o.o.',
-                  'NIP': '1234567890',
-                  'IBAN': 'stringstringstringstringst',
-                  'paymentDate': 30,
-                  'VAT': '23',
-                  'email': 'jan@gmail.com',
-                  'phone': '48123456789',
-                  'workingHourMin': 24,
-                  'workingHourMax': 24,
-                  '_id': '63f7b5715da65be6e956f2cd',
-                },
-              ],
-            },
-            'company': {
-              'address': {
-                'street': 'string',
-                'city': 'string',
-                'zipCode': 'string',
-                'state': 'string',
-                'countryCode': 'string',
-              },
-              'name': 'Roga i kopyta Sp. z o.o.',
-              'NIP': '1234567890',
-              'IBAN': 'stringstringstringstringst',
-              'paymentDate': 30,
-              'VAT': '23',
-              'email': 'jan@gmail.com',
-              'phone': '48123456789',
-              'workingHourMin': 24,
-              'workingHourMax': 24,
-            },
-            'price': 25.2,
-            'quantityMin': 100000,
-            'quantityMax': 100000,
-            'delivery': [
-              {
-                'deliveryTimeMin': 366,
-                'deliveryTimeMax': 366,
-                'deliveryPrice': 255.6,
-                '_id': '63f7b5715da65be6e956f2ce',
-                'deliveryType': 'BUS',
-              },
-            ],
-            'image1': '/assets/img/product/paleta_drewinana_1200800_1.jpg',
-            'image2': '/assets/img/product/paleta_drewinana_1200800_2.jpg',
-            'description': 'Moje palety najlepsze!',
-            'offerStatus': 'ACTIVE',
-            'rating': 0,
-            'isTop': true,
-          },
-          'delivery': {
-            'deliveryTimeMin': 366,
-            'deliveryTimeMax': 366,
-            'deliveryPrice': 255.6,
-            'deliveryType': 'BUS',
-          },
-          'quantity': 2,
-          '_id': '63f7b5715da65be6e956f2cc',
-        },
-      ],
-    },
-    '_id': '63f7b5715da65be6e956f2ca',
-    'status': 'CREATED',
-    'payment': 'CASH',
-    'paymentStatus': false,
-    '__v': 0,
-  },
-];
 
 class AccountPage extends Page {
+
+  private footer: Footer;
+
+  constructor(id: string) {
+    super(id);
+    this.footer = new Footer('footer', 'footer-container');
+  }
+
   static TextObject = {
     MainTitle: 'Account Page',
   };
@@ -463,7 +303,7 @@ class AccountPage extends Page {
 
 
       respondFromServer.forEach((item) => {
-        item.cart.offers.forEach((el) => {
+        item.cart.offers?.forEach((el) => {
           const order = document.createElement('div');
           const image = document.createElement('img');
           const description = document.createElement('div');
@@ -798,7 +638,7 @@ class AccountPage extends Page {
 
   render() {
     this.renderContent();
-    console.log(localStorage.getItem('token'));
+    this.container.append(this.footer.render());
     return this.container;
   }
 }
