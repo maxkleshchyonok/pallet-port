@@ -103,8 +103,17 @@ export async function orderCreate(data: Order) {
   })
     .then(response => response.text())
     .then(result => {
-      alert(result);
+      //alert(result);
       console.log(result);
     })
+    .catch(error => console.log('error', error));
+}
+
+export async function getOrdersByUser(): Promise<Order[]> {
+  return fetch(`${BACKEND_URL}/orders/find/findByUser?email=${localStorage.getItem('email')}`, {
+    method: 'GET',
+  })
+    .then(response => response.json())
+    .then(result => result)
     .catch(error => console.log('error', error));
 }
