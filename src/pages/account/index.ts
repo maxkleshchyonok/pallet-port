@@ -4,8 +4,7 @@ import './index.css';
 import { Order } from '../../core/types/types';
 import Footer from '../../core/components/footer';
 
-let respondFromServer: Order[];
-getOrdersByUser().then(response => respondFromServer = [...response]);
+
 
 
 class AccountPage extends Page {
@@ -21,7 +20,11 @@ class AccountPage extends Page {
     MainTitle: 'Account Page',
   };
 
-  private renderContent(): void {
+  private async renderContent(): Promise<void> {
+
+    let respondFromServer: Order[];
+    await getOrdersByUser().then(response => respondFromServer = [...response]);
+
     const content = document.createElement('div');
     const navbar = document.createElement('div');
     const main = document.createElement('div');
@@ -617,7 +620,10 @@ class AccountPage extends Page {
 
       });
 
+
+
       itemsList.append(listItem);
+
     });
 
     const logoutButton = document.createElement('button');
@@ -639,8 +645,12 @@ class AccountPage extends Page {
 
 
   render() {
-    this.renderContent();
-    this.container.append(this.footer.render());
+    this.renderContent()
+      .then(() => {
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+        document.getElementById('2')!.click();
+        this.container.append(this.footer.render());
+      });
     return this.container;
   }
 }

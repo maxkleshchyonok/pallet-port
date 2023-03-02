@@ -368,9 +368,13 @@ class CartPage extends Page {
         closeForm();
         thank.classList.remove('active');
         form.classList.add('active');
+        window.location.hash = 'account-page';
+        window.location.reload();
       }, 2000);
     }
-    popClose.addEventListener('click', closeForm);
+    popClose.addEventListener('click', () => {
+      closeForm();
+    });
     submit.addEventListener('click', onSubmitForm);
 
     buyBlock.className = 'buy-block';
