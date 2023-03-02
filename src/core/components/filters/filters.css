@@ -21,21 +21,17 @@
   grid-template-rows: repeat(3, 1fr);
   gap: 0 0;
   grid-template-areas: "cena cena cena cena cena" "min max max max max" "slider slider slider slider slider";
-  margin-bottom: 15%;
 }
 .filters__section .filters .price__form .price__form__legend {
   grid-area: cena;
-  margin-bottom: 5%;
   font-weight: 600;
   font-size: 21px;
 }
 .filters__section .filters .price__form .pricemin__input {
   grid-area: min;
-  margin-bottom: 6%;
 }
 .filters__section .filters .price__form .pricemax__input {
   grid-area: max;
-  margin-bottom: 6%;
 }
 .filters__section .filters .price__form .price__slider {
   grid-area: slider;
@@ -44,32 +40,35 @@
   background: #15616D;
   height: 30px;
 }
-.filters__section .filters .stock__form {
-  margin-bottom: 10%;
+.filters__section .filters .quantity__form {
+  margin-top: 10%;
   display: grid;
-  grid-template-columns: 0.2fr 1fr;
+  grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(3, 1fr);
   gap: 0 0;
-  grid-template-areas: "stock stock" "yes yesL" "no noL";
+  grid-template-areas: "stock stock stock stock stock" "min max max max max" "slider slider slider slider slider";
 }
-.filters__section .filters .stock__form .stock__form__legend {
+.filters__section .filters .quantity__form .quantity__form__legend {
   grid-area: stock;
-  margin-bottom: 5%;
   font-weight: 600;
   font-size: 21px;
 }
-.filters__section .filters .stock__form #stock__true {
-  grid-area: yes;
-  width: 20px;
-  height: 20px;
+.filters__section .filters .quantity__form .quantitymin__input {
+  grid-area: min;
 }
-.filters__section .filters .stock__form #stock__false {
-  grid-area: no;
-  width: 20px;
-  height: 20px;
+.filters__section .filters .quantity__form .quantitymax__input {
+  grid-area: max;
+  margin-left: -30%;
+}
+.filters__section .filters .quantity__form .quantity__slider {
+  grid-area: slider;
+}
+.filters__section .filters .quantity__form .quantity__slider .noUi-base .noUi-connects .noUi-connect {
+  background: #15616D;
+  height: 30px;
 }
 .filters__section .filters .categories__form {
-  margin-bottom: 70%;
+  margin-top: 10%;
   display: grid;
   grid-template-columns: 0.2fr 1fr;
   grid-template-rows: repeat(9, 0.85fr);
@@ -106,7 +105,7 @@
   grid-area: nadstawki;
 }
 .filters__section .filters .condition__form {
-  margin-bottom: 25%;
+  margin-top: 10%;
   display: grid;
   grid-template-columns: 0.2fr 1fr;
   grid-template-rows: repeat(3, 0.8fr);
@@ -119,7 +118,7 @@
   font-size: 21px;
 }
 .filters__section .filters .material__form {
-  margin-bottom: 25%;
+  margin-top: 65%;
   display: grid;
   grid-template-columns: 0.2fr 1fr;
   grid-template-rows: repeat(4, 0.8fr);
@@ -132,26 +131,23 @@
   font-size: 21px;
 }
 .filters__section .filters .length__form {
+  margin-top: 40%;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(3, 1fr);
   gap: 0 0;
   grid-template-areas: "cena cena cena cena cena" "min max max max max" "slider slider slider slider slider";
-  margin-bottom: 5%;
 }
 .filters__section .filters .length__form .length__form__legend {
   grid-area: cena;
-  margin-bottom: 5%;
   font-weight: 600;
   font-size: 21px;
 }
 .filters__section .filters .length__form .lengthmin__input {
   grid-area: min;
-  margin-bottom: 6%;
 }
 .filters__section .filters .length__form .lengthmax__input {
   grid-area: max;
-  margin-bottom: 6%;
 }
 .filters__section .filters .length__form .length__slider {
   grid-area: slider;
@@ -161,26 +157,23 @@
   height: 30px;
 }
 .filters__section .filters .width__form {
+  margin-top: 10%;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(3, 1fr);
   gap: 0 0;
   grid-template-areas: "cena cena cena cena cena" "min max max max max" "slider slider slider slider slider";
-  margin-bottom: 5%;
 }
 .filters__section .filters .width__form .width__form__legend {
   grid-area: cena;
-  margin-bottom: 5%;
   font-weight: 600;
   font-size: 21px;
 }
 .filters__section .filters .width__form .widthmin__input {
   grid-area: min;
-  margin-bottom: 6%;
 }
 .filters__section .filters .width__form .widthmax__input {
   grid-area: max;
-  margin-bottom: 6%;
 }
 .filters__section .filters .width__form .width__slider {
   grid-area: slider;
@@ -190,26 +183,23 @@
   height: 30px;
 }
 .filters__section .filters .height__form {
+  margin-top: 10%;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(3, 1fr);
   gap: 0 0;
   grid-template-areas: "cena cena cena cena cena" "min max max max max" "slider slider slider slider slider";
-  margin-bottom: 5%;
 }
 .filters__section .filters .height__form .height__form__legend {
   grid-area: cena;
-  margin-bottom: 5%;
   font-weight: 600;
   font-size: 21px;
 }
 .filters__section .filters .height__form .heightmin__input {
   grid-area: min;
-  margin-bottom: 6%;
 }
 .filters__section .filters .height__form .heightmax__input {
   grid-area: max;
-  margin-bottom: 6%;
 }
 .filters__section .filters .height__form .height__slider {
   grid-area: slider;
@@ -219,26 +209,23 @@
   height: 30px;
 }
 .filters__section .filters .load__form {
+  margin-top: 10%;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(3, 1fr);
   gap: 0 0;
   grid-template-areas: "cena cena cena cena cena" "min max max max max" "slider slider slider slider slider";
-  margin-bottom: 15%;
 }
 .filters__section .filters .load__form .load__form__legend {
   grid-area: cena;
-  margin-bottom: 5%;
   font-weight: 600;
   font-size: 21px;
 }
 .filters__section .filters .load__form .loadmin__input {
   grid-area: min;
-  margin-bottom: 6%;
 }
 .filters__section .filters .load__form .loadmax__input {
   grid-area: max;
-  margin-bottom: 6%;
 }
 .filters__section .filters .load__form .load__slider {
   grid-area: slider;
@@ -247,14 +234,109 @@
   background: #15616D;
   height: 30px;
 }
+.filters__section .filters .deliveryType__form {
+  margin-top: 10%;
+  display: grid;
+  grid-template-columns: 0.2fr 1fr;
+  grid-template-rows: repeat(4, 0.8fr);
+  gap: 10% 0;
+  grid-template-areas: "title title" "check lab" "check lab" "check lab";
+}
+.filters__section .filters .deliveryType__form legend {
+  grid-area: title;
+  font-weight: 600;
+  font-size: 21px;
+}
+.filters__section .filters .deliveryType__form input {
+  height: 20px;
+}
+.filters__section .filters .payment__form {
+  margin-top: 30%;
+  display: grid;
+  grid-template-columns: 0.2fr 1fr;
+  grid-template-rows: repeat(4, 0.8fr);
+  gap: 10% 0;
+  grid-template-areas: "title title" "check lab" "check lab" "check lab";
+}
+.filters__section .filters .payment__form legend {
+  grid-area: title;
+  font-weight: 600;
+  font-size: 21px;
+}
+.filters__section .filters .VAT__form {
+  margin-top: 25%;
+  display: grid;
+  grid-template-columns: 0.2fr 1fr;
+  grid-template-rows: repeat(4, 0.8fr);
+  gap: 10% 0;
+  grid-template-areas: "title title" "check lab" "check lab" "check lab";
+}
+.filters__section .filters .VAT__form legend {
+  grid-area: title;
+  font-weight: 600;
+  font-size: 21px;
+}
+.filters__section .filters .sellerRank__form {
+  margin-top: 10%;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 0 0;
+  grid-template-areas: "seller seller seller seller seller" "min max max max max" "slider slider slider slider slider";
+}
+.filters__section .filters .sellerRank__form .sellerRank__form__legend {
+  grid-area: seller;
+  font-weight: 600;
+  font-size: 21px;
+}
+.filters__section .filters .sellerRank__form .sellerRankmin__input {
+  grid-area: min;
+}
+.filters__section .filters .sellerRank__form .sellerRankmax__input {
+  grid-area: max;
+}
+.filters__section .filters .sellerRank__form .sellerRank__slider {
+  grid-area: slider;
+}
+.filters__section .filters .sellerRank__form .sellerRank__slider .noUi-base .noUi-connects .noUi-connect {
+  background: #15616D;
+  height: 30px;
+}
+.filters__section .filters .offerRating__form {
+  margin-top: 5%;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 0 0;
+  grid-template-areas: "seller seller seller seller seller" "min max max max max" "slider slider slider slider slider";
+}
+.filters__section .filters .offerRating__form .offerRating__form__legend {
+  grid-area: seller;
+  font-weight: 600;
+  font-size: 21px;
+}
+.filters__section .filters .offerRating__form .offerRatingmin__input {
+  grid-area: min;
+}
+.filters__section .filters .offerRating__form .offerRatingmax__input {
+  grid-area: max;
+}
+.filters__section .filters .offerRating__form .offerRating__slider {
+  grid-area: slider;
+}
+.filters__section .filters .offerRating__form .offerRating__slider .noUi-base .noUi-connects .noUi-connect {
+  background: #15616D;
+  height: 30px;
+}
 .filters__section .filters .reset__form {
   width: 120%;
+  margin-top: 20%;
+  margin-bottom: 20%;
 }
 .filters__section .filters .reset__form button {
   width: 90px;
   height: 30px;
   margin-right: 4%;
-  margin-bottom: 5%;
   font-weight: 600;
   font-size: 14px;
   color: #FFFFFF;
