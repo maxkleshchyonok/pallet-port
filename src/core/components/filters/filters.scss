@@ -30,20 +30,16 @@
     "cena cena cena cena cena"
     "min max max max max"
     "slider slider slider slider slider";
-      margin-bottom: 15%;
       .price__form__legend{
         grid-area: cena;
-        margin-bottom: 5%;
         font-weight: 600;
         font-size: 21px;
       }
       .pricemin__input{
         grid-area: min;
-        margin-bottom: 6%;
       }
       .pricemax__input{
         grid-area: max;
-        margin-bottom: 6%;
       }
       .price__slider{
         grid-area: slider;
@@ -57,35 +53,43 @@
         }
       }
     }
-    .stock__form{
-      margin-bottom: 10%;
+    .quantity__form{
+      margin-top: 10%;
       display: grid;
-      grid-template-columns: 0.2fr 1fr;
+      grid-template-columns: repeat(5, 1fr);
       grid-template-rows: repeat(3, 1fr);
       gap: 0 0;
       grid-template-areas:
-    "stock stock"
-    "yes yesL"
-    "no noL";
-      .stock__form__legend{
+    "stock stock stock stock stock"
+    "min max max max max"
+    "slider slider slider slider slider";
+      .quantity__form__legend{
         grid-area: stock;
-        margin-bottom: 5%;
         font-weight: 600;
         font-size: 21px;
       }
-      #stock__true{
-        grid-area: yes;
-        width: 20px;
-        height: 20px;
+      .quantitymin__input{
+        grid-area: min;
       }
-      #stock__false{
-        grid-area: no;
-        width: 20px;
-        height: 20px;
+      .quantitymax__input{
+        grid-area: max;
+        margin-left: -30%;
+      }
+      .quantity__slider{
+        grid-area: slider;
+        .noUi-base{
+          .noUi-connects{
+            .noUi-connect{
+              background: #15616D;
+              height: 30px;
+            }
+          }
+        }
       }
     }
+
     .categories__form{
-      margin-bottom: 70%;
+      margin-top: 10%;
       display: grid;
       grid-template-columns: 0.2fr 1fr;
       grid-template-rows: repeat(9, 0.85fr);
@@ -131,7 +135,7 @@
       }
     }
     .condition__form{
-      margin-bottom: 25%;
+      margin-top: 10%;
       display: grid;
       grid-template-columns: 0.2fr 1fr;
       grid-template-rows: repeat(3, 0.8fr);
@@ -147,7 +151,7 @@
       }
     }
     .material__form{
-      margin-bottom: 25%;
+      margin-top: 65%;
       display: grid;
       grid-template-columns: 0.2fr 1fr;
       grid-template-rows: repeat(4, 0.8fr);
@@ -164,6 +168,7 @@
       }
     }
     .length__form{
+      margin-top: 40%;
       display: grid;
       grid-template-columns: repeat(5, 1fr);
       grid-template-rows: repeat(3, 1fr);
@@ -172,20 +177,16 @@
     "cena cena cena cena cena"
     "min max max max max"
     "slider slider slider slider slider";
-      margin-bottom: 5%;
       .length__form__legend{
         grid-area: cena;
-        margin-bottom: 5%;
         font-weight: 600;
         font-size: 21px;
       }
       .lengthmin__input{
         grid-area: min;
-        margin-bottom: 6%;
       }
       .lengthmax__input{
         grid-area: max;
-        margin-bottom: 6%;
       }
       .length__slider{
         grid-area: slider;
@@ -200,6 +201,7 @@
       }
     }
     .width__form{
+      margin-top: 10%;
       display: grid;
       grid-template-columns: repeat(5, 1fr);
       grid-template-rows: repeat(3, 1fr);
@@ -208,20 +210,16 @@
     "cena cena cena cena cena"
     "min max max max max"
     "slider slider slider slider slider";
-      margin-bottom: 5%;
       .width__form__legend{
         grid-area: cena;
-        margin-bottom: 5%;
         font-weight: 600;
         font-size: 21px;
       }
       .widthmin__input{
         grid-area: min;
-        margin-bottom: 6%;
       }
       .widthmax__input{
         grid-area: max;
-        margin-bottom: 6%;
       }
       .width__slider{
         grid-area: slider;
@@ -236,6 +234,7 @@
       }
     }
     .height__form{
+      margin-top: 10%;
       display: grid;
       grid-template-columns: repeat(5, 1fr);
       grid-template-rows: repeat(3, 1fr);
@@ -244,20 +243,16 @@
     "cena cena cena cena cena"
     "min max max max max"
     "slider slider slider slider slider";
-      margin-bottom: 5%;
       .height__form__legend{
         grid-area: cena;
-        margin-bottom: 5%;
         font-weight: 600;
         font-size: 21px;
       }
       .heightmin__input{
         grid-area: min;
-        margin-bottom: 6%;
       }
       .heightmax__input{
         grid-area: max;
-        margin-bottom: 6%;
       }
       .height__slider{
         grid-area: slider;
@@ -272,6 +267,7 @@
       }
     }
     .load__form{
+      margin-top: 10%;
       display: grid;
       grid-template-columns: repeat(5, 1fr);
       grid-template-rows: repeat(3, 1fr);
@@ -280,20 +276,16 @@
     "cena cena cena cena cena"
     "min max max max max"
     "slider slider slider slider slider";
-      margin-bottom: 15%;
       .load__form__legend{
         grid-area: cena;
-        margin-bottom: 5%;
         font-weight: 600;
         font-size: 21px;
       }
       .loadmin__input{
         grid-area: min;
-        margin-bottom: 6%;
       }
       .loadmax__input{
         grid-area: max;
-        margin-bottom: 6%;
       }
       .load__slider{
         grid-area: slider;
@@ -307,13 +299,134 @@
         }
       }
     }
+    .deliveryType__form{
+      margin-top: 10%;
+      display: grid;
+      grid-template-columns: 0.2fr 1fr;
+      grid-template-rows: repeat(4, 0.8fr);
+      gap: 10% 0;
+      grid-template-areas:
+    "title title"
+    "check lab"
+    "check lab"
+    "check lab";
+      legend{
+        grid-area: title;
+        font-weight: 600;
+        font-size: 21px;
+      }
+      input{
+        height: 20px;
+      }
+    }
+    .payment__form{
+      margin-top: 30%;
+      display: grid;
+      grid-template-columns: 0.2fr 1fr;
+      grid-template-rows: repeat(4, 0.8fr);
+      gap: 10% 0;
+      grid-template-areas:
+    "title title"
+    "check lab"
+    "check lab"
+    "check lab";
+      legend{
+        grid-area: title;
+        font-weight: 600;
+        font-size: 21px;
+      }
+    }
+    .VAT__form{
+      margin-top: 25%;
+      display: grid;
+      grid-template-columns: 0.2fr 1fr;
+      grid-template-rows: repeat(4, 0.8fr);
+      gap: 10% 0;
+      grid-template-areas:
+    "title title"
+    "check lab"
+    "check lab"
+    "check lab";
+      legend{
+        grid-area: title;
+        font-weight: 600;
+        font-size: 21px;
+      }
+    }
+    .sellerRank__form{
+      margin-top: 10%;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      gap: 0 0;
+      grid-template-areas:
+    "seller seller seller seller seller"
+    "min max max max max"
+    "slider slider slider slider slider";
+      .sellerRank__form__legend{
+        grid-area: seller;
+        font-weight: 600;
+        font-size: 21px;
+      }
+      .sellerRankmin__input{
+        grid-area: min;
+      }
+      .sellerRankmax__input{
+        grid-area: max;
+      }
+      .sellerRank__slider{
+        grid-area: slider;
+        .noUi-base{
+          .noUi-connects{
+            .noUi-connect{
+              background: #15616D;
+              height: 30px;
+            }
+          }
+        }
+      }
+    }
+    .offerRating__form{
+      margin-top: 5%;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      gap: 0 0;
+      grid-template-areas:
+    "seller seller seller seller seller"
+    "min max max max max"
+    "slider slider slider slider slider";
+      .offerRating__form__legend{
+        grid-area: seller;
+        font-weight: 600;
+        font-size: 21px;
+      }
+      .offerRatingmin__input{
+        grid-area: min;
+      }
+      .offerRatingmax__input{
+        grid-area: max;
+      }
+      .offerRating__slider{
+        grid-area: slider;
+        .noUi-base{
+          .noUi-connects{
+            .noUi-connect{
+              background: #15616D;
+              height: 30px;
+            }
+          }
+        }
+      }
+    }
     .reset__form{
       width: 120%;
+      margin-top: 20%;
+      margin-bottom: 20%;
       button{
         width: 90px;
         height: 30px;
         margin-right: 4%;
-        margin-bottom: 5%;
         font-weight: 600;
         font-size: 14px;
         color: #FFFFFF;
