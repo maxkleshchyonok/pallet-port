@@ -16,7 +16,7 @@ class AuthService {
         const newUser = await User.create({
             'email': email,
             'password': hashedPassword,
-            'roles': ['BUYER', 'SELLER', 'ADMIN', 'SYSTEM', 'LOGISTIC']
+            'roles': ['Kupujący', 'Sprzedający', 'ADMIN', 'SYSTEM', 'Kurier']
         });
 
         return newUser;
