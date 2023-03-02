@@ -1,9 +1,12 @@
 import Page from '../../core/templates/page';
 import Footer from '../../core/components/footer';
 import './index.scss';
-import { IProduct } from '../../core/types/types';
+import { IProduct, OrderStatus, PaymentType } from '../../core/types/types';
 import { cartOffersArr } from '../../pages/product-page';
-
+import MyUser from '../../core/components/user';
+import { getUserByEmail, orderCreate } from '../../core/components/api/api';
+import MyOrder from '../../core/components/order/order';
+import Cart from '../../core/components/cart/cart';
 
 
 class CartPage extends Page {
@@ -328,6 +331,18 @@ class CartPage extends Page {
     popup.append(popClose, form, thank);
 
 
+    //Down here is creation an instance of order class and sending it to back-end
+
+
+
+    // getUserByEmail(localStorage.getItem('email'))
+    //   .then(response => {
+    //     const orderUser = new MyUser(response.email, response.password);
+    //     const orderCart = new Cart(orderUser, cartOffersArr);
+    //     const order = new MyOrder(orderCart, OrderStatus.CREATED, PaymentType.CASH, true);
+    //     orderCreate(order).then(res => console.log(res));
+    //   });
+
 
 
 
@@ -340,6 +355,13 @@ class CartPage extends Page {
       form.classList.add('active');
     }
     function onSubmitForm() {
+      getUserByEmail(localStorage.getItem('email'))
+        .then(response => {
+          const orderUser = new MyUser(response.email, response.password);
+          const orderCart = new Cart(orderUser, cartOffersArr);
+          const order = new MyOrder(orderCart, OrderStatus.CREATED, PaymentType.CASH, true);
+          orderCreate(order).then(res => console.log(res));
+        });
       thank.classList.add('active');
       form.classList.remove('active');
       setTimeout(() => {
