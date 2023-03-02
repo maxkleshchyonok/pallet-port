@@ -626,6 +626,8 @@ class AccountPage extends Page {
     logoutButton.onclick = () => {
       alert('Wylogowano');
       userLogout();
+      localStorage.removeItem('token');
+      console.log(localStorage.getItem('token'));
       window.location.hash = 'main-page';
     };
     navbar.appendChild(logoutButton);

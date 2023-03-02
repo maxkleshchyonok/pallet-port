@@ -378,4 +378,15 @@
   width: 63%;
 }
 
+.logout-button {
+  width: 45%;
+  height: 35px;
+  margin-bottom: 10px;
+  background: #15616D;
+  border-radius: 2px;
+  color: white;
+  font-size: 14px;
+  line-height: 17px;
+}
+
 /*# sourceMappingURL=index.css.map */

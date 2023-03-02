@@ -65,17 +65,22 @@ class Header extends Component {
         infoItemA.id = 'personal-account';
         infoItemA.addEventListener('click', () => {
           if (!localStorage.getItem('token')) {
+            infoItemA.href = '#';
             const popUp = new AuthModal('div', 'modal');
             this.container.append(popUp.render());
           } else {
             window.location.hash = 'account-page';
+            console.log(localStorage.getItem('token'));
             infoItemA.href = `#${Buttons[3].id}`;
-            infoItemA.innerText = localStorage.getItem('email') as string;
+
           }
         });
+        setInterval(() => {
+          if (localStorage.getItem('token'))
+            infoItemA.innerText = localStorage.getItem('email') as string;
+          else infoItemA.innerText = 'Twoje konto';
+        }, 3000);
       }
-
-
       infoItem.append(infoItemImg, infoItemA);
       containerInfo.append(infoItem);
     });

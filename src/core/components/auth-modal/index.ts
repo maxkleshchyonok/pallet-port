@@ -75,7 +75,7 @@ class AuthModal extends Component {
       } else {
         localStorage.setItem('token', res.token);
         this.closeModal();
-        window.location.hash = 'account-page';
+        // window.location.hash = 'account-page';
       }
     });
 
