@@ -1,13 +1,17 @@
 import { getOrdersByUser, getUserByEmail, userLogout } from '../../core/components/api/api';
 import Page from '../../core/templates/page';
 import './index.css';
-import { Company, IProduct, IProductCategory, Order, User } from '../../core/types/types';
+import { IProduct, IProductCategory, Order, User } from '../../core/types/types';
 import Footer from '../../core/components/footer';
 import _ProductsArray from '../../assets/json/_ProductsArray.json';
 import _ProductsCategory from '../../assets/json/_ProductsCategory.json';
 
 let respondFromServer: Order[];
 getOrdersByUser().then(response => respondFromServer = [...response]);
+
+let userData: User;
+getUserByEmail(localStorage.getItem('email'))
+  .then(response => userData = response);
 
 
 class AccountPage extends Page {
@@ -17,8 +21,6 @@ class AccountPage extends Page {
   constructor(id: string) {
     super(id);
     this.footer = new Footer('footer', 'footer-container');
-    getUserByEmail(localStorage.getItem('email'))
-      .then((response: User) => console.log(response.companies));
   }
 
   static TextObject = {
@@ -29,7 +31,6 @@ class AccountPage extends Page {
 
   static categoriesArray: IProductCategory[] = [..._ProductsCategory];
 
-  static companiesArray: Company[];
 
   private renderContent(): void {
     const content = document.createElement('div');
@@ -445,6 +446,8 @@ class AccountPage extends Page {
       const seller = document.createElement('div');
       const sellerTitle = document.createElement('h2');
       const sellerSelect = document.createElement('select');
+      const addImages = document.createElement('div');
+      const addImagesTitle = document.createElement('h2');
       const addImagesButton = document.createElement('input');
       const addOfferButton = document.createElement('button');
 
@@ -483,6 +486,8 @@ class AccountPage extends Page {
       seller.className = 'create__seller';
       sellerTitle.className = 'seller__title';
       sellerSelect.className = 'seller__select';
+      addImages.className = 'create__image';
+      addImagesTitle.className = 'image__title';
       addImagesButton.className = 'create__image-button';
       addOfferButton.className = 'create__offer-button';
 
@@ -509,6 +514,13 @@ class AccountPage extends Page {
         categoriesOption.className = 'choose__category-option';
         categoriesOption.textContent = elem.name;
         categoryChoose.append(categoriesOption);
+      });
+
+      userData.companies?.forEach((elem) => {
+        const sellerOption = document.createElement('option');
+        sellerOption.className = 'seller-select__option';
+        sellerOption.textContent = elem.name;
+        sellerSelect.append(sellerOption);
       });
 
 
@@ -556,7 +568,8 @@ class AccountPage extends Page {
       }
 
       sellerTitle.textContent = 'Sprzedawca:';
-      addImagesButton.textContent = 'Dodaj zdjęcia';
+      addImagesTitle.textContent = 'Dodaj zdjęcia:';
+      //addImagesButton.textContent = 'Dodaj zdjęcia';
       addOfferButton.textContent = 'Zapisz';
 
 
@@ -572,8 +585,9 @@ class AccountPage extends Page {
       noDelivery.append(noDeliveryInput, noDeliveryLabel);
       yesDelivery.append(yesDeliveryInput, yesDeliveryLabel);
       seller.append(sellerTitle, sellerSelect);
+      addImages.append(addImagesTitle, addImagesButton);
       createBlock.append(product, condition, category, price,
-        quantity, delivery, seller, addImagesButton, addOfferButton);
+        quantity, delivery, seller, addImages, addOfferButton);
       parent.append(createBlock);
     }
 
