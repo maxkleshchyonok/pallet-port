@@ -233,6 +233,119 @@
         color: #FFFFFF;
       }
     }
+    .offers{
+      margin-left: 30%;
+      margin-top: 7%;
+      .create-block{
+        div{
+          margin-top: 3%;
+          display: flex;
+          align-items: center;
+          h2{
+            font-size: 18px;
+            color: #474A51;
+            margin-right: 2%;
+          }
+          select{
+            outline: none;
+            border: 1px solid lightgray;
+            box-shadow: 1px 2px 10px #b4b4b4;
+          }
+          .price__input{
+            border: 1px solid lightgray;
+            margin-right: 3%;
+            width: 10%;
+            box-shadow: 1px 2px 10px #b4b4b4;
+            outline: none;
+            padding-left: 1%;
+          }
+          .quantity__min{
+            display: flex;
+            align-items: center;
+            margin-right: 5%;
+            margin-top: 0;
+            h3{
+              font-size: 14px;
+              font-weight: 300;
+            }
+            input{
+              margin-left: 10%;
+              border: 1px solid lightgray;
+              width: 50px;
+              box-shadow: 1px 2px 10px #b4b4b4;
+              outline: none;
+              padding-left: 5%;
+            }
+          }
+          .quantity__max{
+            display: flex;
+            align-items: center;
+            margin-right: 5%;
+            margin-top: 0;
+            h3{
+              font-size: 14px;
+              font-weight: 300;
+            }
+            input{
+              margin-left: 10%;
+              border: 1px solid lightgray;
+              width: 50px;
+              box-shadow: 1px 2px 10px #b4b4b4;
+              outline: none;
+              padding-left: 5%;
+            }
+          }
+        }
+        .create__delivery{
+          display: block;
+          div{
+            width: 30%;
+            margin-top: 2%;
+            margin-left: 10%;
+            input{
+            }
+            label{
+              margin-left: 5%;
+            }
+          }
+        }
+        button{
+          display: block;
+          width: 120px;
+          height: 50px;
+          background: #15616D;
+          color: #FFFFFF;
+          font-size: 16px;
+          border-radius: 5px;
+          cursor: pointer;
+          margin-right: 5%;
+          transition: .2s ease-in;
+        }
+        .create__image-button{
+          margin-top: 6%;
+          height: 25px;
+          width: 140px;
+          background: #e1e1e1;
+          color: #474A51;
+          font-size: 14px;
+          box-shadow: 1px 2px 10px gray;
+          font-weight: 600;
+          border-radius: 1px;
+        }
+        .create__offer-button{
+          margin-top: 10%;
+          margin-left: 32%;
+          margin-bottom: 15%;
+          box-shadow: 2px 5px 10px gray;
+          font-size: 19px;
+        }
+        .create__offer-button:hover{
+          font-size: 22px;
+          width: 125px;
+          box-shadow: 2px 5px 10px #bdbdbd;
+        }
+      }
+    }
     .orders{
       margin-top: 6%;
       margin-left: 5%;
