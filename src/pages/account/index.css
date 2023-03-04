@@ -231,6 +231,114 @@
   background: #15616D;
   color: #FFFFFF;
 }
+.account__content .content__main .offers {
+  margin-left: 30%;
+  margin-top: 7%;
+}
+.account__content .content__main .offers .create-block div {
+  margin-top: 3%;
+  display: flex;
+  align-items: center;
+}
+.account__content .content__main .offers .create-block div h2 {
+  font-size: 18px;
+  color: #474A51;
+  margin-right: 2%;
+}
+.account__content .content__main .offers .create-block div select {
+  outline: none;
+  border: 1px solid lightgray;
+  box-shadow: 1px 2px 10px #b4b4b4;
+}
+.account__content .content__main .offers .create-block div .price__input {
+  border: 1px solid lightgray;
+  margin-right: 3%;
+  width: 10%;
+  box-shadow: 1px 2px 10px #b4b4b4;
+  outline: none;
+  padding-left: 1%;
+}
+.account__content .content__main .offers .create-block div .quantity__min {
+  display: flex;
+  align-items: center;
+  margin-right: 5%;
+  margin-top: 0;
+}
+.account__content .content__main .offers .create-block div .quantity__min h3 {
+  font-size: 14px;
+  font-weight: 300;
+}
+.account__content .content__main .offers .create-block div .quantity__min input {
+  margin-left: 10%;
+  border: 1px solid lightgray;
+  width: 50px;
+  box-shadow: 1px 2px 10px #b4b4b4;
+  outline: none;
+  padding-left: 5%;
+}
+.account__content .content__main .offers .create-block div .quantity__max {
+  display: flex;
+  align-items: center;
+  margin-right: 5%;
+  margin-top: 0;
+}
+.account__content .content__main .offers .create-block div .quantity__max h3 {
+  font-size: 14px;
+  font-weight: 300;
+}
+.account__content .content__main .offers .create-block div .quantity__max input {
+  margin-left: 10%;
+  border: 1px solid lightgray;
+  width: 50px;
+  box-shadow: 1px 2px 10px #b4b4b4;
+  outline: none;
+  padding-left: 5%;
+}
+.account__content .content__main .offers .create-block .create__delivery {
+  display: block;
+}
+.account__content .content__main .offers .create-block .create__delivery div {
+  width: 30%;
+  margin-top: 2%;
+  margin-left: 10%;
+}
+.account__content .content__main .offers .create-block .create__delivery div label {
+  margin-left: 5%;
+}
+.account__content .content__main .offers .create-block button {
+  display: block;
+  width: 120px;
+  height: 50px;
+  background: #15616D;
+  color: #FFFFFF;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 5%;
+  transition: 0.2s ease-in;
+}
+.account__content .content__main .offers .create-block .create__image-button {
+  height: 25px;
+  width: 140px;
+  background: #e1e1e1;
+  color: #474A51;
+  font-size: 14px;
+  box-shadow: 1px 2px 10px gray;
+  font-weight: 600;
+  border-radius: 1px;
+}
+.account__content .content__main .offers .create-block .create__offer-button {
+  margin-top: 10%;
+  margin-left: 32%;
+  margin-bottom: 15%;
+  box-shadow: 2px 5px 10px gray;
+  font-size: 19px;
+}
+.account__content .content__main .offers .create-block .create__offer-button:hover {
+  font-size: 22px;
+  width: 125px;
+  box-shadow: 2px 5px 10px #bdbdbd;
+}
 .account__content .content__main .orders {
   margin-top: 6%;
   margin-left: 5%;

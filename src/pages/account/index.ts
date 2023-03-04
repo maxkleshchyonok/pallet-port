@@ -1,10 +1,17 @@
-import { getOrdersByUser, userLogout } from '../../core/components/api/api';
+import { getOrdersByUser, getUserByEmail, userLogout } from '../../core/components/api/api';
 import Page from '../../core/templates/page';
 import './index.css';
-import { Order } from '../../core/types/types';
+import { IProduct, IProductCategory, Order, User } from '../../core/types/types';
 import Footer from '../../core/components/footer';
+import _ProductsArray from '../../assets/json/_ProductsArray.json';
+import _ProductsCategory from '../../assets/json/_ProductsCategory.json';
 
+let respondFromServer: Order[];
+getOrdersByUser().then(response => respondFromServer = [...response]);
 
+let userData: User;
+getUserByEmail(localStorage.getItem('email'))
+  .then(response => userData = response);
 
 
 class AccountPage extends Page {
@@ -20,11 +27,12 @@ class AccountPage extends Page {
     MainTitle: 'Account Page',
   };
 
-  private async renderContent(): Promise<void> {
+  static productsArray: IProduct[] = [..._ProductsArray];
 
-    let respondFromServer: Order[];
-    await getOrdersByUser().then(response => respondFromServer = [...response]);
+  static categoriesArray: IProductCategory[] = [..._ProductsCategory];
 
+
+  private renderContent(): void {
     const content = document.createElement('div');
     const navbar = document.createElement('div');
     const main = document.createElement('div');
@@ -437,9 +445,83 @@ class AccountPage extends Page {
       const deliverySelect = document.createElement('select');
       const seller = document.createElement('div');
       const sellerTitle = document.createElement('h2');
-      const sellerOptions = document.createElement('select');
-      const addImagesButton = document.createElement('button');
+      const sellerSelect = document.createElement('select');
+      const addImages = document.createElement('div');
+      const addImagesTitle = document.createElement('h2');
+      const addImagesButton = document.createElement('input');
       const addOfferButton = document.createElement('button');
+
+      createBlock.className = 'create-block';
+      product.className = 'create__product';
+      productTitle.className = 'product__title';
+      productChoose.className = 'product__choose';
+      condition.className = 'create__condition';
+      conditionTitle.className = 'condition__title';
+      conditionChoose.className = 'condition__choose';
+      category.className = 'create__category';
+      categoryTitle.className = 'category__title';
+      categoryChoose.className = 'category__choose';
+      price.className = 'create__price';
+      priceTitle.className = 'price__title';
+      priceInput.className = 'price__input';
+      priceHolder.className = 'price__holder';
+      quantity.className = 'create__quantity';
+      quantityTitle.className = 'quantity__title';
+      quantityMin.className = 'quantity__min';
+      quantityMinTitle.className = 'min__title';
+      quantityMinInput.className = 'min__input';
+      quantityMax.className = 'quantity__max';
+      quantityMaxTitle.className = 'max__title';
+      quantityMaxInput.className = 'max__input';
+      quantityHolder.className = 'quantity__holder';
+      delivery.className = 'create__delivery';
+      deliveryTitle.className = 'delivery__title';
+      noDelivery.className = 'delivery__no-checkbox';
+      noDeliveryInput.className = 'no-checkbox__input';
+      noDeliveryLabel.className = 'no-checkbox__label';
+      yesDelivery.className = 'delivery__yes-checkbox';
+      yesDeliveryInput.className = 'yes-checkbox__input';
+      yesDeliveryLabel.className = 'yes-checkbox__label';
+      deliverySelect.className = 'delivery__select';
+      seller.className = 'create__seller';
+      sellerTitle.className = 'seller__title';
+      sellerSelect.className = 'seller__select';
+      addImages.className = 'create__image';
+      addImagesTitle.className = 'image__title';
+      addImagesButton.className = 'create__image-button';
+      addOfferButton.className = 'create__offer-button';
+
+      const conditionArray: string[] = [
+        'Nowe', 'Używane 1 gatunku', 'Używane 2 gatunku', 'Używane 3 gatunku', 'Uszkodzone',
+      ];
+
+      conditionArray.forEach((elem) => {
+        const conditionOption = document.createElement('option');
+        conditionOption.className = 'choose__condition-option';
+        conditionOption.textContent = elem;
+        conditionChoose.append(conditionOption);
+      });
+
+      AccountPage.productsArray.forEach((elem) => {
+        const productOption = document.createElement('option');
+        productOption.className = 'choose__product-option';
+        productOption.textContent = elem.name;
+        productChoose.append(productOption);
+      });
+
+      AccountPage.categoriesArray.forEach((elem) => {
+        const categoriesOption = document.createElement('option');
+        categoriesOption.className = 'choose__category-option';
+        categoriesOption.textContent = elem.name;
+        categoryChoose.append(categoriesOption);
+      });
+
+      userData.companies?.forEach((elem) => {
+        const sellerOption = document.createElement('option');
+        sellerOption.className = 'seller-select__option';
+        sellerOption.textContent = elem.name;
+        sellerSelect.append(sellerOption);
+      });
 
 
       productTitle.textContent = 'Product:';
@@ -451,6 +533,25 @@ class AccountPage extends Page {
       quantityMinTitle.textContent = 'od';
       quantityMaxTitle.textContent = 'do';
       quantityHolder.textContent = 'szt';
+
+      priceInput.type = 'number';
+      priceInput.placeholder = '0';
+      quantityMinInput.type = 'number';
+      quantityMaxInput.type = 'number';
+      quantityMinInput.placeholder = '0';
+      quantityMaxInput.placeholder = '0';
+
+      addImagesButton.type = 'file';
+      addImagesButton.placeholder = 'Dodaj zdjęcia';
+
+      const fileName = document.createElement('p');
+      fileName.className = 'file-name';
+      // addImagesButton.addEventListener('change', (e) => {
+      //   const [file] = e.target.file;
+      //   const { name: filename, size } = file;
+      //   const fileSize = (size / 1000).toFixed(2);
+      //   fileName.textContent = `${filename} - ${fileSize}KB`;
+      // });
 
       deliveryTitle.textContent = 'Dostawa:';
       noDeliveryLabel.textContent = 'Odbiór osobisty';
@@ -467,7 +568,8 @@ class AccountPage extends Page {
       }
 
       sellerTitle.textContent = 'Sprzedawca:';
-      addImagesButton.textContent = 'Dodaj zdjęcia';
+      addImagesTitle.textContent = 'Dodaj zdjęcia:';
+      //addImagesButton.textContent = 'Dodaj zdjęcia';
       addOfferButton.textContent = 'Zapisz';
 
 
@@ -482,9 +584,10 @@ class AccountPage extends Page {
       delivery.append(deliveryTitle, noDelivery, yesDelivery);
       noDelivery.append(noDeliveryInput, noDeliveryLabel);
       yesDelivery.append(yesDeliveryInput, yesDeliveryLabel);
-      seller.append(sellerTitle, sellerOptions);
+      seller.append(sellerTitle, sellerSelect);
+      addImages.append(addImagesTitle, addImagesButton);
       createBlock.append(product, condition, category, price,
-        quantity, delivery, seller, addImagesButton, addOfferButton);
+        quantity, delivery, seller, addImages, addOfferButton);
       parent.append(createBlock);
     }
 
