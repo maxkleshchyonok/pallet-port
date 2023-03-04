@@ -6,12 +6,7 @@ import Footer from '../../core/components/footer';
 import _ProductsArray from '../../assets/json/_ProductsArray.json';
 import _ProductsCategory from '../../assets/json/_ProductsCategory.json';
 
-let respondFromServer: Order[];
-getOrdersByUser().then(response => respondFromServer = [...response]);
 
-let userData: User;
-getUserByEmail(localStorage.getItem('email'))
-  .then(response => userData = response);
 
 
 class AccountPage extends Page {
@@ -31,8 +26,18 @@ class AccountPage extends Page {
 
   static categoriesArray: IProductCategory[] = [..._ProductsCategory];
 
+  private async renderContent(): Promise<void> {
 
-  private renderContent(): void {
+    let userData: User;
+    await getUserByEmail(localStorage.getItem('email'))
+      .then(response => userData = response);
+
+
+    let respondFromServer: Order[];
+    await getOrdersByUser()
+      .then(response => respondFromServer = [...response]);
+
+
     const content = document.createElement('div');
     const navbar = document.createElement('div');
     const main = document.createElement('div');
