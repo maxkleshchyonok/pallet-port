@@ -23,8 +23,11 @@
 -  https://palletport.netlify.app/
 
 ## [](https://ppback.onrender.com/)Деплой бекэнда
-
 -  https://ppback.onrender.com/
+
+## [](https://express-hello-world-production-0fc2.up.railway.app/)Еще один деплой бэкенда
+-  [https://ppback.onrender.com/](https://express-hello-world-production-0fc2.up.railway.app/)
+
 
 
 ## [](https://github.com/maxkleshchyonok/pallet-port#server-requirements)Требования к серверу
