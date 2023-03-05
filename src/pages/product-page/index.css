@@ -1,0 +1,326 @@
+.product-block {
+  margin-top: 2%;
+  margin-bottom: 5%;
+  font-family: "Lato", sans-serif;
+  font-style: normal;
+  display: flex;
+  justify-content: space-evenly;
+}
+.product-block .photos-block {
+  width: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.product-block .photos-block .arrow-up {
+  transform: rotate(-90deg);
+  margin-bottom: 3%;
+}
+.product-block .photos-block .photos-item {
+  padding: 1px 1px;
+  width: 100px;
+  height: 100px;
+  margin-bottom: 5%;
+  border: 3px solid #c4c4c4;
+  object-fit: cover;
+}
+.product-block .photos-block .arrow-down {
+  transform: rotate(90deg);
+}
+.product-block .big-photo {
+  width: 40%;
+  height: 500px;
+  border: 1px solid #c4c4c4;
+  border-radius: 5px;
+}
+.product-block .big-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.product-block .description-block {
+  width: 40%;
+}
+.product-block .description-block .product-name {
+  margin-bottom: 7%;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 32px;
+  color: #474A51;
+}
+.product-block .description-block .splitter {
+  width: 100%;
+  margin-bottom: 3%;
+}
+.product-block .description-block .product-description {
+  margin-bottom: 5%;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 22px;
+  font-feature-settings: "tnum" on, "lnum" on;
+  color: #474A51;
+}
+.product-block .description-block .product-info {
+  width: 70%;
+  display: grid;
+  grid-template-columns: repeat(2, 0.5fr);
+  grid-row-gap: 3%;
+}
+.product-block .description-block .product-info .info-item {
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 17px;
+  font-feature-settings: "tnum" on, "lnum" on;
+  color: #62666c;
+}
+
+.offers__block {
+  margin-left: 2%;
+  margin-bottom: 5%;
+  display: flex;
+  width: 95%;
+}
+.offers__block .offers {
+  width: 60%;
+  margin-right: 5%;
+}
+.offers__block .offers .offer__card {
+  margin-left: 4%;
+  margin-bottom: 2%;
+  border: 1px solid #cbc7c7;
+  box-shadow: 3px 5px 10px #c9c6c6;
+  border-radius: 10px;
+  width: 95%;
+  height: 85px;
+  display: flex;
+  align-items: center;
+  padding: 0.6%;
+  transition: 0.3s ease-in-out;
+}
+.offers__block .offers .offer__card .info__img {
+  object-fit: scale-down;
+  width: 10%;
+}
+.offers__block .offers .offer__card .card__details {
+  margin-left: 3%;
+  display: flex;
+  width: 60%;
+  justify-content: space-between;
+}
+.offers__block .offers .offer__card .card__details .card__info .info__name {
+  font-weight: 600;
+  font-size: 15px;
+}
+.offers__block .offers .offer__card .card__details .card__info .info__rank {
+  margin-top: 5%;
+  font-weight: 400;
+  font-size: 15px;
+}
+.offers__block .offers .offer__card .card__details .product__info {
+  width: 45%;
+}
+.offers__block .offers .offer__card .card__details .product__info .details__price {
+  display: flex;
+  margin-bottom: 3%;
+}
+.offers__block .offers .offer__card .card__details .product__info .details__price .price__title {
+  font-weight: 400;
+  font-size: 16px;
+}
+.offers__block .offers .offer__card .card__details .product__info .details__price .price__number {
+  font-weight: 600;
+  font-size: 16px;
+  margin-left: 5%;
+}
+.offers__block .offers .offer__card .card__details .product__info .details__quantity {
+  display: flex;
+  margin-bottom: 3%;
+}
+.offers__block .offers .offer__card .card__details .product__info .details__quantity .quantity__title {
+  font-weight: 400;
+  font-size: 16px;
+}
+.offers__block .offers .offer__card .card__details .product__info .details__quantity .quantity__value {
+  font-weight: 600;
+  font-size: 16px;
+  margin-left: 5%;
+}
+.offers__block .offers .offer__card .card__details .product__info .details__delivery {
+  display: flex;
+  align-items: center;
+}
+.offers__block .offers .offer__card .card__details .product__info .details__delivery .delivery__title {
+  font-weight: 400;
+  font-size: 16px;
+}
+.offers__block .offers .offer__card .card__details .product__info .details__delivery .delivery__img {
+  object-fit: scale-down;
+  width: 9%;
+  margin-left: 5%;
+}
+.offers__block .offers .offer__card .card__button {
+  margin-left: 10%;
+  width: 100px;
+  height: 50px;
+  border: none;
+  border-radius: 8px;
+  color: #FFFFFF;
+  font-size: 17px;
+  background: #15616D;
+  transition: 0.1s ease-in-out;
+}
+.offers__block .offers .offer__card .card__button:hover {
+  cursor: pointer;
+  font-size: 18px;
+}
+.offers__block .offers .offer__card:hover {
+  width: 97%;
+  box-shadow: 3px 3px 5px #c9c6c6;
+  background: rgba(227, 227, 227, 0.41);
+}
+.offers__block .order__block {
+  width: 50%;
+  min-height: 320px;
+  border: 1px solid #cbc7c7;
+  border-radius: 10px;
+  box-shadow: 3px 5px 10px #c9c6c6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  color: #62666c;
+}
+.offers__block .order__block .order__container .order__title {
+  margin-left: 37%;
+  font-weight: 600;
+  font-size: 20px;
+  color: #15616D;
+}
+.offers__block .order__block .order__container .order__info {
+  margin-left: 5%;
+  margin-top: 5%;
+}
+.offers__block .order__block .order__container .order__info .info__seller {
+  width: 50%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 0 0;
+  grid-template-areas: "avatar name name" "avatar phone phone";
+}
+.offers__block .order__block .order__container .order__info .info__seller .seller__avatar {
+  grid-area: avatar;
+  object-fit: scale-down;
+  width: 70%;
+}
+.offers__block .order__block .order__container .order__info .info__seller .seller__name {
+  grid-area: name;
+  width: 200%;
+  font-weight: 600;
+  font-size: 18px;
+}
+.offers__block .order__block .order__container .order__info .info__seller .seller__phone {
+  margin-top: -5%;
+  grid-area: phone;
+  font-weight: 400;
+  font-size: 16px;
+}
+.offers__block .order__block .order__container .order__info .product__details {
+  display: grid;
+  margin-top: 2%;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 0px 0px;
+  grid-template-areas: "image name name" "quantity delivery delivery";
+}
+.offers__block .order__block .order__container .order__info .product__details .details__img {
+  grid-area: image;
+  object-fit: scale-down;
+  width: 40%;
+}
+.offers__block .order__block .order__container .order__info .product__details .details__name {
+  grid-area: name;
+  width: 200%;
+  margin-top: 5%;
+  margin-left: -25%;
+  font-weight: 400;
+  font-size: 18px;
+}
+.offers__block .order__block .order__container .order__info .product__details .details__quantity {
+  grid-area: quantity;
+}
+.offers__block .order__block .order__container .order__info .product__details .details__quantity .quantity__title {
+  font-weight: 600;
+  font-size: 16px;
+}
+.offers__block .order__block .order__container .order__info .product__details .details__quantity .quantity__input {
+  margin-top: 4%;
+  padding-left: 4%;
+  border: 1px solid #b7b7b7;
+  border-radius: 5px;
+  background: rgba(177, 177, 177, 0.15);
+  width: 25%;
+  height: 30px;
+  outline: none;
+}
+.offers__block .order__block .order__container .order__info .product__details .details__delivery {
+  margin-left: 10%;
+  grid-area: delivery;
+  width: 90%;
+}
+.offers__block .order__block .order__container .order__info .product__details .details__delivery .delivery__title {
+  font-weight: 600;
+  font-size: 16px;
+}
+.offers__block .order__block .order__container .order__info .product__details .details__delivery .delivery__menu .delivery__input {
+  margin-right: 4%;
+}
+.offers__block .order__block .order__container .order__info .product__details .details__delivery .delivery__menu .delivery__label {
+  font-size: 17px;
+}
+.offers__block .order__block .order__container .order__info .product__details .details__delivery .delivery__menu input[type=radio]:after {
+  width: 15px;
+  height: 15px;
+  border-radius: 15px;
+  top: -2px;
+  left: -1px;
+  position: relative;
+  background-color: #d1d3d1;
+  content: "";
+  display: inline-block;
+  visibility: visible;
+  border: 2px solid white;
+}
+.offers__block .order__block .order__container .order__info .product__details .details__delivery .delivery__menu input[type=radio]:checked:after {
+  width: 15px;
+  height: 15px;
+  border-radius: 15px;
+  top: -2px;
+  left: -1px;
+  position: relative;
+  background-color: #15616D;
+  content: "";
+  display: inline-block;
+  visibility: visible;
+  border: 2px solid white;
+}
+.offers__block .order__block .order__container .order__info .product__details .delivery__button {
+  grid-area: button;
+  width: 100px;
+  height: 50px;
+  border-radius: 8px;
+  box-shadow: 3px 5px 7px #b2b1b1;
+  margin-left: -30%;
+  margin-top: -45%;
+  background: #15616D;
+  color: #FFFFFF;
+  font-size: 16px;
+  line-height: 16px;
+  transition: 0.1s ease-in-out;
+}
+.offers__block .order__block .order__container .order__info .product__details .delivery__button:hover {
+  cursor: pointer;
+  font-size: 17px;
+}
+
+/*# sourceMappingURL=index.css.map */

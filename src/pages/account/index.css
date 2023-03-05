@@ -1,0 +1,500 @@
+.account__content {
+  display: flex;
+  margin-top: 2%;
+}
+.account__content .content__navbar {
+  border-right: 1px solid #eeeeee;
+  width: 20%;
+  min-height: 400px;
+  padding-left: 3%;
+}
+.account__content .content__navbar .siteNav {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.account__content .content__navbar .siteNav .siteNav__main {
+  font-weight: 300;
+  font-size: 16px;
+  color: #767c76;
+}
+.account__content .content__navbar .siteNav .siteNav__dot {
+  border-radius: 50%;
+  width: 5px;
+  height: 5px;
+  background: #767c76;
+}
+.account__content .content__navbar .siteNav .siteNav__current {
+  font-weight: 600;
+  font-size: 16px;
+}
+.account__content .content__navbar .nav__split {
+  width: 80%;
+}
+.account__content .content__navbar .nav__title {
+  font-weight: 600;
+  font-size: 18px;
+  margin-top: 3%;
+  cursor: pointer;
+}
+.account__content .content__navbar .nav__list {
+  width: 90%;
+  margin-top: 5%;
+  margin-left: 3%;
+}
+.account__content .content__navbar .nav__list .list__item {
+  display: flex;
+  align-items: center;
+  font-weight: 300;
+  font-size: 17px;
+  margin-top: 4%;
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+  height: 40px;
+}
+.account__content .content__navbar .nav__list .active {
+  display: flex;
+  align-items: center;
+  padding-left: 10%;
+  height: 40px;
+  font-size: 18px;
+  background: #15616D;
+  color: #FFFFFF;
+  transition: 0.5s ease-in-out;
+}
+.account__content .content__main {
+  padding-top: 3%;
+  width: 55%;
+  min-height: 400px;
+}
+.account__content .content__main .account-item {
+  margin-left: 8%;
+  margin-bottom: 8%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 0 0;
+  grid-template-areas: "title . ." "input input input";
+}
+.account__content .content__main .account-item input {
+  margin-top: 2%;
+  margin-right: 15%;
+  outline: none;
+  height: 40px;
+  border: none;
+  border-bottom: 1px solid #dcdbdb;
+  cursor: pointer;
+}
+.account__content .content__main .account-item ::-webkit-input-placeholder {
+  color: #bebdbd;
+}
+.account__content .content__main .account-item h2 {
+  grid-area: title;
+  margin-top: 5%;
+}
+.account__content .content__main .account-item .checkbox__block {
+  display: flex;
+  align-items: center;
+  width: 90%;
+}
+.account__content .content__main .account-item .checkbox__block input {
+  width: 8%;
+}
+.account__content .content__main .account-item .checkbox__block label {
+  margin-left: -9%;
+  width: 90%;
+  font-size: 13px;
+  color: #bebdbd;
+}
+.account__content .content__main .wysylka {
+  margin-top: -5%;
+}
+.account__content .content__main .firma {
+  width: 95%;
+}
+.account__content .content__main .firma input {
+  margin-right: 5%;
+  width: 95%;
+  margin-top: 5%;
+}
+.account__content .content__main .firma .firma__hours {
+  margin-top: 6%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.account__content .content__main .firma .firma__hours .hours__title {
+  color: #757575;
+  font-size: 14px;
+  font-weight: 300;
+}
+.account__content .content__main .firma .firma__hours select {
+  margin-left: 3%;
+  width: 20%;
+  color: #757575;
+  outline: none;
+  padding-bottom: 1%;
+  border-bottom: 1px solid #dcdbdb;
+}
+.account__content .content__main .address {
+  margin-top: -5%;
+}
+.account__content .content__main .address input {
+  margin-top: 5%;
+  width: 95%;
+}
+.account__content .content__main .search {
+  margin-top: -5%;
+  margin-left: 5%;
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+}
+.account__content .content__main .search .search__title {
+  margin-top: 0;
+  width: 20%;
+  color: #62666c;
+  font-size: 22px;
+}
+.account__content .content__main .search .search__field {
+  width: 80%;
+  margin-bottom: 0;
+  margin-left: 3%;
+  display: flex;
+  align-items: center;
+}
+.account__content .content__main .search .search__field .search__input {
+  margin-top: 0;
+  margin-right: 0;
+  width: 60%;
+  border: 1px solid rgb(229, 229, 229);
+  border-radius: 2px;
+  height: 35px;
+  padding: 4px 6px 4px 6px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #B1B1B1;
+}
+.account__content .content__main .search .search__field .search__button {
+  width: 15%;
+  height: 45px;
+  background: #15616D;
+  border-radius: 2px;
+  color: white;
+  font-size: 14px;
+  line-height: 17px;
+}
+.account__content .content__main .categories {
+  margin-top: 3%;
+  margin-left: 5%;
+  position: relative;
+  z-index: 10;
+  display: flex;
+  width: 110%;
+  justify-content: space-between;
+}
+.account__content .content__main .categories .category__item {
+  text-align: center;
+  border: 1px solid lightgray;
+  background: #f5f5f5;
+  margin-left: 0;
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: 11.5%;
+  cursor: pointer;
+  transition: 0.2s ease-in;
+}
+.account__content .content__main .categories .category__item:hover {
+  background: #e5e4e4;
+}
+.account__content .content__main .categories .item_selected {
+  background: #15616D;
+  color: #FFFFFF;
+}
+.account__content .content__main .categories .item_selected:hover {
+  background: #15616D;
+}
+.account__content .content__main .offers-page {
+  width: 100%;
+}
+.account__content .content__main .offers-page .offers-item {
+  width: 17%;
+  margin-right: 1%;
+}
+.account__content .content__main .offers-page .add__button {
+  margin-left: 20%;
+  background: #15616D;
+  color: #FFFFFF;
+}
+.account__content .content__main .offers {
+  margin-left: 30%;
+  margin-top: 7%;
+}
+.account__content .content__main .offers .create-block div {
+  margin-top: 3%;
+  display: flex;
+  align-items: center;
+}
+.account__content .content__main .offers .create-block div h2 {
+  font-size: 18px;
+  color: #474A51;
+  margin-right: 2%;
+}
+.account__content .content__main .offers .create-block div select {
+  outline: none;
+  border: 1px solid lightgray;
+  box-shadow: 1px 2px 10px #b4b4b4;
+}
+.account__content .content__main .offers .create-block div .price__input {
+  border: 1px solid lightgray;
+  margin-right: 3%;
+  width: 10%;
+  box-shadow: 1px 2px 10px #b4b4b4;
+  outline: none;
+  padding-left: 1%;
+}
+.account__content .content__main .offers .create-block div .quantity__min {
+  display: flex;
+  align-items: center;
+  margin-right: 5%;
+  margin-top: 0;
+}
+.account__content .content__main .offers .create-block div .quantity__min h3 {
+  font-size: 14px;
+  font-weight: 300;
+}
+.account__content .content__main .offers .create-block div .quantity__min input {
+  margin-left: 10%;
+  border: 1px solid lightgray;
+  width: 50px;
+  box-shadow: 1px 2px 10px #b4b4b4;
+  outline: none;
+  padding-left: 5%;
+}
+.account__content .content__main .offers .create-block div .quantity__max {
+  display: flex;
+  align-items: center;
+  margin-right: 5%;
+  margin-top: 0;
+}
+.account__content .content__main .offers .create-block div .quantity__max h3 {
+  font-size: 14px;
+  font-weight: 300;
+}
+.account__content .content__main .offers .create-block div .quantity__max input {
+  margin-left: 10%;
+  border: 1px solid lightgray;
+  width: 50px;
+  box-shadow: 1px 2px 10px #b4b4b4;
+  outline: none;
+  padding-left: 5%;
+}
+.account__content .content__main .offers .create-block .create__delivery {
+  display: block;
+}
+.account__content .content__main .offers .create-block .create__delivery div {
+  width: 30%;
+  margin-top: 2%;
+  margin-left: 10%;
+}
+.account__content .content__main .offers .create-block .create__delivery div label {
+  margin-left: 5%;
+}
+.account__content .content__main .offers .create-block button {
+  display: block;
+  width: 120px;
+  height: 50px;
+  background: #15616D;
+  color: #FFFFFF;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 5%;
+  transition: 0.2s ease-in;
+}
+.account__content .content__main .offers .create-block .create__image-button {
+  height: 25px;
+  width: 140px;
+  background: #e1e1e1;
+  color: #474A51;
+  font-size: 14px;
+  box-shadow: 1px 2px 10px gray;
+  font-weight: 600;
+  border-radius: 1px;
+}
+.account__content .content__main .offers .create-block .create__offer-button {
+  margin-top: 10%;
+  margin-left: 32%;
+  margin-bottom: 15%;
+  box-shadow: 2px 5px 10px gray;
+  font-size: 19px;
+}
+.account__content .content__main .offers .create-block .create__offer-button:hover {
+  font-size: 22px;
+  width: 125px;
+  box-shadow: 2px 5px 10px #bdbdbd;
+}
+.account__content .content__main .orders {
+  margin-top: 6%;
+  margin-left: 5%;
+  margin-bottom: 10%;
+}
+.account__content .content__main .orders .order {
+  margin-top: 3%;
+  border: 1px solid #e7e7e7;
+  border-radius: 10px;
+  width: 100%;
+  height: 120px;
+  display: flex;
+  box-shadow: 3px 5px 10px lightgray;
+  justify-content: space-between;
+  color: #474A51;
+}
+.account__content .content__main .orders .order .order__image {
+  object-fit: cover;
+  border-radius: 10px;
+}
+.account__content .content__main .orders .order .order__description {
+  margin-left: -6%;
+  margin-top: 1%;
+}
+.account__content .content__main .orders .order .order__description .description__name {
+  font-size: 18px;
+}
+.account__content .content__main .orders .order .order__description .description__condition {
+  font-size: 15px;
+  font-weight: 300;
+}
+.account__content .content__main .orders .order .order__amount {
+  margin-top: 1%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.account__content .content__main .orders .order .order__amount .amount__quantity {
+  font-size: 16px;
+  font-weight: 300;
+}
+.account__content .content__main .orders .order .order__amount .amount__price {
+  margin-top: 3%;
+  font-size: 16px;
+  font-weight: 300;
+}
+.account__content .content__main .orders .order .order__amount .amount__total {
+  margin-top: 2%;
+}
+.account__content .content__main .orders .order .order__buy {
+  margin-right: 2%;
+  margin-top: 1%;
+}
+.account__content .content__main .orders .order .order__buy .buy__delivery .delivery__title {
+  font-size: 16px;
+}
+.account__content .content__main .orders .order .order__buy .buy__delivery .delivery__option {
+  font-size: 14px;
+  font-weight: 300;
+  margin-top: 2%;
+}
+.account__content .content__main .orders .order .order__buy .buy__button {
+  margin-top: 5%;
+  height: 30px;
+  width: 80%;
+  background: #15616D;
+  color: #FFFFFF;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.3s ease-in;
+  box-shadow: 2px 4px 5px gray;
+}
+.account__content .content__main .orders .order .order__buy .buy__button:hover {
+  font-size: 16px;
+  box-shadow: 1px 2px 5px gray;
+}
+.account__content .content__user {
+  width: 25%;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.account__content .content__user .user__avatar {
+  margin-top: 5%;
+}
+.account__content .content__user .user__avatar .avatar__edit {
+  position: relative;
+  top: -70%;
+  left: -10%;
+  z-index: 2;
+  cursor: pointer;
+}
+.account__content .content__user .user__roles {
+  margin-top: 3%;
+  margin-left: -35%;
+}
+.account__content .content__user .user__roles .roles__checkbox {
+  margin-top: 5%;
+  width: 120%;
+  margin-left: 25%;
+}
+.account__content .content__user .user__roles .roles__checkbox label {
+  margin-left: 5%;
+}
+.account__content .content__user .user__rating {
+  margin-top: 2%;
+  margin-left: -35%;
+}
+.account__content .content__user .user__rating .rating__number {
+  font-weight: 300;
+  font-size: 100px;
+  margin-top: 15%;
+  margin-left: 81%;
+}
+.account__content .content__user .user__saveButton {
+  margin-top: 10%;
+  height: 60px;
+  width: 60%;
+  background: #15616D;
+  color: #FFFFFF;
+  font-size: 26px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  box-shadow: 3px 5px 10px darkgray;
+}
+.account__content .content__user .user__saveButton:hover {
+  width: 65%;
+}
+.account__content .content__user .user__deleteButton {
+  margin-top: 3%;
+  height: 30px;
+  width: 60%;
+  background: #670404;
+  color: #FFFFFF;
+  font-size: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  box-shadow: 3px 5px 10px darkgray;
+}
+.account__content .content__user .user__deleteButton:hover {
+  width: 63%;
+}
+
+.logout-button {
+  width: 45%;
+  height: 35px;
+  margin-bottom: 10px;
+  background: #15616D;
+  border-radius: 2px;
+  color: white;
+  font-size: 14px;
+  line-height: 17px;
+}
+
+/*# sourceMappingURL=index.css.map */

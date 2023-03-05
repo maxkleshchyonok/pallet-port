@@ -1,0 +1,11 @@
+{
+  "street": "Centrum Kopernika 2/3",
+  "city": "Warszawa",
+  "zipCode": "05-090",
+  "state": "mazowieckie",
+  "countryCode": "PL",
+  "coordinates": {
+    "lat": 52.27,
+    "lon": 21.12
+  }
+}

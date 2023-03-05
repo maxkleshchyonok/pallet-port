@@ -1,0 +1,99 @@
+.body-title {
+  box-sizing: border-box;
+  display: flex;
+  align-items: end;
+  justify-content: end;
+  flex-direction: column;
+  text-transform: uppercase;
+  overflow: hidden;
+  position: relative;
+}
+
+.title__top-string {
+  z-index: 10;
+  background-color: white;
+}
+
+.title__middle-string {
+  padding-bottom: 50px;
+}
+
+.title__bottom-string {
+  z-index: 10;
+  background-color: white;
+}
+
+.title__message {
+  background-color: yellow;
+  color: #333;
+  font-weight: 900;
+  position: absolute;
+  right:0%;
+  left: 60%;
+  animation: openclose 10s ease-in-out infinite;
+}
+
+@keyframes openclose {
+  0% {
+    top: 35%;
+    width: 0;
+  }
+  5% {
+    width: 0;
+  }
+  15% {
+    width: 210px;
+  }
+  30% {
+    top: 35%;
+    width: 210px;
+  }
+  33% {
+    top: 35%;
+    width: 0;
+  }
+  35% {
+    top: 35%;
+    width: 0;
+  }
+  38% {
+    top: -0%;
+
+  }
+  48% {
+    top: -0%;
+    width: 200px;
+  }
+  62% {
+    top: -0%;
+    width: 200px;
+  }
+  66% {
+    top: -0%;
+    width: 0;
+    text-indent: 0;
+  }
+  71% {
+    top: -35%;
+    width: 0;
+    text-indent: 5px;
+  }
+  86% {
+    top: -35%;
+    width: 250px;
+  }
+  95% {
+    top: -35%;
+    width: 250px;
+  }
+  96% {
+    top: -100%;
+    width: 0;
+    text-indent: 5px;
+  }
+  99% {
+    top: -100%;
+    width: 0;
+    text-indent: 0;
+  }
+}
