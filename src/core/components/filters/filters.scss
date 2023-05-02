@@ -1,0 +1,438 @@
+//.button {
+//  border: 1px solid;
+//}
+//form {
+//  border: 1px solid;
+//  margin: 5px;
+//}
+
+.filters__section {
+  font-family: "Lato", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 17px;
+  color: #474A51;
+  margin-top: 15%;
+  grid-area: filters;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin-left: 10%;
+  .filters{
+    display: flex;
+    flex-direction: column-reverse;
+    .price__form{
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      gap: 0 0;
+      grid-template-areas:
+    "cena cena cena cena cena"
+    "min max max max max"
+    "slider slider slider slider slider";
+      .price__form__legend{
+        grid-area: cena;
+        font-weight: 600;
+        font-size: 21px;
+      }
+      .pricemin__input{
+        grid-area: min;
+      }
+      .pricemax__input{
+        grid-area: max;
+      }
+      .price__slider{
+        grid-area: slider;
+        .noUi-base{
+          .noUi-connects{
+            .noUi-connect{
+              background: #15616D;
+              height: 30px;
+            }
+          }
+        }
+      }
+    }
+    .quantity__form{
+      margin-top: 10%;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      gap: 0 0;
+      grid-template-areas:
+    "stock stock stock stock stock"
+    "min max max max max"
+    "slider slider slider slider slider";
+      .quantity__form__legend{
+        grid-area: stock;
+        font-weight: 600;
+        font-size: 21px;
+      }
+      .quantitymin__input{
+        grid-area: min;
+      }
+      .quantitymax__input{
+        grid-area: max;
+        margin-left: -30%;
+      }
+      .quantity__slider{
+        grid-area: slider;
+        .noUi-base{
+          .noUi-connects{
+            .noUi-connect{
+              background: #15616D;
+              height: 30px;
+            }
+          }
+        }
+      }
+    }
+
+    .categories__form{
+      margin-top: 10%;
+      display: grid;
+      grid-template-columns: 0.2fr 1fr;
+      grid-template-rows: repeat(9, 0.85fr);
+      gap: 7% 0;
+      grid-template-areas:
+    "title title"
+    "palety_euro yesL"
+    "palety_europodobne yesL"
+    "palety_jedno yesL"
+    "palety_przem yesL"
+    "polpalety yesL"
+    "palety_plastic yesL"
+    "palety_tektur yesL"
+    "nadstawki noL";
+      legend{
+        grid-area: title;
+        font-weight: 600;
+        font-size: 21px;
+      }
+      #palety_euro{
+        grid-area: palety_euro;
+      }
+      #palety_europodobne{
+        grid-area: palety_europodobne;
+      }
+      #palety_jedno{
+        grid-area: palety_jedno;
+      }
+      #palety_przem{
+        grid-area: palety_przem;
+      }
+      #polpalety{
+        grid-area: polpalety;
+      }
+      #palety_plastic{
+        grid-area: palety_plastic;
+      }
+      #palety_tektur{
+        grid-area: palety_tektur;
+      }
+      #nadstawki{
+        grid-area: nadstawki;
+      }
+    }
+    .condition__form{
+      margin-top: 10%;
+      display: grid;
+      grid-template-columns: 0.2fr 1fr;
+      grid-template-rows: repeat(3, 0.8fr);
+      gap: 15% 0;
+      grid-template-areas:
+    "title title"
+    "check lab"
+    "check lab";
+      legend{
+        grid-area: title;
+        font-weight: 600;
+        font-size: 21px;
+      }
+    }
+    .material__form{
+      margin-top: 65%;
+      display: grid;
+      grid-template-columns: 0.2fr 1fr;
+      grid-template-rows: repeat(4, 0.8fr);
+      gap: 10% 0;
+      grid-template-areas:
+    "title title"
+    "check lab"
+    "check lab"
+    "check lab";
+      legend{
+        grid-area: title;
+        font-weight: 600;
+        font-size: 21px;
+      }
+    }
+    .length__form{
+      margin-top: 40%;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      gap: 0 0;
+      grid-template-areas:
+    "cena cena cena cena cena"
+    "min max max max max"
+    "slider slider slider slider slider";
+      .length__form__legend{
+        grid-area: cena;
+        font-weight: 600;
+        font-size: 21px;
+      }
+      .lengthmin__input{
+        grid-area: min;
+      }
+      .lengthmax__input{
+        grid-area: max;
+      }
+      .length__slider{
+        grid-area: slider;
+        .noUi-base{
+          .noUi-connects{
+            .noUi-connect{
+              background: #15616D;
+              height: 30px;
+            }
+          }
+        }
+      }
+    }
+    .width__form{
+      margin-top: 10%;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      gap: 0 0;
+      grid-template-areas:
+    "cena cena cena cena cena"
+    "min max max max max"
+    "slider slider slider slider slider";
+      .width__form__legend{
+        grid-area: cena;
+        font-weight: 600;
+        font-size: 21px;
+      }
+      .widthmin__input{
+        grid-area: min;
+      }
+      .widthmax__input{
+        grid-area: max;
+      }
+      .width__slider{
+        grid-area: slider;
+        .noUi-base{
+          .noUi-connects{
+            .noUi-connect{
+              background: #15616D;
+              height: 30px;
+            }
+          }
+        }
+      }
+    }
+    .height__form{
+      margin-top: 10%;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      gap: 0 0;
+      grid-template-areas:
+    "cena cena cena cena cena"
+    "min max max max max"
+    "slider slider slider slider slider";
+      .height__form__legend{
+        grid-area: cena;
+        font-weight: 600;
+        font-size: 21px;
+      }
+      .heightmin__input{
+        grid-area: min;
+      }
+      .heightmax__input{
+        grid-area: max;
+      }
+      .height__slider{
+        grid-area: slider;
+        .noUi-base{
+          .noUi-connects{
+            .noUi-connect{
+              background: #15616D;
+              height: 30px;
+            }
+          }
+        }
+      }
+    }
+    .load__form{
+      margin-top: 10%;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      gap: 0 0;
+      grid-template-areas:
+    "cena cena cena cena cena"
+    "min max max max max"
+    "slider slider slider slider slider";
+      .load__form__legend{
+        grid-area: cena;
+        font-weight: 600;
+        font-size: 21px;
+      }
+      .loadmin__input{
+        grid-area: min;
+      }
+      .loadmax__input{
+        grid-area: max;
+      }
+      .load__slider{
+        grid-area: slider;
+        .noUi-base{
+          .noUi-connects{
+            .noUi-connect{
+              background: #15616D;
+              height: 30px;
+            }
+          }
+        }
+      }
+    }
+    .deliveryType__form{
+      margin-top: 10%;
+      display: grid;
+      grid-template-columns: 0.2fr 1fr;
+      grid-template-rows: repeat(4, 0.8fr);
+      gap: 10% 0;
+      grid-template-areas:
+    "title title"
+    "check lab"
+    "check lab"
+    "check lab";
+      legend{
+        grid-area: title;
+        font-weight: 600;
+        font-size: 21px;
+      }
+      input{
+        height: 20px;
+      }
+    }
+    .payment__form{
+      margin-top: 30%;
+      display: grid;
+      grid-template-columns: 0.2fr 1fr;
+      grid-template-rows: repeat(4, 0.8fr);
+      gap: 10% 0;
+      grid-template-areas:
+    "title title"
+    "check lab"
+    "check lab"
+    "check lab";
+      legend{
+        grid-area: title;
+        font-weight: 600;
+        font-size: 21px;
+      }
+    }
+    .VAT__form{
+      margin-top: 25%;
+      display: grid;
+      grid-template-columns: 0.2fr 1fr;
+      grid-template-rows: repeat(4, 0.8fr);
+      gap: 10% 0;
+      grid-template-areas:
+    "title title"
+    "check lab"
+    "check lab"
+    "check lab";
+      legend{
+        grid-area: title;
+        font-weight: 600;
+        font-size: 21px;
+      }
+    }
+    .sellerRank__form{
+      margin-top: 10%;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      gap: 0 0;
+      grid-template-areas:
+    "seller seller seller seller seller"
+    "min max max max max"
+    "slider slider slider slider slider";
+      .sellerRank__form__legend{
+        grid-area: seller;
+        font-weight: 600;
+        font-size: 21px;
+      }
+      .sellerRankmin__input{
+        grid-area: min;
+      }
+      .sellerRankmax__input{
+        grid-area: max;
+      }
+      .sellerRank__slider{
+        grid-area: slider;
+        .noUi-base{
+          .noUi-connects{
+            .noUi-connect{
+              background: #15616D;
+              height: 30px;
+            }
+          }
+        }
+      }
+    }
+    .offerRating__form{
+      margin-top: 5%;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      gap: 0 0;
+      grid-template-areas:
+    "seller seller seller seller seller"
+    "min max max max max"
+    "slider slider slider slider slider";
+      .offerRating__form__legend{
+        grid-area: seller;
+        font-weight: 600;
+        font-size: 21px;
+      }
+      .offerRatingmin__input{
+        grid-area: min;
+      }
+      .offerRatingmax__input{
+        grid-area: max;
+      }
+      .offerRating__slider{
+        grid-area: slider;
+        .noUi-base{
+          .noUi-connects{
+            .noUi-connect{
+              background: #15616D;
+              height: 30px;
+            }
+          }
+        }
+      }
+    }
+    .reset__form{
+      width: 120%;
+      margin-top: 20%;
+      margin-bottom: 20%;
+      button{
+        width: 90px;
+        height: 30px;
+        margin-right: 4%;
+        font-weight: 600;
+        font-size: 14px;
+        color: #FFFFFF;
+        background: #15616D;
+        cursor: pointer;
+      }
+    }
+  }
+}
