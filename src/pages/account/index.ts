@@ -1,10 +1,11 @@
-import { getOrdersByUser, getUserByEmail, userLogout } from '../../core/components/api/api';
+import { createOffer, getOrdersByUser, getUserByEmail, userLogout } from '../../core/components/api/api';
 import Page from '../../core/templates/page';
 import './index.css';
-import { IProduct, IProductCategory, Order, User } from '../../core/types/types';
+import { Company, Delivery, IOffer, IProduct, IProductCategory, Order, User } from '../../core/types/types';
 import Footer from '../../core/components/footer';
 import _ProductsArray from '../../assets/json/_ProductsArray.json';
 import _ProductsCategory from '../../assets/json/_ProductsCategory.json';
+import Product from '../../core/components/product/product';
 
 let respondFromServer: Order[];
 getOrdersByUser().then(response => respondFromServer = [...response]);
@@ -53,7 +54,11 @@ class AccountPage extends Page {
     dot.className = 'siteNav__dot';
     currentPage.className = 'siteNav__current';
 
+    console.log(userData);
+
     function renderMainDane(): void {
+
+      console.log(AccountPage.productsArray);
 
       function createInputElement(className: string, placeholder: string, parent: HTMLElement): void {
         const input = document.createElement('input');
@@ -379,8 +384,9 @@ class AccountPage extends Page {
     //
     // }
 
-    function renderDeliveryOptionsDetails(parent: HTMLElement): void {
-      const details = document.createElement('div');
+    const deliveryArray: Delivery[] = [];
+
+    function renderDeliveryOptionsDetails(parent: HTMLElement, type: string): void {
       const deliveryPrice = document.createElement('div');
       const priceTitle = document.createElement('h3');
       const priceInput = document.createElement('input');
@@ -394,6 +400,21 @@ class AccountPage extends Page {
       const tillHolder = document.createElement('p');
       const tillInput = document.createElement('input');
 
+      deliveryPrice.className = 'delivery-option__price';
+      priceTitle.className = 'price__title';
+      priceInput.className = 'price__input';
+      priceHolder.className = 'price__holder';
+      deliveryTime.className = 'delivery-option__time';
+      timeTitle.className = 'time__title';
+      from.className = 'time__from';
+      fromHolder.className = 'from__holder';
+      fromInput.className = 'from__input';
+      till.className = 'time__till';
+      tillHolder.className = 'till__holder';
+      tillInput.className = 'till__input';
+
+      fromInput.disabled = true;
+      tillInput.disabled = true;
 
       priceTitle.textContent = 'Cena dostawy:';
       timeTitle.textContent = 'Termin dostawy:';
@@ -401,14 +422,45 @@ class AccountPage extends Page {
       fromHolder.textContent = 'od';
       tillHolder.textContent = 'do';
 
+      priceInput.addEventListener('change', () => {
+        fromInput.disabled = false;
+        fromInput.addEventListener('change', () => {
+          tillInput.disabled = false;
+          tillInput.addEventListener('change', () => {
+            const deliveryObject: Delivery = {
+              deliveryType: type,
+              deliveryPrice: parseInt(priceInput.value),
+              deliveryTimeMin: parseInt(fromInput.value),
+              deliveryTimeMax: parseInt(tillInput.value),
+            };
+            deliveryArray.push(deliveryObject);
+            console.log(deliveryObject);
+          });
+        });
+      });
 
       till.append(tillHolder, tillInput);
       from.append(fromHolder, fromInput);
       deliveryTime.append(timeTitle, from, till);
       deliveryPrice.append(priceTitle, priceInput, priceHolder);
-      details.append(deliveryPrice, deliveryTime);
-      parent.append(details);
+      parent.append(deliveryPrice, deliveryTime);
+
     }
+
+    function removeDeliveryOptionsDetails(parent: HTMLElement): void {
+      parent.replaceChildren();
+    }
+
+    // function createNoDelivery(parent: HTMLElement): void {
+    //   let noDeliveryPrice: string;
+    //   let noDeliveryFrom: string;
+    //   let noDeliveryTill: string;
+    //   renderDeliveryOptionsDetails(parent);
+    // }
+    //
+    // function createYesDelivery(): void {
+    //
+    // }
 
     function renderOfferForm(parent: HTMLElement): void {
       const createBlock = document.createElement('div');
@@ -439,9 +491,11 @@ class AccountPage extends Page {
       const noDelivery = document.createElement('div');
       const noDeliveryInput = document.createElement('input');
       const noDeliveryLabel = document.createElement('label');
+      const noDeliveryDetails = document.createElement('div');
       const yesDelivery = document.createElement('div');
       const yesDeliveryInput = document.createElement('input');
       const yesDeliveryLabel = document.createElement('label');
+      const yesDeliveryDetails = document.createElement('div');
       const deliverySelect = document.createElement('select');
       const seller = document.createElement('div');
       const sellerTitle = document.createElement('h2');
@@ -479,9 +533,11 @@ class AccountPage extends Page {
       noDelivery.className = 'delivery__no-checkbox';
       noDeliveryInput.className = 'no-checkbox__input';
       noDeliveryLabel.className = 'no-checkbox__label';
+      noDeliveryDetails.className = 'no-delivery__details';
       yesDelivery.className = 'delivery__yes-checkbox';
       yesDeliveryInput.className = 'yes-checkbox__input';
       yesDeliveryLabel.className = 'yes-checkbox__label';
+      yesDeliveryDetails.className = 'yes-delivery__details';
       deliverySelect.className = 'delivery__select';
       seller.className = 'create__seller';
       sellerTitle.className = 'seller__title';
@@ -492,8 +548,9 @@ class AccountPage extends Page {
       addOfferButton.className = 'create__offer-button';
 
       const conditionArray: string[] = [
-        'Nowe', 'Używane 1 gatunku', 'Używane 2 gatunku', 'Używane 3 gatunku', 'Uszkodzone',
+        'Wybierać', 'Nowe', 'Używane 1 gatunku', 'Używane 2 gatunku', 'Używane 3 gatunku', 'Uszkodzone',
       ];
+
 
       conditionArray.forEach((elem) => {
         const conditionOption = document.createElement('option');
@@ -502,13 +559,27 @@ class AccountPage extends Page {
         conditionChoose.append(conditionOption);
       });
 
-      AccountPage.productsArray.forEach((elem) => {
+      const defaultProduct = document.createElement('option');
+      defaultProduct.textContent = 'Wybierać';
+      productChoose.append(defaultProduct);
+
+      const uniqueProducts: string[] = [];
+      AccountPage.productsArray.forEach((el => {
+        if (!uniqueProducts.find(arrayProduct => arrayProduct === el.name)) {
+          uniqueProducts.push(el.name);
+        }
+      }));
+
+      uniqueProducts.forEach((elem) => {
         const productOption = document.createElement('option');
         productOption.className = 'choose__product-option';
-        productOption.textContent = elem.name;
+        productOption.textContent = elem;
         productChoose.append(productOption);
       });
 
+      const defaultCategory = document.createElement('option');
+      defaultCategory.textContent = 'Wybierać';
+      categoryChoose.append(defaultCategory);
       AccountPage.categoriesArray.forEach((elem) => {
         const categoriesOption = document.createElement('option');
         categoriesOption.className = 'choose__category-option';
@@ -516,6 +587,9 @@ class AccountPage extends Page {
         categoryChoose.append(categoriesOption);
       });
 
+      const defaultCompany = document.createElement('option');
+      defaultCompany.textContent = 'Wybierać';
+      sellerSelect.append(defaultCompany);
       userData.companies?.forEach((elem) => {
         const sellerOption = document.createElement('option');
         sellerOption.className = 'seller-select__option';
@@ -546,32 +620,149 @@ class AccountPage extends Page {
 
       const fileName = document.createElement('p');
       fileName.className = 'file-name';
-      // addImagesButton.addEventListener('change', (e) => {
-      //   const [file] = e.target.file;
-      //   const { name: filename, size } = file;
-      //   const fileSize = (size / 1000).toFixed(2);
-      //   fileName.textContent = `${filename} - ${fileSize}KB`;
-      // });
+
 
       deliveryTitle.textContent = 'Dostawa:';
       noDeliveryLabel.textContent = 'Odbiór osobisty';
       noDeliveryInput.type = 'checkbox';
       yesDeliveryInput.type = 'checkbox';
       yesDeliveryLabel.textContent = 'Kurierska dostawa';
-      if (noDeliveryInput.checked) {
-        console.log('pressed');
-        renderDeliveryOptionsDetails(delivery);
-      }
-      if (yesDeliveryInput.checked) {
-        yesDelivery.append(deliverySelect);
-        renderDeliveryOptionsDetails(delivery);
-      }
+
+      let noDeliveryActive = false;
+      let yesDeliveryActive = false;
+      noDeliveryInput.addEventListener('click', () => {
+        if (!noDeliveryActive) {
+          const deliveryType = 'SELFPICKUP';
+          renderDeliveryOptionsDetails(noDeliveryDetails, deliveryType);
+          noDeliveryActive = true;
+        } else {
+          removeDeliveryOptionsDetails(noDeliveryDetails);
+          noDeliveryActive = false;
+        }
+      });
+      yesDeliveryInput.addEventListener('click', () => {
+        if (!yesDeliveryActive) {
+          const deliveryType = 'EXPRESSDELIVERY';
+          renderDeliveryOptionsDetails(yesDeliveryDetails, deliveryType);
+          yesDeliveryActive = true;
+        } else {
+          removeDeliveryOptionsDetails(yesDeliveryDetails);
+          yesDeliveryActive = false;
+        }
+      });
 
       sellerTitle.textContent = 'Sprzedawca:';
+
       addImagesTitle.textContent = 'Dodaj zdjęcia:';
-      //addImagesButton.textContent = 'Dodaj zdjęcia';
       addOfferButton.textContent = 'Zapisz';
 
+
+
+      //conditionChoose.disabled = true;
+      priceInput.disabled = true;
+      quantityMinInput.disabled = true;
+      quantityMaxInput.disabled = true;
+      noDeliveryInput.disabled = true;
+      yesDeliveryInput.disabled = true;
+      sellerSelect.disabled = true;
+      addImagesButton.disabled = true;
+
+      productChoose.addEventListener('change', ()=>{
+        const productChosenOption = productChoose.options[productChoose.selectedIndex].text;
+        //console.log(productChosenOption);
+        conditionChoose.addEventListener('change', () => {
+          const conditionChosenOption = conditionChoose.options[conditionChoose.selectedIndex].text;
+          _ProductsArray.forEach(arrayItem => {
+            if (productChosenOption === arrayItem.name && conditionChosenOption === arrayItem.condition) {
+              console.log(arrayItem.shortName);
+              priceInput.disabled = false;
+
+              const dataProduct = new Product(arrayItem._id, arrayItem.name, arrayItem.material, conditionChosenOption,
+                arrayItem.description, arrayItem.image1, arrayItem.image2, arrayItem.shortName, arrayItem.length,
+                arrayItem.width, arrayItem.height, arrayItem.maxLoad, arrayItem.category);
+              console.log(dataProduct);
+
+              priceInput.addEventListener('change', () => {
+                const enteredPrice = parseInt(priceInput.value);
+                quantityMinInput.disabled = false;
+
+                quantityMinInput.addEventListener('change', () => {
+                  const minEnteredQuantity = parseInt(quantityMinInput.value);
+                  quantityMaxInput.disabled = false;
+                  quantityMaxInput.addEventListener('change', () => {
+                    const maxEnteredQuantity = parseInt(quantityMaxInput.value);
+                    noDeliveryInput.disabled = false;
+                    yesDeliveryInput.disabled = false;
+                    noDeliveryLabel.classList.add('active-label');
+                    yesDeliveryLabel.classList.add('active-label');
+                    sellerSelect.disabled = false;
+                    sellerSelect.addEventListener('change', () => {
+                      const chosenCompanyOption = sellerSelect.options[sellerSelect.selectedIndex].text;
+                      const offerCompany: Company = {
+                        _id: '',
+                        name: '',
+                        NIP: '',
+                        address: {
+                          street: '',
+                          city: '',
+                          zipCode: '',
+                          state: '',
+                          countryCode: '',
+                        },
+                        IBAN: '',
+                        paymentDate: 0,
+                        VAT: '',
+                        email: '',
+                        phone: '',
+                        workingHourMin: 0,
+                        workingHourMax: 0,
+                      };
+                      userData.companies?.forEach(company => {
+                        if (company.name === chosenCompanyOption) {
+                          offerCompany._id = company._id;
+                          offerCompany.name = company.name;
+                          offerCompany.NIP = company.NIP;
+                          offerCompany.address = company.address;
+                          offerCompany.IBAN = company.IBAN;
+                          offerCompany.paymentDate = company.paymentDate;
+                          offerCompany.VAT = company.VAT;
+                          offerCompany.email = company.email;
+                          offerCompany.phone = company.phone;
+                          offerCompany.workingHourMin = company.workingHourMin;
+                          offerCompany.workingHourMax = company.workingHourMax;
+                          console.log(offerCompany);
+                        }
+                      });
+                      addImagesButton.disabled = false;
+                      addImagesButton.addEventListener('change', () => {
+                        const chosenImage = addImagesButton.value;
+
+                        const offerObject: IOffer = {
+                          product: dataProduct,
+                          seller: userData,
+                          company: offerCompany,
+                          price: enteredPrice,
+                          quantityMin: minEnteredQuantity,
+                          quantityMax: maxEnteredQuantity,
+                          image1: chosenImage,
+                          offerStatus: 'PENDING',
+                          rating: 0,
+                          isTop: false,
+                          delivery: deliveryArray,
+                        };
+                        console.log(offerObject);
+                        addOfferButton.addEventListener('click', () => {
+                          createOffer(offerObject);
+                        });
+                      });
+                    });
+                  });
+                });
+              });
+            }
+          });
+        });
+      });
 
 
       product.append(productTitle, productChoose);
@@ -582,11 +773,11 @@ class AccountPage extends Page {
       quantityMin.append(quantityMinTitle, quantityMinInput);
       quantityMax.append(quantityMaxTitle, quantityMaxInput);
       delivery.append(deliveryTitle, noDelivery, yesDelivery);
-      noDelivery.append(noDeliveryInput, noDeliveryLabel);
-      yesDelivery.append(yesDeliveryInput, yesDeliveryLabel);
+      noDelivery.append(noDeliveryInput, noDeliveryLabel, noDeliveryDetails);
+      yesDelivery.append(yesDeliveryInput, yesDeliveryLabel, yesDeliveryDetails);
       seller.append(sellerTitle, sellerSelect);
       addImages.append(addImagesTitle, addImagesButton);
-      createBlock.append(product, condition, category, price,
+      createBlock.append(product, condition, price,
         quantity, delivery, seller, addImages, addOfferButton);
       parent.append(createBlock);
     }
@@ -705,6 +896,7 @@ class AccountPage extends Page {
         });
         listItem.classList.add('active');
 
+
         if (listItem.id === '0') {
           clearContent();
           renderMainDane();
@@ -725,6 +917,16 @@ class AccountPage extends Page {
 
       itemsList.append(listItem);
     });
+
+    function renderStartAccountPage() {
+      renderMainDane();
+      renderUserBlock();
+      const activeBar = document.getElementById('0');
+      activeBar?.classList.add('active');
+    }
+
+    setTimeout(renderStartAccountPage, 100);
+
 
     const logoutButton = document.createElement('button');
     logoutButton.classList.add('logout-button');

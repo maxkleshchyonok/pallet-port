@@ -232,6 +232,9 @@
         background: #15616D;
         color: #FFFFFF;
       }
+      .add__button:hover{
+        background: #474A51;
+      }
     }
     .offers{
       margin-left: 30%;
@@ -259,6 +262,15 @@
             outline: none;
             padding-left: 1%;
           }
+          .price__input:disabled{
+            border: 1px solid #e3e3e3;
+            box-shadow: 1px 1px 10px lightgray;
+          }
+          .price__input:disabled::-webkit-input-placeholder{
+            color: lightgray;
+          }
+          .create__seller{
+          }
           .quantity__min{
             display: flex;
             align-items: center;
@@ -275,6 +287,13 @@
               box-shadow: 1px 2px 10px #b4b4b4;
               outline: none;
               padding-left: 5%;
+            }
+            input:disabled{
+              border: 1px solid #e3e3e3;
+              box-shadow: 1px 1px 10px lightgray;
+            }
+            input:disabled::-webkit-input-placeholder{
+              color: lightgray;
             }
           }
           .quantity__max{
@@ -294,18 +313,127 @@
               outline: none;
               padding-left: 5%;
             }
+            input:disabled{
+              border: 1px solid #e3e3e3;
+              box-shadow: 1px 1px 10px lightgray;
+            }
+            input:disabled::-webkit-input-placeholder{
+              color: lightgray;
+            }
           }
         }
         .create__delivery{
           display: block;
           div{
-            width: 30%;
+            width: 100%;
             margin-top: 2%;
             margin-left: 10%;
             input{
             }
             label{
               margin-left: 5%;
+              color: lightgray;
+            }
+            .active-label{
+              color: #474A51;
+            }
+            .no-delivery__details{
+              margin-left: 1%;
+              margin-top: 0;
+              width: 60%;
+              display: flex;
+              flex-direction: column;
+              .delivery-option__price{
+                h3{
+                  font-size: 16px;
+                  font-weight: 300;
+                }
+                input{
+                  margin-left: 3%;
+                }
+              }
+              .delivery-option__time{
+                h3{
+                  width: 35%;
+                  font-size: 16px;
+                  font-weight: 300;
+                }
+                .time__from{
+                  margin-top: 0;
+                  margin-left: 1%;
+                  width: 20%;
+                  input{
+                    margin-left: 10%;
+                    width: 40%;
+                    border: 1px solid lightgray;
+                    box-shadow: 1px 2px 10px #b4b4b4;
+                    outline: none;
+                    padding-left: 5%;
+                  }
+                }
+                .time__till{
+                  margin-top: 0;
+                  margin-left: 1%;
+                  width: 20%;
+                  input{
+                    margin-left: 10%;
+                    width: 40%;
+                    border: 1px solid lightgray;
+                    box-shadow: 1px 2px 10px #b4b4b4;
+                    outline: none;
+                    padding-left: 5%;
+                  }
+                }
+              }
+            }
+            .yes-delivery__details{
+              margin-left: 1%;
+              margin-top: 0;
+              width: 60%;
+              display: flex;
+              flex-direction: column;
+              .delivery-option__price{
+                h3{
+                  font-size: 16px;
+                  font-weight: 300;
+                }
+                input{
+                  margin-left: 3%;
+                }
+              }
+              .delivery-option__time{
+                h3{
+                  width: 35%;
+                  font-size: 16px;
+                  font-weight: 300;
+                }
+                .time__from{
+                  margin-top: 0;
+                  margin-left: 1%;
+                  width: 20%;
+                  input{
+                    margin-left: 10%;
+                    width: 40%;
+                    border: 1px solid lightgray;
+                    box-shadow: 1px 2px 10px #b4b4b4;
+                    outline: none;
+                    padding-left: 5%;
+                  }
+                }
+                .time__till{
+                  margin-top: 0;
+                  margin-left: 1%;
+                  width: 20%;
+                  input{
+                    margin-left: 10%;
+                    width: 40%;
+                    border: 1px solid lightgray;
+                    box-shadow: 1px 2px 10px #b4b4b4;
+                    outline: none;
+                    padding-left: 5%;
+                  }
+                }
+              }
             }
           }
         }
@@ -325,12 +453,16 @@
           //margin-top: 6%;
           height: 25px;
           width: 140px;
-          background: #e1e1e1;
+          background: #f5f5f5;
           color: #474A51;
           font-size: 14px;
           box-shadow: 1px 2px 10px gray;
           font-weight: 600;
           border-radius: 1px;
+        }
+        .create__image-button:disabled{
+          background: #ffffff;
+          box-shadow: 1px 1px 10px lightgray;
         }
         .create__offer-button{
           margin-top: 10%;

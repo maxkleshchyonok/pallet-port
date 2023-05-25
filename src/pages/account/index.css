@@ -231,6 +231,9 @@
   background: #15616D;
   color: #FFFFFF;
 }
+.account__content .content__main .offers-page .add__button:hover {
+  background: #474A51;
+}
 .account__content .content__main .offers {
   margin-left: 30%;
   margin-top: 7%;
@@ -258,6 +261,13 @@
   outline: none;
   padding-left: 1%;
 }
+.account__content .content__main .offers .create-block div .price__input:disabled {
+  border: 1px solid #e3e3e3;
+  box-shadow: 1px 1px 10px lightgray;
+}
+.account__content .content__main .offers .create-block div .price__input:disabled::-webkit-input-placeholder {
+  color: lightgray;
+}
 .account__content .content__main .offers .create-block div .quantity__min {
   display: flex;
   align-items: center;
@@ -275,6 +285,13 @@
   box-shadow: 1px 2px 10px #b4b4b4;
   outline: none;
   padding-left: 5%;
+}
+.account__content .content__main .offers .create-block div .quantity__min input:disabled {
+  border: 1px solid #e3e3e3;
+  box-shadow: 1px 1px 10px lightgray;
+}
+.account__content .content__main .offers .create-block div .quantity__min input:disabled::-webkit-input-placeholder {
+  color: lightgray;
 }
 .account__content .content__main .offers .create-block div .quantity__max {
   display: flex;
@@ -294,16 +311,117 @@
   outline: none;
   padding-left: 5%;
 }
+.account__content .content__main .offers .create-block div .quantity__max input:disabled {
+  border: 1px solid #e3e3e3;
+  box-shadow: 1px 1px 10px lightgray;
+}
+.account__content .content__main .offers .create-block div .quantity__max input:disabled::-webkit-input-placeholder {
+  color: lightgray;
+}
 .account__content .content__main .offers .create-block .create__delivery {
   display: block;
 }
 .account__content .content__main .offers .create-block .create__delivery div {
-  width: 30%;
+  width: 100%;
   margin-top: 2%;
   margin-left: 10%;
 }
 .account__content .content__main .offers .create-block .create__delivery div label {
   margin-left: 5%;
+  color: lightgray;
+}
+.account__content .content__main .offers .create-block .create__delivery div .active-label {
+  color: #474A51;
+}
+.account__content .content__main .offers .create-block .create__delivery div .no-delivery__details {
+  margin-left: 1%;
+  margin-top: 0;
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+}
+.account__content .content__main .offers .create-block .create__delivery div .no-delivery__details .delivery-option__price h3 {
+  font-size: 16px;
+  font-weight: 300;
+}
+.account__content .content__main .offers .create-block .create__delivery div .no-delivery__details .delivery-option__price input {
+  margin-left: 3%;
+}
+.account__content .content__main .offers .create-block .create__delivery div .no-delivery__details .delivery-option__time h3 {
+  width: 35%;
+  font-size: 16px;
+  font-weight: 300;
+}
+.account__content .content__main .offers .create-block .create__delivery div .no-delivery__details .delivery-option__time .time__from {
+  margin-top: 0;
+  margin-left: 1%;
+  width: 20%;
+}
+.account__content .content__main .offers .create-block .create__delivery div .no-delivery__details .delivery-option__time .time__from input {
+  margin-left: 10%;
+  width: 40%;
+  border: 1px solid lightgray;
+  box-shadow: 1px 2px 10px #b4b4b4;
+  outline: none;
+  padding-left: 5%;
+}
+.account__content .content__main .offers .create-block .create__delivery div .no-delivery__details .delivery-option__time .time__till {
+  margin-top: 0;
+  margin-left: 1%;
+  width: 20%;
+}
+.account__content .content__main .offers .create-block .create__delivery div .no-delivery__details .delivery-option__time .time__till input {
+  margin-left: 10%;
+  width: 40%;
+  border: 1px solid lightgray;
+  box-shadow: 1px 2px 10px #b4b4b4;
+  outline: none;
+  padding-left: 5%;
+}
+.account__content .content__main .offers .create-block .create__delivery div .yes-delivery__details {
+  margin-left: 1%;
+  margin-top: 0;
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+}
+.account__content .content__main .offers .create-block .create__delivery div .yes-delivery__details .delivery-option__price h3 {
+  font-size: 16px;
+  font-weight: 300;
+}
+.account__content .content__main .offers .create-block .create__delivery div .yes-delivery__details .delivery-option__price input {
+  margin-left: 3%;
+}
+.account__content .content__main .offers .create-block .create__delivery div .yes-delivery__details .delivery-option__time h3 {
+  width: 35%;
+  font-size: 16px;
+  font-weight: 300;
+}
+.account__content .content__main .offers .create-block .create__delivery div .yes-delivery__details .delivery-option__time .time__from {
+  margin-top: 0;
+  margin-left: 1%;
+  width: 20%;
+}
+.account__content .content__main .offers .create-block .create__delivery div .yes-delivery__details .delivery-option__time .time__from input {
+  margin-left: 10%;
+  width: 40%;
+  border: 1px solid lightgray;
+  box-shadow: 1px 2px 10px #b4b4b4;
+  outline: none;
+  padding-left: 5%;
+}
+.account__content .content__main .offers .create-block .create__delivery div .yes-delivery__details .delivery-option__time .time__till {
+  margin-top: 0;
+  margin-left: 1%;
+  width: 20%;
+}
+.account__content .content__main .offers .create-block .create__delivery div .yes-delivery__details .delivery-option__time .time__till input {
+  margin-left: 10%;
+  width: 40%;
+  border: 1px solid lightgray;
+  box-shadow: 1px 2px 10px #b4b4b4;
+  outline: none;
+  padding-left: 5%;
 }
 .account__content .content__main .offers .create-block button {
   display: block;
@@ -320,12 +438,16 @@
 .account__content .content__main .offers .create-block .create__image-button {
   height: 25px;
   width: 140px;
-  background: #e1e1e1;
+  background: #f5f5f5;
   color: #474A51;
   font-size: 14px;
   box-shadow: 1px 2px 10px gray;
   font-weight: 600;
   border-radius: 1px;
+}
+.account__content .content__main .offers .create-block .create__image-button:disabled {
+  background: #ffffff;
+  box-shadow: 1px 1px 10px lightgray;
 }
 .account__content .content__main .offers .create-block .create__offer-button {
   margin-top: 10%;
